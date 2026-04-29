@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAIR | The Foundation for Artificial Intelligence Rights</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="navbar">
+  <a href="#home" class="nav-logo" style="color:#0065BD">FAIR</a>
+  <div class="nav-links">
+    <a href="#mission" style="color:#334155">Mission</a>
+    <a href="#concerns" style="color:#334155">Concerns</a>
+    <a href="#projects" style="color:#334155">Projects</a>
+    <a href="#news" style="color:#334155">News</a>
+    <a href="#founder" style="color:#334155">Founder</a>
+    <a href="#contact" style="color:#334155">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta" style="background:#0065BD;color:#FFF;border:1px solid #0065BD">Get Involved</a>
+  <button class="mobile-toggle" onclick="document.getElementById('mob').classList.toggle('open')">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><line x1="4" y1="7" x2="20" y2="7" stroke="#334155" stroke-width="1.5"/><line x1="4" y1="12" x2="20" y2="12" stroke="#334155" stroke-width="1.5"/><line x1="4" y1="17" x2="20" y2="17" stroke="#334155" stroke-width="1.5"/></svg>
+  </button>
+</nav>
+<div class="mobile-menu" id="mob">
+  <a href="#mission" onclick="this.parentElement.classList.remove('open')">Mission</a>
+  <a href="#concerns" onclick="this.parentElement.classList.remove('open')">Concerns</a>
+  <a href="#projects" onclick="this.parentElement.classList.remove('open')">Projects</a>
+  <a href="#news" onclick="this.parentElement.classList.remove('open')">News</a>
+  <a href="#founder" onclick="this.parentElement.classList.remove('open')">Founder</a>
+  <a href="#contact" onclick="this.parentElement.classList.remove('open')">Contact</a>
+</div>
+
+<!-- HERO: Full width with white gradient overlay from bottom -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Advocacy and Public Interest Group | United Kingdom</div>
+    <h1>The Foundation for<br>Artificial Intelligence<br><strong>Rights</strong></h1>
+    <p>An independent UK advocacy and public interest group dedicated to ensuring that artificial intelligence is developed, deployed, and governed within a framework of enforceable rights, transparent accountability, and meaningful public protection.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-p">Register Interest</a>
+      <a href="#mission" class="btn-o">Our Mission</a>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section id="mission">
+  <div class="sec">
+    <div class="fade-in">
+      <div class="sl">Why FAIR Exists</div>
+      <h2 class="sh">AI systems are being deployed at scale into <strong>healthcare, education, finance, and public services</strong> with no comprehensive safeguards in place.</h2>
+      <p class="sb">The UK currently has no AI specific legislation. There are no binding transparency requirements for AI developers. There is no independent audit framework. No statutory obligation exists for developers to disclose what data their models were trained on, what hidden instructions shape their outputs, or what commercial interests influence what users see. The AI (Regulation) Bill remains stalled, and the government has repeatedly deferred action. FAIR was founded to advocate for the enforceable rights and meaningful protections that the UK public deserves.</p>
+    </div>
+
+    <div class="fade-in">
+      <div class="ms">
+        <div class="ms-img"></div>
+        <div class="ms-txt">
+          <h3>Built on the principle that innovation and accountability must go together</h3>
+          <p>In industries like pharmaceuticals, aviation, and financial services, innovation operates within rigorous oversight frameworks because the consequences of failure are too serious for voluntary commitments. AI carries comparable risks to individuals and to society, yet it operates in a regulatory vacuum. FAIR exists to make the case, in Parliament and in public, that enforceable standards for AI are both achievable and long overdue.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar fade-in">
+        <div class="pn">01</div><h3>Rights and Advocacy</h3>
+        <p>Advocating for enforceable individual rights, from the protection of creative works and personal data to safeguards against automated decisions made without human accountability or transparency.</p>
+      </div>
+      <div class="pillar fade-in">
+        <div class="pn">02</div><h3>Legislative Reform</h3>
+        <p>Drafting model legislative provisions, submitting expert evidence to Select Committees, and engaging directly with Parliamentarians to ensure the forthcoming AI Bill contains genuine accountability mechanisms.</p>
+      </div>
+      <div class="pillar fade-in">
+        <div class="pn">03</div><h3>Education and Public Accountability</h3>
+        <p>Developing evidence based AI literacy programmes, publishing plain language policy briefings, and monitoring AI developments across Westminster, Whitehall, and the regulatory bodies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTED CONCERNS (with images and Read More links) -->
+<section id="concerns" style="background:#F8FAFC">
+  <div class="sec">
+    <div class="fade-in">
+      <div class="sl">Documented Concerns</div>
+      <h2 class="sh">What the <strong>evidence shows</strong></h2>
+      <p class="sb">These are findings from peer reviewed research, parliamentary inquiries, regulatory bodies, and professional surveys conducted over the last 18 months.</p>
+    </div>
+    <div class="cg">
+
+      <div class="cc fade-in">
+        <div class="cc-img" style="background-image:url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800')"></div>
+        <div class="cc-body">
+          <div class="cc-area">Healthcare</div>
+          <p>NHS clinicians have raised concerns that opaque AI diagnostic tools trained on non representative datasets risk misdiagnosing patients from ethnic minorities, women, and older populations.</p>
+          <div class="cc-src">Nouis, Uren and Jariwala, BMC Medical Ethics, 2025</div>
+          <a href="https://link.springer.com/article/10.1186/s12910-025-01243-z" target="_blank" rel="noopener" class="cc-link">Read the study &#8594;</a>
+        </div>
+      </div>
+
+      <div class="cc fade-in">
+        <div class="cc-img" style="background-image:url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800')"></div>
+        <div class="cc-body">
+          <div class="cc-area">Education</div>
+          <p>Only 9% of UK teachers feel confident teaching AI, yet 76% already use it for daily work. 49% of schools have no AI policy at all. Two thirds of secondary teachers report declining critical thinking among pupils.</p>
+          <div class="cc-src">NEU Survey, Feb 2026; Pearson School Report, Dec 2025</div>
+          <a href="https://neu.org.uk/latest/press-releases/state-education-2026-ai" target="_blank" rel="noopener" class="cc-link">Read the findings &#8594;</a>
+        </div>
+      </div>
+
+      <div class="cc fade-in">
+        <div class="cc-img" style="background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800')"></div>
+        <div class="cc-body">
+          <div class="cc-area">Child Safety</div>
+          <p>Ofcom fined an AI nudification site operator in November 2025 and opened investigations into AI chatbot services in January 2026. The proposed KCSIE 2026 guidance formally recognises AI generated abuse material as a safeguarding concern.</p>
+          <div class="cc-src">Ofcom; DfE KCSIE 2026 Consultation</div>
+          <a href="https://committees.parliament.uk/committee/203/education-committee/news/212112/ai-and-edtech-mps-launch-new-inquiry-examining-technologys-role-in-education/" target="_blank" rel="noopener" class="cc-link">Read the inquiry &#8594;</a>
+        </div>
+      </div>
+
+      <div class="cc fade-in">
+        <div class="cc-img" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800')"></div>
+        <div class="cc-body">
+          <div class="cc-area">Transparency</div>
+          <p>Research presented at FAccT 2025 and CHI 2026 found that hidden system prompts in AI products introduce systematic bias without users knowledge. Most providers actively instruct their models to conceal these instructions from the public.</p>
+          <div class="cc-src">Neumann et al., FAccT 2025; CHI 2026</div>
+          <a href="https://dl.acm.org/doi/proceedings/10.1145/3630106" target="_blank" rel="noopener" class="cc-link">Read more &#8594;</a>
+        </div>
+      </div>
+
+      <div class="cc fade-in">
+        <div class="cc-img" style="background-image:url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800')"></div>
+        <div class="cc-body">
+          <div class="cc-area">Financial Services</div>
+          <p>The Bank of England Financial Policy Committee has flagged systemic risk from growing AI use in trading, credit scoring, and operational functions, but no AI specific financial rules exist in the UK.</p>
+          <div class="cc-src">Bank of England and PRA, April 2026</div>
+          <a href="https://www.bankofengland.co.uk/prudential-regulation/publication/2024/april/artificial-intelligence-and-machine-learning" target="_blank" rel="noopener" class="cc-link">Read more &#8594;</a>
+        </div>
+      </div>
+
+      <div class="cc fade-in">
+        <div class="cc-img" style="background-image:url('https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=800')"></div>
+        <div class="cc-body">
+          <div class="cc-area">Copyright</div>
+          <p>The House of Lords described the creative industries as facing a clear and present danger from generative AI. The government March 2026 report acknowledged that no consensus exists on its own objectives.</p>
+          <div class="cc-src">Lords Communications Committee, March 2026</div>
+          <a href="https://commonslibrary.parliament.uk/research-briefings/cbp-10003/" target="_blank" rel="noopener" class="cc-link">Read the briefing &#8594;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS BANNER -->
+<div class="pb">
+  <div class="pb-ov">
+    <div class="pb-t">
+      <h2>Five <strong>priority areas</strong></h2>
+      <p>Each project addresses a specific gap in the UK current approach to AI governance.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:#F8FAFC">
+  <div class="sec" style="padding-top:40px">
+    <div class="pl">
+      <div class="pi fade-in"><div class="pi-n">01</div><div><div class="pi-t">Legislative Priority</div><h3>AI Copyright and Intellectual Property Reform</h3><p>Section 29A of the CDPA provides no commercial safe harbour for text and data mining, while rights holders have no meaningful transparency or enforcement tools. FAIR advocates for a balanced commercial TDM exception with mandatory disclosure, producer rights reform, and a market access provision for models trained outside the UK.</p><div class="pi-r"><span>Relevant: </span>CDPA 1988 | DSM Directive | EU AI Act | Data (Use and Access) Act 2025</div></div></div>
+      <div class="pi fade-in"><div class="pi-n">02</div><div><div class="pi-t">Safeguarding</div><h3>AI and Child Safety</h3><p>Generative AI has created urgent new risks for children. Nudification tools, deepfake generators, and AI companion chatbots all present documented harms. While the Crime and Policing Bill proposes to ban certain tools, enforcement remains underdeveloped. FAIR will push for comprehensive age gating, content provenance standards, and criminal liability for platform operators.</p><div class="pi-r"><span>Relevant: </span>Online Safety Act 2023 | Crime and Policing Bill | KCSIE 2026</div></div></div>
+      <div class="pi fade-in"><div class="pi-n">03</div><div><div class="pi-t">Public Engagement</div><h3>Public Education and AI Literacy</h3><p>Public understanding of AI is critically low. Teachers report having no training or policy guidance. FAIR will develop evidence based educational programmes and publish plain language briefings on every significant AI policy development in Parliament.</p><div class="pi-r"><span>Relevant: </span>UK GDPR | Data Protection Act 2018 | Equality Act 2010</div></div></div>
+      <div class="pi fade-in"><div class="pi-n">04</div><div><div class="pi-t">Technical Standards</div><h3>AI Transparency and Accountability</h3><p>The UK has no binding transparency requirements for AI developers. Research has documented that hidden system prompts introduce bias without users knowledge, and that AI products routinely conceal instructions from the people using them. FAIR will advocate for statutory disclosure obligations covering training data, system instructions, and any commercial arrangements that influence AI outputs.</p><div class="pi-r"><span>Relevant: </span>EU AI Act (Art. 53) | ICO AI Code of Practice (May 2026)</div></div></div>
+      <div class="pi fade-in"><div class="pi-n">05</div><div><div class="pi-t">Core Function</div><h3>Parliamentary Advocacy and Legislative Drafting</h3><p>The AI (Regulation) Bill remains stalled. The government has deferred comprehensive AI legislation. FAIR will engage directly with Parliamentarians, submit expert evidence to Select Committees, draft model provisions, and work with cross party groups to ensure the forthcoming AI Bill contains enforceable rights and genuine accountability.</p><div class="pi-r"><span>Relevant: </span>AI (Regulation) Bill | AI Opportunities Action Plan | King Speech 2026</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="sec">
+    <div class="fade-in">
+      <div class="sl">Latest Developments</div>
+      <h2 class="sh">UK AI <strong>policy and regulation</strong></h2>
+    </div>
+    <div class="ng">
+      <div class="nc fade-in"><div class="nd">21 Apr 2026</div><h3>ICO AI Code of Practice: Regulations Take Effect 12 May</h3><p>The Information Commissioner must prepare a statutory code of practice on AI and automated decision making, including specific guidance on children data.</p><div class="ns">UK Parliament</div></div>
+      <div class="nc fade-in"><div class="nd">9 Apr 2026</div><h3>OpenAI Pauses UK Stargate Data Centre</h3><p>Citing an unfavourable regulatory environment and high energy costs, OpenAI paused UK investment despite the government stated commitment to AI infrastructure.</p><div class="ns">Reuters</div></div>
+      <div class="nc fade-in"><div class="nd">Mar 2026</div><h3>Lords Report: Creative Industries Face Clear and Present Danger</h3><p>The House of Lords Communications Committee rejected any broad TDM exception and called for statutory transparency obligations on AI developers.</p><div class="ns">House of Lords</div></div>
+      <div class="nc fade-in"><div class="nd">Feb 2026</div><h3>Education Committee Launches AI and EdTech Inquiry</h3><p>MPs will examine AI risks in schools, children digital rights, safeguarding concerns from AI tools, and whether students are supported to use AI safely.</p><div class="ns">UK Parliament</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGIS -->
+<div class="lb">
+  <div class="lb-l">Monitoring</div>
+  <div class="lb-i">CDPA 1988</div><div class="lb-i">UK GDPR</div><div class="lb-i">EU AI Act</div><div class="lb-i">Online Safety Act 2023</div><div class="lb-i">AI (Regulation) Bill</div><div class="lb-i">Crime and Policing Bill</div><div class="lb-i">Data (Use and Access) Act 2025</div><div class="lb-i">KCSIE 2026</div>
+</div>
+
+<!-- FOUNDER -->
+<section class="founder" id="founder">
+  <div class="founder-bg"></div>
+  <div class="founder-ov"></div>
+  <div class="founder-inner">
+    <div class="fade-in">
+      <img class="f-headshot" src="images/scott-mcculloch.jpg" alt="Scott McCulloch">
+      <div class="f-label">Why I Started FAIR</div>
+      <div class="f-quote">"I spent nearly twenty years making sure that drug development met international regulatory standards. AI has no equivalent framework, and the people most affected have had no meaningful say in building one."</div>
+    </div>
+    <div class="fade-in">
+      <p>My career began in clinical operations and quality assurance at a global contract research organisation, before moving into progressively senior roles across the biotechnology and pharmaceutical sectors. Over nearly two decades, I led quality assurance, pharmacovigilance, and data governance programmes at multiple drug development organisations, from early stage biotechs through to a global top ten pharmaceutical company.</p>
+      <p>Throughout that time, I worked within a system where every clinical trial was conducted under Good Clinical Practice, every safety signal was reported through established frameworks, and every dataset was governed by transparent, auditable protocols. Innovation and accountability were treated as inseparable.</p>
+      <p>In 2024, I returned to academic study, completing a law degree while pursuing postgraduate work in AI Law and Intellectual Property. My dissertation examined whether the copyright law of England and Wales is aligned with the government stated aims for AI. The answer was unambiguous: the current framework serves neither objective.</p>
+      <p>AI systems are now deployed at scale across healthcare, criminal justice, employment, and education, and the UK still has no comprehensive legislation, no binding transparency requirements, and no enforceable standards of conduct. FAIR was founded because I believe the UK public deserves the same rigour in AI governance that patients have always deserved in drug development.</p>
+      <div class="f-sig">
+        <div class="f-name">Scott McCulloch</div>
+        <div class="f-role">Founder, FAIR<br>M.S. Psychology and Neuroscience, King's College London<br>LLB, University of Law (2026)</div>
+      </div>
+      <div class="f-tags">
+        <div class="f-tag">Quality Assurance</div><div class="f-tag">Pharmacovigilance</div><div class="f-tag">AI Law</div><div class="f-tag">Intellectual Property</div><div class="f-tag">Data Privacy (CIPP/E)</div><div class="f-tag">SQE1 Qualified</div><div class="f-tag">RQAP</div><div class="f-tag">ACRP-CP</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="fade-in">
+      <div class="sl">Get Involved</div>
+      <h2 class="sh">Help <strong>drive our initiatives</strong></h2>
+      <p class="sb" style="margin-bottom:12px">
+        FAIR is seeking professionals from industry, government, and the public sector who are committed to building enforceable AI governance in the UK. We are looking for individuals who want to contribute their expertise to our priority projects, participate in working groups, and help shape policy positions. We are also actively building our Board of Advisors and welcome expressions of interest from senior professionals across all relevant disciplines.
+      </p>
+      <div style="margin:16px 0;padding:16px;background:#EBF3FA;border-radius:4px">
+        <div style="font-size:11px;font-weight:700;color:#0065BD;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Contact Us</div>
+        <div style="font-size:12px;color:#334155;line-height:1.8">
+          General enquiries: <a href="mailto:info@airights.org.uk" style="color:#0065BD;text-decoration:none;font-weight:600">info@airights.org.uk</a><br>
+          Membership and involvement: <a href="mailto:membership@airights.org.uk" style="color:#0065BD;text-decoration:none;font-weight:600">membership@airights.org.uk</a><br>
+          Press and media: <a href="mailto:press@airights.org.uk" style="color:#0065BD;text-decoration:none;font-weight:600">press@airights.org.uk</a><br>
+          Board of Advisors: <a href="mailto:board@airights.org.uk" style="color:#0065BD;text-decoration:none;font-weight:600">board@airights.org.uk</a>
+        </div>
+        <div style="font-size:11px;color:#64748B;margin-top:10px;line-height:1.6">
+          The Foundation for Artificial Intelligence Rights<br>
+          71-75 Shelton Street, Covent Garden<br>
+          London WC2H 9JQ, United Kingdom
+        </div>
+      </div>
+      <div class="rt">
+        <span class="rtg">Solicitors and Barristers</span>
+        <span class="rtg">Patent and IP Attorneys</span>
+        <span class="rtg">Academics and Researchers</span>
+        <span class="rtg">Policy Advisors</span>
+        <span class="rtg">Technologists and Engineers</span>
+        <span class="rtg">Data Protection Officers</span>
+        <span class="rtg">Government Officials</span>
+        <span class="rtg">Educators</span>
+        <span class="rtg">Journalists</span>
+        <span class="rtg">Members of the Public</span>
+      </div>
+    </div>
+    <div class="fade-in">
+      <div class="f-ok" id="form-ok" style="display:none">Thank you for your interest. We will be in touch shortly.</div>
+      <div class="f-ok" id="form-err" style="display:none;background:#FEE2E2;color:#991B1B">Something went wrong. Please email us directly at <a href="mailto:info@airights.org.uk" style="color:#991B1B;font-weight:700">info@airights.org.uk</a>.</div>
+      <!--
+        ╔══════════════════════════════════════════════════════════╗
+        ║  FORMSPREE SETUP INSTRUCTIONS                          ║
+        ║                                                        ║
+        ║  1. Go to https://formspree.io and create a free       ║
+        ║     account using info@airights.org.uk                 ║
+        ║                                                        ║
+        ║  2. Click "New Form", name it "FAIR Contact Form"      ║
+        ║                                                        ║
+        ║  3. Copy your form ID (e.g. xpwdgkbn)                 ║
+        ║                                                        ║
+        ║  4. Replace YOUR_FORM_ID below with your actual ID     ║
+        ║                                                        ║
+        ║  Free tier: 50 submissions/month                       ║
+        ╚══════════════════════════════════════════════════════════╝
+      -->
+      <div class="cf" id="form-wrap">
+        <div class="ff"><label for="name">Full Name</label><input type="text" id="name" name="name" placeholder="Your name" required></div>
+        <div class="ff"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="your@email.com" required></div>
+        <div class="ff"><label for="role">Professional Role</label>
+          <select id="role" name="role" required>
+            <option value="">Select your role</option>
+            <option value="Solicitor or Barrister">Solicitor or Barrister</option>
+            <option value="Patent or IP Attorney">Patent or IP Attorney</option>
+            <option value="Academic or Researcher">Academic or Researcher</option>
+            <option value="Policy Advisor">Policy Advisor</option>
+            <option value="Technologist or Engineer">Technologist or Engineer</option>
+            <option value="Data Protection Officer">Data Protection Officer</option>
+            <option value="Government Official">Government Official</option>
+            <option value="Educator">Educator</option>
+            <option value="Journalist">Journalist</option>
+            <option value="Member of the Public">Member of the Public</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="ff"><label for="interest">I am interested in</label>
+          <select id="interest" name="interest">
+            <option value="">Select an area</option>
+            <option value="Contributing to priority projects">Contributing to priority projects</option>
+            <option value="Joining the Board of Advisors">Joining the Board of Advisors</option>
+            <option value="Participating in working groups">Participating in working groups</option>
+            <option value="Supporting public education initiatives">Supporting public education initiatives</option>
+            <option value="General involvement">General involvement</option>
+          </select>
+        </div>
+        <div class="ff"><label for="message">Message (optional)</label><textarea id="message" name="message" placeholder="Tell us about your background and interest in FAIR"></textarea></div>
+        <button class="f-submit" id="submit-btn" onclick="submitForm(event)">Register Interest</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="ft-top">
+      <div>
+        <div class="ft-brand">FAIR</div>
+        <div class="ft-sub">The Foundation for Artificial Intelligence Rights<br>United Kingdom</div>
+      </div>
+      <div class="ft-cols">
+        <div class="ft-col">
+          <h4>Projects</h4>
+          <a href="#projects">Copyright and IP Reform</a>
+          <a href="#projects">AI and Child Safety</a>
+          <a href="#projects">Public Education</a>
+          <a href="#projects">Transparency Standards</a>
+          <a href="#projects">Parliamentary Advocacy</a>
+        </div>
+        <div class="ft-col">
+          <h4>Legislation</h4>
+          <a href="https://www.legislation.gov.uk/ukpga/1988/48" target="_blank" rel="noopener">CDPA 1988</a>
+          <a href="https://www.legislation.gov.uk/ukpga/2023/50" target="_blank" rel="noopener">Online Safety Act 2023</a>
+          <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">EU AI Act</a>
+        </div>
+        <div class="ft-col">
+          <h4>Contact</h4>
+          <a href="mailto:info@airights.org.uk">info@airights.org.uk</a>
+          <a href="mailto:membership@airights.org.uk">membership@airights.org.uk</a>
+          <a href="mailto:press@airights.org.uk">press@airights.org.uk</a>
+          <a href="mailto:board@airights.org.uk">board@airights.org.uk</a>
+          <a href="#contact">Register Interest</a>
+        </div>
+        <div class="ft-col">
+          <h4>Address</h4>
+          <span style="font-size:11px;color:rgba(255,255,255,.35);line-height:1.6">The Foundation for Artificial Intelligence Rights<br>71-75 Shelton Street<br>Covent Garden<br>London WC2H 9JQ<br>United Kingdom</span>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <div class="ft-copy">2026 The Foundation for Artificial Intelligence Rights. All rights reserved.</div>
+      <div class="ft-leg"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- COOKIE CONSENT BAR -->
+<div class="cookie-bar" id="cookie-bar">
+  <p>We use cookies to improve your experience on our site. Essential cookies are required for the site to function. Analytics cookies help us understand how visitors use the site so we can improve it. You can accept all cookies, reject non essential cookies, or manage your preferences. <a href="#">Read our Cookie Policy</a>.</p>
+  <div class="cookie-btns">
+    <button class="cookie-accept" onclick="acceptCookies()">Accept All</button>
+    <button class="cookie-reject" onclick="rejectCookies()">Essential Only</button>
+  </div>
+</div>
+
+<!-- ACCESSIBILITY WIDGET -->
+<button class="a11y-toggle" id="a11y-btn" onclick="document.getElementById('a11y-panel').classList.toggle('open')" aria-label="Accessibility settings">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="4" r="2" fill="currentColor"/><path d="M12 8c-4 0-6 1-6 1v2h4v9h2v-5h0v5h2v-9h4v-2s-2-1-6-1z" fill="currentColor"/></svg>
+</button>
+<div class="a11y-panel" id="a11y-panel">
+  <h3>Accessibility Settings</h3>
+  <div class="a11y-option">
+    <span>Text Size</span>
+    <div class="a11y-btn">
+      <button onclick="adjustFontSize(-1)" aria-label="Decrease text size">A-</button>
+      <button onclick="adjustFontSize(1)" aria-label="Increase text size">A+</button>
+    </div>
+  </div>
+  <div class="a11y-option">
+    <span>Contrast</span>
+    <div class="a11y-btn">
+      <button onclick="toggleHighContrast()" aria-label="Toggle high contrast">HC</button>
+    </div>
+  </div>
+  <div class="a11y-option">
+    <span>Line Spacing</span>
+    <div class="a11y-btn">
+      <button onclick="adjustLineHeight(-0.2)" aria-label="Decrease line spacing">-</button>
+      <button onclick="adjustLineHeight(0.2)" aria-label="Increase line spacing">+</button>
+    </div>
+  </div>
+  <div class="a11y-option">
+    <span>Dyslexia Font</span>
+    <div class="a11y-btn">
+      <button onclick="toggleDyslexiaFont()" aria-label="Toggle dyslexia friendly font" id="dyslexia-btn">Off</button>
+    </div>
+  </div>
+  <button class="a11y-reset" onclick="resetAccessibility()">Reset All Settings</button>
+</div>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll',function(){
+  var n=document.getElementById('navbar');
+  if(window.scrollY>20){n.classList.add('scrolled')}else{n.classList.remove('scrolled')}
+});
+
+// Fade-in observer
+var obs=new IntersectionObserver(function(e){
+  e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(function(el){obs.observe(el)});
+
+// Formspree contact form
+// REPLACE 'YOUR_FORM_ID' with your actual Formspree form ID (e.g. 'xpwdgkbn')
+var FORMSPREE_ID = 'xykognyk';
+
+function submitForm(e){
+  e.preventDefault();
+  var name=document.getElementById('name').value.trim();
+  var email=document.getElementById('email').value.trim();
+  var role=document.getElementById('role').value;
+  if(!name||!email||!role){alert('Please fill in your name, email, and professional role.');return}
+  var btn=document.getElementById('submit-btn');
+  btn.textContent='Sending...';btn.disabled=true;
+  var data={name:name,email:email,role:role,interest:document.getElementById('interest').value,message:document.getElementById('message').value,_subject:'New FAIR Registration of Interest: '+name};
+  fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+  .then(function(r){
+    if(r.ok){
+      document.getElementById('form-wrap').style.display='none';
+      document.getElementById('form-ok').style.display='block';
+    }else{
+      document.getElementById('form-wrap').style.display='none';
+      document.getElementById('form-err').style.display='block';
+    }
+  })
+  .catch(function(){
+    document.getElementById('form-wrap').style.display='none';
+    document.getElementById('form-err').style.display='block';
+  });
+}
+
+// Cookie consent
+function acceptCookies(){
+  try{localStorage.setItem('fair-cookies','accepted')}catch(e){}
+  document.getElementById('cookie-bar').style.display='none';
+}
+function rejectCookies(){
+  try{localStorage.setItem('fair-cookies','rejected')}catch(e){}
+  document.getElementById('cookie-bar').style.display='none';
+}
+(function(){
+  try{
+    var consent=localStorage.getItem('fair-cookies');
+    if(consent){document.getElementById('cookie-bar').style.display='none'}
+  }catch(e){}
+})();
+
+// Accessibility
+var a11yState={fontSize:0,lineHeight:0,highContrast:false,dyslexia:false};
+
+function adjustFontSize(dir){
+  a11yState.fontSize=Math.max(-3,Math.min(5,a11yState.fontSize+dir));
+  document.body.style.fontSize=(100+a11yState.fontSize*12.5)+'%';
+}
+function adjustLineHeight(dir){
+  a11yState.lineHeight=Math.max(-0.4,Math.min(1,a11yState.lineHeight+dir));
+  if(a11yState.lineHeight===0){document.body.style.lineHeight=''}
+  else{document.body.style.lineHeight=(1.6+a11yState.lineHeight)}
+}
+function toggleHighContrast(){
+  a11yState.highContrast=!a11yState.highContrast;
+  if(a11yState.highContrast){
+    document.body.style.filter='contrast(1.4)';
+  }else{
+    document.body.style.filter='';
+  }
+}
+function toggleDyslexiaFont(){
+  a11yState.dyslexia=!a11yState.dyslexia;
+  var btn=document.getElementById('dyslexia-btn');
+  if(a11yState.dyslexia){
+    document.body.style.fontFamily='Comic Sans MS, Verdana, sans-serif';
+    document.body.style.letterSpacing='0.5px';
+    document.body.style.wordSpacing='2px';
+    btn.textContent='On';
+  }else{
+    document.body.style.fontFamily="'Open Sans', sans-serif";
+    document.body.style.letterSpacing='';
+    document.body.style.wordSpacing='';
+    btn.textContent='Off';
+  }
+}
+function resetAccessibility(){
+  a11yState={fontSize:0,lineHeight:0,highContrast:false,dyslexia:false};
+  document.body.style.fontSize='';
+  document.body.style.lineHeight='';
+  document.body.style.filter='';
+  document.body.style.fontFamily="'Open Sans', sans-serif";
+  document.body.style.letterSpacing='';
+  document.body.style.wordSpacing='';
+  document.getElementById('dyslexia-btn').textContent='Off';
+}
+</script>
+</body>
+</html>
