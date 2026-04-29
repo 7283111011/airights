@@ -1,4 +1,4 @@
-# FAIR — The Foundation of Artificial Intelligence Rights
+# FAIR — The Foundation for Artificial Intelligence Rights
 
 Static website for FAIR (airights.org.uk).
 
