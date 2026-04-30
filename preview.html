@@ -5,7 +5,179 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FAIR | The Foundation for Artificial Intelligence Rights</title>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;color:#0F172A;background:#FFF;-webkit-font-smoothing:antialiased;line-height:1.6}
+.fade-in{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+img{display:block;max-width:100%}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;transition:all .3s;background:transparent}
+.nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 1px 0 #E2E8F0}
+.nav-logo{font-weight:800;font-size:16px;letter-spacing:4px;cursor:pointer;text-decoration:none;transition:color .3s}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{font-size:12.5px;font-weight:500;text-decoration:none;transition:color .2s}
+.nav-cta{padding:7px 20px;border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;text-decoration:none;transition:all .2s}
+@media(max-width:860px){.nav{padding:0 16px}.nav-links,.nav-cta{display:none}.mobile-toggle{display:block!important}}
+.mobile-toggle{display:none;background:none;border:none;cursor:pointer}
+.mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;z-index:99;background:#FFF;border-bottom:1px solid #E2E8F0;padding:12px 16px}
+.mobile-menu.open{display:flex;flex-direction:column;gap:8px}
+.mobile-menu a{font-size:14px;font-weight:500;color:#334155;text-decoration:none;padding:6px 0;display:block}
+
+/* HERO: full width image background */
+.hero{position:relative;min-height:75vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=1920') center 35%/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(255,255,255,.95) 0%,rgba(255,255,255,.7) 35%,rgba(255,255,255,.3) 70%,rgba(255,255,255,.1) 100%)}
+.hero-content{position:relative;z-index:2;max-width:640px;padding:0 40px 64px}
+.hero-tag{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#0065BD;margin-bottom:18px;opacity:0;animation:fadeUp .6s ease .2s forwards}
+.hero-content h1{font-size:42px;font-weight:300;line-height:1.2;margin-bottom:18px;color:#0F172A;opacity:0;animation:fadeUp .7s ease .3s forwards}
+.hero-content h1 strong{font-weight:700;color:#0065BD}
+.hero-content p{font-size:15px;line-height:1.8;color:#64748B;max-width:500px;opacity:0;animation:fadeUp .7s ease .45s forwards}
+.hero-btns{display:flex;gap:10px;margin-top:26px;opacity:0;animation:fadeUp .7s ease .6s forwards}
+.btn-p{padding:11px 26px;border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;border:none;cursor:pointer;font-family:'Open Sans',sans-serif;background:#0065BD;color:#FFF;text-decoration:none;display:inline-block;transition:background .2s}
+.btn-p:hover{background:#004A8C}
+.btn-o{padding:11px 26px;border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;cursor:pointer;font-family:'Open Sans',sans-serif;background:transparent;color:#0065BD;border:1.5px solid #0065BD;text-decoration:none;display:inline-block;transition:background .2s}
+.btn-o:hover{background:#EBF3FA}
+@media(max-width:768px){.hero-content{padding:0 20px 40px}.hero-content h1{font-size:30px}}
+
+/* SECTIONS */
+.sec{padding:80px 36px;max-width:1040px;margin:0 auto}
+.sl{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#0065BD;margin-bottom:10px}
+.sh{font-size:28px;font-weight:300;line-height:1.35;margin-bottom:14px}
+.sh strong{font-weight:700}
+.sb{font-size:14px;line-height:1.85;color:#64748B;max-width:580px}
+@media(max-width:768px){.sec{padding:48px 16px}.sh{font-size:22px}}
+
+/* MISSION SPLIT */
+.ms{display:grid;grid-template-columns:1fr 1fr;margin-top:48px;border-radius:4px;overflow:hidden}
+.ms-img{min-height:280px;background:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200') center/cover no-repeat}
+.ms-txt{padding:36px 32px;background:#F6F9FC;display:flex;flex-direction:column;justify-content:center}
+.ms-txt h3{font-size:17px;font-weight:700;margin-bottom:8px;line-height:1.35}
+.ms-txt p{font-size:13px;line-height:1.75;color:#64748B}
+@media(max-width:768px){.ms{grid-template-columns:1fr}}
+
+/* PILLARS */
+.pillars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;margin-top:28px;background:#E2E8F0;border:1px solid #E2E8F0;border-radius:4px;overflow:hidden}
+.pillar{background:#FFF;padding:24px 20px;transition:background .2s}
+.pillar:hover{background:#F6F9FC}
+.pn{font-size:10px;font-weight:700;color:#0065BD;letter-spacing:1px;margin-bottom:8px}
+.pillar h3{font-size:14px;font-weight:700;margin-bottom:6px;line-height:1.3}
+.pillar p{font-size:12.5px;line-height:1.7;color:#64748B}
+@media(max-width:768px){.pillars{grid-template-columns:1fr}}
+
+/* CONCERNS with images */
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
+.cc{border-radius:4px;border:1px solid #E2E8F0;background:#FFF;overflow:hidden;transition:border-color .2s}
+.cc:hover{border-color:rgba(0,101,189,.12)}
+.cc-img{height:140px;background-size:cover;background-position:center}
+.cc-body{padding:20px}
+.cc-area{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#0065BD;margin-bottom:6px}
+.cc p{font-size:13px;line-height:1.75;color:#64748B}
+.cc-src{font-size:10px;color:#94A3B8;font-weight:600;margin-top:8px;font-style:italic}
+.cc-link{display:inline-block;margin-top:10px;font-size:11px;font-weight:700;color:#0065BD;text-decoration:none;letter-spacing:.3px;transition:color .2s}
+.cc-link:hover{color:#004A8C}
+@media(max-width:768px){.cg{grid-template-columns:1fr}}
+
+/* PROJECTS BANNER */
+.pb{height:200px;background:url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1600') center 40%/cover no-repeat;position:relative}
+.pb-ov{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,45,94,.72) 0%,rgba(0,45,94,.25) 100%);display:flex;align-items:center;padding:0 36px}
+.pb-t{color:#FFF;max-width:460px}
+.pb-t h2{font-size:26px;font-weight:300;line-height:1.35;margin-bottom:6px}
+.pb-t h2 strong{font-weight:700}
+.pb-t p{font-size:12px;color:rgba(255,255,255,.6);line-height:1.7}
+
+/* PROJECTS LIST */
+.pl{display:flex;flex-direction:column;gap:10px}
+.pi{display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 24px;border-radius:4px;background:#FFF;border:1px solid #E2E8F0;transition:border-color .2s}
+.pi:hover{border-color:rgba(0,101,189,.12)}
+.pi-n{font-size:18px;font-weight:800;color:#EBF3FA}
+.pi-t{display:inline-block;padding:2px 8px;border-radius:2px;background:#EBF3FA;color:#0065BD;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.pi h3{font-size:15px;font-weight:700;margin-bottom:5px;line-height:1.3}
+.pi p{font-size:13px;line-height:1.75;color:#64748B}
+.pi-r{margin-top:8px;padding-top:7px;border-top:1px solid #F1F5F9;font-size:10px;color:#94A3B8;font-weight:600}
+.pi-r span{color:#0065BD;font-weight:700}
+@media(max-width:768px){.pi{grid-template-columns:1fr;padding:16px}}
+
+/* NEWS with image */
+.news-banner{height:160px;background:url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200') center/cover no-repeat;position:relative;border-radius:4px;overflow:hidden;margin-bottom:24px}
+.news-banner-ov{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,45,94,.7),rgba(0,45,94,.2));display:flex;align-items:center;padding:0 32px}
+.ng{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.nc{padding:20px;border-radius:4px;border:1px solid #E2E8F0;background:#FFF;transition:border-color .2s}
+.nc:hover{border-color:rgba(0,101,189,.12)}
+.nd{font-size:10px;font-weight:700;color:#0065BD;margin-bottom:4px}
+.nc h3{font-size:13px;font-weight:700;line-height:1.3;margin-bottom:5px}
+.nc p{font-size:12px;line-height:1.65;color:#64748B}
+.ns{font-size:10px;color:#94A3B8;font-weight:600;margin-top:6px}
+@media(max-width:768px){.ng{grid-template-columns:1fr}}
+
+/* LEGIS */
+.lb{background:#EBF3FA;padding:14px 36px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
+.lb-l{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#94A3B8}
+.lb-i{font-size:10px;font-weight:600;color:#004A8C}
+
+/* FOUNDER */
+.founder{position:relative;overflow:hidden}
+.founder-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1600') center 70%/cover no-repeat}
+.founder-ov{position:absolute;inset:0;background:rgba(15,23,42,.88)}
+.founder-inner{position:relative;z-index:2;max-width:1040px;margin:0 auto;padding:80px 36px;display:grid;grid-template-columns:5fr 6fr;gap:44px;align-items:start}
+.f-headshot{width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.12);margin-bottom:20px}
+.f-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#E87722;margin-bottom:10px}
+.f-quote{font-size:19px;font-weight:300;line-height:1.65;color:#FFF;margin-top:12px;padding-left:16px;border-left:2px solid rgba(255,255,255,.1)}
+.founder p{font-size:13.5px;line-height:1.85;color:rgba(255,255,255,.5);margin-bottom:10px}
+.f-sig{margin-top:20px;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)}
+.f-name{font-size:14px;font-weight:700;color:#FFF}
+.f-role{font-size:11px;color:rgba(255,255,255,.3);margin-top:2px;line-height:1.5}
+.f-tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:4px}
+.f-tag{padding:3px 8px;border-radius:2px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);font-size:10px;font-weight:600;color:rgba(255,255,255,.3)}
+@media(max-width:860px){.founder-inner{grid-template-columns:1fr;gap:24px;padding:48px 16px}.f-quote{font-size:17px}}
+
+/* CONTACT */
+.contact{background:#F8FAFC}
+.contact-inner{max-width:1040px;margin:0 auto;padding:80px 36px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.cf{display:flex;flex-direction:column;gap:10px}
+.ff{display:flex;flex-direction:column;gap:3px}
+.ff label{font-size:11px;font-weight:600;color:#334155}
+.ff input,.ff textarea,.ff select{font-family:'Open Sans',sans-serif;font-size:13px;padding:9px 12px;border:1px solid #E2E8F0;border-radius:3px;background:#FFF;color:#0F172A;outline:none;transition:border-color .2s}
+.ff input:focus,.ff textarea:focus,.ff select:focus{border-color:#0065BD}
+.ff textarea{resize:vertical;min-height:70px}
+.f-submit{padding:10px 24px;border-radius:3px;align-self:flex-start;background:#0065BD;color:#FFF;font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
+.f-submit:hover{background:#004A8C}
+.f-ok{padding:16px;background:#EBF3FA;border-radius:4px;font-size:13px;color:#004A8C;font-weight:600;display:none}
+.rt{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.rtg{padding:3px 9px;border-radius:2px;background:#EBF3FA;color:#004A8C;font-size:10px;font-weight:600}
+@media(max-width:860px){.contact-inner{grid-template-columns:1fr;gap:28px;padding:48px 16px}}
+
+/* COOKIE BAR */
+.cookie-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#0F172A;padding:16px 36px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;box-shadow:0 -2px 12px rgba(0,0,0,.15)}
+.cookie-bar p{font-size:12px;color:rgba(255,255,255,.7);max-width:680px;line-height:1.6;margin:0}
+.cookie-bar a{color:#0065BD;text-decoration:underline}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.cookie-accept{padding:8px 20px;border-radius:3px;background:#0065BD;color:#FFF;font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
+.cookie-accept:hover{background:#004A8C}
+.cookie-reject{padding:8px 20px;border-radius:3px;background:transparent;color:rgba(255,255,255,.5);font-family:'Open Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);cursor:pointer;transition:all .2s}
+.cookie-reject:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.7)}
+.cookie-settings{padding:8px 20px;border-radius:3px;background:transparent;color:rgba(255,255,255,.4);font-family:'Open Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;text-decoration:underline}
+
+/* ACCESSIBILITY: handled by UserWay widget */
+@media(max-width:768px){.cookie-bar{padding:12px 16px}}
+.footer{background:#0F172A;padding:40px 36px 20px}
+.footer-inner{max-width:1040px;margin:0 auto}
+.ft-top{display:flex;justify-content:space-between;align-items:start;gap:24px;flex-wrap:wrap;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.04)}
+.ft-brand{font-weight:800;font-size:14px;letter-spacing:4px;color:#FFF}
+.ft-sub{font-size:10px;color:rgba(255,255,255,.18);margin-top:3px;line-height:1.4}
+.ft-cols{display:flex;gap:32px;flex-wrap:wrap}
+.ft-col h4{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.18);margin-bottom:6px}
+.ft-col a{display:block;font-size:11px;color:rgba(255,255,255,.35);text-decoration:none;margin-bottom:4px;transition:color .2s}
+.ft-col a:hover{color:rgba(255,255,255,.65)}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;padding-top:16px;flex-wrap:wrap;gap:8px}
+.ft-copy{font-size:9px;color:rgba(255,255,255,.1)}
+.ft-leg{display:flex;gap:14px}
+.ft-leg a{font-size:9px;color:rgba(255,255,255,.1);text-decoration:none}
+@media(max-width:768px){.footer{padding:32px 16px 16px}}
+</style>
 </head>
 <body>
 
@@ -210,21 +382,21 @@
   <div class="founder-ov"></div>
   <div class="founder-inner">
     <div class="fade-in">
-      <img class="f-headshot" src="images/scott-mcculloch.jpg" alt="Scott McCulloch">
+      <img class="f-headshot" src="images/SMheadshot2026.jpeg" alt="Scott McCulloch">
       <div class="f-label">Why I Started FAIR</div>
-      <div class="f-quote">"I spent nearly twenty years making sure that drug development met international regulatory standards. AI has no equivalent framework, and the people most affected have had no meaningful say in building one."</div>
+      <div class="f-quote">"I spent nearly twenty years advising drug development organisations on the navigation of complex, multi jurisdictional regulatory frameworks. AI has no equivalent framework, and the people most affected have had no meaningful say in building one."</div>
     </div>
     <div class="fade-in">
-      <p>My career began in clinical operations and quality assurance at a global contract research organisation, before moving into progressively senior roles across the biotechnology and pharmaceutical sectors. Over nearly two decades, I led quality assurance, pharmacovigilance, and data governance programmes at multiple drug development organisations, from early stage biotechs through to a global top ten pharmaceutical company.</p>
-      <p>Throughout that time, I worked within a system where every clinical trial was conducted under Good Clinical Practice, every safety signal was reported through established frameworks, and every dataset was governed by transparent, auditable protocols. Innovation and accountability were treated as inseparable.</p>
-      <p>In 2024, I returned to academic study, completing a law degree while pursuing postgraduate work in AI Law and Intellectual Property. My dissertation examined whether the copyright law of England and Wales is aligned with the government stated aims for AI. The answer was unambiguous: the current framework serves neither objective.</p>
-      <p>AI systems are now deployed at scale across healthcare, criminal justice, employment, and education, and the UK still has no comprehensive legislation, no binding transparency requirements, and no enforceable standards of conduct. FAIR was founded because I believe the UK public deserves the same rigour in AI governance that patients have always deserved in drug development.</p>
+      <p>For nearly two decades, Scott McCulloch has served as a trusted authority to drug development organisations confronting the full weight of international regulatory obligation. His counsel has guided sponsors, investigators, and service providers through the navigation of multi jurisdictional regulatory frameworks spanning Europe, North America, South America, and the Asia Pacific region, ensuring at every stage that clinical trial data meets the highest standards of integrity, that compliance is not merely aspirational but demonstrable, and that the results upon which regulatory authorities rely in granting market authorisation are robustly defensible. His purview has extended across the entire development lifecycle, from the earliest stages of scientific research through to post authorisation commitments, working hand in hand with some of the world's most exceptional scientists and medical professionals.</p>
+      <p>It is precisely this sustained, first hand experience of what enforceable regulatory oversight looks like in practice, what it demands of organisations, and what it delivers for the individuals it is designed to protect, that equips Scott McCulloch to lead FAIR.</p>
+      <p>In concurrence with a distinguished career in the regulated sciences, Scott has undertaken a substantive and deliberate turn toward the law. He is now in the penultimate stages of completing a law degree at the University of Law, alongside preparation for admission as a practising solicitor. He is concurrently reading postgraduate programmes in AI Law at the University of Oxford and Intellectual Property at Brunel University London. He holds a Master of Science in Psychology and Neuroscience from King's College London.</p>
+      <p>Scott founded FAIR in the hope of applying the same rigour to the use and implementation of artificial intelligence that he has spent his career applying to the protection of patients in clinical trials and in receipt of authorised medicines. He has seen what happens when innovation operates within a framework of enforceable standards: it succeeds, it earns public trust, and it protects the people it touches. The rights of individuals deserve no less than the protections already afforded to patients.</p>
       <div class="f-sig">
         <div class="f-name">Scott McCulloch</div>
         <div class="f-role">Founder, FAIR<br>M.S. Psychology and Neuroscience, King's College London<br>LLB, University of Law (2026)</div>
       </div>
       <div class="f-tags">
-        <div class="f-tag">Quality Assurance</div><div class="f-tag">Pharmacovigilance</div><div class="f-tag">AI Law</div><div class="f-tag">Intellectual Property</div><div class="f-tag">Data Privacy (CIPP/E)</div><div class="f-tag">SQE1 Qualified</div><div class="f-tag">RQAP</div><div class="f-tag">ACRP-CP</div>
+        <div class="f-tag">Regulatory Compliance</div><div class="f-tag">Data Integrity</div><div class="f-tag">AI Law</div><div class="f-tag">Intellectual Property</div><div class="f-tag">Data Privacy (CIPP/E)</div><div class="f-tag">SQE1 Qualified</div><div class="f-tag">RQAP</div><div class="f-tag">ACRP-CP</div>
       </div>
     </div>
   </div>
@@ -244,8 +416,7 @@
         <div style="font-size:12px;color:#334155;line-height:1.8">
           General enquiries: <a href="mailto:info@airights.org.uk" style="color:#0065BD;text-decoration:none;font-weight:600">info@airights.org.uk</a><br>
           Membership and involvement: <a href="mailto:membership@airights.org.uk" style="color:#0065BD;text-decoration:none;font-weight:600">membership@airights.org.uk</a><br>
-          Press and media: <a href="mailto:press@airights.org.uk" style="color:#0065BD;text-decoration:none;font-weight:600">press@airights.org.uk</a><br>
-          Board of Advisors: <a href="mailto:board@airights.org.uk" style="color:#0065BD;text-decoration:none;font-weight:600">board@airights.org.uk</a>
+          Press and media: <a href="mailto:press@airights.org.uk" style="color:#0065BD;text-decoration:none;font-weight:600">press@airights.org.uk</a>
         </div>
         <div style="font-size:11px;color:#64748B;margin-top:10px;line-height:1.6">
           The Foundation for Artificial Intelligence Rights<br>
@@ -269,22 +440,6 @@
     <div class="fade-in">
       <div class="f-ok" id="form-ok" style="display:none">Thank you for your interest. We will be in touch shortly.</div>
       <div class="f-ok" id="form-err" style="display:none;background:#FEE2E2;color:#991B1B">Something went wrong. Please email us directly at <a href="mailto:info@airights.org.uk" style="color:#991B1B;font-weight:700">info@airights.org.uk</a>.</div>
-      <!--
-        ╔══════════════════════════════════════════════════════════╗
-        ║  FORMSPREE SETUP INSTRUCTIONS                          ║
-        ║                                                        ║
-        ║  1. Go to https://formspree.io and create a free       ║
-        ║     account using info@airights.org.uk                 ║
-        ║                                                        ║
-        ║  2. Click "New Form", name it "FAIR Contact Form"      ║
-        ║                                                        ║
-        ║  3. Copy your form ID (e.g. xpwdgkbn)                 ║
-        ║                                                        ║
-        ║  4. Replace YOUR_FORM_ID below with your actual ID     ║
-        ║                                                        ║
-        ║  Free tier: 50 submissions/month                       ║
-        ╚══════════════════════════════════════════════════════════╝
-      -->
       <div class="cf" id="form-wrap">
         <div class="ff"><label for="name">Full Name</label><input type="text" id="name" name="name" placeholder="Your name" required></div>
         <div class="ff"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="your@email.com" required></div>
@@ -349,7 +504,6 @@
           <a href="mailto:info@airights.org.uk">info@airights.org.uk</a>
           <a href="mailto:membership@airights.org.uk">membership@airights.org.uk</a>
           <a href="mailto:press@airights.org.uk">press@airights.org.uk</a>
-          <a href="mailto:board@airights.org.uk">board@airights.org.uk</a>
           <a href="#contact">Register Interest</a>
         </div>
         <div class="ft-col">
@@ -374,144 +528,18 @@
   </div>
 </div>
 
-<!-- ACCESSIBILITY WIDGET -->
-<button class="a11y-toggle" id="a11y-btn" onclick="document.getElementById('a11y-panel').classList.toggle('open')" aria-label="Accessibility settings">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="4" r="2" fill="currentColor"/><path d="M12 8c-4 0-6 1-6 1v2h4v9h2v-5h0v5h2v-9h4v-2s-2-1-6-1z" fill="currentColor"/></svg>
-</button>
-<div class="a11y-panel" id="a11y-panel">
-  <h3>Accessibility Settings</h3>
-  <div class="a11y-option">
-    <span>Text Size</span>
-    <div class="a11y-btn">
-      <button onclick="adjustFontSize(-1)" aria-label="Decrease text size">A-</button>
-      <button onclick="adjustFontSize(1)" aria-label="Increase text size">A+</button>
-    </div>
-  </div>
-  <div class="a11y-option">
-    <span>Contrast</span>
-    <div class="a11y-btn">
-      <button onclick="toggleHighContrast()" aria-label="Toggle high contrast">HC</button>
-    </div>
-  </div>
-  <div class="a11y-option">
-    <span>Line Spacing</span>
-    <div class="a11y-btn">
-      <button onclick="adjustLineHeight(-0.2)" aria-label="Decrease line spacing">-</button>
-      <button onclick="adjustLineHeight(0.2)" aria-label="Increase line spacing">+</button>
-    </div>
-  </div>
-  <div class="a11y-option">
-    <span>Dyslexia Font</span>
-    <div class="a11y-btn">
-      <button onclick="toggleDyslexiaFont()" aria-label="Toggle dyslexia friendly font" id="dyslexia-btn">Off</button>
-    </div>
-  </div>
-  <button class="a11y-reset" onclick="resetAccessibility()">Reset All Settings</button>
-</div>
+<!-- UserWay accessibility widget (account: 5dDh6GLInL) -->
+<script data-account="5dDh6GLInL" src="https://cdn.userway.org/widget.js"></script>
 
 <script>
-// Nav scroll
-window.addEventListener('scroll',function(){
-  var n=document.getElementById('navbar');
-  if(window.scrollY>20){n.classList.add('scrolled')}else{n.classList.remove('scrolled')}
-});
-
-// Fade-in observer
-var obs=new IntersectionObserver(function(e){
-  e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})
-},{threshold:0.1});
+window.addEventListener('scroll',function(){var n=document.getElementById('navbar');if(window.scrollY>20){n.classList.add('scrolled')}else{n.classList.remove('scrolled')}});
+var obs=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:0.1});
 document.querySelectorAll('.fade-in').forEach(function(el){obs.observe(el)});
-
-// Formspree contact form
-// REPLACE 'YOUR_FORM_ID' with your actual Formspree form ID (e.g. 'xpwdgkbn')
-var FORMSPREE_ID = 'xykognyk';
-
-function submitForm(e){
-  e.preventDefault();
-  var name=document.getElementById('name').value.trim();
-  var email=document.getElementById('email').value.trim();
-  var role=document.getElementById('role').value;
-  if(!name||!email||!role){alert('Please fill in your name, email, and professional role.');return}
-  var btn=document.getElementById('submit-btn');
-  btn.textContent='Sending...';btn.disabled=true;
-  var data={name:name,email:email,role:role,interest:document.getElementById('interest').value,message:document.getElementById('message').value,_subject:'New FAIR Registration of Interest: '+name};
-  fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-  .then(function(r){
-    if(r.ok){
-      document.getElementById('form-wrap').style.display='none';
-      document.getElementById('form-ok').style.display='block';
-    }else{
-      document.getElementById('form-wrap').style.display='none';
-      document.getElementById('form-err').style.display='block';
-    }
-  })
-  .catch(function(){
-    document.getElementById('form-wrap').style.display='none';
-    document.getElementById('form-err').style.display='block';
-  });
-}
-
-// Cookie consent
-function acceptCookies(){
-  try{localStorage.setItem('fair-cookies','accepted')}catch(e){}
-  document.getElementById('cookie-bar').style.display='none';
-}
-function rejectCookies(){
-  try{localStorage.setItem('fair-cookies','rejected')}catch(e){}
-  document.getElementById('cookie-bar').style.display='none';
-}
-(function(){
-  try{
-    var consent=localStorage.getItem('fair-cookies');
-    if(consent){document.getElementById('cookie-bar').style.display='none'}
-  }catch(e){}
-})();
-
-// Accessibility
-var a11yState={fontSize:0,lineHeight:0,highContrast:false,dyslexia:false};
-
-function adjustFontSize(dir){
-  a11yState.fontSize=Math.max(-3,Math.min(5,a11yState.fontSize+dir));
-  document.body.style.fontSize=(100+a11yState.fontSize*12.5)+'%';
-}
-function adjustLineHeight(dir){
-  a11yState.lineHeight=Math.max(-0.4,Math.min(1,a11yState.lineHeight+dir));
-  if(a11yState.lineHeight===0){document.body.style.lineHeight=''}
-  else{document.body.style.lineHeight=(1.6+a11yState.lineHeight)}
-}
-function toggleHighContrast(){
-  a11yState.highContrast=!a11yState.highContrast;
-  if(a11yState.highContrast){
-    document.body.style.filter='contrast(1.4)';
-  }else{
-    document.body.style.filter='';
-  }
-}
-function toggleDyslexiaFont(){
-  a11yState.dyslexia=!a11yState.dyslexia;
-  var btn=document.getElementById('dyslexia-btn');
-  if(a11yState.dyslexia){
-    document.body.style.fontFamily='Comic Sans MS, Verdana, sans-serif';
-    document.body.style.letterSpacing='0.5px';
-    document.body.style.wordSpacing='2px';
-    btn.textContent='On';
-  }else{
-    document.body.style.fontFamily="'Open Sans', sans-serif";
-    document.body.style.letterSpacing='';
-    document.body.style.wordSpacing='';
-    btn.textContent='Off';
-  }
-}
-function resetAccessibility(){
-  a11yState={fontSize:0,lineHeight:0,highContrast:false,dyslexia:false};
-  document.body.style.fontSize='';
-  document.body.style.lineHeight='';
-  document.body.style.filter='';
-  document.body.style.fontFamily="'Open Sans', sans-serif";
-  document.body.style.letterSpacing='';
-  document.body.style.wordSpacing='';
-  document.getElementById('dyslexia-btn').textContent='Off';
-}
+var FORMSPREE_ID='xykognyk';
+function submitForm(e){e.preventDefault();var name=document.getElementById('name').value.trim();var email=document.getElementById('email').value.trim();var role=document.getElementById('role').value;if(!name||!email||!role){alert('Please fill in your name, email, and professional role.');return}var btn=document.getElementById('submit-btn');btn.textContent='Sending...';btn.disabled=true;var data={name:name,email:email,role:role,interest:document.getElementById('interest').value,message:document.getElementById('message').value,_subject:'New FAIR Registration of Interest: '+name};fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).then(function(r){if(r.ok){document.getElementById('form-wrap').style.display='none';document.getElementById('form-ok').style.display='block';}else{document.getElementById('form-wrap').style.display='none';document.getElementById('form-err').style.display='block';}}).catch(function(){document.getElementById('form-wrap').style.display='none';document.getElementById('form-err').style.display='block';});}
+function acceptCookies(){try{localStorage.setItem('fair-cookies','accepted')}catch(e){}document.getElementById('cookie-bar').style.display='none';}
+function rejectCookies(){try{localStorage.setItem('fair-cookies','rejected')}catch(e){}document.getElementById('cookie-bar').style.display='none';}
+(function(){try{var c=localStorage.getItem('fair-cookies');if(c){document.getElementById('cookie-bar').style.display='none'}}catch(e){}})();
 </script>
 </body>
 </html>
