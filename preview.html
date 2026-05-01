@@ -6,6 +6,8 @@
 <title>FAIR | The Foundation for Artificial Intelligence Rights</title>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<!-- Google reCAPTCHA v3 (invisible, score-based) -->
+<script src="https://www.google.com/recaptcha/api.js?render=6Lcur9QsAAAAAE1ApFj2LDVszSME-EjcDg6reJDE"></script>
 </head>
 <body>
 
@@ -365,7 +367,10 @@
           </select>
         </div>
         <div class="ff"><label for="message">Message (optional)</label><textarea id="message" name="message" placeholder="Tell us about your background and interest in FAIR"></textarea></div>
+        <!-- Honeypot: hidden from real users; bots fill it and get rejected -->
+        <input type="text" id="hp-website" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none" aria-hidden="true">
         <button class="f-submit" id="submit-btn" onclick="submitForm(event)">Register Interest</button>
+        <div style="font-size:10px;color:#94A3B8;margin-top:8px;line-height:1.5">This form is protected by reCAPTCHA. The Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:#0065BD;text-decoration:none;border-bottom:1px solid rgba(0,101,189,.3)">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener" style="color:#0065BD;text-decoration:none;border-bottom:1px solid rgba(0,101,189,.3)">Terms of Service</a> apply.</div>
       </div>
     </div>
   </div>
@@ -466,33 +471,56 @@ var obs=new IntersectionObserver(function(e){
 },{threshold:0.1});
 document.querySelectorAll('.fade-in').forEach(function(el){obs.observe(el)});
 
-// Formspree contact form
-// REPLACE 'YOUR_FORM_ID' with your actual Formspree form ID (e.g. 'xpwdgkbn')
+// Formspree contact form with Google reCAPTCHA v3 + honeypot
 var FORMSPREE_ID = 'xykognyk';
+var RECAPTCHA_SITE_KEY = '6Lcur9QsAAAAAE1ApFj2LDVszSME-EjcDg6reJDE';
 
 function submitForm(e){
   e.preventDefault();
+  // Honeypot: if the hidden 'website' field has a value, silently abort (a bot filled it).
+  var hp = document.getElementById('hp-website');
+  if (hp && hp.value) { return; }
   var name=document.getElementById('name').value.trim();
   var email=document.getElementById('email').value.trim();
   var role=document.getElementById('role').value;
   if(!name||!email||!role){alert('Please fill in your name, email, and professional role.');return}
   var btn=document.getElementById('submit-btn');
   btn.textContent='Sending...';btn.disabled=true;
-  var data={name:name,email:email,role:role,interest:document.getElementById('interest').value,message:document.getElementById('message').value,_subject:'New FAIR Registration of Interest: '+name};
-  fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-  .then(function(r){
-    if(r.ok){
-      document.getElementById('form-wrap').style.display='none';
-      document.getElementById('form-ok').style.display='block';
-    }else{
+
+  // Get reCAPTCHA v3 token, then submit
+  function send(token){
+    var data={
+      name:name,
+      email:email,
+      role:role,
+      interest:document.getElementById('interest').value,
+      message:document.getElementById('message').value,
+      'g-recaptcha-response': token || '',
+      _subject:'New FAIR Registration of Interest: '+name
+    };
+    fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+    .then(function(r){
+      if(r.ok){
+        document.getElementById('form-wrap').style.display='none';
+        document.getElementById('form-ok').style.display='block';
+      }else{
+        document.getElementById('form-wrap').style.display='none';
+        document.getElementById('form-err').style.display='block';
+      }
+    })
+    .catch(function(){
       document.getElementById('form-wrap').style.display='none';
       document.getElementById('form-err').style.display='block';
-    }
-  })
-  .catch(function(){
-    document.getElementById('form-wrap').style.display='none';
-    document.getElementById('form-err').style.display='block';
-  });
+    });
+  }
+
+  if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
+    grecaptcha.ready(function(){
+      grecaptcha.execute(RECAPTCHA_SITE_KEY, {action: 'submit_contact'}).then(send).catch(function(){ send(''); });
+    });
+  } else {
+    send('');
+  }
 }
 
 // Cookie consent
