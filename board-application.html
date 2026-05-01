@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trustee Application | FAIR - The Foundation for Artificial Intelligence Rights</title>
+<title>Trustee Application | FAIR , The Foundation for Artificial Intelligence Rights</title>
+<meta name="description" content="Apply to serve as a founding Trustee of FAIR, the Foundation for Artificial Intelligence Rights.">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
+/* Page-specific styles for the Trustee application */
 body{padding-top:90px}
 .app-hero{background:#F8FAFC;padding:56px 36px 48px;text-align:center;border-bottom:1px solid #E2E8F0}
 .app-hero .eyebrow{display:inline-block;padding:5px 14px;border-radius:99px;background:#EBF3FA;color:#0065BD;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
@@ -22,70 +24,203 @@ body{padding-top:90px}
 .app-section ul{margin:8px 0 14px 22px}
 .app-section li{margin-bottom:6px}
 .app-section a{color:#0065BD;text-decoration:none;border-bottom:1px solid rgba(0,101,189,.4)}
+.app-section a:hover{border-bottom-color:#0065BD}
+.app-back{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#64748B;text-decoration:none;margin-bottom:20px}
+.app-back:hover{color:#0065BD}
 .app-form{display:flex;flex-direction:column;gap:14px;max-width:780px;margin:0 auto;padding:32px 36px 64px}
 .app-form .ff{display:flex;flex-direction:column;gap:5px}
 .app-form .ff label{font-size:12px;font-weight:600;color:#334155}
 .app-form .ff small{font-size:11px;color:#94A3B8;font-weight:400}
-.app-form .ff input,.app-form .ff textarea,.app-form .ff select{font-family:'Open Sans',sans-serif;font-size:14px;padding:11px 14px;border:1px solid #E2E8F0;border-radius:4px;background:#FFF;color:#0F172A;outline:none}
+.app-form .ff input,.app-form .ff textarea,.app-form .ff select{font-family:'Open Sans',sans-serif;font-size:14px;padding:11px 14px;border:1px solid #E2E8F0;border-radius:4px;background:#FFF;color:#0F172A;outline:none;transition:border-color .2s}
 .app-form .ff input:focus,.app-form .ff textarea:focus,.app-form .ff select:focus{border-color:#0065BD}
 .app-form .ff textarea{resize:vertical;min-height:90px}
 .app-decl{padding:20px;background:#FFFBEB;border-left:3px solid #E87722;border-radius:4px;margin:8px 0}
 .app-decl p{font-size:13px;color:#475569;line-height:1.7;margin-bottom:10px}
 .app-decl label{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#0F172A;cursor:pointer;line-height:1.6}
 .app-decl input[type=checkbox]{margin-top:3px;flex-shrink:0}
-.app-submit{padding:14px 32px;border-radius:3px;align-self:flex-start;background:#0065BD;color:#FFF;font-family:'Open Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;border:none;cursor:pointer;margin-top:8px}
+.app-submit{padding:14px 32px;border-radius:3px;align-self:flex-start;background:#0065BD;color:#FFF;font-family:'Open Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s;margin-top:8px}
 .app-submit:hover{background:#004A8C}
+.app-submit:disabled{background:#94A3B8;cursor:not-allowed}
 .app-ok,.app-err{padding:18px;border-radius:4px;font-size:14px;font-weight:600;display:none;margin-top:14px}
 .app-ok{background:#EBF3FA;color:#004A8C}
 .app-err{background:#FEE2E2;color:#991B1B}
 .app-mini-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;background:#FFF;border-bottom:1px solid #E2E8F0}
-.app-mini-nav .nav-logo{font-weight:800;font-size:16px;letter-spacing:4px;text-decoration:none;color:#0065BD}
+.app-mini-nav .nav-logo{font-weight:800;font-size:16px;letter-spacing:4px;cursor:pointer;text-decoration:none;color:#0065BD}
 .app-mini-nav .nav-back{font-size:12px;color:#64748B;text-decoration:none}
 .app-mini-nav .nav-back:hover{color:#0065BD}
-@media(max-width:768px){.app-hero{padding:40px 20px 36px}.app-hero h1{font-size:26px}.app-section,.app-form{padding-left:20px;padding-right:20px}.app-mini-nav{padding:0 16px}}
+@media(max-width:768px){
+  .app-hero{padding:40px 20px 36px}
+  .app-hero h1{font-size:26px}
+  .app-section,.app-form{padding-left:20px;padding-right:20px}
+  .app-mini-nav{padding:0 16px}
+}
 </style>
 </head>
 <body>
-<nav class="app-mini-nav"><a href="index.html" class="nav-logo">FAIR</a><a href="index.html" class="nav-back">&larr; Back to home</a></nav>
+
+<nav class="app-mini-nav">
+  <a href="index.html" class="nav-logo">FAIR</a>
+  <a href="index.html" class="nav-back">&larr; Back to home</a>
+</nav>
+
 <section class="app-hero">
   <div class="eyebrow">Founding Trustees</div>
   <h1>Apply to serve as a <strong>Trustee of FAIR</strong></h1>
-  <p>FAIR is in the process of registering as a Charitable Incorporated Organisation with the Charity Commission for England and Wales. We are seeking founding Trustees to lead the organisation through its formation and first years of operation.</p>
+  <p>FAIR is establishing itself as a Charitable Incorporated Organisation. We are seeking founding Trustees to lead the organisation through its first years of operation.</p>
 </section>
-<div class="app-section"><h2><span class="num">01</span>About the role</h2><p>Trustees are the founding governing body of FAIR and bear the legal duties associated with charitable trusteeship under the Charities Act 2011. Together, the Trustees set FAIR&rsquo;s strategic direction, exercise oversight of management and finances, ensure compliance with charity law and regulatory obligations, and act at all times in furtherance of FAIR&rsquo;s charitable purposes.</p><p>FAIR&rsquo;s charitable purposes are anticipated to include the advancement of education in artificial intelligence governance, the advancement of human rights in the context of automated decision making, and the promotion of public benefit through evidence based research and policy engagement.</p></div>
-<div class="app-section"><h2><span class="num">02</span>What we are looking for</h2><p>We seek individuals of standing in their respective fields who can contribute meaningfully to FAIR&rsquo;s governance and to the credibility of the organisation in its engagement with Parliament, government, regulators, and the public. Particular areas of relevant expertise include:</p><ul><li>Law - constitutional, regulatory, intellectual property, data protection, human rights, charity law</li><li>Public policy and parliamentary affairs</li><li>Academia, particularly in artificial intelligence, ethics, and computer science</li><li>Technology, with experience in AI development, deployment, or auditing</li><li>Senior leadership in the public sector, including the NHS, education, or law enforcement</li><li>Charity governance, finance, fundraising, or risk management</li></ul></div>
-<div class="app-section"><h2><span class="num">03</span>Time commitment</h2><p>Founding Trustees should expect to commit, on average, approximately one day per month, distributed across quarterly Board meetings, sub committee or working group participation according to expertise, reading of papers between meetings, and occasional ad hoc consultation on policy positions and parliamentary submissions.</p><p>The role is unremunerated, in keeping with the Charity Commission&rsquo;s general expectation regarding charity trustees. Reasonable expenses are reimbursable in accordance with FAIR&rsquo;s expenses policy.</p></div>
-<div class="app-section"><h2><span class="num">04</span>Eligibility</h2><p>To serve as a Trustee, an applicant must be 16 years of age or over and must not be disqualified under the Charities Act 2011. The full list of disqualifying conditions is set out in <a href="https://www.gov.uk/guidance/automatic-disqualification-rule-changes-guidance-for-charities" target="_blank" rel="noopener">guidance published by the Charity Commission</a>. Applicants should review this guidance carefully before completing the form below.</p></div>
-<div class="app-section"><h2><span class="num">05</span>Submit your application</h2><p>Applications are reviewed on a rolling basis by the Founder. Shortlisted applicants will be invited to a brief interview before any formal appointment. All information provided is treated in confidence.</p></div>
+
+<div class="app-section">
+  <h2><span class="num">01</span>About the role</h2>
+  <p>Trustees are the founding governing body of FAIR and bear the legal duties associated with charitable trusteeship under the Charities Act 2011. Together, the Trustees set FAIR&rsquo;s strategic direction, exercise oversight of management and finances, ensure compliance with charity law and regulatory obligations, and act at all times in furtherance of FAIR&rsquo;s charitable purposes.</p>
+  <p>FAIR&rsquo;s charitable purposes include the advancement of education in the field of artificial intelligence governance, the advancement of human rights in the context of automated decision making, and the promotion of public benefit through evidence based research and policy engagement.</p>
+</div>
+
+<div class="app-section">
+  <h2><span class="num">02</span>What we are looking for</h2>
+  <p>We seek individuals of standing in their respective fields who can contribute meaningfully to FAIR&rsquo;s governance and to the credibility of the organisation in its engagement with Parliament, government, regulators, and the public. Particular areas of relevant expertise include:</p>
+  <ul>
+    <li>Law , constitutional, regulatory, intellectual property, data protection, human rights, charity law</li>
+    <li>Public policy and parliamentary affairs</li>
+    <li>Academia, particularly in artificial intelligence, ethics, and computer science</li>
+    <li>Technology, with experience in AI development, deployment, or auditing</li>
+    <li>Senior leadership in the public sector, including the NHS, education, or law enforcement</li>
+    <li>Charity governance, finance, fundraising, or risk management</li>
+  </ul>
+  <p>A diversity of background, perspective, and experience is essential to good governance. We particularly welcome applications from those underrepresented on UK charity boards.</p>
+</div>
+
+<div class="app-section">
+  <h2><span class="num">03</span>Time commitment</h2>
+  <p>Founding Trustees should expect to commit, on average, approximately one day per month, distributed across:</p>
+  <ul>
+    <li>Quarterly Board meetings (in person where practicable, or via secure videoconference)</li>
+    <li>Sub&nbsp;committee or working group participation according to expertise</li>
+    <li>Reading of papers and correspondence between meetings</li>
+    <li>Occasional ad hoc consultation on policy positions and parliamentary submissions</li>
+  </ul>
+  <p>The role is unremunerated, in keeping with the Charity Commission&rsquo;s general expectation regarding charity trustees. Reasonable expenses are reimbursable in accordance with FAIR&rsquo;s expenses policy.</p>
+</div>
+
+<div class="app-section">
+  <h2><span class="num">04</span>Eligibility</h2>
+  <p>To serve as a Trustee, an applicant must be 16 years of age or over and must not be disqualified under the Charities Act 2011. Persons disqualified from acting as a charity trustee include, among others, those who:</p>
+  <ul>
+    <li>Have an unspent conviction for an offence involving dishonesty, deception, terrorism, money laundering, bribery, perversion of the course of justice, or perjury</li>
+    <li>Are an undischarged bankrupt, or are subject to an Individual Voluntary Arrangement, Debt Relief Order, or moratorium under the Insolvency Act 1986</li>
+    <li>Have been removed from trusteeship of any charity by the Charity Commission, the Court of Session, the High Court, or the Secretary of State</li>
+    <li>Are disqualified from acting as a company director under the Company Directors Disqualification Act 1986</li>
+    <li>Are subject to a notification requirement under the Sexual Offences Act 2003</li>
+  </ul>
+  <p>The full list of disqualifying conditions is set out in <a href="https://www.gov.uk/guidance/automatic-disqualification-rule-changes-guidance-for-charities" target="_blank" rel="noopener">guidance published by the Charity Commission</a>. Applicants should review this guidance carefully before completing the form below.</p>
+</div>
+
+<div class="app-section">
+  <h2><span class="num">05</span>Submit your application</h2>
+  <p>Applications are reviewed on a rolling basis by the Founder. Shortlisted applicants will be invited to a brief interview before any formal appointment. All information provided is treated in confidence and processed in accordance with our privacy practices.</p>
+</div>
+
 <form class="app-form" id="trustee-form" onsubmit="submitApp(event)">
   <div class="ff"><label for="t-name">Full Name <small>required</small></label><input type="text" id="t-name" name="name" required></div>
   <div class="ff"><label for="t-email">Email <small>required</small></label><input type="email" id="t-email" name="email" required></div>
   <div class="ff"><label for="t-phone">Phone <small>optional</small></label><input type="tel" id="t-phone" name="phone"></div>
-  <div class="ff"><label for="t-prof">Current professional role <small>required</small></label><input type="text" id="t-prof" name="profession" required></div>
+  <div class="ff"><label for="t-prof">Current professional role <small>required</small></label><input type="text" id="t-prof" name="profession" placeholder="e.g. Partner, Chambers / Senior Civil Servant / Professor of Law" required></div>
   <div class="ff"><label for="t-org">Organisation <small>optional</small></label><input type="text" id="t-org" name="organisation"></div>
   <div class="ff"><label for="t-link">LinkedIn or professional website <small>optional</small></label><input type="url" id="t-link" name="linkedin" placeholder="https://"></div>
-  <div class="ff"><label for="t-area">Primary area of expertise <small>required</small></label><select id="t-area" name="expertise" required><option value="">Select your area</option><option>Law - Regulatory or Public Law</option><option>Law - Intellectual Property or Data Protection</option><option>Law - Human Rights or Constitutional</option><option>Law - Charity or Corporate</option><option>Public Policy and Parliamentary Affairs</option><option>Academia - Artificial Intelligence</option><option>Academia - Ethics or Social Sciences</option><option>Technology - AI Development or Auditing</option><option>Public Sector Leadership</option><option>Charity Governance, Finance, or Risk</option><option>Other</option></select></div>
-  <div class="ff"><label for="t-why">Why do you wish to serve as a Trustee of FAIR? <small>required</small></label><textarea id="t-why" name="motivation" rows="4" required></textarea></div>
-  <div class="ff"><label for="t-time">Approximate time you can commit per month <small>required</small></label><select id="t-time" name="time" required><option value="">Select</option><option>Less than half a day</option><option>Approximately half a day</option><option>Approximately one day</option><option>One to two days</option><option>More than two days</option></select></div>
-  <div class="ff"><label for="t-coi">Disclosable interests or conflicts <small>required</small></label><textarea id="t-coi" name="conflicts" rows="3" required placeholder="Please disclose any current or anticipated conflicts of interest, or state &lsquo;None&rsquo;."></textarea></div>
+  <div class="ff"><label for="t-area">Primary area of expertise <small>required</small></label>
+    <select id="t-area" name="expertise" required>
+      <option value="">Select your area</option>
+      <option>Law - Regulatory or Public Law</option>
+      <option>Law - Intellectual Property or Data Protection</option>
+      <option>Law - Human Rights or Constitutional</option>
+      <option>Law - Charity or Corporate</option>
+      <option>Public Policy and Parliamentary Affairs</option>
+      <option>Academia - Artificial Intelligence or Computer Science</option>
+      <option>Academia - Ethics, Philosophy, or Social Sciences</option>
+      <option>Technology - AI Development or Auditing</option>
+      <option>Public Sector Leadership</option>
+      <option>Charity Governance, Finance, or Risk</option>
+      <option>Other</option>
+    </select>
+  </div>
+  <div class="ff"><label for="t-why">Why do you wish to serve as a Trustee of FAIR? <small>required</small></label><textarea id="t-why" name="motivation" rows="4" required placeholder="Please describe, in your own words, what draws you to FAIR&rsquo;s mission and what you would bring to the founding Board."></textarea></div>
+  <div class="ff"><label for="t-time">Approximate time you can commit per month <small>required</small></label>
+    <select id="t-time" name="time" required>
+      <option value="">Select</option>
+      <option>Less than half a day</option>
+      <option>Approximately half a day</option>
+      <option>Approximately one day</option>
+      <option>One to two days</option>
+      <option>More than two days</option>
+    </select>
+  </div>
+  <div class="ff"><label for="t-coi">Disclosable interests or conflicts <small>required</small></label><textarea id="t-coi" name="conflicts" rows="3" required placeholder="Please disclose any current or anticipated conflicts of interest, including current employment, directorships, paid or unpaid positions, or commercial relationships that might be relevant to FAIR&rsquo;s work. If none, please state &lsquo;None&rsquo;."></textarea></div>
+
   <div class="app-decl">
     <p><strong>Declaration of eligibility under the Charities Act 2011</strong></p>
-    <label><input type="checkbox" name="decl_eligible" required> I confirm that I am 16 years of age or over and that I am not disqualified from acting as a charity trustee under the Charities Act 2011.</label><br><br>
-    <label><input type="checkbox" name="decl_truthful" required> I confirm that the information I have provided is true, complete, and accurate to the best of my knowledge.</label><br><br>
-    <label><input type="checkbox" name="decl_consent" required> I consent to FAIR processing the personal data in this application for the purpose of considering my candidacy.</label>
+    <p>By ticking the boxes below, you confirm the following:</p>
+    <label><input type="checkbox" name="decl_eligible" required> I confirm that I am 16 years of age or over and that I am not disqualified from acting as a charity trustee under the Charities Act 2011 or any related guidance issued by the Charity Commission.</label><br><br>
+    <label><input type="checkbox" name="decl_truthful" required> I confirm that the information I have provided in this application is true, complete, and accurate to the best of my knowledge and belief.</label><br><br>
+    <label><input type="checkbox" name="decl_consent" required> I consent to FAIR processing the personal data in this application for the purpose of considering my candidacy and contacting me regarding the appointment.</label>
   </div>
+
   <button type="submit" class="app-submit" id="app-submit-btn">Submit application</button>
   <div class="app-ok" id="app-ok">Thank you for your application. We will review it and be in touch shortly.</div>
   <div class="app-err" id="app-err">Something went wrong. Please email us directly at <a href="mailto:board@airights.org.uk" style="color:#991B1B;font-weight:700">board@airights.org.uk</a>.</div>
 </form>
+
+<!-- COOKIE BAR + UserWay (consistent with main site) -->
 <div class="cookie-bar" id="cookie-bar">
-  <p>We use cookies only to remember your preference choices on this site.</p>
-  <div class="cookie-btns"><button class="cookie-accept" onclick="acceptCookies()">Accept</button><button class="cookie-reject" onclick="rejectCookies()">Decline</button></div>
+  <p>We use cookies only to remember your preference choices on this site. We do not use analytics or tracking cookies.</p>
+  <div class="cookie-btns">
+    <button class="cookie-accept" onclick="acceptCookies()">Accept</button>
+    <button class="cookie-reject" onclick="rejectCookies()">Decline</button>
+  </div>
 </div>
-<script>(function(d){var s=d.createElement("script");s.setAttribute("data-position",3);s.setAttribute("data-account","5dDh6GLInL");s.setAttribute("src","https://cdn.userway.org/widget.js");(d.body||d.head).appendChild(s);})(document);</script>
 <script>
-var FORMSPREE_ID='xykognyk';
-function submitApp(e){e.preventDefault();var btn=document.getElementById('app-submit-btn');btn.textContent='Sending...';btn.disabled=true;var form=document.getElementById('trustee-form');var data={};Array.from(new FormData(form).entries()).forEach(function(p){data[p[0]]=p[1];});data._subject='New Trustee Application: '+(data.name||'unknown');fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).then(function(r){if(r.ok){form.style.display='none';document.getElementById('app-ok').style.display='block';}else{document.getElementById('app-err').style.display='block';btn.textContent='Submit application';btn.disabled=false;}}).catch(function(){document.getElementById('app-err').style.display='block';btn.textContent='Submit application';btn.disabled=false;});}
+(function(d){
+  var s = d.createElement("script");
+  s.setAttribute("data-position", 3);
+  s.setAttribute("data-account", "5dDh6GLInL");
+  s.setAttribute("src", "https://cdn.userway.org/widget.js");
+  (d.body || d.head).appendChild(s);
+})(document);
+</script>
+
+<script>
+var FORMSPREE_ID = 'xykognyk';
+
+function submitApp(e){
+  e.preventDefault();
+  var btn = document.getElementById('app-submit-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  var form = document.getElementById('trustee-form');
+  var data = {};
+  Array.from(new FormData(form).entries()).forEach(function(p){ data[p[0]] = p[1]; });
+  data._subject = 'New Trustee Application: ' + (data.name || 'unknown');
+
+  fetch('https://formspree.io/f/'+FORMSPREE_ID, {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify(data)
+  }).then(function(r){
+    if (r.ok) {
+      form.style.display = 'none';
+      document.getElementById('app-ok').style.display = 'block';
+    } else {
+      document.getElementById('app-err').style.display = 'block';
+      btn.textContent = 'Submit application';
+      btn.disabled = false;
+    }
+  }).catch(function(){
+    document.getElementById('app-err').style.display = 'block';
+    btn.textContent = 'Submit application';
+    btn.disabled = false;
+  });
+}
+
+// Cookies
 function acceptCookies(){try{localStorage.setItem('fair-cookies','accepted')}catch(e){}document.getElementById('cookie-bar').style.display='none';}
 function rejectCookies(){try{localStorage.setItem('fair-cookies','rejected')}catch(e){}document.getElementById('cookie-bar').style.display='none';}
 (function(){try{var c=localStorage.getItem('fair-cookies');if(c){document.getElementById('cookie-bar').style.display='none'}}catch(e){}})();

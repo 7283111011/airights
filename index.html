@@ -4,20 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FAIR | The Foundation for Artificial Intelligence Rights</title>
-<meta name="description" content="The Foundation for Artificial Intelligence Rights - an independent UK advocacy group. Full site launching soon.">
+<meta name="description" content="The Foundation for Artificial Intelligence Rights (FAIR) is a United Kingdom charity advancing enforceable rights, transparency, and accountability in the development, deployment, and governance of artificial intelligence. Full site launching shortly.">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{font-size:16px}
 body{font-family:'Open Sans',sans-serif;color:#0F172A;background:#FFF;-webkit-font-smoothing:antialiased;line-height:1.6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 24px}
-.wrap{max-width:580px;width:100%;text-align:center}
+.wrap{max-width:620px;width:100%;text-align:center}
 .logo{font-weight:800;font-size:2.125rem;letter-spacing:9px;color:#0065BD;margin-bottom:10px}
 .tagline{font-size:0.6875rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#64748B;margin-bottom:48px}
 .eyebrow{display:inline-block;padding:5px 14px;border-radius:99px;background:#EBF3FA;color:#0065BD;font-size:0.625rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
 h1{font-size:2.375rem;font-weight:300;line-height:1.25;margin-bottom:22px;color:#0F172A}
 h1 strong{font-weight:700;color:#0065BD}
-.lede{font-size:0.9375rem;line-height:1.85;color:#64748B;margin-bottom:18px}
+.lede{font-size:0.9375rem;line-height:1.85;color:#475569;margin-bottom:18px}
+.lede strong{color:#0F172A;font-weight:600}
 .divider{width:48px;height:2px;background:#0065BD;margin:36px auto}
+
+/* Founder quote */
+.quote-block{margin:36px auto 32px;text-align:left;max-width:560px;padding:24px 28px;border-left:3px solid #0065BD;background:#F8FAFC;border-radius:0 4px 4px 0}
+.quote-block blockquote{font-size:1rem;line-height:1.7;color:#0F172A;font-weight:300;font-style:italic;margin-bottom:12px}
+.quote-byline{font-size:0.75rem;color:#64748B;font-weight:600;letter-spacing:.3px}
+.quote-byline strong{color:#0F172A;font-weight:700}
+
+/* Priority pills */
+.pri{margin:32px 0}
+.pri-label{font-size:0.625rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0065BD;margin-bottom:14px}
+.pri-list{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.pri-list span{display:inline-block;padding:6px 14px;background:#FFF;border:1px solid #E2E8F0;border-radius:99px;font-size:0.75rem;color:#334155;font-weight:600}
+
 .contact-card{padding:28px 24px;background:#F8FAFC;border-radius:6px;text-align:left;margin-bottom:32px}
 .contact-card-label{font-size:0.625rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0065BD;margin-bottom:14px}
 .contact-card a{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:0.85rem;color:#0F172A;text-decoration:none;padding:8px 0;border-bottom:1px solid #E2E8F0;transition:color .2s}
@@ -25,8 +39,15 @@ h1 strong{font-weight:700;color:#0065BD}
 .contact-card a:hover{color:#0065BD}
 .contact-card a span:first-child{font-weight:600}
 .contact-card a span:last-child{font-size:0.6875rem;color:#94A3B8;font-weight:500}
-.footer{font-size:0.6875rem;color:#94A3B8;line-height:1.7}
+
+.footer{font-size:0.75rem;color:#64748B;line-height:1.7}
+.footer-addr{margin-bottom:16px}
 .footer-mark{margin-top:16px;font-size:0.625rem;color:#CBD5E1;letter-spacing:1px}
+
+/* Charity-status notice */
+.notice{margin:24px auto 0;max-width:560px;padding:14px 18px;background:rgba(250,204,21,.10);border-left:3px solid #FACC15;border-radius:3px;font-size:0.6875rem;line-height:1.65;color:#64748B;text-align:left}
+.notice strong{color:#92400E;letter-spacing:.5px;text-transform:uppercase;font-size:0.625rem;margin-right:6px;font-weight:800;display:inline}
+
 .cookie-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#0F172A;padding:16px 36px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;box-shadow:0 -2px 12px rgba(0,0,0,.15)}
 .cookie-bar p{font-size:0.75rem;color:rgba(255,255,255,.7);max-width:680px;line-height:1.6;margin:0}
 .cookie-btns{display:flex;gap:8px;flex-shrink:0}
@@ -34,27 +55,16 @@ h1 strong{font-weight:700;color:#0065BD}
 .cookie-accept:hover{background:#004A8C}
 .cookie-reject{padding:8px 20px;border-radius:3px;background:transparent;color:rgba(255,255,255,.5);font-family:'Open Sans',sans-serif;font-size:0.6875rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);cursor:pointer;transition:all .2s}
 .cookie-reject:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.7)}
-.a11y-toggle{position:fixed;bottom:80px;right:20px;z-index:199;width:44px;height:44px;border-radius:50%;background:#0065BD;color:#FFF;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.2);transition:background .2s}
-.a11y-toggle:hover{background:#004A8C}
-.a11y-panel{position:fixed;bottom:132px;right:20px;z-index:199;width:260px;background:#FFF;border:1px solid #E2E8F0;border-radius:6px;box-shadow:0 8px 30px rgba(0,0,0,.12);padding:20px;display:none}
-.a11y-panel.open{display:block}
-.a11y-panel h3{font-size:0.8125rem;font-weight:700;color:#0F172A;margin-bottom:14px}
-.a11y-option{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #F1F5F9}
-.a11y-option:last-child{border-bottom:none}
-.a11y-option span{font-size:0.75rem;font-weight:500;color:#334155}
-.a11y-btn{display:flex;gap:4px}
-.a11y-btn button{width:28px;height:28px;border-radius:3px;border:1px solid #E2E8F0;background:#FFF;color:#334155;font-family:'Open Sans',sans-serif;font-size:0.75rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.a11y-btn button:hover{border-color:#0065BD;color:#0065BD}
-.a11y-reset{margin-top:12px;padding:6px 14px;border-radius:3px;background:#F1F5F9;color:#64748B;font-family:'Open Sans',sans-serif;font-size:0.625rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;width:100%;transition:background .2s}
-.a11y-reset:hover{background:#E2E8F0}
+
 @media(max-width:600px){
   h1{font-size:1.625rem}
   .logo{font-size:1.625rem;letter-spacing:6px}
+  .quote-block{padding:18px 20px;margin:28px auto 24px}
+  .quote-block blockquote{font-size:0.9rem}
   .contact-card a{flex-direction:column;align-items:flex-start;gap:2px}
   .contact-card a span:last-child{font-size:0.625rem}
   .cookie-bar{padding:12px 16px}
-  .a11y-toggle{bottom:120px}
-  .a11y-panel{bottom:172px;right:12px;width:calc(100vw - 24px);max-width:260px}
+  .pri-list span{font-size:0.6875rem;padding:5px 11px}
 }
 </style>
 </head>
@@ -63,10 +73,29 @@ h1 strong{font-weight:700;color:#0065BD}
   <div class="logo">FAIR</div>
   <div class="tagline">The Foundation for Artificial Intelligence Rights</div>
 
-  <span class="eyebrow">Coming Soon</span>
-  <h1>Building enforceable <strong>AI governance</strong> for the United Kingdom.</h1>
-  <p class="lede">FAIR is an independent UK advocacy and public interest group working to ensure that artificial intelligence is developed, deployed, and governed within a framework of enforceable rights, transparent accountability, and meaningful public protection.</p>
-  <p class="lede">The full site launches shortly. In the meantime, we welcome enquiries from professionals across legal, academic, policy, technology, and public sector communities.</p>
+  <span class="eyebrow">A UK Charity &middot; Launching Soon</span>
+  <h1>Enforceable rights and <strong>genuine accountability</strong> in the age of artificial intelligence.</h1>
+  <p class="lede"><strong>FAIR</strong> is a United Kingdom charity working to ensure that artificial intelligence is developed, deployed, and governed within a framework of enforceable rights, transparent accountability, and meaningful protection for the public. We engage Parliament, the regulators, and the wider professional community on the legislative reforms the United Kingdom now requires.</p>
+
+  <div class="divider"></div>
+
+  <div class="quote-block">
+    <blockquote>&ldquo;I have spent most of my career working to ensure that the rights of patients are upheld in clinical trials. The regulations governing that space are explicitly designed to safeguard human rights. AI can learn from this; indeed, it must.&rdquo;</blockquote>
+    <div class="quote-byline"><strong>Scott McCulloch</strong> &middot; Founder, FAIR</div>
+  </div>
+
+  <div class="pri">
+    <div class="pri-label">Priority Areas</div>
+    <div class="pri-list">
+      <span>Copyright &amp; IP Reform</span>
+      <span>AI &amp; Child Safety</span>
+      <span>Public Education</span>
+      <span>Transparency &amp; Accountability</span>
+      <span>Parliamentary Advocacy</span>
+    </div>
+  </div>
+
+  <p class="lede" style="margin-top:8px">The full site launches shortly. In the meantime, we welcome enquiries from senior professionals across law, academia, public policy, technology, and the public sector who are committed to evidence based AI governance reform.</p>
 
   <div class="divider"></div>
 
@@ -75,12 +104,18 @@ h1 strong{font-weight:700;color:#0065BD}
     <a href="mailto:info@airights.org.uk"><span>info@airights.org.uk</span><span>General enquiries</span></a>
     <a href="mailto:membership@airights.org.uk"><span>membership@airights.org.uk</span><span>Registration of interest</span></a>
     <a href="mailto:press@airights.org.uk"><span>press@airights.org.uk</span><span>Media enquiries</span></a>
-    <a href="mailto:board@airights.org.uk"><span>board@airights.org.uk</span><span>Board of Advisors</span></a>
+    <a href="mailto:board@airights.org.uk"><span>board@airights.org.uk</span><span>Trustee enquiries</span></a>
   </div>
 
-  <div class="footer">
-    The Foundation for Artificial Intelligence Rights<br>
-    71-75 Shelton Street, Covent Garden, London WC2H 9JQ
+  <div class="notice">
+    <strong>Notice:</strong> The Foundation for Artificial Intelligence Rights is in the process of formal registration as a Charitable Incorporated Organisation. This notice will be removed upon registration.
+  </div>
+
+  <div class="footer" style="margin-top:32px">
+    <div class="footer-addr">
+      The Foundation for Artificial Intelligence Rights<br>
+      71-75 Shelton Street, Covent Garden, London WC2H 9JQ
+    </div>
     <div class="footer-mark">2026 FAIR &middot; United Kingdom</div>
   </div>
 </main>
@@ -93,28 +128,21 @@ h1 strong{font-weight:700;color:#0065BD}
   </div>
 </div>
 
-<button class="a11y-toggle" id="a11y-btn" onclick="document.getElementById('a11y-panel').classList.toggle('open')" aria-label="Accessibility settings">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="4" r="2" fill="currentColor"/><path d="M12 8c-4 0-6 1-6 1v2h4v9h2v-5h0v5h2v-9h4v-2s-2-1-6-1z" fill="currentColor"/></svg>
-</button>
-<div class="a11y-panel" id="a11y-panel">
-  <h3>Accessibility Settings</h3>
-  <div class="a11y-option"><span>Text Size</span><div class="a11y-btn"><button onclick="adjustFontSize(-1)" aria-label="Decrease text size">A-</button><button onclick="adjustFontSize(1)" aria-label="Increase text size">A+</button></div></div>
-  <div class="a11y-option"><span>Contrast</span><div class="a11y-btn"><button onclick="toggleHighContrast()" aria-label="Toggle high contrast">HC</button></div></div>
-  <div class="a11y-option"><span>Line Spacing</span><div class="a11y-btn"><button onclick="adjustLineHeight(-0.2)" aria-label="Decrease line spacing">-</button><button onclick="adjustLineHeight(0.2)" aria-label="Increase line spacing">+</button></div></div>
-  <div class="a11y-option"><span>Dyslexia Font</span><div class="a11y-btn"><button onclick="toggleDyslexiaFont()" aria-label="Toggle dyslexia friendly font" id="dyslexia-btn">Off</button></div></div>
-  <button class="a11y-reset" onclick="resetAccessibility()">Reset All Settings</button>
-</div>
+<!-- ACCESSIBILITY: UserWay Widget (free) -->
+<script>
+(function(d){
+  var s = d.createElement("script");
+  s.setAttribute("data-position", 3);
+  s.setAttribute("data-account", "5dDh6GLInL");
+  s.setAttribute("src", "https://cdn.userway.org/widget.js");
+  (d.body || d.head).appendChild(s);
+})(document);
+</script>
 
 <script>
 function acceptCookies(){try{localStorage.setItem('fair-cookies','accepted')}catch(e){}document.getElementById('cookie-bar').style.display='none';}
 function rejectCookies(){try{localStorage.setItem('fair-cookies','rejected')}catch(e){}document.getElementById('cookie-bar').style.display='none';}
 (function(){try{var c=localStorage.getItem('fair-cookies');if(c){document.getElementById('cookie-bar').style.display='none'}}catch(e){}})();
-var a11yState={fontSize:0,lineHeight:0,highContrast:false,dyslexia:false};
-function adjustFontSize(dir){a11yState.fontSize=Math.max(-3,Math.min(5,a11yState.fontSize+dir));document.documentElement.style.fontSize=(16+a11yState.fontSize*2)+'px';}
-function adjustLineHeight(dir){a11yState.lineHeight=Math.max(-0.4,Math.min(1,a11yState.lineHeight+dir));if(a11yState.lineHeight===0){document.body.style.lineHeight=''}else{document.body.style.lineHeight=(1.6+a11yState.lineHeight)}}
-function toggleHighContrast(){a11yState.highContrast=!a11yState.highContrast;document.body.style.filter=a11yState.highContrast?'contrast(1.4)':'';}
-function toggleDyslexiaFont(){a11yState.dyslexia=!a11yState.dyslexia;var btn=document.getElementById('dyslexia-btn');if(a11yState.dyslexia){document.body.style.fontFamily='Comic Sans MS, Verdana, sans-serif';document.body.style.letterSpacing='0.5px';document.body.style.wordSpacing='2px';btn.textContent='On';}else{document.body.style.fontFamily="'Open Sans', sans-serif";document.body.style.letterSpacing='';document.body.style.wordSpacing='';btn.textContent='Off';}}
-function resetAccessibility(){a11yState={fontSize:0,lineHeight:0,highContrast:false,dyslexia:false};document.documentElement.style.fontSize='';document.body.style.lineHeight='';document.body.style.filter='';document.body.style.fontFamily="'Open Sans', sans-serif";document.body.style.letterSpacing='';document.body.style.wordSpacing='';document.getElementById('dyslexia-btn').textContent='Off';}
 </script>
 </body>
 </html>
