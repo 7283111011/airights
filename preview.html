@@ -5,179 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FAIR | The Foundation for Artificial Intelligence Rights</title>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Open Sans',sans-serif;color:#0F172A;background:#FFF;-webkit-font-smoothing:antialiased;line-height:1.6}
-.fade-in{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-img{display:block;max-width:100%}
-
-/* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;transition:all .3s;background:transparent}
-.nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 1px 0 #E2E8F0}
-.nav-logo{font-weight:800;font-size:16px;letter-spacing:4px;cursor:pointer;text-decoration:none;transition:color .3s}
-.nav-links{display:flex;gap:24px;align-items:center}
-.nav-links a{font-size:12.5px;font-weight:500;text-decoration:none;transition:color .2s}
-.nav-cta{padding:7px 20px;border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;text-decoration:none;transition:all .2s}
-@media(max-width:860px){.nav{padding:0 16px}.nav-links,.nav-cta{display:none}.mobile-toggle{display:block!important}}
-.mobile-toggle{display:none;background:none;border:none;cursor:pointer}
-.mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;z-index:99;background:#FFF;border-bottom:1px solid #E2E8F0;padding:12px 16px}
-.mobile-menu.open{display:flex;flex-direction:column;gap:8px}
-.mobile-menu a{font-size:14px;font-weight:500;color:#334155;text-decoration:none;padding:6px 0;display:block}
-
-/* HERO: full width image background */
-.hero{position:relative;min-height:75vh;display:flex;align-items:flex-end;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=1920') center 35%/cover no-repeat}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(255,255,255,.95) 0%,rgba(255,255,255,.7) 35%,rgba(255,255,255,.3) 70%,rgba(255,255,255,.1) 100%)}
-.hero-content{position:relative;z-index:2;max-width:640px;padding:0 40px 64px}
-.hero-tag{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#0065BD;margin-bottom:18px;opacity:0;animation:fadeUp .6s ease .2s forwards}
-.hero-content h1{font-size:42px;font-weight:300;line-height:1.2;margin-bottom:18px;color:#0F172A;opacity:0;animation:fadeUp .7s ease .3s forwards}
-.hero-content h1 strong{font-weight:700;color:#0065BD}
-.hero-content p{font-size:15px;line-height:1.8;color:#64748B;max-width:500px;opacity:0;animation:fadeUp .7s ease .45s forwards}
-.hero-btns{display:flex;gap:10px;margin-top:26px;opacity:0;animation:fadeUp .7s ease .6s forwards}
-.btn-p{padding:11px 26px;border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;border:none;cursor:pointer;font-family:'Open Sans',sans-serif;background:#0065BD;color:#FFF;text-decoration:none;display:inline-block;transition:background .2s}
-.btn-p:hover{background:#004A8C}
-.btn-o{padding:11px 26px;border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;cursor:pointer;font-family:'Open Sans',sans-serif;background:transparent;color:#0065BD;border:1.5px solid #0065BD;text-decoration:none;display:inline-block;transition:background .2s}
-.btn-o:hover{background:#EBF3FA}
-@media(max-width:768px){.hero-content{padding:0 20px 40px}.hero-content h1{font-size:30px}}
-
-/* SECTIONS */
-.sec{padding:80px 36px;max-width:1040px;margin:0 auto}
-.sl{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#0065BD;margin-bottom:10px}
-.sh{font-size:28px;font-weight:300;line-height:1.35;margin-bottom:14px}
-.sh strong{font-weight:700}
-.sb{font-size:14px;line-height:1.85;color:#64748B;max-width:580px}
-@media(max-width:768px){.sec{padding:48px 16px}.sh{font-size:22px}}
-
-/* MISSION SPLIT */
-.ms{display:grid;grid-template-columns:1fr 1fr;margin-top:48px;border-radius:4px;overflow:hidden}
-.ms-img{min-height:280px;background:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200') center/cover no-repeat}
-.ms-txt{padding:36px 32px;background:#F6F9FC;display:flex;flex-direction:column;justify-content:center}
-.ms-txt h3{font-size:17px;font-weight:700;margin-bottom:8px;line-height:1.35}
-.ms-txt p{font-size:13px;line-height:1.75;color:#64748B}
-@media(max-width:768px){.ms{grid-template-columns:1fr}}
-
-/* PILLARS */
-.pillars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;margin-top:28px;background:#E2E8F0;border:1px solid #E2E8F0;border-radius:4px;overflow:hidden}
-.pillar{background:#FFF;padding:24px 20px;transition:background .2s}
-.pillar:hover{background:#F6F9FC}
-.pn{font-size:10px;font-weight:700;color:#0065BD;letter-spacing:1px;margin-bottom:8px}
-.pillar h3{font-size:14px;font-weight:700;margin-bottom:6px;line-height:1.3}
-.pillar p{font-size:12.5px;line-height:1.7;color:#64748B}
-@media(max-width:768px){.pillars{grid-template-columns:1fr}}
-
-/* CONCERNS with images */
-.cg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
-.cc{border-radius:4px;border:1px solid #E2E8F0;background:#FFF;overflow:hidden;transition:border-color .2s}
-.cc:hover{border-color:rgba(0,101,189,.12)}
-.cc-img{height:140px;background-size:cover;background-position:center}
-.cc-body{padding:20px}
-.cc-area{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#0065BD;margin-bottom:6px}
-.cc p{font-size:13px;line-height:1.75;color:#64748B}
-.cc-src{font-size:10px;color:#94A3B8;font-weight:600;margin-top:8px;font-style:italic}
-.cc-link{display:inline-block;margin-top:10px;font-size:11px;font-weight:700;color:#0065BD;text-decoration:none;letter-spacing:.3px;transition:color .2s}
-.cc-link:hover{color:#004A8C}
-@media(max-width:768px){.cg{grid-template-columns:1fr}}
-
-/* PROJECTS BANNER */
-.pb{height:200px;background:url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1600') center 40%/cover no-repeat;position:relative}
-.pb-ov{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,45,94,.72) 0%,rgba(0,45,94,.25) 100%);display:flex;align-items:center;padding:0 36px}
-.pb-t{color:#FFF;max-width:460px}
-.pb-t h2{font-size:26px;font-weight:300;line-height:1.35;margin-bottom:6px}
-.pb-t h2 strong{font-weight:700}
-.pb-t p{font-size:12px;color:rgba(255,255,255,.6);line-height:1.7}
-
-/* PROJECTS LIST */
-.pl{display:flex;flex-direction:column;gap:10px}
-.pi{display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 24px;border-radius:4px;background:#FFF;border:1px solid #E2E8F0;transition:border-color .2s}
-.pi:hover{border-color:rgba(0,101,189,.12)}
-.pi-n{font-size:18px;font-weight:800;color:#EBF3FA}
-.pi-t{display:inline-block;padding:2px 8px;border-radius:2px;background:#EBF3FA;color:#0065BD;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
-.pi h3{font-size:15px;font-weight:700;margin-bottom:5px;line-height:1.3}
-.pi p{font-size:13px;line-height:1.75;color:#64748B}
-.pi-r{margin-top:8px;padding-top:7px;border-top:1px solid #F1F5F9;font-size:10px;color:#94A3B8;font-weight:600}
-.pi-r span{color:#0065BD;font-weight:700}
-@media(max-width:768px){.pi{grid-template-columns:1fr;padding:16px}}
-
-/* NEWS with image */
-.news-banner{height:160px;background:url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200') center/cover no-repeat;position:relative;border-radius:4px;overflow:hidden;margin-bottom:24px}
-.news-banner-ov{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,45,94,.7),rgba(0,45,94,.2));display:flex;align-items:center;padding:0 32px}
-.ng{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.nc{padding:20px;border-radius:4px;border:1px solid #E2E8F0;background:#FFF;transition:border-color .2s}
-.nc:hover{border-color:rgba(0,101,189,.12)}
-.nd{font-size:10px;font-weight:700;color:#0065BD;margin-bottom:4px}
-.nc h3{font-size:13px;font-weight:700;line-height:1.3;margin-bottom:5px}
-.nc p{font-size:12px;line-height:1.65;color:#64748B}
-.ns{font-size:10px;color:#94A3B8;font-weight:600;margin-top:6px}
-@media(max-width:768px){.ng{grid-template-columns:1fr}}
-
-/* LEGIS */
-.lb{background:#EBF3FA;padding:14px 36px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
-.lb-l{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#94A3B8}
-.lb-i{font-size:10px;font-weight:600;color:#004A8C}
-
-/* FOUNDER */
-.founder{position:relative;overflow:hidden}
-.founder-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1600') center 70%/cover no-repeat}
-.founder-ov{position:absolute;inset:0;background:rgba(15,23,42,.88)}
-.founder-inner{position:relative;z-index:2;max-width:1040px;margin:0 auto;padding:80px 36px;display:grid;grid-template-columns:5fr 6fr;gap:44px;align-items:start}
-.f-headshot{width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.12);margin-bottom:20px}
-.f-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#E87722;margin-bottom:10px}
-.f-quote{font-size:19px;font-weight:300;line-height:1.65;color:#FFF;margin-top:12px;padding-left:16px;border-left:2px solid rgba(255,255,255,.1)}
-.founder p{font-size:13.5px;line-height:1.85;color:rgba(255,255,255,.5);margin-bottom:10px}
-.f-sig{margin-top:20px;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)}
-.f-name{font-size:14px;font-weight:700;color:#FFF}
-.f-role{font-size:11px;color:rgba(255,255,255,.3);margin-top:2px;line-height:1.5}
-.f-tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:4px}
-.f-tag{padding:3px 8px;border-radius:2px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);font-size:10px;font-weight:600;color:rgba(255,255,255,.3)}
-@media(max-width:860px){.founder-inner{grid-template-columns:1fr;gap:24px;padding:48px 16px}.f-quote{font-size:17px}}
-
-/* CONTACT */
-.contact{background:#F8FAFC}
-.contact-inner{max-width:1040px;margin:0 auto;padding:80px 36px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
-.cf{display:flex;flex-direction:column;gap:10px}
-.ff{display:flex;flex-direction:column;gap:3px}
-.ff label{font-size:11px;font-weight:600;color:#334155}
-.ff input,.ff textarea,.ff select{font-family:'Open Sans',sans-serif;font-size:13px;padding:9px 12px;border:1px solid #E2E8F0;border-radius:3px;background:#FFF;color:#0F172A;outline:none;transition:border-color .2s}
-.ff input:focus,.ff textarea:focus,.ff select:focus{border-color:#0065BD}
-.ff textarea{resize:vertical;min-height:70px}
-.f-submit{padding:10px 24px;border-radius:3px;align-self:flex-start;background:#0065BD;color:#FFF;font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
-.f-submit:hover{background:#004A8C}
-.f-ok{padding:16px;background:#EBF3FA;border-radius:4px;font-size:13px;color:#004A8C;font-weight:600;display:none}
-.rt{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
-.rtg{padding:3px 9px;border-radius:2px;background:#EBF3FA;color:#004A8C;font-size:10px;font-weight:600}
-@media(max-width:860px){.contact-inner{grid-template-columns:1fr;gap:28px;padding:48px 16px}}
-
-/* COOKIE BAR */
-.cookie-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#0F172A;padding:16px 36px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;box-shadow:0 -2px 12px rgba(0,0,0,.15)}
-.cookie-bar p{font-size:12px;color:rgba(255,255,255,.7);max-width:680px;line-height:1.6;margin:0}
-.cookie-bar a{color:#0065BD;text-decoration:underline}
-.cookie-btns{display:flex;gap:8px;flex-shrink:0}
-.cookie-accept{padding:8px 20px;border-radius:3px;background:#0065BD;color:#FFF;font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
-.cookie-accept:hover{background:#004A8C}
-.cookie-reject{padding:8px 20px;border-radius:3px;background:transparent;color:rgba(255,255,255,.5);font-family:'Open Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);cursor:pointer;transition:all .2s}
-.cookie-reject:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.7)}
-.cookie-settings{padding:8px 20px;border-radius:3px;background:transparent;color:rgba(255,255,255,.4);font-family:'Open Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;text-decoration:underline}
-
-/* ACCESSIBILITY: handled by UserWay widget */
-@media(max-width:768px){.cookie-bar{padding:12px 16px}}
-.footer{background:#0F172A;padding:40px 36px 20px}
-.footer-inner{max-width:1040px;margin:0 auto}
-.ft-top{display:flex;justify-content:space-between;align-items:start;gap:24px;flex-wrap:wrap;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.04)}
-.ft-brand{font-weight:800;font-size:14px;letter-spacing:4px;color:#FFF}
-.ft-sub{font-size:10px;color:rgba(255,255,255,.18);margin-top:3px;line-height:1.4}
-.ft-cols{display:flex;gap:32px;flex-wrap:wrap}
-.ft-col h4{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.18);margin-bottom:6px}
-.ft-col a{display:block;font-size:11px;color:rgba(255,255,255,.35);text-decoration:none;margin-bottom:4px;transition:color .2s}
-.ft-col a:hover{color:rgba(255,255,255,.65)}
-.ft-bot{display:flex;justify-content:space-between;align-items:center;padding-top:16px;flex-wrap:wrap;gap:8px}
-.ft-copy{font-size:9px;color:rgba(255,255,255,.1)}
-.ft-leg{display:flex;gap:14px}
-.ft-leg a{font-size:9px;color:rgba(255,255,255,.1);text-decoration:none}
-@media(max-width:768px){.footer{padding:32px 16px 16px}}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -211,7 +39,7 @@ img{display:block;max-width:100%}
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-tag">Advocacy and Public Interest Group | United Kingdom</div>
+    <div class="hero-tag">A Charity in Formation | United Kingdom</div>
     <h1>The Foundation for<br>Artificial Intelligence<br><strong>Rights</strong></h1>
     <p>An independent UK advocacy and public interest group dedicated to ensuring that artificial intelligence is developed, deployed, and governed within a framework of enforceable rights, transparent accountability, and meaningful public protection.</p>
     <div class="hero-btns">
@@ -225,9 +53,16 @@ img{display:block;max-width:100%}
 <section id="mission">
   <div class="sec">
     <div class="fade-in">
-      <div class="sl">Why FAIR Exists</div>
-      <h2 class="sh">AI systems are being deployed at scale into <strong>healthcare, education, finance, and public services</strong> with no comprehensive safeguards in place.</h2>
-      <p class="sb">The UK currently has no AI specific legislation. There are no binding transparency requirements for AI developers. There is no independent audit framework. No statutory obligation exists for developers to disclose what data their models were trained on, what hidden instructions shape their outputs, or what commercial interests influence what users see. The AI (Regulation) Bill remains stalled, and the government has repeatedly deferred action. FAIR was founded to advocate for the enforceable rights and meaningful protections that the UK public deserves.</p>
+      <div class="mission-grid">
+        <div class="mission-text">
+          <h2 class="sh">AI systems are being deployed at scale across <strong>healthcare, education, financial services, and the wider public sector</strong>, yet the United Kingdom has, to date, declined to introduce comprehensive statutory safeguards.</h2>
+          <p class="sb">At the time of writing, no domestic legislation imposes binding transparency obligations upon AI developers. There exists no independent audit framework, no statutory duty of disclosure as to training data, system instructions, or commercial arrangements influencing model outputs, and no proper redress for individuals subject to opaque automated decisions. The AI (Regulation) Bill, having progressed through earlier parliamentary stages, remains stalled. Successive Governments have deferred substantive action.</p>
+          <p class="sb" style="margin-top:14px">FAIR was founded to advance, through evidence-based research and principled engagement with Parliament, the enforceable rights and meaningful protections to which the public are properly entitled.</p>
+        </div>
+        <div class="mission-image">
+          <img src="https://t3.ftcdn.net/jpg/18/40/32/76/500_F_1840327677_4PomYmsmR64mjeyCgWVH6QkjLjZU9Nhx.jpg" alt="Artificial intelligence neural network">
+        </div>
+      </div>
     </div>
 
     <div class="fade-in">
@@ -308,7 +143,7 @@ img{display:block;max-width:100%}
       </div>
 
       <div class="cc fade-in">
-        <div class="cc-img" style="background-image:url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800')"></div>
+        <div class="cc-img" style="background-image:url('https://t3.ftcdn.net/jpg/03/53/58/04/500_F_353580477_TRyamVHWoHpzKmR4jgXswwaIqDvBwa7G.jpg')"></div>
         <div class="cc-body">
           <div class="cc-area">Financial Services</div>
           <p>The Bank of England Financial Policy Committee has flagged systemic risk from growing AI use in trading, credit scoring, and operational functions, but no AI specific financial rules exist in the UK.</p>
@@ -331,13 +166,12 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
-<!-- PROJECTS BANNER -->
+<!-- PROJECTS BANNER (pastel) -->
 <div class="pb">
-  <div class="pb-ov">
-    <div class="pb-t">
-      <h2>Five <strong>priority areas</strong></h2>
-      <p>Each project addresses a specific gap in the UK current approach to AI governance.</p>
-    </div>
+  <div class="pb-inner">
+    <h2>Five <strong>priority areas</strong></h2>
+    <p>Each initiative addresses a specific gap in the United Kingdom&rsquo;s current approach to AI governance.</p>
+    <p class="pb-note">These are proposed projects, subject to consultation with and approval by the Board.</p>
   </div>
 </div>
 
@@ -345,11 +179,11 @@ img{display:block;max-width:100%}
 <section id="projects" style="background:#F8FAFC">
   <div class="sec" style="padding-top:40px">
     <div class="pl">
-      <div class="pi fade-in"><div class="pi-n">01</div><div><div class="pi-t">Legislative Priority</div><h3>AI Copyright and Intellectual Property Reform</h3><p>Section 29A of the CDPA provides no commercial safe harbour for text and data mining, while rights holders have no meaningful transparency or enforcement tools. FAIR advocates for a balanced commercial TDM exception with mandatory disclosure, producer rights reform, and a market access provision for models trained outside the UK.</p><div class="pi-r"><span>Relevant: </span>CDPA 1988 | DSM Directive | EU AI Act | Data (Use and Access) Act 2025</div></div></div>
-      <div class="pi fade-in"><div class="pi-n">02</div><div><div class="pi-t">Safeguarding</div><h3>AI and Child Safety</h3><p>Generative AI has created urgent new risks for children. Nudification tools, deepfake generators, and AI companion chatbots all present documented harms. While the Crime and Policing Bill proposes to ban certain tools, enforcement remains underdeveloped. FAIR will push for comprehensive age gating, content provenance standards, and criminal liability for platform operators.</p><div class="pi-r"><span>Relevant: </span>Online Safety Act 2023 | Crime and Policing Bill | KCSIE 2026</div></div></div>
-      <div class="pi fade-in"><div class="pi-n">03</div><div><div class="pi-t">Public Engagement</div><h3>Public Education and AI Literacy</h3><p>Public understanding of AI is critically low. Teachers report having no training or policy guidance. FAIR will develop evidence based educational programmes and publish plain language briefings on every significant AI policy development in Parliament.</p><div class="pi-r"><span>Relevant: </span>UK GDPR | Data Protection Act 2018 | Equality Act 2010</div></div></div>
-      <div class="pi fade-in"><div class="pi-n">04</div><div><div class="pi-t">Technical Standards</div><h3>AI Transparency and Accountability</h3><p>The UK has no binding transparency requirements for AI developers. Research has documented that hidden system prompts introduce bias without users knowledge, and that AI products routinely conceal instructions from the people using them. FAIR will advocate for statutory disclosure obligations covering training data, system instructions, and any commercial arrangements that influence AI outputs.</p><div class="pi-r"><span>Relevant: </span>EU AI Act (Art. 53) | ICO AI Code of Practice (May 2026)</div></div></div>
-      <div class="pi fade-in"><div class="pi-n">05</div><div><div class="pi-t">Core Function</div><h3>Parliamentary Advocacy and Legislative Drafting</h3><p>The AI (Regulation) Bill remains stalled. The government has deferred comprehensive AI legislation. FAIR will engage directly with Parliamentarians, submit expert evidence to Select Committees, draft model provisions, and work with cross party groups to ensure the forthcoming AI Bill contains enforceable rights and genuine accountability.</p><div class="pi-r"><span>Relevant: </span>AI (Regulation) Bill | AI Opportunities Action Plan | King Speech 2026</div></div></div>
+      <div class="pi fade-in"><div class="pi-n"><div class="pi-img" data-num="01"><img src="https://t4.ftcdn.net/jpg/19/99/32/61/500_F_1999326163_G2xmvZBvOWPGArO3eAU7V8uEzeTAnSes.jpg" alt=""></div><span class="pi-num">01</span></div><div><div class="pi-t">Legislative Priority</div><h3>AI Copyright and Intellectual Property Reform</h3><p>Section 29A of the CDPA provides no commercial safe harbour for text and data mining, while rights holders have no meaningful transparency or enforcement tools. FAIR advocates for a balanced commercial TDM exception with mandatory disclosure, producer rights reform, and a market access provision for models trained outside the UK.</p><div class="pi-r"><span>Relevant: </span>CDPA 1988 | DSM Directive | EU AI Act | Data (Use and Access) Act 2025</div></div></div>
+      <div class="pi fade-in"><div class="pi-n"><div class="pi-img" data-num="02"><img src="https://t3.ftcdn.net/jpg/20/00/86/70/500_F_2000867096_pY029U4lS6GpkwHJEHBSwl0LPVsdzLyc.jpg" alt=""></div><span class="pi-num">02</span></div><div><div class="pi-t">Safeguarding</div><h3>AI and Child Safety</h3><p>Generative AI has created urgent new risks for children. Nudification tools, deepfake generators, and AI companion chatbots all present documented harms. While the Crime and Policing Bill proposes to ban certain tools, enforcement remains underdeveloped. FAIR will push for comprehensive age gating, content provenance standards, and criminal liability for platform operators.</p><div class="pi-r"><span>Relevant: </span>Online Safety Act 2023 | Crime and Policing Bill | KCSIE 2026</div></div></div>
+      <div class="pi fade-in"><div class="pi-n"><div class="pi-img" data-num="03"><img src="https://t3.ftcdn.net/jpg/18/87/90/92/500_F_1887909217_p36JUHdc98CJyMaBVCj3d6P2YbJuROBN.jpg" alt=""></div><span class="pi-num">03</span></div><div><div class="pi-t">Public Engagement</div><h3>Public Education and AI Literacy</h3><p>Public understanding of AI is critically low. Teachers report having no training or policy guidance. FAIR will develop evidence based educational programmes and publish plain language briefings on every significant AI policy development in Parliament.</p><div class="pi-r"><span>Relevant: </span>UK GDPR | Data Protection Act 2018 | Equality Act 2010</div></div></div>
+      <div class="pi fade-in"><div class="pi-n"><div class="pi-img" data-num="04"><img src="https://t3.ftcdn.net/jpg/19/85/69/92/500_F_1985699212_kLiFNxaarl80hvoKxGmOo59uhKpSOtR1.jpg" alt=""></div><span class="pi-num">04</span></div><div><div class="pi-t">Technical Standards</div><h3>AI Transparency and Accountability</h3><p>The UK has no binding transparency requirements for AI developers. Research has documented that hidden system prompts introduce bias without users knowledge, and that AI products routinely conceal instructions from the people using them. FAIR will advocate for statutory disclosure obligations covering training data, system instructions, and any commercial arrangements that influence AI outputs.</p><div class="pi-r"><span>Relevant: </span>EU AI Act (Art. 53) | ICO AI Code of Practice (May 2026)</div></div></div>
+      <div class="pi fade-in"><div class="pi-n"><div class="pi-img" data-num="05"><img src="https://t4.ftcdn.net/jpg/02/50/90/33/500_F_250903337_bKXo9uNrpU2rtQ0xXHFhNnBitK3D955a.jpg" alt=""></div><span class="pi-num">05</span></div><div><div class="pi-t">Core Function</div><h3>Parliamentary Advocacy and Legislative Drafting</h3><p>The AI (Regulation) Bill remains stalled. The government has deferred comprehensive AI legislation. FAIR will engage directly with Parliamentarians, submit expert evidence to Select Committees, draft model provisions, and work with cross party groups to ensure the forthcoming AI Bill contains enforceable rights and genuine accountability.</p><div class="pi-r"><span>Relevant: </span>AI (Regulation) Bill | AI Opportunities Action Plan | King Speech 2026</div></div></div>
     </div>
   </div>
 </section>
@@ -360,21 +194,14 @@ img{display:block;max-width:100%}
     <div class="fade-in">
       <div class="sl">Latest Developments</div>
       <h2 class="sh">UK AI <strong>policy and regulation</strong></h2>
+      <p class="sb">A live feed of recent UK news on AI law, regulation, and governance, drawn from credible national sources and refreshed automatically.</p>
     </div>
-    <div class="ng">
-      <div class="nc fade-in"><div class="nd">21 Apr 2026</div><h3>ICO AI Code of Practice: Regulations Take Effect 12 May</h3><p>The Information Commissioner must prepare a statutory code of practice on AI and automated decision making, including specific guidance on children data.</p><div class="ns">UK Parliament</div></div>
-      <div class="nc fade-in"><div class="nd">9 Apr 2026</div><h3>OpenAI Pauses UK Stargate Data Centre</h3><p>Citing an unfavourable regulatory environment and high energy costs, OpenAI paused UK investment despite the government stated commitment to AI infrastructure.</p><div class="ns">Reuters</div></div>
-      <div class="nc fade-in"><div class="nd">Mar 2026</div><h3>Lords Report: Creative Industries Face Clear and Present Danger</h3><p>The House of Lords Communications Committee rejected any broad TDM exception and called for statutory transparency obligations on AI developers.</p><div class="ns">House of Lords</div></div>
-      <div class="nc fade-in"><div class="nd">Feb 2026</div><h3>Education Committee Launches AI and EdTech Inquiry</h3><p>MPs will examine AI risks in schools, children digital rights, safeguarding concerns from AI tools, and whether students are supported to use AI safely.</p><div class="ns">UK Parliament</div></div>
+    <div class="ng" id="news-grid">
+      <div class="nc news-loading">Loading latest news...</div>
     </div>
+    <p class="news-attrib"><small>News headlines aggregated via Google News from sources including The Guardian, BBC, The Independent, Reuters, and Financial Times. FAIR does not endorse any individual publication. Click any headline to read the full article at its source.</small></p>
   </div>
 </section>
-
-<!-- LEGIS -->
-<div class="lb">
-  <div class="lb-l">Monitoring</div>
-  <div class="lb-i">CDPA 1988</div><div class="lb-i">UK GDPR</div><div class="lb-i">EU AI Act</div><div class="lb-i">Online Safety Act 2023</div><div class="lb-i">AI (Regulation) Bill</div><div class="lb-i">Crime and Policing Bill</div><div class="lb-i">Data (Use and Access) Act 2025</div><div class="lb-i">KCSIE 2026</div>
-</div>
 
 <!-- FOUNDER -->
 <section class="founder" id="founder">
@@ -382,21 +209,18 @@ img{display:block;max-width:100%}
   <div class="founder-ov"></div>
   <div class="founder-inner">
     <div class="fade-in">
-      <img class="f-headshot" src="images/SMheadshot2026.jpeg" alt="Scott McCulloch">
+      <div class="f-headshot-frame"><img class="f-headshot" src="images/SMheadshot2026.jpeg" alt="Scott McCulloch"></div>
       <div class="f-label">Why I Started FAIR</div>
       <div class="f-quote">"I spent nearly twenty years advising drug development organisations on the navigation of complex, multi jurisdictional regulatory frameworks. AI has no equivalent framework, and the people most affected have had no meaningful say in building one."</div>
     </div>
     <div class="fade-in">
-      <p>For nearly two decades, Scott McCulloch has served as a trusted authority to drug development organisations confronting the full weight of international regulatory obligation. His counsel has guided sponsors, investigators, and service providers through the navigation of multi jurisdictional regulatory frameworks spanning Europe, North America, South America, and the Asia Pacific region, ensuring at every stage that clinical trial data meets the highest standards of integrity, that compliance is not merely aspirational but demonstrable, and that the results upon which regulatory authorities rely in granting market authorisation are robustly defensible. His purview has extended across the entire development lifecycle, from the earliest stages of scientific research through to post authorisation commitments, working hand in hand with some of the world's most exceptional scientists and medical professionals.</p>
-      <p>It is precisely this sustained, first hand experience of what enforceable regulatory oversight looks like in practice, what it demands of organisations, and what it delivers for the individuals it is designed to protect, that equips Scott McCulloch to lead FAIR.</p>
-      <p>In concurrence with a distinguished career in the regulated sciences, Scott has undertaken a substantive and deliberate turn toward the law. He is now in the penultimate stages of completing a law degree at the University of Law, alongside preparation for admission as a practising solicitor. He is concurrently reading postgraduate programmes in AI Law at the University of Oxford and Intellectual Property at Brunel University London. He holds a Master of Science in Psychology and Neuroscience from King's College London.</p>
-      <p>Scott founded FAIR in the hope of applying the same rigour to the use and implementation of artificial intelligence that he has spent his career applying to the protection of patients in clinical trials and in receipt of authorised medicines. He has seen what happens when innovation operates within a framework of enforceable standards: it succeeds, it earns public trust, and it protects the people it touches. The rights of individuals deserve no less than the protections already afforded to patients.</p>
+      <p class="bio-summary">Scott McCulloch is the founder of FAIR. For nearly two decades he has advised drug development organisations on the navigation of complex, multi&nbsp;jurisdictional regulatory frameworks across Europe, North America, South America, and the Asia&nbsp;Pacific. He is currently in the penultimate stages of a law degree at the University of Law, alongside postgraduate study in AI Law at the University of Oxford and Intellectual Property at Brunel University London. Scott founded FAIR in the conviction that artificial intelligence deserves the same rigour of governance long afforded to medicines.</p>
+
+      <button class="bio-toggle" id="bio-toggle" onclick="openBioModal()" aria-haspopup="dialog">Read full biography</button>
+
       <div class="f-sig">
         <div class="f-name">Scott McCulloch</div>
-        <div class="f-role">Founder, FAIR<br>M.S. Psychology and Neuroscience, King's College London<br>LLB, University of Law (2026)</div>
-      </div>
-      <div class="f-tags">
-        <div class="f-tag">Regulatory Compliance</div><div class="f-tag">Data Integrity</div><div class="f-tag">AI Law</div><div class="f-tag">Intellectual Property</div><div class="f-tag">Data Privacy (CIPP/E)</div><div class="f-tag">SQE1 Qualified</div><div class="f-tag">RQAP</div><div class="f-tag">ACRP-CP</div>
+        <div class="f-role">Founder, FAIR<br>M.S. Psychology and Neuroscience, King&rsquo;s College London<br>LLB, University of Law (2026)</div>
       </div>
     </div>
   </div>
@@ -407,9 +231,15 @@ img{display:block;max-width:100%}
   <div class="contact-inner">
     <div class="fade-in">
       <div class="sl">Get Involved</div>
-      <h2 class="sh">Help <strong>drive our initiatives</strong></h2>
+      <h2 class="sh">Help <strong>shape AI governance in the United Kingdom</strong></h2>
       <p class="sb" style="margin-bottom:12px">
-        FAIR is seeking professionals from industry, government, and the public sector who are committed to building enforceable AI governance in the UK. We are looking for individuals who want to contribute their expertise to our priority projects, participate in working groups, and help shape policy positions. We are also actively building our Board of Advisors and welcome expressions of interest from senior professionals across all relevant disciplines.
+        FAIR is currently establishing its founding cohort of <strong>Trustees</strong>, <strong>Project Leads</strong>, and <strong>Working Group members</strong>. We invite expressions of interest from senior professionals across law, academia, public policy, technology, and the public sector who are committed to evidence&nbsp;based AI governance reform.
+      </p>
+      <p class="sb" style="margin-bottom:12px">
+        Trustees serve as the founding governing body and bear the legal duties associated with charitable trusteeship. Project Leads convene one of our priority initiatives and work with the Board to shape policy positions and parliamentary engagement. Working Group members contribute subject matter expertise to time&nbsp;limited research and drafting projects.
+      </p>
+      <p class="sb" style="margin-bottom:12px">
+        <a href="board-application.html" style="color:#0065BD;font-weight:600;text-decoration:none;border-bottom:1px solid #0065BD">Apply to serve as a Trustee &rarr;</a>
       </p>
       <div style="margin:16px 0;padding:16px;background:#EBF3FA;border-radius:4px">
         <div style="font-size:11px;font-weight:700;color:#0065BD;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Contact Us</div>
@@ -440,6 +270,22 @@ img{display:block;max-width:100%}
     <div class="fade-in">
       <div class="f-ok" id="form-ok" style="display:none">Thank you for your interest. We will be in touch shortly.</div>
       <div class="f-ok" id="form-err" style="display:none;background:#FEE2E2;color:#991B1B">Something went wrong. Please email us directly at <a href="mailto:info@airights.org.uk" style="color:#991B1B;font-weight:700">info@airights.org.uk</a>.</div>
+      <!--
+        ╔══════════════════════════════════════════════════════════╗
+        ║  FORMSPREE SETUP INSTRUCTIONS                          ║
+        ║                                                        ║
+        ║  1. Go to https://formspree.io and create a free       ║
+        ║     account using info@airights.org.uk                 ║
+        ║                                                        ║
+        ║  2. Click "New Form", name it "FAIR Contact Form"      ║
+        ║                                                        ║
+        ║  3. Copy your form ID (e.g. xpwdgkbn)                 ║
+        ║                                                        ║
+        ║  4. Replace YOUR_FORM_ID below with your actual ID     ║
+        ║                                                        ║
+        ║  Free tier: 50 submissions/month                       ║
+        ╚══════════════════════════════════════════════════════════╝
+      -->
       <div class="cf" id="form-wrap">
         <div class="ff"><label for="name">Full Name</label><input type="text" id="name" name="name" placeholder="Your name" required></div>
         <div class="ff"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="your@email.com" required></div>
@@ -508,7 +354,7 @@ img{display:block;max-width:100%}
         </div>
         <div class="ft-col">
           <h4>Address</h4>
-          <span style="font-size:11px;color:rgba(255,255,255,.35);line-height:1.6">The Foundation for Artificial Intelligence Rights<br>71-75 Shelton Street<br>Covent Garden<br>London WC2H 9JQ<br>United Kingdom</span>
+          <span style="font-size:11px;color:rgba(255,255,255,.35);line-height:1.6">The Foundation for Artificial Intelligence Rights<br>71-75 Shelton Street<br>Covent Garden<br>London WC2H 9JQ<br>United Kingdom<br><br><em style="color:rgba(255,255,255,.25);font-size:10px">In the process of registering as a Charitable Incorporated Organisation with the Charity Commission for England and Wales.</em></span>
         </div>
       </div>
     </div>
@@ -528,8 +374,17 @@ img{display:block;max-width:100%}
   </div>
 </div>
 
+<!-- ACCESSIBILITY: UserWay Widget (free) -->
 <!-- UserWay accessibility widget (account: 5dDh6GLInL) -->
-<script data-account="5dDh6GLInL" src="https://cdn.userway.org/widget.js"></script>
+<script>
+(function(d){
+  var s = d.createElement("script");
+  s.setAttribute("data-position", 3);
+  s.setAttribute("data-account", "5dDh6GLInL");
+  s.setAttribute("src", "https://cdn.userway.org/widget.js");
+  (d.body || d.head).appendChild(s);
+})(document);
+</script>
 
 <script>
 window.addEventListener('scroll',function(){var n=document.getElementById('navbar');if(window.scrollY>20){n.classList.add('scrolled')}else{n.classList.remove('scrolled')}});
@@ -540,6 +395,30 @@ function submitForm(e){e.preventDefault();var name=document.getElementById('name
 function acceptCookies(){try{localStorage.setItem('fair-cookies','accepted')}catch(e){}document.getElementById('cookie-bar').style.display='none';}
 function rejectCookies(){try{localStorage.setItem('fair-cookies','rejected')}catch(e){}document.getElementById('cookie-bar').style.display='none';}
 (function(){try{var c=localStorage.getItem('fair-cookies');if(c){document.getElementById('cookie-bar').style.display='none'}}catch(e){}})();
+(function loadNews(){var grid=document.getElementById('news-grid');if(!grid)return;var query=encodeURIComponent('"artificial intelligence" UK (regulation OR governance OR law OR policy)');var rssUrl='https://news.google.com/rss/search?q='+query+'&hl=en-GB&gl=GB&ceid=GB:en';var apiUrl='https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(rssUrl);fetch(apiUrl).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(function(data){if(data.status!=='ok'){grid.innerHTML='<div class="nc news-error">News status: '+(data.status||'unknown')+'</div>';return;}if(!data.items||data.items.length===0){grid.innerHTML='<div class="nc">No recent news.</div>';return;}var html='';data.items.slice(0,6).forEach(function(item){var d=new Date(item.pubDate);var dateStr=d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});var src='';try{src=(item.source&&item.source.title)||(new URL(item.link)).hostname.replace(/^www\./,'');}catch(e){src='';}var desc=(item.description||'').replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim();if(desc.length>140)desc=desc.substring(0,140)+'...';var title=(item.title||'').replace(/<[^>]+>/g,'');html+='<article class="nc"><div class="nd">'+dateStr+'</div><h3><a href="'+item.link+'" target="_blank" rel="noopener">'+title+'</a></h3><p>'+desc+'</p><div class="ns">'+src+'</div></article>';});grid.innerHTML=html;}).catch(function(err){grid.innerHTML='<div class="nc news-error">News feed unavailable. Will work once hosted online.</div>';});})();
+function openBioModal(){var modal=document.getElementById('bio-modal');modal.classList.add('open');document.body.style.overflow='hidden';setTimeout(function(){var b=modal.querySelector('.bio-modal-close');if(b)b.focus();},50);}
+function closeBioModal(){document.getElementById('bio-modal').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){var modal=document.getElementById('bio-modal');if(modal&&modal.classList.contains('open'))closeBioModal();}});
 </script>
+<div class="bio-modal" id="bio-modal" role="dialog" aria-labelledby="bio-modal-title" aria-modal="true">
+  <div class="bio-modal-backdrop" onclick="closeBioModal()"></div>
+  <div class="bio-modal-content">
+    <button class="bio-modal-close" onclick="closeBioModal()" aria-label="Close biography">&times;</button>
+    <div class="bio-modal-header">
+      <div class="bio-modal-portrait"><img src="images/SMheadshot2026.jpeg" alt="Scott McCulloch"></div>
+      <div>
+        <h3 id="bio-modal-title">Scott McCulloch</h3>
+        <p class="bio-modal-role">Founder, FAIR</p>
+        <p class="bio-modal-creds">M.S. Psychology and Neuroscience, King&rsquo;s College London &middot; LLB, University of Law (2026)</p>
+      </div>
+    </div>
+    <div class="bio-modal-body">
+      <p>For nearly two decades, Scott McCulloch has served as a trusted authority to drug development organisations confronting the full weight of international regulatory obligation across Europe, North America, South America, and the Asia Pacific. His purview has extended across the entire development lifecycle, from research through post authorisation commitments.</p>
+      <p>It is precisely this sustained, first hand experience of what enforceable regulatory oversight looks like in practice that equips Scott McCulloch to lead FAIR.</p>
+      <p>In concurrence with a distinguished career in the regulated sciences, Scott has undertaken a substantive and deliberate turn toward the law. He is now in the penultimate stages of completing a law degree at the University of Law, alongside preparation for admission as a practising solicitor. He is concurrently reading postgraduate programmes in AI Law at the University of Oxford and Intellectual Property at Brunel University London. He holds a Master of Science in Psychology and Neuroscience from King&rsquo;s College London.</p>
+      <p>Scott founded FAIR in the hope of applying the same rigour to the use and implementation of artificial intelligence that he has spent his career applying to the protection of patients in clinical trials and in receipt of authorised medicines.</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
