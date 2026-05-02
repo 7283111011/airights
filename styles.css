@@ -419,3 +419,27 @@ img{display:block;max-width:100%}
   .contact-card-row{flex-direction:column;align-items:flex-start;gap:4px;padding:8px 0}
   .contact-card-row span{font-size:12px}
   .contact-card
+/* ============== NEWSLETTER SIGNUP BAND (preview/full site) ============== */
+.nls-band{background:linear-gradient(180deg,#EBF3FA 0%,#F8FAFC 100%);border-top:1px solid #DBEAFE;border-bottom:1px solid #E2E8F0;padding:48px 28px}
+.nls-inner{max-width:920px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:36px;align-items:center}
+.nls-eyebrow{display:inline-block;padding:5px 14px;border-radius:99px;background:#FFF;color:#0065BD;font-size:0.6875rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;border:1px solid #CBD5E1}
+.nls-h{font-size:1.625rem;font-weight:300;color:#0F172A;line-height:1.25;margin-bottom:10px}
+.nls-h strong{font-weight:700;color:#0065BD}
+.nls-blurb{font-size:0.9375rem;line-height:1.65;color:#475569;margin:0}
+.nls-form{display:flex;gap:8px;flex-wrap:wrap;align-items:stretch;background:#FFF;padding:14px;border-radius:4px;box-shadow:0 4px 16px rgba(15,23,42,.06)}
+.nls-form input[type=email]{flex:1;min-width:200px;font-family:'Open Sans',sans-serif;font-size:0.9375rem;padding:11px 14px;border:1px solid #E2E8F0;border-radius:3px;background:#FFF;color:#0F172A;outline:none;transition:border-color .2s}
+.nls-form input[type=email]:focus{border-color:#0065BD}
+.nls-form input[type=email]::placeholder{color:#94A3B8}
+.nls-form button{padding:11px 24px;border-radius:3px;background:#0065BD;color:#FFF;font-family:'Open Sans',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s;white-space:nowrap}
+.nls-form button:hover{background:#004A8C}
+.nls-fine{font-size:0.75rem;color:#64748B;margin-top:10px;line-height:1.55}
+.nls-fine a{color:#0065BD;text-decoration:none}
+.nls-fine a:hover{text-decoration:underline}
+.nls-meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-size:0.75rem;color:#475569}
+.nls-meta span{display:inline-flex;align-items:center;gap:5px}
+.nls-meta span::before{content:"";width:5px;height:5px;border-radius:50%;background:#0065BD;display:inline-block}
+@media (max-width:780px){
+  .nls-band{padding:36px 20px}
+  .nls-inner{grid-template-columns:1fr;gap:20px}
+  .nls-h{font-size:1.375rem}
+}
