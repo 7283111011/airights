@@ -418,7 +418,9 @@ img{display:block;max-width:100%}
   .contact-card{padding:24px 22px}
   .contact-card-row{flex-direction:column;align-items:flex-start;gap:4px;padding:8px 0}
   .contact-card-row span{font-size:12px}
-  .contact-card
+  .contact-card{padding:20px 18px}
+}
+
 /* ============== NEWSLETTER SIGNUP BAND (preview/full site) ============== */
 .nls-band{background:linear-gradient(180deg,#EBF3FA 0%,#F8FAFC 100%);border-top:1px solid #DBEAFE;border-bottom:1px solid #E2E8F0;padding:48px 28px}
 .nls-inner{max-width:920px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:36px;align-items:center}
