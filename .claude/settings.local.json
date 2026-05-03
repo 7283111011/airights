@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ' *)",
+      "Bash(xargs -n 1 -P 8 -I {} sh -c 'curl -fsSL -o \"$\\(basename \"$1\"\\)\" \"$1\" || echo \"FAILED: $1\"' _ {})"
+    ]
+  }
+}

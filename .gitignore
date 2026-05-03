@@ -1,0 +1,15 @@
+# Internal/private files: not for public hosting on GitHub Pages.
+deliverables/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
+
+# Build artefacts
+__pycache__/
+*.pyc
+node_modules/
