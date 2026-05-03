@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Watch | FAIR &mdash; The Foundation for Artificial Intelligence Rights</title>
+<meta name="description" content="A factual register of UK public-sector artificial intelligence procurement. NHS, central government departments, courts, police, welfare. Every entry sourced.">
+<meta property="og:title" content="AI Watch | FAIR">
+<meta property="og:description" content="A factual register of UK public-sector AI procurement. Every entry sourced from official records.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://airights.org.uk/ai-watch.html">
+<meta property="og:image" content="https://airights.org.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://airights.org.uk/ai-watch.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="google-site-verification" content="2uoQexdaJCpih74zL-iG_ORxeBMct3gDn6ckseYCP_c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Open Sans',sans-serif;color:#0F172A;background:#FFF;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .nav{padding:16px 32px;border-bottom:1px solid #E2E8F0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .nav .logo{font-weight:800;font-size:1.125rem;letter-spacing:5px;color:#0065BD;text-decoration:none}
+  .nav a.back{font-size:0.75rem;color:#64748B;text-decoration:none;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+  .nav a.back:hover{color:#0065BD}
+  .aw-hero{max-width:980px;margin:0 auto;padding:48px 28px 24px}
+  .aw-eyebrow{display:inline-block;padding:5px 14px;border-radius:99px;background:#EBF3FA;color:#0065BD;font-size:0.625rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+  .aw-hero h1{font-size:2.5rem;font-weight:300;line-height:1.15;color:#0F172A;margin-bottom:14px}
+  .aw-hero h1 strong{font-weight:700;color:#0065BD}
+  .aw-hero p.lede{font-size:1.0625rem;line-height:1.65;color:#334155;max-width:780px}
+  .aw-meta{margin-top:18px;font-size:0.75rem;color:#64748B;letter-spacing:.3px}
+  .aw-meta strong{color:#0F172A}
+  /* METHODOLOGY BOX */
+  .method{max-width:980px;margin:24px auto 0;padding:18px 22px;background:#F8FAFC;border-left:3px solid #0065BD;border-radius:0 4px 4px 0;font-size:0.875rem;color:#334155;line-height:1.65}
+  .method strong{color:#0F172A;font-weight:700}
+  /* FILTERS */
+  .wrap{max-width:980px;margin:0 auto;padding:32px 28px 80px}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid #E2E8F0}
+  .filter-group{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .filter-group .label{font-size:0.6875rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#64748B;margin-right:8px}
+  .chip{padding:5px 12px;border-radius:99px;background:#FFF;border:1px solid #CBD5E1;color:#475569;font-size:0.75rem;font-weight:600;cursor:pointer;transition:all .15s;font-family:inherit}
+  .chip:hover{border-color:#0065BD;color:#0065BD}
+  .chip.active{background:#0065BD;border-color:#0065BD;color:#FFF}
+  /* CARD */
+  .entries{display:flex;flex-direction:column;gap:18px}
+  .entry{padding:22px 24px;border:1px solid #E2E8F0;border-radius:6px;background:#FFF;transition:border-color .15s}
+  .entry:hover{border-color:#CBD5E1}
+  .entry-top{display:flex;flex-wrap:wrap;gap:8px 14px;margin-bottom:12px;align-items:center;font-size:0.6875rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+  .entry-date{color:#64748B}
+  .entry-sector{padding:3px 10px;border-radius:99px;color:#FFF;background:#0065BD}
+  .entry-sector.s-health{background:#0EA5E9}
+  .entry-sector.s-justice{background:#7C3AED}
+  .entry-sector.s-policing{background:#0F172A}
+  .entry-sector.s-welfare{background:#DC2626}
+  .entry-sector.s-government{background:#059669}
+  .entry-sector.s-immigration{background:#EA580C}
+  .entry-sector.s-tax{background:#CA8A04}
+  .entry-sector.s-safety{background:#0065BD}
+  .entry-status{padding:3px 10px;border-radius:99px;border:1px solid #CBD5E1;color:#475569;background:#F8FAFC}
+  .entry-status.live{border-color:#16A34A;color:#15803D;background:#F0FDF4}
+  .entry-status.mou{border-color:#CA8A04;color:#854D0E;background:#FEFCE8}
+  .entry-status.pilot{border-color:#7C3AED;color:#5B21B6;background:#F5F3FF}
+  .entry-status.review{border-color:#EA580C;color:#9A3412;background:#FFF7ED}
+  .entry-buyer{font-size:0.75rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#475569;margin-bottom:4px}
+  .entry-h{font-size:1.25rem;font-weight:700;color:#0F172A;line-height:1.3;margin-bottom:8px}
+  .entry-supplier{font-size:0.875rem;color:#0065BD;font-weight:600;margin-bottom:12px}
+  .entry-supplier::before{content:"with ";color:#94A3B8;font-weight:400}
+  .entry-body{font-size:0.9375rem;color:#334155;line-height:1.7;margin-bottom:14px}
+  .entry-facts{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:12px;padding:10px 14px;background:#F8FAFC;border-radius:4px;font-size:0.8125rem}
+  .entry-facts dt{font-size:0.625rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#94A3B8;display:block;margin-bottom:2px}
+  .entry-facts dd{color:#0F172A;font-weight:600;margin:0}
+  .entry-fact{flex:1;min-width:120px}
+  .entry-sources{font-size:0.75rem;color:#64748B;line-height:1.65}
+  .entry-sources strong{color:#475569;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:0.6875rem;display:block;margin-bottom:6px}
+  .entry-sources a{color:#0065BD;text-decoration:none;display:inline-block;margin-right:14px;margin-bottom:4px}
+  .entry-sources a:hover{text-decoration:underline}
+  .entry-hidden{display:none}
+  /* TIP OFF */
+  .tipoff{margin-top:36px;padding:22px 24px;background:#0F172A;color:#FFF;border-radius:6px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .tipoff h3{font-size:1rem;font-weight:700;margin-bottom:4px}
+  .tipoff p{font-size:0.8125rem;color:rgba(255,255,255,.78);line-height:1.55;max-width:520px}
+  .tipoff a.btn{display:inline-block;padding:10px 20px;background:#0065BD;color:#FFF;font-size:0.75rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border-radius:3px;text-decoration:none;transition:background .15s}
+  .tipoff a.btn:hover{background:#0078DC}
+  /* FOOTER */
+  .ft{padding:24px 28px;border-top:1px solid #E2E8F0;background:#F8FAFC;font-size:0.75rem;color:#64748B;text-align:center;line-height:1.7}
+  .ft a{color:#64748B;text-decoration:none;margin:0 8px}
+  .ft a:hover{color:#0065BD}
+  /* RESPONSIVE */
+  @media(max-width:780px){
+    .aw-hero h1{font-size:1.875rem}
+    .entry{padding:18px 18px}
+    .entry-h{font-size:1.0625rem}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="logo">FAIR</a>
+  <a href="/" class="back">&larr; Back to FAIR</a>
+</nav>
+
+<header class="aw-hero">
+  <span class="aw-eyebrow">Public-Interest Register</span>
+  <h1><strong>AI Watch.</strong> UK public-sector AI procurement.</h1>
+  <p class="lede">A factual register of artificial intelligence contracts, partnerships and pilots involving UK public bodies. Each entry is drawn from official sources: Contracts Finder, departmental press releases, Hansard, parliamentary written answers, and published memoranda of understanding.</p>
+  <div class="aw-meta">
+    <strong>Last updated:</strong> 2 May 2026 &middot; <strong>Entries:</strong> 10 &middot; <strong>Update cadence:</strong> as official sources confirm new agreements
+  </div>
+</header>
+
+<div class="method">
+  <strong>Methodology.</strong> AI Watch records the existence of agreements, not their merits. FAIR makes no factual claim beyond what its sources support. Entries are limited to the United Kingdom public sector. Where a contract value, term, or scope is not publicly disclosed, the entry says so. Where a question is contested or under review, the entry says so. FAIR&rsquo;s own published views, where they exist, sit in <a href="/briefings/">FAIR Briefings</a>; this page is a public-interest register only. Spotted an error or know of an agreement we should add? Use <a href="/report.html">/report</a> with category &ldquo;Something else&rdquo;.
+</div>
+
+<div class="wrap">
+
+  <div class="filters" role="region" aria-label="Filter entries">
+    <div class="filter-group">
+      <span class="label">Sector</span>
+      <button class="chip active" data-filter="sector" data-value="all">All</button>
+      <button class="chip" data-filter="sector" data-value="health">Health</button>
+      <button class="chip" data-filter="sector" data-value="justice">Justice</button>
+      <button class="chip" data-filter="sector" data-value="policing">Policing</button>
+      <button class="chip" data-filter="sector" data-value="welfare">Welfare</button>
+      <button class="chip" data-filter="sector" data-value="government">Cross-Govt</button>
+      <button class="chip" data-filter="sector" data-value="immigration">Immigration</button>
+      <button class="chip" data-filter="sector" data-value="tax">Tax</button>
+      <button class="chip" data-filter="sector" data-value="safety">AI Safety</button>
+    </div>
+  </div>
+
+  <section class="entries" id="entries">
+
+    <article class="entry" data-sector="health">
+      <div class="entry-top">
+        <span class="entry-date">21 November 2023</span>
+        <span class="entry-sector s-health">Health</span>
+        <span class="entry-status review">Live - Break-clause review reported</span>
+      </div>
+      <div class="entry-buyer">NHS England</div>
+      <h2 class="entry-h">Federated Data Platform</h2>
+      <div class="entry-supplier">Palantir UK Technologies Ltd (lead, with Accenture, NECS, PwC, Carnall Farrar)</div>
+      <p class="entry-body">A unified data platform across NHS Trusts and Integrated Care Boards in England, supporting elective recovery, vaccination programmes, population health management, supply chain, and care coordination. The contract has been the subject of sustained civil-society scrutiny and a parliamentary debate (16 April 2026); reporting indicates HM Government is examining a break clause due in spring 2027.</p>
+      <dl class="entry-facts">
+        <div class="entry-fact"><dt>Contract value</dt><dd>Up to &pound;330m over 7 years</dd></div>
+        <div class="entry-fact"><dt>Term</dt><dd>7 years from Nov 2023</dd></div>
+        <div class="entry-fact"><dt>Scope</dt><dd>NHS England-wide</dd></div>
+      </dl>
+      <div class="entry-sources">
+        <strong>Sources</strong>
+        <a href="https://www.contractsfinder.service.gov.uk/Notice/0f8a65b5-23a2-4294-abb1-a7fd8efb3ad0" target="_blank" rel="noopener">Contracts Finder notice</a>
+        <a href="https://www.england.nhs.uk/digitaltechnology/nhs-federated-data-platform/security-privacy/contract-explainer/" target="_blank" rel="noopener">NHS England contract explainer</a>
+        <a href="https://hansard.parliament.uk/commons/2026-04-16/debates/2FDCA71C-D0C1-4738-BEE8-A4BDA311DB99/NHSFederatedDataPlatform" target="_blank" rel="noopener">Hansard, 16 April 2026</a>
+      </div>
+    </article>
+
+    <article class="entry" data-sector="government">
+      <div class="entry-top">
+        <span class="entry-date">21 July 2025</span>
+        <span class="entry-sector s-government">Cross-Govt</span>
+        <span class="entry-status mou">MoU - voluntary, non-binding</span>
+      </div>
+      <div class="entry-buyer">Department for Science, Innovation and Technology (DSIT)</div>
+      <h2 class="entry-h">UK&ndash;OpenAI strategic partnership</h2>
+      <div class="entry-supplier">OpenAI Ltd</div>
+      <p class="entry-body">A Memorandum of Understanding signed by Technology Secretary Peter Kyle and OpenAI CEO Sam Altman. Covers public and private-sector adoption of OpenAI models (with stated focus areas including justice, defence and security, and education technology), AI infrastructure including possible OpenAI participation in AI Growth Zones, and an expanded partnership with the AI Security Institute on model evaluations. The MoU is voluntary and not legally binding; computing.co.uk reported in April 2026 that the UK had yet to trial OpenAI technology under the agreement.</p>
+      <dl class="entry-facts">
+        <div class="entry-fact"><dt>Contract value</dt><dd>Not legally binding</dd></div>
+        <div class="entry-fact"><dt>Form</dt><dd>Memorandum of Understanding</dd></div>
+        <div class="entry-fact"><dt>Signatories</dt><dd>Peter Kyle &middot; Sam Altman</dd></div>
+      </dl>
+      <div class="entry-sources">
+        <strong>Sources</strong>
+        <a href="https://www.gov.uk/government/publications/memorandum-of-understanding-between-the-uk-and-openai-on-ai-opportunities/memorandum-of-understanding-between-uk-and-openai-on-ai-opportunities" target="_blank" rel="noopener">MoU full text on GOV.UK</a>
+        <a href="https://www.gov.uk/government/news/openai-to-expand-uk-office-and-work-with-government-departments-to-turbocharge-the-uks-ai-infrastructure-and-transform-public-services" target="_blank" rel="noopener">DSIT press release</a>
+      </div>
+    </article>
+
+    <article class="entry" data-sector="government">
+      <div class="entry-top">
+        <span class="entry-date">February 2026</span>
+        <span class="entry-sector s-government">Cross-Govt</span>
+        <span class="entry-status pilot">Pilot</span>
+      </div>
+      <div class="entry-buyer">DSIT and Government Digital Service</div>
+      <h2 class="entry-h">Anthropic GOV.UK assistant</h2>
+      <div class="entry-supplier">Anthropic, PBC</div>
+      <p class="entry-body">A Memorandum of Understanding under which Anthropic engineers will work with Government Digital Service to build a Claude-powered AI assistant on GOV.UK. The first announced focus is supporting jobseekers entering or re-entering the workforce. Anthropic states that users will have control over what is remembered and an opt-out, with personal information handled in line with UK data protection law.</p>
+      <dl class="entry-facts">
+        <div class="entry-fact"><dt>Contract value</dt><dd>Not disclosed</dd></div>
+        <div class="entry-fact"><dt>Form</dt><dd>MoU + pilot</dd></div>
+        <div class="entry-fact"><dt>First focus</dt><dd>Jobseeker support</dd></div>
+      </dl>
+      <div class="entry-sources">
+        <strong>Sources</strong>
+        <a href="https://www.gov.uk/government/publications/memorandum-of-understanding-between-the-uk-and-anthropic-on-ai-opportunities/memorandum-of-understanding-between-uk-and-anthropic-on-ai-opportunities" target="_blank" rel="noopener">MoU on GOV.UK</a>
+        <a href="https://www.anthropic.com/news/gov-UK-partnership" target="_blank" rel="noopener">Anthropic announcement</a>
+      </div>
+    </article>
+
+    <article class="entry" data-sector="tax">
+      <div class="entry-top">
+        <span class="entry-date">October 2025 (rollout); 2026</span>
+        <span class="entry-sector s-tax">Tax</span>
+        <span class="entry-status live">Live rollout</span>
+      </div>
+      <div class="entry-buyer">HM Revenue and Customs</div>
+      <h2 class="entry-h">Microsoft 365 Copilot rollout</h2>
+      <div class="entry-supplier">Microsoft Corporation</div>
+      <p class="entry-body">Approximately 28,000 HMRC staff are being licensed to use Microsoft 365 Copilot, described in trade press as the largest single Copilot rollout in UK central government. Staff complete a 90-minute &ldquo;Copilot essential&rdquo; training course before being granted a licence. The rollout follows a Government Digital Service-led cross-government Copilot trial in late 2024 in which 20,000 civil servants in 12 organisations participated.</p>
+      <dl class="entry-facts">
+        <div class="entry-fact"><dt>Licence cost</dt><dd>Not separately disclosed</dd></div>
+        <div class="entry-fact"><dt>Seats</dt><dd>~28,000</dd></div>
+        <div class="entry-fact"><dt>Pre-rollout training</dt><dd>90 minutes mandatory</dd></div>
+      </dl>
+      <div class="entry-sources">
+        <strong>Sources</strong>
+        <a href="https://www.publictechnology.net/2025/10/28/business-and-industry/cps-signs-20m-microsoft-licensing-and-copilot-deal/" target="_blank" rel="noopener">PublicTechnology: GDS Copilot trial</a>
+        <a href="https://www.theregister.com/2026/04/27/hmrc_hands_28000_staff_ai/" target="_blank" rel="noopener">The Register, 27 April 2026</a>
+      </div>
+    </article>
+
+    <article class="entry" data-sector="justice">
+      <div class="entry-top">
+        <span class="entry-date">28 October 2025</span>
+        <span class="entry-sector s-justice">Justice</span>
+        <span class="entry-status live">Live</span>
+      </div>
+      <div class="entry-buyer">Crown Prosecution Service</div>
+      <h2 class="entry-h">Microsoft Enterprise Licensing + Copilot agreement</h2>
+      <div class="entry-supplier">Microsoft Corporation</div>
+      <p class="entry-body">A three-year Microsoft Enterprise Licensing Agreement and Copilot contract, commenced 1 October 2025, valued at &pound;19.6m. Provides Microsoft 365 Copilot licences across the CPS workforce alongside the underlying Microsoft enterprise software stack.</p>
+      <dl class="entry-facts">
+        <div class="entry-fact"><dt>Contract value</dt><dd>&pound;19.6m</dd></div>
+        <div class="entry-fact"><dt>Term</dt><dd>3 years from 1 Oct 2025</dd></div>
+        <div class="entry-fact"><dt>Scope</dt><dd>CPS-wide</dd></div>
+      </dl>
+      <div class="entry-sources">
+        <strong>Sources</strong>
+        <a href="https://www.publictechnology.net/2025/10/28/business-and-industry/cps-signs-20m-microsoft-licensing-and-copilot-deal/" target="_blank" rel="noopener">PublicTechnology, 28 October 2025</a>
+      </div>
+    </article>
+
+    <article class="entry" data-sector="policing">
+      <div class="entry-top">
+        <span class="entry-date">April 2025 framework; January 2026 expansion</span>
+        <span class="entry-sector s-policing">Policing</span>
+        <span class="entry-status live">Live</span>
+      </div>
+      <div class="entry-buyer">Home Office, NPCC and BlueLight Commercial framework</div>
+      <h2 class="entry-h">Live Facial Recognition vans (national rollout)</h2>
+      <div class="entry-supplier">NEC Software Solutions UK Ltd, Digital Barriers, Bedroq</div>
+      <p class="entry-body">A &pound;20m framework, launched in April 2025, under which police forces in England and Wales acquire mobile Live Facial Recognition units. Ten vans were initially funded by the Home Office and the National Police Chiefs&rsquo; Council; in January 2026 the Home Office announced expansion of the technology to every regional police force, purchasing 40 additional vans. NEC Software Solutions supplies the NeoFace algorithm; the technology has been in operational use by the Metropolitan Police and South Wales Police for several years.</p>
+      <dl class="entry-facts">
+        <div class="entry-fact"><dt>Framework value</dt><dd>&pound;20m</dd></div>
+        <div class="entry-fact"><dt>Vans (initial)</dt><dd>10, expanding to 40+</dd></div>
+        <div class="entry-fact"><dt>Algorithm</dt><dd>NEC NeoFace</dd></div>
+      </dl>
+      <div class="entry-sources">
+        <strong>Sources</strong>
+        <a href="https://post.parliament.uk/facial-recognition-technology-in-policing/" target="_blank" rel="noopener">POST Parliament briefing</a>
+        <a href="https://www.biometricupdate.com/202509/new-uk-facial-recognition-vans-equipped-with-nec-software" target="_blank" rel="noopener">Biometric Update, September 2025</a>
+        <a href="https://www.computerweekly.com/news/365535008/UK-police-double-down-on-improved-facial-recognition" target="_blank" rel="noopener">Computer Weekly</a>
+      </div>
+    </article>
+
+    <article class="entry" data-sector="welfare">
+      <div class="entry-top">
+        <span class="entry-date">In service through 2024-25</span>
+        <span class="entry-sector s-welfare">Welfare</span>
+        <span class="entry-status live">Live - bias acknowledged</span>
+      </div>
+      <div class="entry-buyer">Department for Work and Pensions</div>
+      <h2 class="entry-h">Universal Credit Advances fraud-risk model and analytics programme</h2>
+      <div class="entry-supplier">In-house ML model + Deloitte LLP (analytics consultancy)</div>
+      <p class="entry-body">DWP operates a machine-learning model that classifies UC Advances requests as high-risk or not for fraud purposes; high-risk cases are referred to a DWP employee for review. DWP issued 1.4 million UC Advances in 2024-25 with a total value of &pound;0.8bn. The Department has acknowledged that the algorithm discriminates on grounds of ethnicity and age. Deloitte holds a &pound;15m analytics contract with DWP. A wider commitment of &pound;70m to advanced analytics ran April 2022 - March 2025.</p>
+      <dl class="entry-facts">
+        <div class="entry-fact"><dt>Deloitte contract</dt><dd>&pound;15m</dd></div>
+        <div class="entry-fact"><dt>Wider analytics</dt><dd>&pound;70m, Apr 2022 - Mar 2025</dd></div>
+        <div class="entry-fact"><dt>Bias status</dt><dd>Acknowledged by DWP</dd></div>
+      </dl>
+      <div class="entry-sources">
+        <strong>Sources</strong>
+        <a href="https://www.gov.uk/algorithmic-transparency-records/dwp-universal-credit-advances-model" target="_blank" rel="noopener">GOV.UK Algorithmic Transparency Record</a>
+        <a href="https://www.foxglove.org.uk/2025/05/06/dwp-explain-benefits-fraud-algorithm/" target="_blank" rel="noopener">Foxglove investigation</a>
+        <a href="https://www.nao.org.uk/wp-content/uploads/2025/07/using-data-analytics-to-tackle-fraud-and-error.pdf" target="_blank" rel="noopener">National Audit Office, July 2025</a>
+      </div>
+    </article>
+
+    <article class="entry" data-sector="justice">
+      <div class="entry-top">
+        <span class="entry-date">July 2025 (Action Plan); September 2025 (HMCTS strategy)</span>
+        <span class="entry-sector s-justice">Justice</span>
+        <span class="entry-status pilot">Programme - multi-supplier</span>
+      </div>
+      <div class="entry-buyer">Ministry of Justice and HM Courts and Tribunals Service</div>
+      <h2 class="entry-h">AI Action Plan for Justice (J-AI listing assistant + transcription + case-management AI)</h2>
+      <div class="entry-supplier">Multiple suppliers under MoJ AI procurement</div>
+      <p class="entry-body">The Ministry of Justice published its &ldquo;AI Action Plan for Justice&rdquo; in July 2025 and HMCTS published its AI strategy in September 2025. Headline initiatives include AI-powered transcription and summarisation for judges, an AI-assisted listing assistant called J-AI to help schedule and flag cases, and AI search/assistant capabilities within case-management systems. A dedicated MoJ &ldquo;justice AI unit&rdquo; was created. Programme costs are not consolidated in a single public figure; specific suppliers vary by sub-project.</p>
+      <dl class="entry-facts">
+        <div class="entry-fact"><dt>Programme cost</dt><dd>Not consolidated</dd></div>
+        <div class="entry-fact"><dt>Components</dt><dd>J-AI, transcription, summarisation, case-management AI</dd></div>
+        <div class="entry-fact"><dt>Governance</dt><dd>Justice AI Unit</dd></div>
+      </dl>
+      <div class="entry-sources">
+        <strong>Sources</strong>
+        <a href="https://www.gov.uk/government/publications/ai-action-plan-for-justice/ai-action-plan-for-justice" target="_blank" rel="noopener">MoJ AI Action Plan for Justice</a>
+        <a href="https://insidehmcts.blog.gov.uk/2025/09/03/hmcts-is-accelerating-the-responsible-adoption-of-artificial-intelligence-ai-to-transform-the-courts-and-tribunals/" target="_blank" rel="noopener">HMCTS AI strategy blog</a>
+        <a href="https://www.judiciary.uk/guidance-and-resources/artificial-intelligence-ai-judicial-guidance-october-2025/" target="_blank" rel="noopener">Judicial Guidance, October 2025</a>
+      </div>
+    </article>
+
+    <article class="entry" data-sector="immigration">
+      <div class="entry-top">
+        <span class="entry-date">Disclosed via FOI 2024-2025</span>
+        <span class="entry-sector s-immigration">Immigration</span>
+        <span class="entry-status live">Live</span>
+      </div>
+      <div class="entry-buyer">Home Office</div>
+      <h2 class="entry-h">Identify and Prioritise Immigration Cases (IPIC) algorithm + asylum-decision AI trials</h2>
+      <div class="entry-supplier">Home Office (in-house algorithm); trial AI tools, suppliers undisclosed</div>
+      <p class="entry-body">IPIC is an algorithm operated by the Home Office that automatically identifies and recommends migrants for particular immigration decisions or enforcement action. According to investigative reporting, the system manages the cases of approximately 41,000 people facing potential removal. In 2025 the Home Office also conducted an &ldquo;Evaluation of AI trials in the asylum decision making process&rdquo; covering interview-transcript summarisation and country-information research tools.</p>
+      <dl class="entry-facts">
+        <div class="entry-fact"><dt>People in IPIC scope</dt><dd>~41,000</dd></div>
+        <div class="entry-fact"><dt>Form</dt><dd>In-house algorithm + asylum AI trials</dd></div>
+        <div class="entry-fact"><dt>Disclosure route</dt><dd>FOI / transparency requests</dd></div>
+      </dl>
+      <div class="entry-sources">
+        <strong>Sources</strong>
+        <a href="https://privacyinternational.org/news-analysis/5452/automating-hostile-environment-uncovering-secretive-home-office-algorithm-heart" target="_blank" rel="noopener">Privacy International investigation</a>
+        <a href="https://www.ibanet.org/AI-digitalisation-and-the-UK-immigration-system" target="_blank" rel="noopener">International Bar Association report</a>
+      </div>
+    </article>
+
+    <article class="entry" data-sector="safety">
+      <div class="entry-top">
+        <span class="entry-date">2025 - 2026</span>
+        <span class="entry-sector s-safety">AI Safety</span>
+        <span class="entry-status live">Live programme</span>
+      </div>
+      <div class="entry-buyer">UK AI Security Institute (formerly AI Safety Institute)</div>
+      <h2 class="entry-h">Frontier AI evaluations and safety-research grant programmes</h2>
+      <div class="entry-supplier">Multiple frontier AI labs and academic research institutions</div>
+      <p class="entry-body">The AI Security Institute (renamed from the AI Safety Institute in 2025) is the UK Government&rsquo;s frontier-model evaluation body. AISI has tested over 30 state-of-the-art models since November 2023. In 2025 AISI launched or expanded three grant programmes: the Alignment Project (&pound;15m), Systemic Safety Grants (&pound;8m) and the Challenge Fund (&pound;5m). AISI&rsquo;s 2025 Frontier AI Trends Report records that frontier models can now complete hour-long software tasks at over 40% success, against under 5% in late 2023.</p>
+      <dl class="entry-facts">
+        <div class="entry-fact"><dt>Grant total (2025)</dt><dd>&pound;28m across three programmes</dd></div>
+        <div class="entry-fact"><dt>Models tested</dt><dd>30+ since Nov 2023</dd></div>
+        <div class="entry-fact"><dt>Successor body</dt><dd>From Frontier AI Taskforce (Nov 2023)</dd></div>
+      </dl>
+      <div class="entry-sources">
+        <strong>Sources</strong>
+        <a href="https://www.aisi.gov.uk/" target="_blank" rel="noopener">AISI homepage</a>
+        <a href="https://www.aisi.gov.uk/research/aisi-frontier-ai-trends-report-2025" target="_blank" rel="noopener">AISI Frontier AI Trends Report 2025</a>
+        <a href="https://www.aisi.gov.uk/blog/our-2025-year-in-review" target="_blank" rel="noopener">AISI 2025 Year in Review</a>
+      </div>
+    </article>
+
+  </section>
+
+  <div class="tipoff">
+    <div>
+      <h3>Know of an agreement we should add?</h3>
+      <p>AI Watch is curated manually from official sources. If you have public information about a UK public-sector AI procurement that should appear here, send a tip-off via the report form (pick &ldquo;Something else&rdquo;).</p>
+    </div>
+    <a href="/report.html" class="btn">Send a tip-off</a>
+  </div>
+
+</div>
+
+<footer class="ft">
+  The Foundation for Artificial Intelligence Rights &middot; UK Charity (registration pending) &middot; 71-75 Shelton Street, Covent Garden, London WC2H 9JQ<br>
+  <a href="/">Home</a>
+  <a href="/purposes.html">Purposes</a>
+  <a href="/briefings/">Briefings</a>
+  <a href="/submissions.html">Submissions</a>
+  <a href="/glossary.html">Glossary</a>
+  <a href="/report.html">Report</a>
+  <a href="/privacy.html">Privacy</a>
+</footer>
+
+<script>
+(function(d){
+  var s = d.createElement("script");
+  s.setAttribute("data-position", 4);
+  s.setAttribute("data-account", "5dDh6GLInL");
+  s.setAttribute("src", "https://cdn.userway.org/widget.js");
+  (d.body || d.head).appendChild(s);
+})(document);
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script>
+
+<script>
+// Filter chips
+document.querySelectorAll('.chip').forEach(function(chip){
+  chip.addEventListener('click', function(){
+    var group = chip.dataset.filter;
+    var value = chip.dataset.value;
+    document.querySelectorAll('.chip[data-filter="'+group+'"]').forEach(function(c){ c.classList.remove('active'); });
+    chip.classList.add('active');
+    document.querySelectorAll('.entry').forEach(function(e){
+      if (value === 'all' || e.dataset[group] === value) e.classList.remove('entry-hidden');
+      else e.classList.add('entry-hidden');
+    });
+  });
+});
+</script>
+
+</body>
+</html>
