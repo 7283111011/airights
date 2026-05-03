@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report an AI Problem | FAIR &mdash; The Foundation for Artificial Intelligence Rights</title>
+<meta name="description" content="Report an AI-related harm to FAIR. Your report informs FAIR's briefings to Parliament, submissions to regulators, and public-interest research.">
+<meta property="og:title" content="Report an AI Problem | FAIR">
+<meta property="og:description" content="Report an AI-related harm. Your evidence informs FAIR's parliamentary engagement and public-interest research.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://airights.org.uk/report.html">
+<meta property="og:image" content="https://airights.org.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://airights.org.uk/report.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="google-site-verification" content="2uoQexdaJCpih74zL-iG_ORxeBMct3gDn6ckseYCP_c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js?render=6Lcur9QsAAAAAE1ApFj2LDVszSME-EjcDg6reJDE"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Open Sans',sans-serif;color:#0F172A;background:#FFF;line-height:1.65;-webkit-font-smoothing:antialiased}
+  /* CRISIS BAR */
+  .crisis{background:#FEF3C7;border-bottom:1px solid #FDE68A;padding:12px 24px;font-size:0.875rem;color:#7C2D12}
+  .crisis-inner{max-width:980px;margin:0 auto;display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap}
+  .crisis-mark{display:inline-block;font-size:0.625rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#FFF;background:#B91C1C;padding:4px 10px;border-radius:3px;flex-shrink:0;margin-top:1px}
+  .crisis-text{flex:1;line-height:1.55}
+  .crisis-text strong{color:#7C2D12;font-weight:700}
+  /* HEADER NAV */
+  .nav{padding:16px 32px;border-bottom:1px solid #E2E8F0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .nav .logo{font-weight:800;font-size:1.125rem;letter-spacing:5px;color:#0065BD;text-decoration:none}
+  .nav a.back{font-size:0.75rem;color:#64748B;text-decoration:none;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+  .nav a.back:hover{color:#0065BD}
+  /* HERO */
+  .rep-hero{max-width:780px;margin:0 auto;padding:48px 28px 24px;text-align:left}
+  .rep-eyebrow{display:inline-block;padding:5px 14px;border-radius:99px;background:#EBF3FA;color:#0065BD;font-size:0.625rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+  .rep-hero h1{font-size:2.25rem;font-weight:300;line-height:1.2;color:#0F172A;margin-bottom:16px}
+  .rep-hero h1 strong{font-weight:700;color:#0065BD}
+  .rep-hero p.lede{font-size:1rem;line-height:1.7;color:#334155}
+  /* PURPOSE BAR */
+  .purpose{max-width:780px;margin:24px auto 0;padding:18px 22px;background:#F8FAFC;border-left:3px solid #0065BD;border-radius:0 4px 4px 0;font-size:0.9375rem;color:#334155;line-height:1.65}
+  .purpose strong{color:#0F172A;font-weight:700}
+  /* WRAP */
+  .wrap{max-width:780px;margin:0 auto;padding:32px 28px 80px}
+  /* HELP NOW */
+  .help{margin-top:24px;padding:20px 22px;background:#FFF7ED;border:1px solid #FED7AA;border-radius:6px}
+  .help h2{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#9A3412;margin-bottom:14px}
+  .help-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+  .help-card{background:#FFF;border:1px solid #FED7AA;border-radius:4px;padding:12px 14px}
+  .help-card strong{display:block;font-size:0.8125rem;color:#0F172A;font-weight:700;margin-bottom:3px}
+  .help-card .tel{font-size:1rem;color:#9A3412;font-weight:700;letter-spacing:.5px;display:block;margin:2px 0}
+  .help-card .desc{font-size:0.75rem;color:#64748B;line-height:1.5}
+  .help-card a{color:#9A3412;text-decoration:none;font-weight:600}
+  .help-card a:hover{text-decoration:underline}
+  /* FORM */
+  form{margin-top:32px}
+  .step{padding:24px 0;border-bottom:1px solid #E2E8F0}
+  .step:last-of-type{border-bottom:none}
+  .step-no{display:inline-block;font-size:0.625rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#0065BD;margin-bottom:8px}
+  .step h3{font-size:1.125rem;font-weight:700;color:#0F172A;margin-bottom:6px}
+  .step p.helper{font-size:0.875rem;color:#64748B;margin-bottom:14px;line-height:1.6}
+  /* CATEGORY RADIOS */
+  .cats{display:flex;flex-direction:column;gap:8px}
+  .cat{position:relative;display:block;padding:14px 18px;border:1px solid #E2E8F0;border-radius:4px;cursor:pointer;transition:all .15s;background:#FFF}
+  .cat:hover{border-color:#CBD5E1;background:#F8FAFC}
+  .cat input[type=radio]{position:absolute;opacity:0;pointer-events:none}
+  .cat input[type=radio]:checked + .cat-inner{}
+  .cat:has(input:checked){border-color:#0065BD;background:#EBF3FA;box-shadow:0 0 0 3px rgba(0,101,189,.08)}
+  .cat-inner{display:flex;align-items:flex-start;gap:12px}
+  .cat-inner::before{content:"";width:18px;height:18px;border:1.5px solid #CBD5E1;border-radius:50%;flex-shrink:0;margin-top:2px;background:#FFF;transition:all .15s}
+  .cat:has(input:checked) .cat-inner::before{border-color:#0065BD;background:#0065BD;box-shadow:inset 0 0 0 3px #FFF}
+  .cat-text strong{display:block;font-size:0.9375rem;color:#0F172A;font-weight:700;margin-bottom:3px}
+  .cat-text span{font-size:0.8125rem;color:#64748B;line-height:1.5}
+  /* INPUTS */
+  .field{margin-top:14px}
+  .field label{display:block;font-size:0.75rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#475569;margin-bottom:6px}
+  .field label .opt{font-weight:500;color:#94A3B8;text-transform:none;letter-spacing:0;margin-left:6px}
+  .field input[type=text],.field input[type=email],.field input[type=date],.field input[type=url],.field select,.field textarea{width:100%;font-family:'Open Sans',sans-serif;font-size:0.9375rem;padding:10px 12px;border:1px solid #CBD5E1;border-radius:3px;background:#FFF;color:#0F172A;outline:none;transition:border-color .15s}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:#0065BD}
+  .field textarea{min-height:110px;resize:vertical;line-height:1.6}
+  .field .count{font-size:0.6875rem;color:#94A3B8;margin-top:4px;text-align:right}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:600px){.row{grid-template-columns:1fr}}
+  /* OPTIONAL CONTACT  -  collapsible */
+  .contact-toggle{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:14px 18px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;font-size:0.875rem;color:#0F172A;font-weight:600;transition:all .15s}
+  .contact-toggle:hover{background:#F1F5F9}
+  .contact-toggle .ct-arrow{font-size:0.75rem;color:#94A3B8;transition:transform .15s}
+  .contact-toggle.open .ct-arrow{transform:rotate(180deg)}
+  .contact-body{display:none;padding-top:14px}
+  .contact-body.open{display:block}
+  /* CONSENT CHECKBOXES */
+  .consent{margin-top:14px;padding:14px 16px;background:#F8FAFC;border-radius:4px}
+  .consent label{display:flex;gap:10px;align-items:flex-start;font-size:0.8125rem;color:#334155;line-height:1.55;cursor:pointer;margin-bottom:10px}
+  .consent label:last-child{margin-bottom:0}
+  .consent input[type=checkbox]{margin-top:2px;flex-shrink:0;accent-color:#0065BD;width:14px;height:14px}
+  /* HONEYPOT (hidden from real users) */
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  /* SUBMIT */
+  .actions{margin-top:24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .submit-btn{padding:12px 28px;border-radius:3px;background:#0065BD;color:#FFF;font-family:'Open Sans',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;transition:background .15s}
+  .submit-btn:hover{background:#004C8C}
+  .submit-btn:disabled{background:#94A3B8;cursor:not-allowed}
+  .actions .fine{font-size:0.6875rem;color:#94A3B8}
+  /* SUCCESS / ERROR */
+  .ok,.err{display:none;padding:24px;border-radius:6px;margin-top:32px}
+  .ok{background:#F0FDF4;border:1px solid #86EFAC;color:#14532D}
+  .err{background:#FEF2F2;border:1px solid #FECACA;color:#7F1D1D}
+  .ok h3{font-size:1.125rem;font-weight:700;margin-bottom:8px;color:#14532D}
+  .err h3{font-size:1.125rem;font-weight:700;margin-bottom:8px;color:#7F1D1D}
+  .ok p,.err p{font-size:0.9375rem;line-height:1.6}
+  /* WHAT-NEXT BOX */
+  .next{margin-top:36px;padding:22px 24px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:6px}
+  .next h3{font-size:0.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#0F172A;margin-bottom:12px}
+  .next ol{margin:0 0 0 18px;padding:0}
+  .next li{font-size:0.875rem;color:#334155;margin-bottom:8px;line-height:1.6}
+  /* PRIVACY MICRO */
+  .privacy-micro{margin-top:24px;font-size:0.75rem;color:#64748B;line-height:1.65}
+  .privacy-micro a{color:#0065BD;text-decoration:none}
+  .privacy-micro a:hover{text-decoration:underline}
+  /* FOOTER */
+  .ft{margin-top:48px;padding:24px 28px;border-top:1px solid #E2E8F0;background:#F8FAFC;font-size:0.75rem;color:#64748B;text-align:center;line-height:1.7}
+  .ft a{color:#64748B;text-decoration:none;margin:0 8px}
+  .ft a:hover{color:#0065BD}
+</style>
+</head>
+<body>
+
+<!-- CRISIS BAR -->
+<div class="crisis" role="alert">
+  <div class="crisis-inner">
+    <span class="crisis-mark">If urgent</span>
+    <div class="crisis-text">
+      <strong>If a child is in immediate danger, call 999.</strong>
+      If you are thinking about suicide or self-harm, the Samaritans are open 24/7 on <a href="tel:116123" style="color:#7C2D12;font-weight:700">116 123</a> (free) or <a href="https://www.samaritans.org" target="_blank" rel="noopener" style="color:#7C2D12;font-weight:700">samaritans.org</a>. To report online child sexual abuse imagery, including AI-generated, contact the IWF at <a href="https://www.iwf.org.uk/report" target="_blank" rel="noopener" style="color:#7C2D12;font-weight:700">iwf.org.uk/report</a>. Use this form for FAIR's evidence-gathering only; it is <strong>not</strong> a frontline support service.
+    </div>
+  </div>
+</div>
+
+<nav class="nav">
+  <a href="/" class="logo">FAIR</a>
+  <a href="/" class="back">&larr; Back to FAIR</a>
+</nav>
+
+<header class="rep-hero">
+  <span class="rep-eyebrow">Public-interest reporting</span>
+  <h1>Report an <strong>AI problem</strong></h1>
+  <p class="lede">FAIR collects reports of harm caused by artificial intelligence services in the United Kingdom. Each report informs FAIR's briefings to Parliament, submissions to regulators, and public-interest research. You can report anonymously, or share contact details if you would like FAIR's trustees to follow up.</p>
+</header>
+
+<div class="purpose">
+  <strong>What this is.</strong> An evidence-gathering channel run by The Foundation for Artificial Intelligence Rights (FAIR), a UK charity (registration with the Charity Commission for England and Wales pending). Reports are read by FAIR's trustees and may be referenced, in anonymised form and only with your consent, in FAIR's published briefings and consultation submissions. <strong>What this is not.</strong> A help service, a regulator, an emergency contact, or a route to legal advice. If you need help <em>now</em>, please use the resources above and below.
+</div>
+
+<div class="wrap">
+
+  <section class="help" aria-labelledby="help-h">
+    <h2 id="help-h">If you need help now</h2>
+    <div class="help-grid">
+      <div class="help-card">
+        <strong>NSPCC Helpline</strong>
+        <span class="tel"><a href="tel:08088005000">0808 800 5000</a></span>
+        <span class="desc">Concerns about a child &middot; 24/7</span>
+      </div>
+      <div class="help-card">
+        <strong>Childline</strong>
+        <span class="tel"><a href="tel:08001111">0800 1111</a></span>
+        <span class="desc">Free, confidential support for under-19s</span>
+      </div>
+      <div class="help-card">
+        <strong>Samaritans</strong>
+        <span class="tel"><a href="tel:116123">116 123</a></span>
+        <span class="desc">Suicide, distress &middot; 24/7</span>
+      </div>
+      <div class="help-card">
+        <strong>Internet Watch Foundation</strong>
+        <span class="tel"><a href="https://www.iwf.org.uk/report" target="_blank" rel="noopener">iwf.org.uk/report</a></span>
+        <span class="desc">Online CSAM, including AI-generated</span>
+      </div>
+      <div class="help-card">
+        <strong>Information Commissioner's Office</strong>
+        <span class="tel"><a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">ico.org.uk</a></span>
+        <span class="desc">Data protection complaints &middot; ADM</span>
+      </div>
+      <div class="help-card">
+        <strong>ACAS</strong>
+        <span class="tel"><a href="tel:03001231100">0300 123 1100</a></span>
+        <span class="desc">Employment, AI hiring decisions</span>
+      </div>
+      <div class="help-card">
+        <strong>Equality Advisory Service</strong>
+        <span class="tel"><a href="tel:08088000082">0808 800 0082</a></span>
+        <span class="desc">Discrimination, Equality Act</span>
+      </div>
+      <div class="help-card">
+        <strong>Police (non-emergency)</strong>
+        <span class="tel"><a href="tel:101">101</a></span>
+        <span class="desc">Crimes that have already happened</span>
+      </div>
+    </div>
+  </section>
+
+  <form id="reportForm" onsubmit="return submitReport(event)" novalidate>
+    <!-- Step 1 -->
+    <div class="step">
+      <span class="step-no">Step 1</span>
+      <h3>What is the report about?</h3>
+      <p class="helper">Pick the category that fits best. If none fit, choose &ldquo;Something else&rdquo; and describe it in your own words.</p>
+      <div class="cats">
+        <label class="cat"><input type="radio" name="category" value="ai_chatbot_child" required>
+          <span class="cat-inner"><span class="cat-text"><strong>AI chatbots and child safety</strong><span>Companion bots, generative chat, suicide or self-harm encouragement, eating-disorder content, grooming, emotional dependency.</span></span></span></label>
+        <label class="cat"><input type="radio" name="category" value="ai_csam">
+          <span class="cat-inner"><span class="cat-text"><strong>AI-generated abuse imagery / nudification</strong><span>Synthetic CSAM, deepfake sexual imagery of a real person, non-consensual intimate imagery generated by AI. <em>If you are reporting actual material, please use the IWF link above first.</em></span></span></span></label>
+        <label class="cat"><input type="radio" name="category" value="ai_employment">
+          <span class="cat-inner"><span class="cat-text"><strong>Algorithmic decisions in employment / recruitment</strong><span>AI hiring rejections, AI-driven workplace surveillance, automated performance scores, recruitment bias.</span></span></span></label>
+        <label class="cat"><input type="radio" name="category" value="ai_health_public">
+          <span class="cat-inner"><span class="cat-text"><strong>AI in healthcare or public services</strong><span>AI-driven decisions in NHS care, benefits, social care, immigration, housing, education.</span></span></span></label>
+        <label class="cat"><input type="radio" name="category" value="ai_other">
+          <span class="cat-inner"><span class="cat-text"><strong>Something else</strong><span>An AI-related concern that doesn't fit the categories above. Tell us in your own words below.</span></span></span></label>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <span class="step-no">Step 2</span>
+      <h3>Tell us about it</h3>
+      <p class="helper">Please describe the issue in your own words. The more clearly we understand what happened, the more useful the report.</p>
+      <div class="field">
+        <label for="brief">Brief description <span style="color:#DC2626">*</span></label>
+        <textarea id="brief" name="brief" required maxlength="2000" oninput="updateCount()" placeholder="What happened? Which AI service was involved (if you know)? Who was affected?"></textarea>
+        <div class="count" id="briefCount">0 / 2000</div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+      <span class="step-no">Step 3 &middot; Optional</span>
+      <h3>Context</h3>
+      <p class="helper">Anything that helps FAIR understand the report, but only if you have it to hand.</p>
+      <div class="row">
+        <div class="field">
+          <label for="when">When did this happen? <span class="opt">optional</span></label>
+          <input type="date" id="when" name="when" max="">
+        </div>
+        <div class="field">
+          <label for="who">Who was affected? <span class="opt">optional</span></label>
+          <select id="who" name="who">
+            <option value="">Prefer not to say</option>
+            <option value="me">Myself</option>
+            <option value="child">A child in my care</option>
+            <option value="family">A family member</option>
+            <option value="colleague">A colleague or someone I work with</option>
+            <option value="client">A client / patient / pupil / service user</option>
+            <option value="other">Someone else</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="capacity">Are you reporting in any professional capacity? <span class="opt">optional</span></label>
+        <select id="capacity" name="capacity">
+          <option value="">Prefer not to say</option>
+          <option value="parent">As a parent / family member</option>
+          <option value="teacher">As a teacher / school staff</option>
+          <option value="health">As a health or care professional</option>
+          <option value="legal">As a lawyer / legal professional</option>
+          <option value="academic">As an academic / researcher</option>
+          <option value="journalist">As a journalist</option>
+          <option value="public_servant">As a public servant / civil servant</option>
+          <option value="union">As a trade-union or staff representative</option>
+          <option value="ngo">As a charity or NGO worker</option>
+          <option value="other">In another capacity</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="links">Links or references <span class="opt">optional</span></label>
+        <input type="text" id="links" name="links" placeholder="e.g. URL of the AI service, news article, public document">
+      </div>
+    </div>
+
+    <!-- Step 4  -  Optional contact -->
+    <div class="step">
+      <span class="step-no">Step 4 &middot; Optional</span>
+      <h3>Contact details (anonymous reports welcome)</h3>
+      <p class="helper">You can submit this report completely anonymously. If you would like FAIR's trustees to acknowledge or follow up, please share contact details. They are stored only for that purpose and never published.</p>
+      <div class="contact-toggle" id="contactToggle" onclick="toggleContact()">
+        <span>Add my contact details</span>
+        <span class="ct-arrow">&#9662;</span>
+      </div>
+      <div class="contact-body" id="contactBody">
+        <div class="row">
+          <div class="field">
+            <label for="name">Name <span class="opt">optional</span></label>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name (or a pseudonym)">
+          </div>
+          <div class="field">
+            <label for="email">Email <span class="opt">optional</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="consent">
+          <label><input type="checkbox" name="consent_followup" id="consent_followup"> <span>I am happy for FAIR&rsquo;s trustees to contact me about this report. <em style="color:#64748B">FAIR aims to acknowledge each contactable report within 10 working days. We are not an emergency service.</em></span></label>
+          <label><input type="checkbox" name="consent_research" id="consent_research"> <span>I am happy for an anonymised version of this report to be referenced in FAIR&rsquo;s briefings, consultation submissions, and public-interest research. Identifying details would be removed.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Honeypot (hidden) -->
+    <div class="hp" aria-hidden="true">
+      <label for="website">Website (do not fill)</label>
+      <input type="text" id="hp-website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="actions">
+      <button type="submit" id="submitBtn" class="submit-btn">Submit report</button>
+      <span class="fine">Protected by reCAPTCHA &middot; <a href="/privacy.html" style="color:#94A3B8;text-decoration:underline">Privacy</a></span>
+    </div>
+
+    <div class="privacy-micro">
+      By submitting, you confirm the report is your own and is made in good faith. FAIR processes the data to advance its charitable purposes (advancement of education and human rights), with the additional lawful basis of your consent if you provided contact details. See FAIR&rsquo;s <a href="/privacy.html">Privacy Policy</a>, <a href="/safeguarding.html">Safeguarding Statement</a>, and <a href="/purposes.html">Charitable Purposes</a>.
+    </div>
+  </form>
+
+  <div class="ok" id="reportOk">
+    <h3>Report received. Thank you.</h3>
+    <p>Your report has been delivered to FAIR&rsquo;s trustees. If you provided contact details and consented to follow-up, you should hear back within 10 working days. If you did not provide contact details, you will not hear from us, but the report will inform FAIR&rsquo;s research and submissions where relevant.</p>
+    <p style="margin-top:12px">If your situation is urgent, please use the resources at the top and bottom of this page.</p>
+  </div>
+
+  <div class="err" id="reportErr">
+    <h3>Something went wrong.</h3>
+    <p>Your report was not delivered. Please try again, or email <a href="mailto:info@airights.org.uk">info@airights.org.uk</a> with the details. We are sorry for the inconvenience.</p>
+  </div>
+
+  <div class="next">
+    <h3>What happens next</h3>
+    <ol>
+      <li>Reports are delivered to FAIR&rsquo;s trustees by email. There is no automated triage.</li>
+      <li>If you provided contact details and consented to follow-up, FAIR aims to acknowledge within 10 working days.</li>
+      <li>Reports may inform FAIR&rsquo;s briefings to Parliament, submissions to regulators, or public-interest research, in anonymised form, only where you consented.</li>
+      <li>Personal data is retained no longer than necessary for the purpose for which you submitted it. See our <a href="/privacy.html">Privacy Policy</a>.</li>
+      <li>FAIR is not a regulator and cannot take enforcement action. For regulatory or legal redress, please use the appropriate authority signposted above.</li>
+    </ol>
+  </div>
+
+</div>
+
+<footer class="ft">
+  The Foundation for Artificial Intelligence Rights &middot; UK Charity (registration pending) &middot; 71-75 Shelton Street, Covent Garden, London WC2H 9JQ<br>
+  <a href="/">Home</a>
+  <a href="/purposes.html">Purposes</a>
+  <a href="/briefings/">Briefings</a>
+  <a href="/submissions.html">Submissions</a>
+  <a href="/glossary.html">Glossary</a>
+  <a href="/privacy.html">Privacy</a>
+  <a href="/safeguarding.html">Safeguarding</a>
+  <a href="/complaints.html">Complaints</a>
+</footer>
+
+<!-- ACCESSIBILITY: UserWay -->
+<script>
+(function(d){
+  var s = d.createElement("script");
+  s.setAttribute("data-position", 4);
+  s.setAttribute("data-account", "5dDh6GLInL");
+  s.setAttribute("src", "https://cdn.userway.org/widget.js");
+  (d.body || d.head).appendChild(s);
+})(document);
+</script>
+
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script>
+
+<script>
+// Set max date on the 'when' input to today (no future dates)
+document.getElementById("when").max = new Date().toISOString().slice(0,10);
+
+// Char counter
+function updateCount(){
+  var v = document.getElementById("brief").value.length;
+  document.getElementById("briefCount").textContent = v + " / 2000";
+}
+
+// Toggle contact details
+function toggleContact(){
+  var t = document.getElementById("contactToggle");
+  var b = document.getElementById("contactBody");
+  t.classList.toggle("open");
+  b.classList.toggle("open");
+}
+
+var FORMSPREE_ID = 'xykognyk';
+var RECAPTCHA_SITE_KEY = '6Lcur9QsAAAAAE1ApFj2LDVszSME-EjcDg6reJDE';
+
+function submitReport(e){
+  e.preventDefault();
+  // Honeypot
+  var hp = document.getElementById('hp-website');
+  if (hp && hp.value) { return false; }
+  var category = (document.querySelector('input[name=category]:checked') || {}).value;
+  var brief = document.getElementById('brief').value.trim();
+  if (!category) { alert('Please pick a category in Step 1.'); return false; }
+  if (!brief) { document.getElementById('brief').focus(); return false; }
+
+  var btn = document.getElementById('submitBtn');
+  btn.textContent = 'Sending...'; btn.disabled = true;
+
+  var catLabel = ({
+    ai_chatbot_child: 'AI chatbots and child safety',
+    ai_csam: 'AI-generated abuse imagery / nudification',
+    ai_employment: 'Algorithmic decisions in employment / recruitment',
+    ai_health_public: 'AI in healthcare or public services',
+    ai_other: 'Something else'
+  })[category] || category;
+
+  function send(token){
+    var data = {
+      _subject: '[FAIR REPORT] ' + catLabel,
+      report_type: 'ai_problem',
+      category: category,
+      category_label: catLabel,
+      brief: brief,
+      when_occurred: document.getElementById('when').value,
+      who_affected: document.getElementById('who').value,
+      reporting_capacity: document.getElementById('capacity').value,
+      links: document.getElementById('links').value.trim(),
+      reporter_name: document.getElementById('name').value.trim(),
+      reporter_email: document.getElementById('email').value.trim(),
+      consent_followup: document.getElementById('consent_followup').checked ? 'yes' : 'no',
+      consent_research: document.getElementById('consent_research').checked ? 'yes' : 'no',
+      'g-recaptcha-response': token || ''
+    };
+    fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(r){
+      if (r.ok) {
+        document.getElementById('reportForm').style.display = 'none';
+        document.getElementById('reportOk').style.display = 'block';
+        document.getElementById('reportOk').scrollIntoView({behavior:'smooth', block:'center'});
+      } else {
+        document.getElementById('reportErr').style.display = 'block';
+        btn.textContent = 'Submit report'; btn.disabled = false;
+      }
+    })
+    .catch(function(){
+      document.getElementById('reportErr').style.display = 'block';
+      btn.textContent = 'Submit report'; btn.disabled = false;
+    });
+  }
+
+  if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
+    grecaptcha.ready(function(){
+      grecaptcha.execute(RECAPTCHA_SITE_KEY, {action: 'submit_report'}).then(send).catch(function(){ send(''); });
+    });
+  } else {
+    send('');
+  }
+  return false;
+}
+</script>
+
+</body>
+</html>
