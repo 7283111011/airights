@@ -93,8 +93,8 @@
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-tag">UK Registered Charity</div>
-    <h1>The Foundation for<br>Artificial Intelligence<br><strong>Rights</strong></h1>
+    <span class="hero-tag">UK Registered Charity</span>
+    <h1>The Foundation for<br>Artificial Intelligence<br><strong class="hero-accent">Rights</strong></h1>
     <p>FAIR is a UK charity advancing public understanding of artificial intelligence and the rights it engages, and supporting better-informed decisions on how AI is developed, deployed, and governed. We provide research, briefings, and evidence to Parliament, the regulators, and the wider professional community on the legal, ethical, and societal questions AI now raises.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-p">Register Interest</a>
@@ -248,7 +248,7 @@
 <section id="concerns" style="background:#F8FAFC">
   <div class="sec">
     <div class="fade-in">
-      <div class="sl">Documented Concerns</div>
+      <span class="sl">Documented Concerns</span>
       <h2 class="sh">What the <strong>evidence shows</strong></h2>
       <p class="sb sb-wide">Described below are findings drawn from peer reviewed research, parliamentary inquiries, regulatory bodies, and professional surveys published over the last eighteen months. Each illustrates a specific harm, gap, or risk to which current law offers no adequate response.</p>
     </div>
@@ -323,12 +323,56 @@
   <div class="pb-bg"></div>
   <div class="pb-ov"></div>
   <div class="pb-inner">
-    <div class="pb-eyebrow">Priority Areas</div>
+    <span class="pb-eyebrow">Priority Areas</span>
     <h2>Where we are <strong>focusing our work</strong></h2>
     <p>The following areas have been identified, through evidence drawn from research, regulatory commentary, and parliamentary inquiry, as priorities for FAIR&rsquo;s policy and advocacy programme. Additional priorities may be added on formation of the Board.</p>
     <p class="pb-note">These remain proposed projects, subject to consultation with and approval by the Board.</p>
   </div>
 </div>
+
+<!-- PRIORITY WAVE: five staggered pills connected by a flowing line -->
+<section class="pri-wave-sec" aria-label="Five priority workstreams">
+  <div class="pri-wave-inner">
+    <svg class="pri-wave-svg" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="priGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#0065BD" stop-opacity="0.15"/>
+          <stop offset="50%" stop-color="#0065BD" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#0065BD" stop-opacity="0.15"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,60 C150,18 250,102 400,60 C550,18 650,102 800,60 C950,18 1050,102 1200,60"
+            fill="none" stroke="url(#priGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+    <div class="pri-wave-pills">
+      <a href="project-01.html" class="pri-pill pri-pill-1">
+        <div class="pri-pill-num">01</div>
+        <div class="pri-pill-label">Copyright<br>&amp; Creators</div>
+        <div class="pri-pill-keys">Producer rights &middot; TDM &middot; Disclosure</div>
+      </a>
+      <a href="project-02.html" class="pri-pill pri-pill-2">
+        <div class="pri-pill-num">02</div>
+        <div class="pri-pill-label">Child<br>Safety</div>
+        <div class="pri-pill-keys">Age gating &middot; Provenance &middot; Liability</div>
+      </a>
+      <a href="project-03.html" class="pri-pill pri-pill-3">
+        <div class="pri-pill-num">03</div>
+        <div class="pri-pill-label">Public<br>Education</div>
+        <div class="pri-pill-keys">Literacy &middot; Briefings &middot; Plain English</div>
+      </a>
+      <a href="project-04.html" class="pri-pill pri-pill-4">
+        <div class="pri-pill-num">04</div>
+        <div class="pri-pill-label">Transparency<br>&amp; Audit</div>
+        <div class="pri-pill-keys">System prompts &middot; Training data &middot; Disclosure</div>
+      </a>
+      <a href="project-05.html" class="pri-pill pri-pill-5">
+        <div class="pri-pill-num">05</div>
+        <div class="pri-pill-label">Parliamentary<br>Engagement</div>
+        <div class="pri-pill-keys">Evidence &middot; Drafting &middot; Select Committees</div>
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- PROJECTS - 3x2 big tile grid -->
 <section id="projects" style="background:#F8FAFC">
@@ -395,7 +439,7 @@
 <section id="news">
   <div class="sec">
     <div class="fade-in">
-      <div class="sl live-feed-eyebrow"><span class="live-dot"></span>Live Feed</div>
+      <span class="sl live-feed-eyebrow"><span class="live-dot"></span>Live Feed</span>
       <h2 class="sh">UK AI <strong>policy and regulation</strong></h2>
       <p class="sb">A live feed of recent UK news on AI law, regulation, and governance, drawn from credible national sources and refreshed automatically.</p>
     </div>
@@ -787,4 +831,6 @@ document.addEventListener('keydown', function(e){
   </div>
 </div>
 
-<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd4
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

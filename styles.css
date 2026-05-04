@@ -496,3 +496,201 @@ img{display:block;max-width:100%}
   .aiw-stats{font-size:0.625rem}
   .aiw-stats strong{font-size:1.25rem}
 }
+
+
+/* ============== HERO GRADIENT ACCENT ============== */
+.hero-content h1 strong.hero-accent{
+  font-weight:700;
+  background:linear-gradient(120deg,#003C70 0%,#0065BD 45%,#3A8BD9 80%,#7EB6E8 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  display:inline-block;
+  padding-right:0.06em;
+}
+
+
+/* ============== EYEBROW PILLS (unified) ============== */
+/* Light-background eyebrows */
+.sl,
+.members-eyebrow,
+.contact-card-eyebrow{
+  display:inline-block;
+  padding:5px 14px;
+  border-radius:99px;
+  background:#EBF3FA;
+  color:#0065BD;
+  font-size:0.6875rem;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:14px;
+  border:1px solid rgba(0,101,189,.18);
+  line-height:1.5;
+}
+.contact-card-eyebrow{margin-bottom:18px}
+.members-eyebrow{margin-bottom:10px}
+
+/* Hero tag pill */
+.hero-tag{
+  display:inline-block;
+  padding:5px 14px;
+  border-radius:99px;
+  background:rgba(0,101,189,.10);
+  color:#0065BD;
+  font-size:0.6875rem;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+  border:1px solid rgba(0,101,189,.22);
+  opacity:0;
+  animation:fadeUp .6s ease .2s forwards;
+}
+
+/* Dark-background eyebrows */
+.pb-eyebrow,
+.f-eyebrow{
+  display:inline-block;
+  padding:5px 14px;
+  border-radius:99px;
+  background:rgba(255,255,255,.08);
+  font-size:0.6875rem;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:14px;
+  border:1px solid rgba(255,255,255,.18);
+  line-height:1.5;
+}
+.pb-eyebrow{color:#FBBF24;border-color:rgba(251,191,36,.35);background:rgba(251,191,36,.08)}
+.f-eyebrow{color:#E87722;border-color:rgba(232,119,34,.35);background:rgba(232,119,34,.08);margin-bottom:18px}
+
+/* Live-feed eyebrow keeps its dot but inherits pill shape */
+.sl.live-feed-eyebrow{
+  background:rgba(220,38,38,.08);
+  border-color:rgba(220,38,38,.30);
+  color:#DC2626 !important;
+  display:inline-flex !important;
+  align-items:center;
+  gap:8px;
+}
+
+
+/* ============== PRIORITY WAVE (five staggered pills) ============== */
+.pri-wave-sec{
+  position:relative;
+  padding:64px 28px 84px;
+  background:#FFF;
+  border-bottom:1px solid #E2E8F0;
+  overflow:hidden;
+}
+.pri-wave-sec::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse at 20% 30%,rgba(0,101,189,.05) 0%,transparent 60%),
+    radial-gradient(ellipse at 80% 70%,rgba(126,182,232,.06) 0%,transparent 60%);
+  pointer-events:none;
+}
+.pri-wave-inner{
+  max-width:1180px;
+  margin:0 auto;
+  position:relative;
+}
+.pri-wave-svg{
+  position:absolute;
+  left:0;
+  right:0;
+  top:50%;
+  transform:translateY(-46%);
+  width:100%;
+  height:140px;
+  pointer-events:none;
+  z-index:1;
+}
+.pri-wave-pills{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+  align-items:center;
+}
+.pri-pill{
+  display:block;
+  background:#FFF;
+  border:1px solid #E2E8F0;
+  border-radius:14px;
+  padding:18px 14px 16px;
+  text-align:center;
+  text-decoration:none;
+  color:inherit;
+  box-shadow:0 6px 22px rgba(15,23,42,.07);
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.pri-pill:hover{
+  transform:translateY(-6px);
+  border-color:rgba(0,101,189,.42);
+  box-shadow:0 14px 34px rgba(0,101,189,.14);
+}
+/* Staggered vertical offsets to ride the wave */
+.pri-pill-1{transform:translateY(-22px)}
+.pri-pill-2{transform:translateY(28px)}
+.pri-pill-3{transform:translateY(-22px)}
+.pri-pill-4{transform:translateY(28px)}
+.pri-pill-5{transform:translateY(-22px)}
+.pri-pill-1:hover{transform:translateY(-30px)}
+.pri-pill-2:hover{transform:translateY(20px)}
+.pri-pill-3:hover{transform:translateY(-30px)}
+.pri-pill-4:hover{transform:translateY(20px)}
+.pri-pill-5:hover{transform:translateY(-30px)}
+
+.pri-pill-num{
+  display:inline-block;
+  padding:3px 10px;
+  border-radius:99px;
+  background:#EBF3FA;
+  color:#0065BD;
+  font-size:0.625rem;
+  font-weight:800;
+  letter-spacing:2px;
+  margin-bottom:12px;
+  border:1px solid rgba(0,101,189,.18);
+}
+.pri-pill-label{
+  font-size:1rem;
+  font-weight:700;
+  color:#0F172A;
+  margin-bottom:8px;
+  line-height:1.25;
+}
+.pri-pill-keys{
+  font-size:0.6875rem;
+  color:#64748B;
+  line-height:1.55;
+  letter-spacing:.2px;
+}
+@media (max-width:880px){
+  .pri-wave-sec{padding:48px 20px 56px}
+  .pri-wave-pills{grid-template-columns:repeat(2,1fr);gap:12px;align-items:stretch}
+  .pri-pill,
+  .pri-pill-1,
+  .pri-pill-2,
+  .pri-pill-3,
+  .pri-pill-4,
+  .pri-pill-5{transform:none !important}
+  .pri-pill:hover{transform:translateY(-3px) !important}
+  .pri-wave-svg{display:none}
+  .pri-pill-label br{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .pri-pill,
+  .pri-pill-1,
+  .pri-pill-2,
+  .pri-pill-3,
+  .pri-pill-4,
+  .pri-pill-5{transition:none}
+}
