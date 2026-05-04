@@ -62,13 +62,13 @@ body{font-family:'Open Sans',sans-serif;color:#0F172A;background:#0F172A;-webkit
 .hero-slide{position:absolute;inset:0;background-position:center 30%;background-size:cover;background-repeat:no-repeat;opacity:0;transition:opacity 1.6s ease-in-out;will-change:opacity}
 .hero-slide.active{opacity:1}
 .hero-overlay{position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,rgba(15,23,42,.55) 0%,rgba(15,23,42,.30) 28%,rgba(15,23,42,.30) 72%,rgba(15,23,42,.65) 100%);pointer-events:none}
-.hero-caption{position:fixed;left:18px;bottom:18px;z-index:2;font-size:0.6875rem;color:rgba(255,255,255,.78);letter-spacing:.3px;line-height:1.5;max-width:340px;text-shadow:0 1px 2px rgba(0,0,0,.4)}
-.hero-caption strong{color:#FFF;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:0.625rem;display:block;margin-bottom:3px}
+.hero-caption{position:fixed;right:18px;top:18px;z-index:3;font-size:0.6875rem;color:rgba(255,255,255,.95);letter-spacing:.3px;line-height:1.45;max-width:340px;text-align:right;background:rgba(15,23,42,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:9px 14px;border-radius:4px;border:1px solid rgba(255,255,255,.10)}
+.hero-caption strong{color:#7EB6E8;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;font-size:0.625rem;display:block;margin-bottom:3px}
 .hero-caption a{color:rgba(255,255,255,.78);text-decoration:underline;text-decoration-color:rgba(255,255,255,.3)}
 .hero-caption a:hover{color:#FFF}
-@media(max-width:600px){.hero-caption{display:none}}
+@media(max-width:520px){.hero-caption{display:none}}
 @media (prefers-reduced-motion:reduce){.hero-slide{transition:none}}
-.wrap{max-width:620px;width:100%;text-align:center;position:relative;z-index:1;background:rgba(255,255,255,.97);padding:48px 40px;border-radius:6px;box-shadow:0 24px 64px rgba(15,23,42,.32),0 4px 12px rgba(15,23,42,.18)}
+.wrap{max-width:720px;width:100%;text-align:center;position:relative;z-index:1;background:rgba(255,255,255,.92);padding:52px 56px;border-radius:6px;box-shadow:0 24px 64px rgba(15,23,42,.32),0 4px 12px rgba(15,23,42,.18);backdrop-filter:saturate(120%) blur(2px);-webkit-backdrop-filter:saturate(120%) blur(2px)}
 .logo{font-weight:800;font-size:2.125rem;letter-spacing:9px;color:#0065BD;margin-bottom:10px}
 .tagline{font-size:0.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#64748B;margin-bottom:48px}
 .eyebrow{display:inline-block;padding:5px 14px;border-radius:99px;background:#EBF3FA;color:#0065BD;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
@@ -136,15 +136,15 @@ h1 strong{font-weight:700;color:#0065BD}
 
 <!-- HERO SLIDESHOW (replace the comp URLs below with licensed full-resolution files once purchased) -->
 <div class="hero-slides" aria-hidden="true">
-  <div class="hero-slide" data-caption="Lone tree at dawn, English countryside" data-credit="World Travel Photos / Adobe Stock #416650606" style="background-image:url('https://as1.ftcdn.net/jpg/04/16/65/06/1000_F_416650606_OQH4tH1941WC3WiVq8UJFTn486Y5oOE2.jpg')"></div>
-  <div class="hero-slide" data-caption="Rydal Water, Lake District National Park, Cumbria" data-credit="Jim / Adobe Stock #580849998" style="background-image:url('https://as2.ftcdn.net/jpg/05/80/84/99/1000_F_580849998_SPkFlmVGIJLXCTStHEgyHzl5WlCxOfwR.jpg')"></div>
-  <div class="hero-slide" data-caption="Lone oak silhouetted against a winter sky" data-credit="Adobe Stock #248735286" style="background-image:url('https://as1.ftcdn.net/jpg/02/48/73/52/1000_F_248735286_6P29rmFjgROwbswQ8hgNe3z0RLW5TSMQ.jpg')"></div>
-  <div class="hero-slide" data-caption="Lone tree at dawn in mist (variant)" data-credit="World Travel Photos / Adobe Stock #416650607" style="background-image:url('https://as1.ftcdn.net/jpg/04/16/65/06/1000_F_416650607_0cMYgNF1Vz4v8twv2CVHi0adJOKjxe8n.jpg')"></div>
-  <div class="hero-slide" data-caption="Image 5 - to be selected (Scott to source)" data-credit="" style="background:#1E293B"></div>
+  <div class="hero-slide" data-caption="An English oak at first light" data-credit="Photograph: World Travel Photos / Adobe Stock #416650606" style="background-image:url('https://as1.ftcdn.net/jpg/04/16/65/06/1000_F_416650606_OQH4tH1941WC3WiVq8UJFTn486Y5oOE2.jpg')"></div>
+  <div class="hero-slide" data-caption="Rydal Water, Lake District National Park, Cumbria" data-credit="Photograph: Jim / Adobe Stock #580849998" style="background-image:url('https://as2.ftcdn.net/jpg/05/80/84/99/1000_F_580849998_SPkFlmVGIJLXCTStHEgyHzl5WlCxOfwR.jpg')"></div>
+  <div class="hero-slide" data-caption="An oak silhouetted against a winter sky" data-credit="Photograph: Adobe Stock #248735286" style="background-image:url('https://as1.ftcdn.net/jpg/02/48/73/52/1000_F_248735286_6P29rmFjgROwbswQ8hgNe3z0RLW5TSMQ.jpg')"></div>
+  <div class="hero-slide" data-caption="Mist clearing at dawn over an English field" data-credit="Photograph: World Travel Photos / Adobe Stock #416650607" style="background-image:url('https://as1.ftcdn.net/jpg/04/16/65/06/1000_F_416650607_0cMYgNF1Vz4v8twv2CVHi0adJOKjxe8n.jpg')"></div>
+  <div class="hero-slide" data-caption="Image 5 - to be sourced" data-credit="" style="background:#1E293B"></div>
 </div>
 <div class="hero-overlay" aria-hidden="true"></div>
 <div class="hero-caption" id="heroCaption" aria-live="polite">
-  <strong>Photograph</strong>
+  <strong>On view</strong>
   <span id="heroCapText"></span>
 </div>
 
