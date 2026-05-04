@@ -1,6 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;600;700&display=swap');
+
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Open Sans',sans-serif;color:#0F172A;background:#FFF;-webkit-font-smoothing:antialiased;line-height:1.6}
+
+/* Editorial serif headlines (paired with Open Sans body) */
+.hero-content h1,
+.sh,
+.aiw-head h2,
+.nls-h,
+.pb h2,
+.pj-body h3,
+.proj-hero h1,
+.bio-modal-content h3,
+.f-quote,
+.mission-text h2{font-family:'Source Serif 4','Source Serif Pro',Georgia,serif;font-feature-settings:"liga","kern"}
 .fade-in{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
@@ -498,6 +512,42 @@ img{display:block;max-width:100%}
 }
 
 
+/* ============== EDITORIAL STRIP LIST (replaces 3-pillar SaaS grid) ============== */
+.ed-list{
+  margin-top:40px;
+  border-top:1px solid #0F172A;
+  border-bottom:1px solid #E2E8F0;
+}
+.ed-row{
+  display:grid;
+  grid-template-columns:minmax(180px,1fr) 3fr;
+  gap:32px;
+  padding:22px 0 22px;
+  border-bottom:1px solid #E2E8F0;
+  align-items:baseline;
+}
+.ed-row:last-child{border-bottom:none}
+.ed-label{
+  font-family:'Source Serif 4','Source Serif Pro',Georgia,serif;
+  font-size:1.0625rem;
+  font-weight:600;
+  font-style:italic;
+  color:#0F172A;
+  letter-spacing:0;
+  line-height:1.3;
+}
+.ed-row p{
+  font-size:0.9375rem;
+  line-height:1.75;
+  color:#475569;
+  margin:0;
+}
+@media(max-width:780px){
+  .ed-row{grid-template-columns:1fr;gap:8px;padding:18px 0}
+  .ed-label{font-size:1rem}
+}
+
+
 /* ============== HERO GRADIENT ACCENT ============== */
 .hero-content h1 strong.hero-accent{
   font-weight:700;
@@ -511,28 +561,41 @@ img{display:block;max-width:100%}
 }
 
 
-/* ============== EYEBROW PILLS (unified) ============== */
-/* Light-background eyebrows */
+/* ============== EYEBROW PILLS (unified, editorial sentence-case) ============== */
+/* Light-background eyebrows: subtle dash + label, no uppercase */
 .sl,
 .members-eyebrow,
 .contact-card-eyebrow{
   display:inline-block;
-  padding:5px 14px;
-  border-radius:99px;
-  background:#EBF3FA;
+  padding:0 0 0 22px;
+  position:relative;
+  background:transparent;
   color:#0065BD;
-  font-size:0.6875rem;
-  font-weight:700;
-  letter-spacing:2px;
-  text-transform:uppercase;
+  font-family:'Source Serif 4','Source Serif Pro',Georgia,serif;
+  font-size:0.875rem;
+  font-weight:600;
+  letter-spacing:0;
+  text-transform:none;
   margin-bottom:14px;
-  border:1px solid rgba(0,101,189,.18);
+  border:none;
   line-height:1.5;
+  font-style:italic;
+}
+.sl::before,
+.members-eyebrow::before,
+.contact-card-eyebrow::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:50%;
+  width:14px;
+  height:1px;
+  background:#0065BD;
 }
 .contact-card-eyebrow{margin-bottom:18px}
 .members-eyebrow{margin-bottom:10px}
 
-/* Hero tag pill */
+/* Hero tag stays as a small pill: it's a brand label, not a section eyebrow */
 .hero-tag{
   display:inline-block;
   padding:5px 14px;
@@ -549,33 +612,48 @@ img{display:block;max-width:100%}
   animation:fadeUp .6s ease .2s forwards;
 }
 
-/* Dark-background eyebrows */
+/* Dark-background eyebrows match the editorial dash-prefix pattern */
 .pb-eyebrow,
 .f-eyebrow{
   display:inline-block;
-  padding:5px 14px;
-  border-radius:99px;
-  background:rgba(255,255,255,.08);
-  font-size:0.6875rem;
-  font-weight:700;
-  letter-spacing:2px;
-  text-transform:uppercase;
+  padding:0 0 0 22px;
+  position:relative;
+  background:transparent;
+  font-family:'Source Serif 4','Source Serif Pro',Georgia,serif;
+  font-size:0.875rem;
+  font-weight:600;
+  letter-spacing:0;
+  text-transform:none;
   margin-bottom:14px;
-  border:1px solid rgba(255,255,255,.18);
+  border:none;
   line-height:1.5;
+  font-style:italic;
 }
-.pb-eyebrow{color:#FBBF24;border-color:rgba(251,191,36,.35);background:rgba(251,191,36,.08)}
-.f-eyebrow{color:#E87722;border-color:rgba(232,119,34,.35);background:rgba(232,119,34,.08);margin-bottom:18px}
+.pb-eyebrow::before,
+.f-eyebrow::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:50%;
+  width:14px;
+  height:1px;
+}
+.pb-eyebrow{color:#FBBF24}
+.pb-eyebrow::before{background:#FBBF24}
+.f-eyebrow{color:#E87722;margin-bottom:18px}
+.f-eyebrow::before{background:#E87722}
 
-/* Live-feed eyebrow keeps its dot but inherits pill shape */
+/* Live-feed eyebrow keeps its dot but uses the same editorial pattern */
 .sl.live-feed-eyebrow{
-  background:rgba(220,38,38,.08);
-  border-color:rgba(220,38,38,.30);
-  color:#DC2626 !important;
+  padding:0;
   display:inline-flex !important;
   align-items:center;
   gap:8px;
+  color:#DC2626 !important;
+  font-family:'Source Serif 4','Source Serif Pro',Georgia,serif;
+  font-style:italic;
 }
+.sl.live-feed-eyebrow::before{display:none}
 
 
 /* ============== PRIORITY WAVE (five staggered pills) ============== */
@@ -648,18 +726,6 @@ img{display:block;max-width:100%}
 .pri-pill-4:hover{transform:translateY(20px)}
 .pri-pill-5:hover{transform:translateY(-30px)}
 
-.pri-pill-num{
-  display:inline-block;
-  padding:3px 10px;
-  border-radius:99px;
-  background:#EBF3FA;
-  color:#0065BD;
-  font-size:0.625rem;
-  font-weight:800;
-  letter-spacing:2px;
-  margin-bottom:12px;
-  border:1px solid rgba(0,101,189,.18);
-}
 .pri-pill-label{
   font-size:1.0625rem;
   font-weight:700;
