@@ -423,7 +423,6 @@ img{display:block;max-width:100%}
 .aiw-head h2 strong{font-weight:700;color:#7EB6E8}
 .aiw-head p{font-size:0.9375rem;color:rgba(255,255,255,.72);max-width:560px;line-height:1.55}
 
-
 /* FEATURED CARDS */
 .aiw-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
 .aiw-card{padding:18px 20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;transition:all .2s;text-decoration:none;color:inherit;display:block}
@@ -647,26 +646,14 @@ img{display:block;max-width:100%}
   .pq-text{font-size:1.375rem}
 }
 
-/* ============== PROJECT TILES - EDITORIAL NUMBER PANELS ============== */
-.pj-img.pj-number{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:0;
-  background:linear-gradient(135deg,#1A2942 0%,#0F172A 100%);
-  height:120px;
-  position:relative;
-}
 /* .pj-num removed - project tiles no longer use a number panel */
-.pj-topic{
-  font-size:0.75rem;
-  font-weight:600;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:rgba(126,182,232,.95);
-}
 
 /* Mission section callout (replaces .ms block) */
 .mission-callout{margin:48px 0 56px;padding:32px 36px;border-left:3px solid #1A2942;background:#FBFAF6;border-top:1px solid #D4D2CC;border-bottom:1px solid #D4D2CC}
 .mission-callout h3{font-size:1.25rem;font-weight:600;color:#0F172A;line-height:1.4;margin-bottom:14px;letter-spacing:-0.005em}
 .mission-callout p{font-size:0.9375rem;line-height:1.75;color:#475569;margin:0}
+
+/* Mission section figure (image break) */
+.mission-figure{margin:32px 0 8px;padding:0}
+.mission-figure img{width:100%;height:auto;display:block;border-radius:2px}
+.mission-figure figcaption{margin-top:10px;font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;color:#1A2942;font-weight:600}
