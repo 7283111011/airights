@@ -700,11 +700,13 @@ function rejectCookies(){
     .then(function(data){
       console.log('[FAIR News] Response:', data.status, 'items:', (data.items || []).length);
       if (data.status !== 'ok') {
-        grid.innerHTML = '<div class="nc news-error">News service returned status: ' + (data.status || 'unknown') + '. ' + (data.message || '') + '</div>';
+        var section = document.getElementById('news');
+        if (section) section.style.display = 'none';
         return;
       }
       if (!data.items || data.items.length === 0) {
-        grid.innerHTML = '<div class="nc">No recent news available.</div>';
+        var s = document.getElementById('news');
+        if (s) s.style.display = 'none';
         return;
       }
       var html = '';
@@ -736,8 +738,11 @@ function rejectCookies(){
     })
     .catch(function(err){
       console.error('[FAIR News] Failed:', err);
-      var msg = err && err.message ? err.message : 'Unknown error';
-      grid.innerHTML = '<div class="nc news-error">News feed unavailable (' + msg + '). The feed will work once the site is hosted online; some browsers block external requests when viewing local files.</div>';
+      // Hide the news section entirely if the feed cannot load (e.g. when viewing locally
+      // via file://, where many browsers block CORS calls to rss2json). The section will
+      // populate normally when served over HTTPS.
+      var section = document.getElementById('news');
+      if (section) section.style.display = 'none';
     });
 })();
 
