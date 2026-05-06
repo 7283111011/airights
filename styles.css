@@ -55,7 +55,7 @@ img{display:block;max-width:100%}
 /* PILLARS */
 .pillars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;margin-top:28px;background:#E2E8F0;border:1px solid #E2E8F0;border-radius:4px;overflow:hidden}
 .pillar{background:#FFF;padding:24px 20px;transition:background .2s}
-.pillar:hover{background:#F6F9FC}
+.pillar:hover{background:#F0EEE5}
 .pn{font-size:12px;font-weight:700;color:#0065BD;letter-spacing:1px;margin-bottom:8px}
 .pillar h3{font-size:14px;font-weight:700;margin-bottom:6px;line-height:1.3}
 .pillar p{font-size:12px;line-height:1.7;color:#64748B}
@@ -114,7 +114,7 @@ img{display:block;max-width:100%}
 /* FOUNDER */
 
 /* CONTACT */
-.contact{background:#F8FAFC}
+.contact{background:#FBFAF6}
 .contact-inner{max-width:1040px;margin:0 auto;padding:80px 36px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
 .cf{display:flex;flex-direction:column;gap:10px}
 .ff{display:flex;flex-direction:column;gap:3px}
@@ -246,7 +246,7 @@ img{display:block;max-width:100%}
 .new-tag{display:inline-block;padding:2px 7px;background:#E2E8F0;color:#334155;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;border-radius:2px;margin-right:8px;vertical-align:middle;line-height:1.4}
 
 /* ============ MEMBERS / TRUSTEES CAROUSEL ============ */
-.members{padding:56px 0;background:#F8FAFC;border-top:1px solid #E2E8F0;border-bottom:1px solid #E2E8F0;overflow:hidden}
+.members{padding:56px 0;background:#FBFAF6;border-top:1px solid #D4D2CC;border-bottom:1px solid #D4D2CC;overflow:hidden}
 .members-inner{max-width:1100px;margin:0 auto;text-align:center;padding:0 24px}
 .members-eyebrow{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#0065BD;margin-bottom:8px}
 .members-intro{font-size:13px;color:#64748B;margin-bottom:32px;max-width:580px;margin-left:auto;margin-right:auto;line-height:1.65}
@@ -388,7 +388,7 @@ img{display:block;max-width:100%}
 }
 
 /* ============== NEWSLETTER SIGNUP BAND (preview/full site) ============== */
-.nls-band{background:linear-gradient(180deg,#EBF3FA 0%,#F8FAFC 100%);border-top:1px solid #DBEAFE;border-bottom:1px solid #E2E8F0;padding:48px 28px}
+.nls-band{background:#FBFAF6;border-top:1px solid #D4D2CC;border-bottom:1px solid #D4D2CC;padding:48px 28px}
 .nls-inner{max-width:920px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:36px;align-items:center}
 .nls-eyebrow{display:inline-block;padding:5px 14px;border-radius:99px;background:#FFF;color:#0065BD;font-size:0.6875rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;border:1px solid #CBD5E1}
 .nls-h{font-size:1.625rem;font-weight:300;color:#0F172A;line-height:1.25;margin-bottom:10px}
@@ -646,3 +646,46 @@ img{display:block;max-width:100%}
   .pq-break{padding:64px 20px}
   .pq-text{font-size:1.375rem}
 }
+
+/* ============== PROJECT TILES - EDITORIAL NUMBER PANELS ============== */
+.pj-img.pj-number{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:flex-start;
+  padding:24px 26px;
+  background:linear-gradient(135deg,#1A2942 0%,#0F172A 100%);
+  height:200px;
+  position:relative;
+  overflow:hidden;
+}
+.pj-img.pj-number::before{
+  content:"";
+  position:absolute;
+  top:24px;
+  right:26px;
+  width:32px;
+  height:1px;
+  background:rgba(126,182,232,.45);
+}
+.pj-num{
+  font-size:3rem;
+  font-weight:700;
+  color:#7EB6E8;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:0.02em;
+  line-height:1;
+  margin-bottom:8px;
+}
+.pj-topic{
+  font-size:0.6875rem;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.78);
+}
+
+/* Mission section callout (replaces .ms block) */
+.mission-callout{margin:48px 0 56px;padding:32px 36px;border-left:3px solid #1A2942;background:#FBFAF6;border-top:1px solid #D4D2CC;border-bottom:1px solid #D4D2CC}
+.mission-callout h3{font-size:1.25rem;font-weight:600;color:#0F172A;line-height:1.4;margin-bottom:14px;letter-spacing:-0.005em}
+.mission-callout p{font-size:0.9375rem;line-height:1.75;color:#475569;margin:0}
