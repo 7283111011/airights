@@ -21,7 +21,7 @@ img{display:block;max-width:100%}
 
 /* HERO: full width image background */
 .hero{position:relative;min-height:75vh;display:flex;align-items:flex-end;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#FBFAF6 0%,#F0EEE5 100%)}
+.hero-bg{position:absolute;inset:0;background:url('https://as1.ftcdn.net/jpg/04/16/65/06/1000_F_416650606_OQH4tH1941WC3WiVq8UJFTn486Y5oOE2.jpg') center 35%/cover no-repeat}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(251,250,246,.95) 0%,rgba(251,250,246,.7) 35%,rgba(251,250,246,.3) 70%,rgba(251,250,246,.1) 100%)}
 .hero-content{position:relative;z-index:2;max-width:640px;padding:0 40px 64px}
 .hero-tag{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#0065BD;margin-bottom:18px;opacity:0;animation:fadeUp .6s ease .2s forwards}
@@ -452,7 +452,7 @@ img{display:block;max-width:100%}
 /* New editorial heading for AI Watch (no marquee/pulse/dashboard) */
 .aiw-meta{font-size:0.75rem;letter-spacing:1.5px;text-transform:uppercase;color:#7EB6E8;font-weight:600;margin-bottom:14px;padding-top:8px;border-top:1px solid rgba(126,182,232,.35);display:inline-block;padding-right:24px}
 .aiw-lede{font-size:0.9375rem;line-height:1.7;color:rgba(255,255,255,.78);max-width:680px;margin-top:14px}
-.aiw-fig{color:#FFF;font-weight:700;font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+.aiw-fig{color:#FFF;font-variant-numeric:tabular-nums;font-feature-settings:"tnum";letter-spacing:0.01em}
 @media(max-width:880px){
   .aiw-cards{grid-template-columns:1fr}
   .aiw-head h2{font-size:1.625rem}
@@ -650,39 +650,20 @@ img{display:block;max-width:100%}
 /* ============== PROJECT TILES - EDITORIAL NUMBER PANELS ============== */
 .pj-img.pj-number{
   display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  align-items:flex-start;
-  padding:24px 26px;
+  align-items:center;
+  justify-content:center;
+  padding:0;
   background:linear-gradient(135deg,#1A2942 0%,#0F172A 100%);
-  height:200px;
+  height:120px;
   position:relative;
-  overflow:hidden;
 }
-.pj-img.pj-number::before{
-  content:"";
-  position:absolute;
-  top:24px;
-  right:26px;
-  width:32px;
-  height:1px;
-  background:rgba(126,182,232,.45);
-}
-.pj-num{
-  font-size:3rem;
-  font-weight:700;
-  color:#7EB6E8;
-  font-variant-numeric:tabular-nums;
-  letter-spacing:0.02em;
-  line-height:1;
-  margin-bottom:8px;
-}
+/* .pj-num removed - project tiles no longer use a number panel */
 .pj-topic{
-  font-size:0.6875rem;
-  font-weight:700;
+  font-size:0.75rem;
+  font-weight:600;
   letter-spacing:2px;
   text-transform:uppercase;
-  color:rgba(255,255,255,.78);
+  color:rgba(126,182,232,.95);
 }
 
 /* Mission section callout (replaces .ms block) */
