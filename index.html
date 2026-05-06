@@ -53,11 +53,11 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{font-size:16px}
-body{font-family:'Open Sans',sans-serif;color:#0F172A;background:#0F172A;-webkit-font-smoothing:antialiased;line-height:1.6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 24px;position:relative;overflow-x:hidden}
+body{font-family:'Public Sans',sans-serif;color:#0F172A;background:#0F172A;-webkit-font-smoothing:antialiased;line-height:1.6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 24px;position:relative;overflow-x:hidden}
 .hero-slides{position:fixed;inset:0;z-index:0;pointer-events:none}
 .hero-slide{position:absolute;inset:0;background-position:center 30%;background-size:cover;background-repeat:no-repeat;opacity:0;transition:opacity 1.6s ease-in-out;will-change:opacity}
 .hero-slide.active{opacity:1}
@@ -68,11 +68,11 @@ body{font-family:'Open Sans',sans-serif;color:#0F172A;background:#0F172A;-webkit
 .hero-caption a:hover{color:#FFF}
 @media(max-width:520px){.hero-caption{display:none}}
 @media (prefers-reduced-motion:reduce){.hero-slide{transition:none}}
-.wrap{max-width:720px;width:100%;text-align:center;position:relative;z-index:1;background:rgba(255,255,255,.92);padding:52px 56px;border-radius:6px;box-shadow:0 24px 64px rgba(15,23,42,.32),0 4px 12px rgba(15,23,42,.18);backdrop-filter:saturate(120%) blur(2px);-webkit-backdrop-filter:saturate(120%) blur(2px)}
+.wrap{max-width:720px;width:100%;text-align:center;position:relative;z-index:1;background:rgba(251,250,246,.94);padding:52px 56px;border-radius:6px;box-shadow:0 24px 64px rgba(15,23,42,.32),0 4px 12px rgba(15,23,42,.18);backdrop-filter:saturate(120%) blur(2px);-webkit-backdrop-filter:saturate(120%) blur(2px)}
 .logo{font-weight:800;font-size:2.125rem;letter-spacing:9px;color:#0065BD;margin-bottom:10px}
 .tagline{font-size:0.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#64748B;margin-bottom:48px}
 .eyebrow{display:inline-block;padding:5px 14px;border-radius:99px;background:#EBF3FA;color:#0065BD;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
-h1{font-size:2.375rem;font-weight:300;line-height:1.25;margin-bottom:22px;color:#0F172A}
+h1{font-size:2.375rem;font-weight:500;letter-spacing:-0.01em;line-height:1.25;margin-bottom:22px;color:#0F172A}
 h1 strong{font-weight:700;color:#0065BD}
 .lede{font-size:1rem;line-height:1.85;color:#475569;margin-bottom:18px}
 .lede strong{color:#0F172A;font-weight:600}
@@ -102,9 +102,9 @@ h1 strong{font-weight:700;color:#0065BD}
 .cookie-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#0F172A;padding:16px 36px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;box-shadow:0 -2px 12px rgba(0,0,0,.15)}
 .cookie-bar p{font-size:0.875rem;color:rgba(255,255,255,.85);max-width:680px;line-height:1.6;margin:0}
 .cookie-btns{display:flex;gap:8px;flex-shrink:0}
-.cookie-accept{padding:8px 20px;border-radius:3px;background:#0065BD;color:#FFF;font-family:'Open Sans',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
+.cookie-accept{padding:8px 20px;border-radius:3px;background:#0065BD;color:#FFF;font-family:'Public Sans',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
 .cookie-accept:hover{background:#004A8C}
-.cookie-reject{padding:8px 20px;border-radius:3px;background:transparent;color:rgba(255,255,255,.75);font-family:'Open Sans',sans-serif;font-size:0.8125rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;border:1px solid rgba(255,255,255,.25);cursor:pointer;transition:all .2s}
+.cookie-reject{padding:8px 20px;border-radius:3px;background:transparent;color:rgba(255,255,255,.75);font-family:'Public Sans',sans-serif;font-size:0.8125rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;border:1px solid rgba(255,255,255,.25);cursor:pointer;transition:all .2s}
 .cookie-reject:hover{border-color:rgba(255,255,255,.5);color:#FFF}
 @media(max-width:600px){
   body{background-attachment:scroll}
@@ -123,10 +123,10 @@ h1 strong{font-weight:700;color:#0065BD}
 .signup-h strong{color:#7EB6E8;font-weight:700}
 .signup-blurb{font-size:0.875rem;line-height:1.65;color:rgba(255,255,255,.78);margin-bottom:14px}
 .signup-form{display:flex;gap:8px;flex-wrap:wrap;align-items:stretch}
-.signup-form input{flex:1;min-width:200px;font-family:'Open Sans',sans-serif;font-size:0.9375rem;padding:11px 14px;border:1px solid rgba(255,255,255,.18);border-radius:3px;background:rgba(255,255,255,.06);color:#FFF;outline:none;transition:border-color .2s,background .2s}
+.signup-form input{flex:1;min-width:200px;font-family:'Public Sans',sans-serif;font-size:0.9375rem;padding:11px 14px;border:1px solid rgba(255,255,255,.18);border-radius:3px;background:rgba(255,255,255,.06);color:#FFF;outline:none;transition:border-color .2s,background .2s}
 .signup-form input::placeholder{color:rgba(255,255,255,.5)}
 .signup-form input:focus{border-color:#7EB6E8;background:rgba(255,255,255,.10)}
-.signup-form button{padding:11px 22px;border-radius:3px;background:#0065BD;color:#FFF;font-family:'Open Sans',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s;white-space:nowrap}
+.signup-form button{padding:11px 22px;border-radius:3px;background:#0065BD;color:#FFF;font-family:'Public Sans',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s;white-space:nowrap}
 .signup-form button:hover{background:#0078DC}
 .signup-fine{font-size:0.6875rem;color:rgba(255,255,255,.5);margin-top:10px;line-height:1.55}
 .signup-fine a{color:rgba(255,255,255,.75);text-decoration:underline}
@@ -282,4 +282,4 @@ function rejectCookies(){try{localStorage.setItem('fair-cookies','rejected')}cat
 })();
 </script>
 </body>
-</html>                                                                                                                                                                                                                                                                                                                               
+</html>
