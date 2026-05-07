@@ -12,7 +12,7 @@ img{display:block;max-width:100%}
 .nav-logo{font-weight:800;font-size:16px;letter-spacing:4px;cursor:pointer;text-decoration:none;transition:color .3s}
 .nav-links{display:flex;gap:24px;align-items:center}
 .nav-links a{font-size:14px;font-weight:500;text-decoration:none;transition:color .2s}
-.nav-cta{padding:7px 20px;border-radius:3px;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;text-decoration:none;transition:all .2s}
+.nav-cta{padding:7px 18px;border-radius:3px;font-size:13px;font-weight:600;letter-spacing:0;text-transform:none;text-decoration:none;transition:all .2s}
 @media(max-width:860px){.nav{padding:0 16px}.nav-links,.nav-cta{display:none}.mobile-toggle{display:block!important}}
 .mobile-toggle{display:none;background:none;border:none;cursor:pointer}
 .mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;z-index:99;background:#FFF;border-bottom:1px solid #E2E8F0;padding:12px 16px}
@@ -29,9 +29,9 @@ img{display:block;max-width:100%}
 .hero-content h1 strong{font-weight:700;color:#0065BD}
 .hero-content p{font-size:15px;line-height:1.8;color:#64748B;max-width:500px;opacity:0;animation:fadeUp .7s ease .45s forwards}
 .hero-btns{display:flex;gap:10px;margin-top:26px;opacity:0;animation:fadeUp .7s ease .6s forwards}
-.btn-p{padding:11px 26px;border-radius:3px;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;border:none;cursor:pointer;font-family:'Public Sans',sans-serif;background:#0065BD;color:#FFF;text-decoration:none;display:inline-block;transition:background .2s}
+.btn-p{padding:11px 24px;border-radius:3px;font-size:14px;font-weight:600;letter-spacing:0;text-transform:none;border:none;cursor:pointer;font-family:'Public Sans',sans-serif;background:#0065BD;color:#FFF;text-decoration:none;display:inline-block;transition:background .2s}
 .btn-p:hover{background:#004A8C}
-.btn-o{padding:11px 26px;border-radius:3px;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;cursor:pointer;font-family:'Public Sans',sans-serif;background:transparent;color:#0065BD;border:1.5px solid #0065BD;text-decoration:none;display:inline-block;transition:background .2s}
+.btn-o{padding:11px 24px;border-radius:3px;font-size:14px;font-weight:600;letter-spacing:0;text-transform:none;cursor:pointer;font-family:'Public Sans',sans-serif;background:transparent;color:#0065BD;border:1.5px solid #0065BD;text-decoration:none;display:inline-block;transition:background .2s}
 .btn-o:hover{background:#EBF3FA}
 @media(max-width:768px){.hero-content{padding:0 20px 40px}.hero-content h1{font-size:30px}}
 
@@ -122,7 +122,7 @@ img{display:block;max-width:100%}
 .ff input,.ff textarea,.ff select{font-family:'Public Sans',sans-serif;font-size:13px;padding:9px 12px;border:1px solid #E2E8F0;border-radius:3px;background:#FFF;color:#0F172A;outline:none;transition:border-color .2s}
 .ff input:focus,.ff textarea:focus,.ff select:focus{border-color:#0065BD}
 .ff textarea{resize:vertical;min-height:70px}
-.f-submit{padding:10px 24px;border-radius:3px;align-self:flex-start;background:#0065BD;color:#FFF;font-family:'Public Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
+.f-submit{padding:10px 22px;border-radius:3px;align-self:flex-start;background:#0065BD;color:#FFF;font-family:'Public Sans',sans-serif;font-size:14px;font-weight:600;letter-spacing:0;text-transform:none;border:none;cursor:pointer;transition:background .2s}
 .f-submit:hover{background:#004A8C}
 .f-ok{padding:16px;background:#EBF3FA;border-radius:4px;font-size:13px;color:#004A8C;font-weight:600;display:none}
 @media(max-width:860px){.contact-inner{grid-template-columns:1fr;gap:28px;padding:48px 16px}}
@@ -132,9 +132,9 @@ img{display:block;max-width:100%}
 .cookie-bar p{font-size:12px;color:rgba(255,255,255,.85);max-width:680px;line-height:1.6;margin:0}
 .cookie-bar a{color:#0065BD;text-decoration:underline}
 .cookie-btns{display:flex;gap:8px;flex-shrink:0}
-.cookie-accept{padding:8px 20px;border-radius:3px;background:#0065BD;color:#FFF;font-family:'Public Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
+.cookie-accept{padding:8px 18px;border-radius:3px;background:#0065BD;color:#FFF;font-family:'Public Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0;text-transform:none;border:none;cursor:pointer;transition:background .2s}
 .cookie-accept:hover{background:#004A8C}
-.cookie-reject{padding:8px 20px;border-radius:3px;background:transparent;color:rgba(255,255,255,.5);font-family:'Public Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);cursor:pointer;transition:all .2s}
+.cookie-reject{padding:8px 18px;border-radius:3px;background:transparent;color:rgba(255,255,255,.5);font-family:'Public Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:0;text-transform:none;border:1px solid rgba(255,255,255,.15);cursor:pointer;transition:all .2s}
 .cookie-reject:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.7)}
 .cookie-settings{padding:8px 20px;border-radius:3px;background:transparent;color:rgba(255,255,255,.4);font-family:'Public Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;text-decoration:underline}
 
@@ -283,7 +283,7 @@ img{display:block;max-width:100%}
 .f-role{font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;letter-spacing:.2px}
 .f-bio p{font-size:14px;line-height:1.8;color:rgba(255,255,255,.72);margin-bottom:14px}
 .f-bio p:last-child{margin-bottom:0}
-.bio-toggle{margin-top:20px;padding:9px 20px;background:transparent;color:#FFF;border:1px solid rgba(255,255,255,.22);border-radius:3px;font-family:'Public Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;cursor:pointer;align-self:flex-start;transition:all .2s}
+.bio-toggle{margin-top:20px;padding:9px 18px;background:transparent;color:#FFF;border:1px solid rgba(255,255,255,.22);border-radius:3px;font-family:'Public Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:0;text-transform:none;cursor:pointer;align-self:flex-start;transition:all .2s}
 .bio-toggle:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.45)}
 @media(max-width:768px){
   .founder-inner{padding:48px 20px;grid-template-columns:1fr;gap:32px}
@@ -398,7 +398,7 @@ img{display:block;max-width:100%}
 .nls-form input[type=email]{flex:1;min-width:200px;font-family:'Public Sans',sans-serif;font-size:0.9375rem;padding:11px 14px;border:1px solid #E2E8F0;border-radius:3px;background:#FFF;color:#0F172A;outline:none;transition:border-color .2s}
 .nls-form input[type=email]:focus{border-color:#0065BD}
 .nls-form input[type=email]::placeholder{color:#94A3B8}
-.nls-form button{padding:11px 24px;border-radius:3px;background:#0065BD;color:#FFF;font-family:'Public Sans',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s;white-space:nowrap}
+.nls-form button{padding:11px 22px;border-radius:3px;background:#0065BD;color:#FFF;font-family:'Public Sans',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0;text-transform:none;border:none;cursor:pointer;transition:background .2s;white-space:nowrap}
 .nls-form button:hover{background:#004A8C}
 .nls-fine{font-size:0.75rem;color:#64748B;margin-top:10px;line-height:1.55}
 .nls-fine a{color:#0065BD;text-decoration:none}
@@ -440,7 +440,7 @@ img{display:block;max-width:100%}
 /* CTA ROW */
 .aiw-cta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08)}
 .aiw-cta-text{font-size:0.875rem;color:rgba(255,255,255,.65);max-width:520px}
-.aiw-cta-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:#0065BD;color:#FFF;font-size:0.75rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border-radius:3px;text-decoration:none;transition:background .15s;white-space:nowrap}
+.aiw-cta-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;background:#0065BD;color:#FFF;font-size:0.875rem;font-weight:600;letter-spacing:0;text-transform:none;border-radius:3px;text-decoration:none;transition:background .15s;white-space:nowrap}
 .aiw-cta-btn:hover{background:#0078DC}
 .aiw-cta-btn::after{content:" \2192";font-weight:400}
 @media (prefers-reduced-motion: reduce){
