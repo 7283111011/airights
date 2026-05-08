@@ -8,6 +8,7 @@ import json
 import re
 import os
 import sys
+import time
 from datetime import datetime, timezone
 
 from google import genai
@@ -133,19 +134,55 @@ google_search_tool = Tool(google_search=GoogleSearch())
 
 print("\nCalling Gemini 2.5 Flash with Google Search grounding...")
 
-try:
-    response = client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=PROMPT,
-        config=GenerateContentConfig(
-            tools=[google_search_tool],
-            response_modalities=["TEXT"],
-            temperature=1.0,  # recommended for grounding
-        ),
-    )
-except Exception as e:
-    print(f"Gemini API error: {e}")
-    sys.exit(1)
+# Retry with exponential backoff on transient errors (503, 429, network blips).
+# Free-tier Gemini routinely returns 503 UNAVAILABLE during demand spikes.
+MAX_ATTEMPTS = 4
+BACKOFF_SECS = [10, 30, 90]  # waits between attempts 1->2, 2->3, 3->4
+
+response = None
+last_error = None
+
+for attempt in range(1, MAX_ATTEMPTS + 1):
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=PROMPT,
+            config=GenerateContentConfig(
+                tools=[google_search_tool],
+                response_modalities=["TEXT"],
+                temperature=1.0,  # recommended for grounding
+            ),
+        )
+        break  # success
+    except Exception as e:
+        last_error = e
+        msg = str(e)
+        # Identify transient errors worth retrying
+        transient = any(code in msg for code in ("503", "429", "UNAVAILABLE",
+                                                  "RESOURCE_EXHAUSTED",
+                                                  "DEADLINE_EXCEEDED",
+                                                  "INTERNAL"))
+        print(f"Gemini API error (attempt {attempt}/{MAX_ATTEMPTS}): {e}")
+        if not transient:
+            print("Error is not transient. Aborting without retry.")
+            break
+        if attempt < MAX_ATTEMPTS:
+            wait = BACKOFF_SECS[attempt - 1]
+            print(f"Transient error. Waiting {wait}s before retry...")
+            time.sleep(wait)
+
+if response is None:
+    # All retries exhausted. Exit cleanly so the workflow does not flag a
+    # transient upstream issue as a failed run. Tomorrow's scheduled run will
+    # try again from a fresh state.
+    print("\nGemini API unreachable after retries. Exiting cleanly so the "
+          "workflow is not marked failed. Last error: " + str(last_error))
+    try:
+        with open("/tmp/ai-watch-commit-msg.txt", "w") as f:
+            f.write("AI Watch: scan skipped (Gemini API unavailable)")
+    except Exception:
+        pass
+    sys.exit(0)
 
 # Extract text from response
 final_text = ""
