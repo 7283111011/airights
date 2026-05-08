@@ -65,27 +65,28 @@
 
 <!-- NAV -->
 <nav class="nav" id="navbar">
-  <a href="#home" class="nav-logo" style="color:#0065BD">FAIR</a>
+  <a href="/" class="nav-logo">FAIR</a>
   <div class="nav-links">
-    <a href="#mission" style="color:#334155">Mission</a>
-    <a href="#concerns" style="color:#334155">Concerns</a>
-    <a href="#projects" style="color:#334155">Projects</a>
-    <a href="#news" style="color:#334155">News</a>
-    <a href="#founder" style="color:#334155">Founder</a>
-    <a href="#contact" style="color:#334155">Contact</a>
+    <a href="learn.html">Learn</a>
+    <a href="ai-watch.html">Watch</a>
+    <a href="report.html">Report</a>
+    <a href="campaigns.html">Campaign</a>
+    <a href="ask.html">Ask</a>
+    <a href="founder.html">Founder</a>
   </div>
-  <a href="#contact" class="nav-cta" style="background:#0065BD;color:#FFF;border:1px solid #0065BD">Get involved</a>
-  <button class="mobile-toggle" onclick="document.getElementById('mob').classList.toggle('open')">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><line x1="4" y1="7" x2="20" y2="7" stroke="#334155" stroke-width="1.5"/><line x1="4" y1="12" x2="20" y2="12" stroke="#334155" stroke-width="1.5"/><line x1="4" y1="17" x2="20" y2="17" stroke="#334155" stroke-width="1.5"/></svg>
+  <a href="#get-involved" class="nav-cta">Get involved</a>
+  <button class="mobile-toggle" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Toggle menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><line x1="4" y1="7" x2="20" y2="7" stroke="currentColor" stroke-width="1.8"/><line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="1.8"/><line x1="4" y1="17" x2="20" y2="17" stroke="currentColor" stroke-width="1.8"/></svg>
   </button>
 </nav>
 <div class="mobile-menu" id="mob">
-  <a href="#mission" onclick="this.parentElement.classList.remove('open')">Mission</a>
-  <a href="#concerns" onclick="this.parentElement.classList.remove('open')">Concerns</a>
-  <a href="#projects" onclick="this.parentElement.classList.remove('open')">Projects</a>
-  <a href="#news" onclick="this.parentElement.classList.remove('open')">News</a>
-  <a href="#founder" onclick="this.parentElement.classList.remove('open')">Founder</a>
-  <a href="#contact" onclick="this.parentElement.classList.remove('open')">Contact</a>
+  <a href="learn.html" onclick="this.parentElement.classList.remove('open')">Learn</a>
+  <a href="ai-watch.html" onclick="this.parentElement.classList.remove('open')">Watch</a>
+  <a href="report.html" onclick="this.parentElement.classList.remove('open')">Report</a>
+  <a href="campaigns.html" onclick="this.parentElement.classList.remove('open')">Campaign</a>
+  <a href="ask.html" onclick="this.parentElement.classList.remove('open')">Ask</a>
+  <a href="founder.html" onclick="this.parentElement.classList.remove('open')">Founder</a>
+  <a href="#get-involved" onclick="this.parentElement.classList.remove('open')">Get involved</a>
 </div>
 
 <!-- HERO -->
@@ -94,7 +95,7 @@
     <source src="images/FAIR_hero.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
-  <div class="hero-content">
+  <div class="hero-content"><div class="hero-panel">
     <h1>The Foundation for Artificial Intelligence Rights (FAIR)</h1>
     <p class="hero-tagline">Artificial intelligence is being built into the country around you. We are here to help you understand it, push back on it, and demand it works for you.</p>
     <p>FAIR is a new United Kingdom organisation with two jobs. The first is to help people, including children, teenagers, students, working adults, older adults, families and carers, to understand what artificial intelligence is, what it can and cannot do, and what their rights are when a public service, school, employer or application uses it. The second is to hold the people building and buying these systems to account: in Whitehall, in Parliament, in regulators&rsquo; offices, in NHS trusts, in council chambers, and in police forces.</p>
@@ -104,7 +105,7 @@
       <a href="campaigns.html" class="btn-o">See campaigns</a>
       <a href="#newsletter-band" class="btn-o">Subscribe to FAIR Briefings</a>
     </div>
-  </div>
+  </div></div>
 </section>
 
 
@@ -261,7 +262,7 @@
       <h2 class="sh">Where the evidence is loudest right now</h2>
       <p class="sb sb-wide">These are the areas where UK research is unambiguous, regulators are concerned, and the public has not yet been given clear information. Each one is sourced. Click through to read the original.</p>
     </div>
-    <ol class="cn-list">
+    <ol class="cn-list" id="cn-list">
       <li class="cn-row fade-in">
         <span class="cn-num">01</span>
         <div class="cn-body">
@@ -289,8 +290,7 @@
           <div class="cn-cta"><a href="report.html">Report your experience &rarr;</a></div>
         </div>
       </li>
-      <li class="cn-collapse" id="cn-collapse">
-        <li class="cn-row fade-in">
+      <li class="cn-row fade-in">
         <span class="cn-num">04</span>
         <div class="cn-body">
           <div class="cn-area">In policing</div>
@@ -299,7 +299,7 @@
           <div class="cn-cta"><a href="know-your-rights.html">Know your rights about police data &rarr;</a></div>
         </div>
       </li>
-        <li class="cn-row fade-in">
+      <li class="cn-row fade-in">
         <span class="cn-num">05</span>
         <div class="cn-body">
           <div class="cn-area">In children&rsquo;s lives</div>
@@ -308,7 +308,7 @@
           <div class="cn-cta"><a href="learn.html">Read the parents&rsquo; guide &rarr;</a></div>
         </div>
       </li>
-        <li class="cn-row fade-in">
+      <li class="cn-row fade-in">
         <span class="cn-num">06</span>
         <div class="cn-body">
           <div class="cn-area">In schools</div>
@@ -317,7 +317,7 @@
           <div class="cn-cta"><a href="learn.html">Read the secondary-age guide &rarr;</a></div>
         </div>
       </li>
-        <li class="cn-row fade-in">
+      <li class="cn-row fade-in">
         <span class="cn-num">07</span>
         <div class="cn-body">
           <div class="cn-area">In universities</div>
@@ -326,7 +326,7 @@
           <div class="cn-cta"><a href="learn.html">Read the students&rsquo; guide &rarr;</a></div>
         </div>
       </li>
-        <li class="cn-row fade-in">
+      <li class="cn-row fade-in">
         <span class="cn-num">08</span>
         <div class="cn-body">
           <div class="cn-area">In creative work</div>
@@ -335,18 +335,17 @@
           <div class="cn-cta"><a href="campaigns.html">Back the licensing-first campaign &rarr;</a></div>
         </div>
       </li>
-        <li class="cn-row fade-in">
+    <li class="cn-row fade-in">
         <span class="cn-num">09</span>
         <div class="cn-body">
           <div class="cn-area">On the human-in-the-loop problem</div>
-          <p>The Data (Use and Access) Act 2025&rsquo;s new UK GDPR Article 22A (in force 5 February 2026) ties the whole automated-decision regime to whether there is &ldquo;meaningful human involvement&rdquo; - a term the Act does not define. The Secretary of State is empowered (Article 22D) to define it by secondary legislation. Until that happens, every UK automated-decision system in the public and private sector sits in a definitional grey area.</p>
+          <p>The Data (Use and Access) Act 2025&rsquo;s new UK GDPR Article 22A (in force 5 February 2026) ties the whole automated-decision regime to whether there is &ldquo;meaningful human involvement&rdquo;, a term the Act does not define. The Secretary of State is empowered (Article 22D) to define it by secondary legislation. Until that happens, every UK automated-decision system in the public and private sector sits in a definitional grey area.</p>
           <div class="cn-mean">What this means for you: even after February 2026, the rules on whether a human has to actually consider your case are still being written.</div>
           <div class="cn-cta"><a href="campaigns.html">Back the meaningful-human-involvement campaign &rarr;</a></div>
         </div>
       </li>
-      </li>
     </ol>
-    <button class="cn-toggle" id="cn-toggle" onclick="toggleConcerns()" aria-expanded="false" aria-controls="cn-collapse">Show all 9 concerns &darr;</button>
+    <button class="cn-toggle" id="cn-toggle" onclick="toggleConcerns()" aria-expanded="false">Show all 9 concerns &darr;</button>
   </div>
 </section>
 
@@ -431,42 +430,12 @@
     </div>
 
     <div class="gi-routes fade-in">
-      <div class="gi-route">
-        <div class="gi-label">For everyone</div>
-        <h3 class="gi-name">Become a FAIR Supporter</h3>
-        <p>Get the fortnightly FAIR Briefing, alerts on the campaigns we are running, and early access to our learning materials. Free, no tracking, easy to unsubscribe.</p>
-        <a href="#newsletter-band" class="gi-cta">Subscribe &rarr;</a>
-      </div>
-      <div class="gi-route">
-        <div class="gi-label">If AI has affected you</div>
-        <h3 class="gi-name">Share your story</h3>
-        <p>Tell us about an experience you have had with AI in a UK public service, school, workplace or app. Your story will be anonymised, kept secure, and used to shape our research and our campaigns.</p>
-        <a href="report.html" class="gi-cta">Report your experience &rarr;</a>
-      </div>
-      <div class="gi-route">
-        <div class="gi-label">Volunteer your expertise</div>
-        <h3 class="gi-name">Working Groups</h3>
-        <p>If you have lived or professional experience in any of our priority areas - patients, carers, parents, teachers, social workers, benefits claimants, lawyers, academics, technologists, journalists, public servants - we&rsquo;d like to hear from you. Working Group members commit a few hours over a defined project window.</p>
-        <a href="board-application.html" class="gi-cta">Apply to a Working Group &rarr;</a>
-      </div>
-      <div class="gi-route">
-        <div class="gi-label">Lead a project</div>
-        <h3 class="gi-name">Project Leads</h3>
-        <p>Project Leads convene one of our priority workstreams. This is a substantive, time-bound voluntary role for someone with relevant subject-matter expertise (paid in some cases once core funding is secured).</p>
-        <a href="board-application.html" class="gi-cta">Apply to be a Project Lead &rarr;</a>
-      </div>
-      <div class="gi-route">
-        <div class="gi-label">Governance</div>
-        <h3 class="gi-name">Trustees</h3>
-        <p>FAIR&rsquo;s founding Trustees will form our governing body and bear the legal duties associated with charitable trusteeship in England and Wales (Charity Commission CC3). We are particularly keen to hear from candidates with finance, safeguarding, fundraising and lived-experience backgrounds, alongside the legal/policy/technical expertise typical of governance boards.</p>
-        <a href="board-application.html" class="gi-cta">Apply to serve as a Trustee &rarr;</a>
-      </div>
-      <div class="gi-route">
-        <div class="gi-label">Donate</div>
-        <h3 class="gi-name">Donations open after registration</h3>
-        <p>Donations will be open as soon as our charitable registration is granted. Until then, you can register for a notification and we will write to you when Gift Aid becomes available.</p>
-        <a href="mailto:info@airights.org.uk?subject=Notify%20when%20donations%20open" class="gi-cta">Register for a notification &rarr;</a>
-      </div>
+      <details class="gi-route"><summary><span class="gi-label">For everyone</span><span class="gi-name">Become a FAIR Supporter</span><span class="gi-arrow" aria-hidden="true">+</span></summary><div class="gi-body"><p>Get the fortnightly FAIR Briefing, alerts on the campaigns we are running, and early access to our learning materials. Free, no tracking, easy to unsubscribe.</p><a href="#newsletter-band" class="gi-cta">Subscribe &rarr;</a></div></details>
+      <details class="gi-route"><summary><span class="gi-label">If AI has affected you</span><span class="gi-name">Share your story</span><span class="gi-arrow" aria-hidden="true">+</span></summary><div class="gi-body"><p>Tell us about an experience you have had with AI in a UK public service, school, workplace or app. Your story will be anonymised, kept secure, and used to shape our research and our campaigns.</p><a href="report.html" class="gi-cta">Report your experience &rarr;</a></div></details>
+      <details class="gi-route"><summary><span class="gi-label">Volunteer your expertise</span><span class="gi-name">Working Groups</span><span class="gi-arrow" aria-hidden="true">+</span></summary><div class="gi-body"><p>If you have lived or professional experience in any of our priority areas - patients, carers, parents, teachers, social workers, benefits claimants, lawyers, academics, technologists, journalists, public servants - we&rsquo;d like to hear from you. Working Group members commit a few hours over a defined project window.</p><a href="board-application.html" class="gi-cta">Apply to a Working Group &rarr;</a></div></details>
+      <details class="gi-route"><summary><span class="gi-label">Lead a project</span><span class="gi-name">Project Leads</span><span class="gi-arrow" aria-hidden="true">+</span></summary><div class="gi-body"><p>Project Leads convene one of our priority workstreams. This is a substantive, time-bound voluntary role for someone with relevant subject-matter expertise (paid in some cases once core funding is secured).</p><a href="board-application.html" class="gi-cta">Apply to be a Project Lead &rarr;</a></div></details>
+      <details class="gi-route"><summary><span class="gi-label">Governance</span><span class="gi-name">Trustees</span><span class="gi-arrow" aria-hidden="true">+</span></summary><div class="gi-body"><p>FAIR&rsquo;s founding Trustees will form our governing body and bear the legal duties associated with charitable trusteeship in England and Wales (Charity Commission CC3). We are particularly keen to hear from candidates with finance, safeguarding, fundraising and lived-experience backgrounds, alongside the legal/policy/technical expertise typical of governance boards.</p><a href="board-application.html" class="gi-cta">Apply to serve as a Trustee &rarr;</a></div></details>
+      <details class="gi-route"><summary><span class="gi-label">Donate</span><span class="gi-name">Donations open after registration</span><span class="gi-arrow" aria-hidden="true">+</span></summary><div class="gi-body"><p>Donations will be open as soon as our charitable registration is granted. Until then, you can register for a notification and we will write to you when Gift Aid becomes available.</p><a href="mailto:info@airights.org.uk?subject=Notify%20when%20donations%20open" class="gi-cta">Register for a notification &rarr;</a></div></details>
     </div>
   </div>
 </section>
@@ -479,38 +448,14 @@
       <h2 class="sh">How to reach FAIR</h2>
     </div>
     <div class="cr-grid fade-in">
-      <div class="cr-row">
-        <div class="cr-label">For the public, Ask FAIR</div>
-        <p>Have a question about AI in a UK public service, school or app? Have a story to share? Want help understanding a letter you have received about an automated decision? Email <a href="mailto:ask@airights.org.uk">ask@airights.org.uk</a>. We read everything and reply within 5 working days. (We are a small team and cannot give legal advice, but we can point you to the right help.)</p>
-      </div>
-      <div class="cr-row">
-        <div class="cr-label">For journalists</div>
-        <p><a href="mailto:press@airights.org.uk">press@airights.org.uk</a>. We respond same-day for breaking stories and within 24 hours otherwise.</p>
-      </div>
-      <div class="cr-row">
-        <div class="cr-label">For partners, researchers and policymakers</div>
-        <p><a href="mailto:partners@airights.org.uk">partners@airights.org.uk</a></p>
-      </div>
-      <div class="cr-row">
-        <div class="cr-label">General enquiries</div>
-        <p><a href="mailto:info@airights.org.uk">info@airights.org.uk</a></p>
-      </div>
-      <div class="cr-row">
-        <div class="cr-label">Registered office</div>
-        <p>71-75 Shelton Street, Covent Garden, London WC2H 9JQ, United Kingdom. <em>This is FAIR’s registered correspondence address; we do not currently operate a public helpdesk in person.</em></p>
-      </div>
-      <div class="cr-row">
-        <div class="cr-label">Accessibility</div>
-        <p>This site is built to WCAG 2.2 AA. If you find an accessibility issue, please email <a href="mailto:accessibility@airights.org.uk">accessibility@airights.org.uk</a> and we will fix it.</p>
-      </div>
-      <div class="cr-row">
-        <div class="cr-label">Complaints</div>
-        <p>Once registered, FAIR will publish a complaints policy in line with Charity Commission guidance. In the interim, complaints can be sent to <a href="mailto:complaints@airights.org.uk">complaints@airights.org.uk</a>.</p>
-      </div>
-      <div class="cr-row">
-        <div class="cr-label">Safeguarding</div>
-        <p>If your contact relates to a child or vulnerable adult at risk, please contact the police on <strong>999</strong> (urgent) or <strong>101</strong> (non-urgent), the NSPCC helpline on <strong>0808 800 5000</strong>, or the Internet Watch Foundation report line at <a href="https://report.iwf.org.uk/" target="_blank" rel="noopener">report.iwf.org.uk</a>. FAIR cannot act as a substitute for those services.</p>
-      </div>
+      <details class="cr-row"><summary><span class="cr-label">For the public, Ask FAIR</span><span class="cr-arrow" aria-hidden="true">+</span></summary><div class="cr-body"><p>Have a question about AI in a UK public service, school or app? Have a story to share? Want help understanding a letter you have received about an automated decision? Email <a href="mailto:ask@airights.org.uk">ask@airights.org.uk</a>. We read everything and reply within 5 working days. (We are a small team and cannot give legal advice, but we can point you to the right help.)</p></div></details>
+      <details class="cr-row"><summary><span class="cr-label">For journalists</span><span class="cr-arrow" aria-hidden="true">+</span></summary><div class="cr-body"><p><a href="mailto:press@airights.org.uk">press@airights.org.uk</a>. We respond same-day for breaking stories and within 24 hours otherwise.</p></div></details>
+      <details class="cr-row"><summary><span class="cr-label">For partners, researchers and policymakers</span><span class="cr-arrow" aria-hidden="true">+</span></summary><div class="cr-body"><p><a href="mailto:partners@airights.org.uk">partners@airights.org.uk</a></p></div></details>
+      <details class="cr-row"><summary><span class="cr-label">General enquiries</span><span class="cr-arrow" aria-hidden="true">+</span></summary><div class="cr-body"><p><a href="mailto:info@airights.org.uk">info@airights.org.uk</a></p></div></details>
+      <details class="cr-row"><summary><span class="cr-label">Registered office</span><span class="cr-arrow" aria-hidden="true">+</span></summary><div class="cr-body"><p>71-75 Shelton Street, Covent Garden, London WC2H 9JQ, United Kingdom. <em>This is FAIR’s registered correspondence address; we do not currently operate a public helpdesk in person.</em></p></div></details>
+      <details class="cr-row"><summary><span class="cr-label">Accessibility</span><span class="cr-arrow" aria-hidden="true">+</span></summary><div class="cr-body"><p>This site is built to WCAG 2.2 AA. If you find an accessibility issue, please email <a href="mailto:accessibility@airights.org.uk">accessibility@airights.org.uk</a> and we will fix it.</p></div></details>
+      <details class="cr-row"><summary><span class="cr-label">Complaints</span><span class="cr-arrow" aria-hidden="true">+</span></summary><div class="cr-body"><p>Once registered, FAIR will publish a complaints policy in line with Charity Commission guidance. In the interim, complaints can be sent to <a href="mailto:complaints@airights.org.uk">complaints@airights.org.uk</a>.</p></div></details>
+      <details class="cr-row"><summary><span class="cr-label">Safeguarding</span><span class="cr-arrow" aria-hidden="true">+</span></summary><div class="cr-body"><p>If your contact relates to a child or vulnerable adult at risk, please contact the police on <strong>999</strong> (urgent) or <strong>101</strong> (non-urgent), the NSPCC helpline on <strong>0808 800 5000</strong>, or the Internet Watch Foundation report line at <a href="https://report.iwf.org.uk/" target="_blank" rel="noopener">report.iwf.org.uk</a>. FAIR cannot act as a substitute for those services.</p></div></details>
     </div>
     <div style="display:none">
       <div class="cf" id="form-wrap">
@@ -536,25 +481,30 @@
       <div class="fe-status">FAIR is in the process of registering with the Charity Commission. The address above is its principal office.</div>
     </div>
     <div class="fe-links">
-      <a href="learn.html">Learn</a>
-      <a href="know-your-rights.html">Know your rights</a>
-      <a href="campaigns.html">Campaigns</a>
-      <a href="ask.html">Ask FAIR</a>
-      <a href="purposes.html">Purposes</a>
-      <a href="briefings/">Briefings</a>
-      <a href="ai-watch.html">AI Watch</a>
-      <a href="submissions.html">Submissions</a>
-      <a href="newsletter.html">Newsletter</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="press.html">Press</a>
-      <a href="reports.html">Reports</a>
-      <a href="report.html">Report a concern</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="cookies.html">Cookies</a>
-      <a href="accessibility.html">Accessibility</a>
-      <a href="safeguarding.html">Safeguarding</a>
-      <a href="complaints.html">Complaints</a>
+      <div class="fe-group">
+        <h4>What we do</h4>
+        <a href="learn.html">Learn</a>
+        <a href="ai-watch.html">AI Watch</a>
+        <a href="report.html">Report</a>
+        <a href="campaigns.html">Campaigns</a>
+        <a href="ask.html">Ask FAIR</a>
+        <a href="know-your-rights.html">Know your rights</a>
+      </div>
+      <div class="fe-group">
+        <h4>About</h4>
+        <a href="founder.html">Founder</a>
+        <a href="briefings/">Briefings</a>
+        <a href="purposes.html">Purposes</a>
+      </div>
+      <div class="fe-group">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy</a>
+        <a href="accessibility.html">Accessibility</a>
+        <a href="complaints.html">Complaints</a>
+        <a href="safeguarding.html">Safeguarding</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
     </div>
     <div class="fe-copy">&copy; 2026 The Foundation for Artificial Intelligence Rights. This page is a preview prior to registration.</div>
   </div>
@@ -645,7 +595,7 @@ function closeBioModal(){var m=document.getElementById('bio-modal');if(!m)return
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.getElementById('bio-modal');if(m&&m.classList.contains('open'))closeBioModal();}});
 
 
-function toggleConcerns(){var c=document.getElementById('cn-collapse');var b=document.getElementById('cn-toggle');if(!c||!b)return;var open=c.classList.toggle('cn-open');b.setAttribute('aria-expanded',open?'true':'false');b.innerHTML=open?'Show fewer concerns &uarr;':'Show all 9 concerns &darr;';if(!open){b.scrollIntoView({behavior:'smooth',block:'start'});}}
+function toggleConcerns(){var c=document.getElementById('cn-list');var b=document.getElementById('cn-toggle');if(!c||!b)return;var open=c.classList.toggle('cn-open');b.setAttribute('aria-expanded',open?'true':'false');b.innerHTML=open?'Show fewer concerns &uarr;':'Show all 9 concerns &darr;';});}}
 
 // Live UK AI news (graceful failure)
 (function loadNews(){
