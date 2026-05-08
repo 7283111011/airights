@@ -216,7 +216,7 @@
         <label class="cat"><input type="radio" name="category" value="ai_health_public">
           <span class="cat-inner"><span class="cat-text">AI in healthcare or public services<span>AI-driven decisions in NHS care, benefits, social care, immigration, housing, education.</span></span></span></label>
         <label class="cat"><input type="radio" name="category" value="ai_other">
-          <span class="cat-inner"><span class="cat-text">Something else<span>An AI-related concern that doesn't fit the categories above. Tell us in your own words below.</span></span></span></label>
+          <span class="cat-inner"><span class="cat-text">Something else<span>An AI-related concern that does not fit the categories above. Tell us in your own words below.</span></span></span></label>
       </div>
     </div>
 
@@ -454,32 +454,4 @@ function submitReport(e){
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(data)
     })
-    .then(function(r){
-      if (r.ok) {
-        document.getElementById('reportForm').style.display = 'none';
-        document.getElementById('reportOk').style.display = 'block';
-        document.getElementById('reportOk').scrollIntoView({behavior:'smooth', block:'center'});
-      } else {
-        document.getElementById('reportErr').style.display = 'block';
-        btn.textContent = 'Submit report'; btn.disabled = false;
-      }
-    })
-    .catch(function(){
-      document.getElementById('reportErr').style.display = 'block';
-      btn.textContent = 'Submit report'; btn.disabled = false;
-    });
-  }
-
-  if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
-    grecaptcha.ready(function(){
-      grecaptcha.execute(RECAPTCHA_SITE_KEY, {action: 'submit_report'}).then(send).catch(function(){ send(''); });
-    });
-  } else {
-    send('');
-  }
-  return false;
-}
-</script>
-
-</body>
-</html>
+    .then(
