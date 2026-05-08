@@ -799,3 +799,8 @@ img{display:block;max-width:100%}
 .aiw-citizen-cta{margin-top:14px;font-size:0.875rem;color:#7EB6E8;font-weight:600}
 .aiw-citizen-cta a{color:#7EB6E8;text-decoration:underline}
 .aiw-citizen-cta a:hover{color:#FFF}
+
+/* Founder section CTA row */
+.founder-cta-row{margin-top:20px}
+.founder-link{display:inline-block;padding:9px 18px;background:transparent;color:#FFF;border:1px solid rgba(255,255,255,.22);border-radius:3px;font-size:13px;font-weight:500;text-decoration:none;transition:all .2s}
+.founder-link:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.45)}
