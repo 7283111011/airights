@@ -84,7 +84,7 @@ h1 strong{font-weight:700;color:#0065BD}
 .pri{margin:32px 0}
 .pri-label{font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0065BD;margin-bottom:14px}
 .pri-list{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.pri-list span{display:inline-block;padding:6px 14px;background:#FFF;border:1px solid #E2E8F0;border-radius:99px;font-size:0.875rem;color:#334155;font-weight:600}
+.pri-list a,.pri-list span{display:inline-block;padding:6px 14px;background:#FFF;border:1px solid #E2E8F0;border-radius:99px;font-size:0.875rem;color:#334155;font-weight:600;text-decoration:none;transition:all .2s}.pri-list a:hover{border-color:#0065BD;color:#0065BD}
 .contact-card{padding:28px 24px;background:#F8FAFC;border-radius:6px;text-align:left;margin-bottom:32px}
 .contact-card-label{font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0065BD;margin-bottom:14px}
 .contact-card a{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:0.9375rem;color:#0F172A;text-decoration:none;padding:8px 0;border-bottom:1px solid #E2E8F0;transition:color .2s}
@@ -153,25 +153,25 @@ h1 strong{font-weight:700;color:#0065BD}
   <div class="tagline">The Foundation for Artificial Intelligence Rights</div>
 
   <span class="eyebrow">Charitable application in progress &middot; Working in the UK only</span>
-  <h1>FAIR &mdash; The Foundation for AI Rights</h1>
+  <h1>FAIR - The Foundation for AI Rights</h1>
   <p class="lede">AI is being built into the country around you. We&rsquo;re here to help you understand it, push back on it, and demand it works for you.</p>
-  <p class="lede" style="margin-top:8px">FAIR is a new UK organisation with two jobs. The first is to help people &mdash; children, teens, students, working adults, older adults, families and carers &mdash; actually understand what AI is, what it can and can&rsquo;t do, and what your rights are when a public service, school, employer or app uses it on you. The second is to hold the people building and buying these systems to account: in Whitehall, in Parliament, in regulators&rsquo; offices, in NHS trusts, in council chambers, and in police forces.</p>
+  <p class="lede" style="margin-top:8px">FAIR is a new UK organisation with two jobs. The first is to help people - children, teens, students, working adults, older adults, families and carers - actually understand what AI is, what it can and can&rsquo;t do, and what your rights are when a public service, school, employer or app uses it on you. The second is to hold the people building and buying these systems to account: in Whitehall, in Parliament, in regulators&rsquo; offices, in NHS trusts, in council chambers, and in police forces.</p>
 
   <div class="divider"></div>
 
   <div class="quote-block">
-    <blockquote>&ldquo;For nearly twenty years I worked on drug development. The whole point of medicines regulation is that you don&rsquo;t get to put something into people&rsquo;s bodies without proving it&rsquo;s safe and explaining what it does. AI is being put into people&rsquo;s lives &mdash; their hospital appointments, their benefits decisions, their kids&rsquo; classrooms &mdash; with nothing like that level of care. FAIR is my answer to that gap.&rdquo;</blockquote>
+    <blockquote>&ldquo;For nearly twenty years I worked on drug development. The whole point of medicines regulation is that you don&rsquo;t get to put something into people&rsquo;s bodies without proving it&rsquo;s safe and explaining what it does. AI is being put into people&rsquo;s lives - their hospital appointments, their benefits decisions, their kids&rsquo; classrooms - with nothing like that level of care. FAIR is my answer to that gap.&rdquo;</blockquote>
     <div class="quote-byline">Scott McCulloch &middot; Founder, FAIR</div>
   </div>
 
   <div class="pri">
-    <div class="pri-label">What we do &mdash; five jobs, equal weight</div>
+    <div class="pri-label">What we do - five jobs, equal weight</div>
     <div class="pri-list">
-      <span>Learn</span>
-      <span>Watch</span>
-      <span>Report</span>
-      <span>Campaign</span>
-      <span>Engage</span>
+      <a href="learn.html">Learn</a>
+      <a href="ai-watch.html">Watch</a>
+      <a href="report.html">Report</a>
+      <a href="campaigns.html">Campaign</a>
+      <a href="submissions.html">Engage</a>
     </div>
   </div>
 
@@ -206,6 +206,10 @@ h1 strong{font-weight:700;color:#0065BD}
     </div>
     <div class="footer-mark">
       2026 FAIR &middot; UK &middot;
+      <a href="learn.html">Learn</a> &middot;
+      <a href="know-your-rights.html">Rights</a> &middot;
+      <a href="campaigns.html">Campaigns</a> &middot;
+      <a href="ask.html">Ask FAIR</a> &middot;
       <a href="purposes.html">Purposes</a> &middot;
       <a href="briefings/">Briefings</a> &middot;
       <a href="ai-watch.html">AI Watch</a> &middot;
@@ -264,20 +268,4 @@ function rejectCookies(){try{localStorage.setItem('fair-cookies','rejected')}cat
   if (active.length === 0) return;
   var idx = 0;
   function show(i){
-    active.forEach(function(s){ s.classList.remove('active'); });
-    active[i].classList.add('active');
-    var cap = active[i].dataset.caption || '';
-    var credit = active[i].dataset.credit || '';
-    capEl.textContent = credit ? cap + '. ' + credit : cap;
-  }
-  show(0);
-  if (active.length > 1) {
-    setInterval(function(){
-      idx = (idx + 1) % active.length;
-      show(idx);
-    }, 10000);
-  }
-})();
-</script>
-</body>
-</html>
+    active.forEac
