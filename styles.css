@@ -677,7 +677,7 @@ img{display:block;max-width:100%}
 }
 
 /* ============== COOKIE NOTICE (subtle) ============== */
-.cookie-notice{position:fixed;bottom:16px;right:16px;left:auto;z-index:200;background:#0F172A;padding:12px 16px;border-radius:4px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;max-width:540px;box-shadow:0 8px 24px rgba(15,23,42,.25);border:1px solid rgba(255,255,255,.08)}
+.cookie-notice{position:fixed;bottom:16px;right:16px;left:auto;z-index:9999;background:#0F172A;padding:14px 18px;border-radius:4px;align-items:center;gap:14px;flex-wrap:wrap;max-width:540px;box-shadow:0 8px 24px rgba(15,23,42,.35);border:1px solid rgba(255,255,255,.10)}
 .cookie-notice p{font-size:0.75rem;color:rgba(255,255,255,.85);line-height:1.55;margin:0;flex:1;min-width:240px}
 .cookie-notice a{color:#7EB6E8;text-decoration:underline;text-underline-offset:2px}
 .cookie-notice .cookie-btns{display:flex;gap:6px;flex-shrink:0}
@@ -873,3 +873,13 @@ section#news .sec{padding-top:0;padding-bottom:0}
 /* Get Involved + Contact: alternate backgrounds for distinction */
 .contact-editorial[id="get-involved"]{background:#FBFAF6}
 .contact-routed{background:#F1EFE7 !important;border-top:1px solid #D4D2CC}
+
+/* Partners section: bigger heading and proper description */
+.members{padding:64px 24px}
+.members-heading{font-size:1.875rem;font-weight:600;color:#FFF;letter-spacing:-0.005em;line-height:1.2;margin-bottom:14px;text-align:center}
+.members-intro{font-size:1rem;color:rgba(255,255,255,.78);max-width:680px;margin:0 auto 32px;line-height:1.65;text-align:center}
+
+/* Footer: legal only — single horizontal row */
+.fe-legal-only{display:flex !important;flex-wrap:wrap;gap:8px 22px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.12);grid-template-columns:none}
+.fe-legal-only a{display:inline-block;font-size:0.8125rem;color:rgba(255,255,255,.78);text-decoration:none;margin:0;transition:color .15s}
+.fe-legal-only a:hover{color:#FFF}
