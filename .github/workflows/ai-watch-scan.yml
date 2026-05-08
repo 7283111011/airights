@@ -1,0 +1,45 @@
+name: AI Watch daily scan
+
+on:
+  schedule:
+    # Runs every day at 07:00 UTC (08:00 BST)
+    - cron: "0 7 * * *"
+  workflow_dispatch: # allows manual trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install google-genai
+
+      - name: Run AI Watch scanner
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python scripts/ai-watch-scan.py
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet ai-watch.html && echo "changed=false" >> "$GITHUB_OUTPUT" || echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "AI Watch Bot"
+          git config user.email "bot@airights.org.uk"
+          git add ai-watch.html
+          SUMMARY=$(cat /tmp/ai-watch-commit-msg.txt 2>/dev/null || echo "AI Watch: automated scan update")
+          git commit -m "$SUMMARY"
+          git push
