@@ -18,7 +18,7 @@ from google.genai.types import Tool, GenerateContentConfig, GoogleSearch
 # 1. Read current page and extract existing entry titles
 # ---------------------------------------------------------------------------
 
-HTML_PATH = "ai-watch.html"
+HTML_PATH = "ai-alerts.html"
 
 if not os.path.exists(HTML_PATH):
     print(f"ERROR: {HTML_PATH} not found in repo root.")
