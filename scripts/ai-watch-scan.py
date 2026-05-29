@@ -309,6 +309,58 @@ def html_escape(text):
     return text
 
 
+# ---------------------------------------------------------------------------
+# Date parsing for chronological sort
+# ---------------------------------------------------------------------------
+
+_MONTHS = {
+    "january": 1, "jan": 1, "february": 2, "feb": 2, "march": 3, "mar": 3,
+    "april": 4, "apr": 4, "may": 5, "june": 6, "jun": 6, "july": 7, "jul": 7,
+    "august": 8, "aug": 8, "september": 9, "sep": 9, "sept": 9,
+    "october": 10, "oct": 10, "november": 11, "nov": 11, "december": 12, "dec": 12,
+}
+_SEASONS = {"spring": 3, "summer": 6, "autumn": 9, "fall": 9, "winter": 12}
+_P_DAY_MONTH_YEAR = re.compile(
+    r"\b(\d{1,2})\s+(january|february|march|april|may|june|july|august|"
+    r"september|october|november|december|jan|feb|mar|apr|jun|jul|aug|"
+    r"sep|sept|oct|nov|dec)\s+(\d{4})\b", re.IGNORECASE)
+_P_MONTH_DAY_YEAR = re.compile(
+    r"\b(january|february|march|april|may|june|july|august|september|"
+    r"october|november|december|jan|feb|mar|apr|jun|jul|aug|sep|sept|"
+    r"oct|nov|dec)\s+(\d{1,2}),?\s+(\d{4})\b", re.IGNORECASE)
+_P_MONTH_YEAR = re.compile(
+    r"\b(january|february|march|april|may|june|july|august|september|"
+    r"october|november|december|jan|feb|mar|apr|jun|jul|aug|sep|sept|"
+    r"oct|nov|dec)\s+(\d{4})\b", re.IGNORECASE)
+_P_SEASON = re.compile(
+    r"\b(spring|summer|autumn|fall|winter)\s+(20\d{2})\b", re.IGNORECASE)
+_P_YEAR = re.compile(r"\b(20\d{2})\b")
+
+
+def parse_date_to_iso(text):
+    """Return the earliest (year, month, day) found, or None."""
+    if not text:
+        return None
+    found = []
+    for m in _P_DAY_MONTH_YEAR.finditer(text):
+        found.append((int(m.group(3)), _MONTHS[m.group(2).lower()], int(m.group(1))))
+    for m in _P_MONTH_DAY_YEAR.finditer(text):
+        found.append((int(m.group(3)), _MONTHS[m.group(1).lower()], int(m.group(2))))
+    if not found:
+        for m in _P_MONTH_YEAR.finditer(text):
+            found.append((int(m.group(2)), _MONTHS[m.group(1).lower()], 1))
+    if not found:
+        for m in _P_SEASON.finditer(text):
+            found.append((int(m.group(2)), _SEASONS[m.group(1).lower()], 1))
+    if not found:
+        for m in _P_YEAR.finditer(text):
+            found.append((int(m.group(1)), 1, 1))
+    if not found:
+        return None
+    y, m, d = min(found)
+    return f"{y:04d}-{m:02d}-{d:02d}"
+
+
 def build_entry_html(entry):
     sector_key = entry.get("sector", "government")
     sector_css, sector_label = SECTOR_MAP.get(
@@ -327,6 +379,12 @@ def build_entry_html(entry):
         entry.get("status_label", entry.get("status", "Live").title())
     )
 
+    date_string = entry.get("date_string", "")
+    iso_date = parse_date_to_iso(date_string)
+    if iso_date is None:
+        # Fallback to today (scanner found it today)
+        iso_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
     facts_html = ""
     for fact in entry.get("facts", []):
         facts_html += (
@@ -344,9 +402,9 @@ def build_entry_html(entry):
         )
 
     return f"""
-    <article class="entry" data-sector="{data_sector}">
+    <article class="entry" data-sector="{data_sector}" data-date="{iso_date}">
       <div class="entry-top">
-        <span class="entry-date">{html_escape(entry.get("date_string", "2026"))}</span>
+        <span class="entry-date">{html_escape(date_string or "2026")}</span>
         <span class="entry-sector {sector_css}">{html_escape(sector_label)}</span>
         <span class="entry-status {status_class}">{status_label}</span>
       </div>
@@ -365,6 +423,29 @@ def build_entry_html(entry):
 """
 
 
+def resort_entries_section(html_doc):
+    """Re-sort every entry inside the entries section by data-date descending."""
+    sec_re = re.compile(
+        r'(<section class="entries" id="entries">)(.*?)(</section>)', re.DOTALL)
+    sm = sec_re.search(html_doc)
+    if not sm:
+        return html_doc
+    body = sm.group(2)
+    art_re = re.compile(r'(<article class="entry"[^>]*>.*?</article>)', re.DOTALL)
+    arts = art_re.findall(body)
+    if len(arts) < 2:
+        return html_doc
+    date_attr_re = re.compile(r'data-date="([^"]*)"')
+    keyed = []
+    for art in arts:
+        m = date_attr_re.search(art)
+        key = m.group(1) if m else "1900-01-01"
+        keyed.append((key, art))
+    keyed.sort(key=lambda x: x[0], reverse=True)
+    new_body = "\n\n    " + "\n\n    ".join(a for _, a in keyed) + "\n\n  "
+    return html_doc[:sm.start(2)] + new_body + html_doc[sm.end(2):]
+
+
 new_html_blocks = "\n".join(build_entry_html(e) for e in genuinely_new)
 
 # ---------------------------------------------------------------------------
@@ -381,6 +462,11 @@ html = html.replace(
     INSERT_MARKER + "\n" + new_html_blocks,
     1,
 )
+
+# Re-sort the entries section chronologically (newest first) by data-date.
+# Every entry must carry a data-date attribute (existing entries are
+# backfilled by sort_aiwatch.py; new entries are stamped in build_entry_html).
+html = resort_entries_section(html)
 
 # Update entry count
 new_count = entry_count + len(genuinely_new)
