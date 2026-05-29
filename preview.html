@@ -65,7 +65,7 @@
 
 <!-- NAV -->
 <nav class="nav" id="navbar">
-  <a href="/" class="nav-logo">FAIR</a>
+  <a href="/" class="nav-logo"><img src="images/FAIR_logo.png" alt="FAIR" width="60" height="41" class="brand-mark"></a>
   <div class="nav-links">
     <a href="learn.html">Learn</a>
     <a href="ai-alerts.html">Alerts</a>
@@ -94,7 +94,7 @@
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-mark">FAIR</div>
+    <div class="hero-mark"><img src="images/FAIR_logo_white_lg.png" alt="FAIR" width="180" height="123"></div>
     <h1>The Foundation for Artificial Intelligence Rights</h1>
     <p class="hero-tagline">Artificial intelligence is being built into the country around you. We are here to help you understand it, push back on it, and demand it works for you.</p>
     <div class="hero-btns">
@@ -641,79 +641,4 @@
 <script>
 (function(d){
   var s = d.createElement("script");
-  s.setAttribute("data-position", 5);
-  s.setAttribute("data-account", "5dDh6GLInL");
-  s.setAttribute("src", "https://cdn.userway.org/widget.js");
-  (d.body || d.head).appendChild(s);
-})(document);
-</script>
-
-<script>
-// Nav scroll
-window.addEventListener('scroll',function(){
-  var n=document.getElementById('navbar');
-  if(window.scrollY>20){n.classList.add('scrolled')}else{n.classList.remove('scrolled')}
-});
-
-// Fade-in observer
-var obs=new IntersectionObserver(function(e){
-  e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})
-},{threshold:0.1});
-document.querySelectorAll('.fade-in').forEach(function(el){obs.observe(el)});
-
-// Formspree contact form (hidden but functional)
-var FORMSPREE_ID = 'xykognyk';
-var RECAPTCHA_SITE_KEY = '6Lcur9QsAAAAAE1ApFj2LDVszSME-EjcDg6reJDE';
-function submitForm(e){
-  e.preventDefault();
-  var hp = document.getElementById('hp-website');
-  if (hp && hp.value) { return; }
-  var name=document.getElementById('name').value.trim();
-  var email=document.getElementById('email').value.trim();
-  if(!name||!email){alert('Please fill in your name and email.');return}
-  var btn=document.getElementById('submit-btn');
-  btn.textContent='Sending...';btn.disabled=true;
-  function send(token){
-    var data={name:name,email:email,role:document.getElementById('role').value,interest:document.getElementById('interest').value,message:document.getElementById('message').value,'g-recaptcha-response': token || '',_subject:'New FAIR contact: '+name};
-    fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-    .then(function(r){if(r.ok){document.getElementById('form-wrap').style.display='none';document.getElementById('form-ok').style.display='block';}else{document.getElementById('form-wrap').style.display='none';document.getElementById('form-err').style.display='block';}})
-    .catch(function(){document.getElementById('form-wrap').style.display='none';document.getElementById('form-err').style.display='block';});
-  }
-  if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
-    grecaptcha.ready(function(){grecaptcha.execute(RECAPTCHA_SITE_KEY, {action: 'submit_contact'}).then(send).catch(function(){send('');});});
-  } else { send(''); }
-}
-
-(function(){try{var consent=localStorage.getItem('fair-cookies');if(consent){var b=document.getElementById('cookie-bar');if(b)b.style.display='none';}}catch(e){}})();
-
-// Bio modal
-function openBioModal(){var m=document.getElementById('bio-modal');if(!m)return;m.classList.add('open');document.body.style.overflow='hidden';}
-function closeBioModal(){var m=document.getElementById('bio-modal');if(!m)return;m.classList.remove('open');document.body.style.overflow='';}
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.getElementById('bio-modal');if(m&&m.classList.contains('open'))closeBioModal();}});
-
-
-function toggleConcerns(){var c=document.getElementById('cn-list');var b=document.getElementById('cn-toggle');if(!c||!b)return;var open=c.classList.toggle('cn-open');b.setAttribute('aria-expanded',open?'true':'false');b.innerHTML=open?'Show fewer concerns &uarr;':'Show all 9 concerns &darr;';}
-</script>
-
-<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script>
-
-<!-- COOKIE NOTICE (bulletproof) -->
-<div id="cookie-bar" class="cookie-notice" style="display:none">
-  <p>This site uses privacy-friendly analytics. No third-party cookies, no cross-site tracking. <a href="privacy.html">Privacy</a>.</p>
-  <div class="cookie-btns">
-    <button type="button" class="cookie-accept" onclick="(function(){var b=document.getElementById('cookie-bar');if(b){b.style.display='none';}try{localStorage.setItem('fair-cookies','accepted');}catch(e){}})()">OK</button>
-    <button type="button" class="cookie-reject" onclick="(function(){var b=document.getElementById('cookie-bar');if(b){b.style.display='none';}try{localStorage.setItem('fair-cookies','rejected');}catch(e){}})()">Essential only</button>
-  </div>
-</div>
-<script>
-(function(){
-  var b = document.getElementById('cookie-bar');
-  if(!b) return;
-  var stored = null;
-  try { stored = localStorage.getItem('fair-cookies'); } catch(e){}
-  if(!stored){ b.style.display = 'flex'; }
-})();
-</script>
-
-</body>
-</html>
+  s.setAttribute("data-positi
