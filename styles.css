@@ -2990,3 +2990,126 @@ section{padding:var(--section-pad) 0 !important}
 /* If browsers can't load image, the bg-color shows through and the gradient fallbacks
    render. Result: section still looks designed, just monochrome dark.
    No further markup change required. */
+
+/* ============================================================ */
+/* V2 REBUILD — Reviewer round 4 (Apple discipline pass)        */
+/* Locks: weight pairs, Apple palette only, dark-adaptive nav,  */
+/* serif-logo removal, scroll-fade-up motion grammar.           */
+/* ============================================================ */
+
+/* v2-7: MISSION HIERARCHY LOCK */
+#mission .sh{font-weight:600 !important;letter-spacing:-.022em !important;color:rgb(29,29,31) !important}
+#mission .sb{font-weight:400 !important;color:rgb(110,110,115) !important;font-size:19px !important;line-height:1.5 !important}
+#mission .sl-mark{font-weight:400 !important;color:rgb(110,110,115) !important;text-transform:none !important;letter-spacing:0 !important;font-size:13px !important;background:transparent !important;padding:0 !important;display:block !important;margin-bottom:14px !important}
+
+/* v2-1: APPLE PALETTE LOCK — kill Tailwind intrusions */
+/* Was: rgb(34,197,94) Tailwind green-500. Now: Apple orange (single allowed accent). */
+.aiw-live-dot,.live-dot,.status-dot,
+.aiw-band .live-pulse,.aiw-dashboard-band .live-pulse,
+[class*="live-"][class*="dot"]{background:rgb(245,99,0) !important;box-shadow:0 0 0 4px rgba(245,99,0,.16) !important}
+/* Was: Tailwind slates (100,116,139 / 51,65,85). Now: Apple secondary grey. */
+.txt-slate,[class*="text-slate"],.aiw-meta,.aiw-byline,
+.legis-meta,.fp-meta,.rp-meta{color:rgb(110,110,115) !important}
+/* Sector chart bars: were pink/yellow/blue-grey. Now: monochrome blue scale. */
+.aiw-bar,.aiw-bar-fill,.aiw-sector-bar,.aiw-cell-fill,
+[class*="sector-bar"] [style*="background"],
+[class*="bar-fill"]{background:rgb(0,113,227) !important}
+/* RP tags: were 7EB6E8 blue-grey. Now: Apple navy. */
+.rp-tag,.fp-tag,.aiw-tag{background:rgb(0,113,227) !important;color:#FFF !important}
+/* Status pills and chips that adopted Tailwind colors */
+.chip-green,.chip-success,.tag-green,.tag-live{background:rgb(245,99,0) !important;color:#FFF !important}
+.chip-amber,.chip-warning{background:rgb(255,184,0) !important;color:rgb(29,29,31) !important}
+
+/* v2-4: NAV DYNAMIC DARK/LIGHT — .nav-dark added/removed by JS on scroll */
+.nav-bar{transition:background .35s ease, border-color .35s ease}
+.nav-bar.nav-dark{
+  background:rgba(29,29,31,.72) !important;
+  border-bottom-color:rgba(255,255,255,.08) !important;
+  -webkit-backdrop-filter:saturate(1.8) blur(20px);
+  backdrop-filter:saturate(1.8) blur(20px);
+}
+.nav-bar.nav-dark .nav-link,
+.nav-bar.nav-dark .nav-brand-text,
+.nav-bar.nav-dark .nav-cta-text{color:rgba(255,255,255,.92) !important}
+.nav-bar.nav-dark .nav-link:hover{color:#FFF !important}
+.nav-bar.nav-dark .nav-cta.btn-p{background:#FFF !important;color:rgb(29,29,31) !important}
+.nav-bar.nav-dark .brand-mark,
+.nav-bar.nav-dark .brand-mark-dark,
+.nav-bar.nav-dark .nav-logo img{filter:brightness(0) invert(1) !important}
+
+/* v2-5: HIDE SERIF PNG WORDMARK — replace with clean Inter wordmark */
+.nav-logo img.brand-mark,
+.nav-logo img.brand-mark-dark,
+.nav-logo .brand-mark,
+.nav-brand img{display:none !important}
+.nav-logo,.nav-brand{display:flex !important;align-items:center !important;gap:0 !important;text-decoration:none !important}
+.nav-logo::before,.nav-brand::before{
+  content:"FAIR";
+  font-family:'Inter',system-ui,-apple-system,'SF Pro Text','Segoe UI',sans-serif !important;
+  font-weight:600 !important;
+  font-size:17px !important;
+  letter-spacing:-.012em !important;
+  color:inherit !important;
+  line-height:1 !important;
+}
+
+/* v2-8: SCROLL-TRIGGERED FADE-UP — real translateY motion */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up.delay-1{transition-delay:.08s}
+.fade-up.delay-2{transition-delay:.16s}
+.fade-up.delay-3{transition-delay:.24s}
+.fade-up.delay-4{transition-delay:.32s}
+.stat-num,.aiw-stat-num{font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion: reduce){
+  .fade-up{opacity:1 !important;transform:none !important}
+}
+
+/* v2-9: HOMEPAGE TEASER MODE — sections trimmed to summary cards */
+.legis-section.teaser .legis-grid,
+.legis-section.teaser .legis-grid-extra{display:none}
+.legis-section.teaser .legis-cta{display:flex;justify-content:center;margin-top:32px}
+.pillars-section.teaser .fp-master-detail{display:none}
+.pillars-section.teaser .fp-teaser{display:block}
+.research-section.teaser .rp-master-detail{display:none}
+.research-section.teaser .rp-teaser{display:block}
+.news-room.teaser .news-list .news-item:nth-of-type(n+4){display:none}
+.news-room.teaser .news-bar{display:none !important}
+.founder-editorial.teaser .founder-long-bio,
+.founder-editorial.teaser .founder-extra{display:none}
+
+/* Teaser CTA buttons — full-width centered pill */
+.teaser-cta{display:flex;justify-content:center;margin-top:48px}
+.teaser-cta a{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 28px;border-radius:980px;
+  background:rgb(0,113,227);color:#FFF;
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  font-weight:400;font-size:17px;letter-spacing:-.01em;
+  text-decoration:none;transition:background .2s ease
+}
+.teaser-cta a:hover{background:rgb(0,95,200)}
+.teaser-cta a::after{content:" \203A";font-size:22px;line-height:1}
+
+/* v2 GENERAL POLISH */
+/* Trim section padding inflation when teaser mode is active */
+section.teaser{padding-block:clamp(72px,9vw,120px) !important}
+/* Hero h1: ensure responsive scaling for the new short headline */
+.hero-cinematic h1{
+  font-size:clamp(52px,9vw,96px) !important;
+  line-height:1.04 !important;
+  font-weight:600 !important;
+  letter-spacing:-.024em !important;
+  max-width:18ch !important
+}
+.hero-cinematic .hero-tagline{
+  font-size:clamp(19px,2vw,26px) !important;
+  font-weight:400 !important;
+  line-height:1.32 !important;
+  color:rgba(255,255,255,.88) !important;
+  max-width:none !important;
+  margin-top:22px !important
+}
+idth:none !important;
+  margin-top:22px !important
+}

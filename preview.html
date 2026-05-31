@@ -87,16 +87,33 @@
   <a href="#get-involved" onclick="this.parentElement.classList.remove('open')">Get involved</a>
 </div>
 <script>
-/* Toggle nav transparency on scroll */
+/* v2-4: Nav adaptive — transparent over hero, dark frosted glass while hero in view, light after */
 (function(){
   var n = document.getElementById('navbar');
   if (!n) return;
+  var hero = document.querySelector('.hero-cinematic') || document.getElementById('home');
   var threshold = 80;
   var onScroll = function(){
-    if (window.scrollY > threshold) n.classList.remove('nav-transparent');
-    else n.classList.add('nav-transparent');
+    var y = window.scrollY;
+    var heroBottom = hero ? hero.offsetTop + hero.offsetHeight - 80 : 0;
+    // Below the hero entirely: standard light frosted glass
+    if (y > heroBottom){
+      n.classList.remove('nav-transparent');
+      n.classList.remove('nav-dark');
+      return;
+    }
+    // At top of page: transparent (let hero photo show through)
+    if (y < threshold){
+      n.classList.add('nav-transparent');
+      n.classList.add('nav-dark');  // dark mode while transparent over dark hero
+      return;
+    }
+    // Scrolled but still over the dark hero: opaque dark frosted glass
+    n.classList.remove('nav-transparent');
+    n.classList.add('nav-dark');
   };
   window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll, {passive:true});
   onScroll();
 })();
 </script>
@@ -105,8 +122,8 @@
 <section class="hero hero-cinematic has-photo" id="home" style="background-image:url('https://as1.ftcdn.net/jpg/05/80/65/56/1000_F_580655661_0krd9WtZTgixrRMHQYMpjIcYdRvxkkUN.jpg')">
   <div class="hero-photo-overlay"></div>
   <div class="hero-content">
-    <h1>The Foundation for Artificial Intelligence Rights</h1>
-    <p class="hero-tagline">Artificial intelligence is moving fast. We make sure the public knows their rights, and organisations meet a higher standard.</p>
+    <h1>AI rights for the United Kingdom.</h1>
+    <p class="hero-tagline">The Foundation for Artificial Intelligence Rights.</p>
     <div class="hero-btns">
       <a href="learn.html" class="btn-p">Learn about AI</a>
       <a href="report.html" class="btn-o">Report your experience</a>
@@ -125,7 +142,7 @@
 <section class="nls-band" id="newsletter-band" aria-label="Newsletter signup">
   <div class="nls-inner">
     <div class="nls-text">
-      <h2 class="nls-h">Newsletter.</h2>
+      <h2 class="nls-h">Newsletter</h2>
       <p class="nls-blurb">A biweekly email from the Foundation. Plain English, United Kingdom only, no tracking. We cover what is happening in artificial intelligence policy, the campaigns the Foundation is working on, and the rights you have when AI is used on you.</p>
     </div>
     <div class="nls-cta">
@@ -144,7 +161,7 @@
   <div class="aiw-bg-pattern" aria-hidden="true"></div>
   <div class="aiw-inner">
     <div class="aiw-head">
-      <h2>AI Alerts.</h2>
+      <h2>AI Alerts</h2>
       <p class="aiw-lede">A free register of all published information about artificial intelligence implementation by the United Kingdom Government and its respective agencies. Scanned every day. Every entry sourced.</p>
       <div class="aiw-meta-row"><span class="aiw-pulse" aria-hidden="true"></span><span>Live &middot; Updated daily at 08:00 BST</span></div>
     </div>
@@ -275,7 +292,7 @@
 <!-- MISSION -->
 <section id="mission" class="mission-centered">
   <div class="sec sec-centered">
-    <div class="mission-grid fade-in">
+    <div class="mission-grid fade-in fade-up">
       <div class="mission-text mission-text-center">
         <div class="sl-mark">About the Foundation</div>
         <h2 class="sh">A new United Kingdom institution for one of the defining questions of our generation.</h2>
@@ -326,14 +343,14 @@
 </section>
 
 <!-- PROPOSED LEGISLATION AND REGULATION -->
-<section id="legislation" class="legis-section">
+<section id="legislation" class="legis-section teaser">
   <!-- Adobe Stock 1613220393: gold scales of justice, cinematic dark -->
-  <div class="legis-banner" aria-hidden="true" style="background-image:url('https://as2.ftcdn.net/jpg/16/13/22/03/1000_F_1613220393_kFMpxgRN3Lxa4CnfGBfLDLo8dssS1ESl.jpg')"><div class="legis-banner-overlay"></div><div class="legis-banner-title">Legal Tracker.</div></div>
+  <div class="legis-banner" aria-hidden="true" style="background-image:url('https://as2.ftcdn.net/jpg/16/13/22/03/1000_F_1613220393_kFMpxgRN3Lxa4CnfGBfLDLo8dssS1ESl.jpg')"><div class="legis-banner-overlay"></div><div class="legis-banner-title">Legal Tracker</div></div>
   <div class="legis-bg-pattern" aria-hidden="true"></div>
   <div class="legis-inner">
-    <div class="legis-head fade-in">
-      <h2>Legal Tracker.</h2>
-      <p>The eight pieces of law, regulation and litigation that define the United Kingdom&rsquo;s response to artificial intelligence right now.</p>
+    <div class="legis-head fade-in fade-up">
+      <h2>Legal Tracker</h2>
+      <p>The four pieces of UK law and regulation that matter most to the Foundation right now. The full register has 110+ entries.</p>
     </div>
     <div class="legis-grid fade-in">
       <a href="https://www.legislation.gov.uk/ukpga/2025/18/section/80" target="_blank" rel="noopener" class="legis-card legis-card-warning">
@@ -364,6 +381,8 @@
         <p>After a year-long consultation in which 88% of online respondents asked Government to require AI companies to license copyrighted work, ministers postponed the decision again.</p>
         <span class="legis-cta">Read the consultation &rarr;</span>
       </a>
+    </div>
+    <div class="legis-grid-extra legis-grid fade-in">
       <a href="https://www.legislation.gov.uk/ukpga/2023/50/contents" target="_blank" rel="noopener" class="legis-card legis-card-positive">
         <div class="legis-date">Royal Assent October 2023</div>
         <div class="legis-status legis-status-good">In force</div>
@@ -393,6 +412,9 @@
         <span class="legis-cta">Read judgment &rarr;</span>
       </a>
     </div>
+    <div class="teaser-cta fade-up">
+      <a href="ai-alerts.html">See all 110+ entries in AI Alerts</a>
+    </div>
   </div>
 </section>
 
@@ -400,7 +422,7 @@
 <section id="projects" class="pillars-section">
   <div class="sec">
     <div class="fade-in">
-      <h2 class="sh">The Foundation&rsquo;s Projects.</h2>
+      <h2 class="sh">The Foundation&rsquo;s Projects</h2>
       <p class="sb sb-wide">Five projects. Pick one on the left.</p>
     </div>
 
@@ -511,8 +533,8 @@
 <!-- WHERE THE EVIDENCE IS LOUDEST -->
 <section id="research" class="research-section">
   <div class="research-inner">
-    <div class="research-head fade-in">
-      <h2>Research and Publications.</h2>
+    <div class="research-head fade-in fade-up">
+      <h2>Research and Publications</h2>
       <p>Nine areas. The research is unambiguous. The public has not been told.</p>
     </div>
 
@@ -626,7 +648,7 @@
 
 
 <!-- NEWS (newsroom-style editorial block) -->
-<section id="news" class="news-room">
+<section id="news" class="news-room teaser">
   <div class="news-inner">
     <div class="news-bar">
       <div class="news-badge"><span class="news-dot"></span>LIVE COVERAGE</div>
@@ -635,8 +657,8 @@
       </div>
     </div>
 
-    <div class="news-head fade-in">
-      <h2>In the news.</h2>
+    <div class="news-head fade-in fade-up">
+      <h2>In the news</h2>
       <p>What the Foundation is reading this week. Parliamentary papers, regulator decisions, court judgments, departmental announcements, drawn straight from the source. The Foundation&rsquo;s own positions sit in the <a href="campaigns.html">Campaigns hub</a> and the biweekly newsletter.</p>
     </div>
 
@@ -687,19 +709,7 @@
   </div>
 </section>
 
-<!-- PARTNERS CAROUSEL -->
-<section class="members" aria-label="FAIR partners">
-  <div class="members-inner">
-    <h2 class="members-heading">Partners and Supporters.</h2>
-    <p class="members-intro">The Foundation is building a network of charity-sector partners, academic institutions, professional bodies, civil-society organisations and individual experts. The list below will grow as partnerships are formalised. We are particularly interested in collaborations with organisations focused on data rights, child online safety, NHS data, public-law accountability, and civil liberties.</p>
-    <div class="members-marquee">
-      <div class="members-track">
-        <div class="member-logo"><span class="ml-mark">I</span><span class="ml-name">Partner Organisation</span></div><div class="member-logo"><span class="ml-mark">II</span><span class="ml-name">Partner Firm</span></div><div class="member-logo"><span class="ml-mark">III</span><span class="ml-name">Founding Partner</span></div><div class="member-logo"><span class="ml-mark">IV</span><span class="ml-name">Academic Affiliate</span></div><div class="member-logo"><span class="ml-mark">V</span><span class="ml-name">Policy Network</span></div><div class="member-logo"><span class="ml-mark">VI</span><span class="ml-name">Research Institute</span></div><div class="member-logo"><span class="ml-mark">VII</span><span class="ml-name">Professional Body</span></div><div class="member-logo"><span class="ml-mark">VIII</span><span class="ml-name">Strategic Partner</span></div>
-        <div class="member-logo"><span class="ml-mark">I</span><span class="ml-name">Partner Organisation</span></div><div class="member-logo"><span class="ml-mark">II</span><span class="ml-name">Partner Firm</span></div><div class="member-logo"><span class="ml-mark">III</span><span class="ml-name">Founding Partner</span></div><div class="member-logo"><span class="ml-mark">IV</span><span class="ml-name">Academic Affiliate</span></div><div class="member-logo"><span class="ml-mark">V</span><span class="ml-name">Policy Network</span></div><div class="member-logo"><span class="ml-mark">VI</span><span class="ml-name">Research Institute</span></div><div class="member-logo"><span class="ml-mark">VII</span><span class="ml-name">Professional Body</span></div><div class="member-logo"><span class="ml-mark">VIII</span><span class="ml-name">Strategic Partner</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- PARTNERS section removed v2 (no real logos yet) -->
 
 <!-- FOUNDER (editorial profile layout) -->
 <section class="founder founder-editorial" id="founder">
@@ -756,7 +766,7 @@
 <section class="ct-section" id="get-involved">
   <a id="contact" class="anchor-alias" aria-hidden="true"></a>
   <div class="ct-inner">
-    <div class="ct-head fade-in">
+    <div class="ct-head fade-in fade-up">
       <h2>Get involved or get in touch.</h2>
       <p>Pick the option that fits. We show you exactly what to do next.</p>
     </div>
@@ -1070,16 +1080,16 @@ function closeBioModal(){var m=document.getElementById('bio-modal');if(!m)return
 
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.getElementById('bio-modal');if(m&&m.classList.contains('open'))closeBioModal();}});
 
-/* Apple-style scroll reveal: desaturate-to-color + opacity 0->1 + stagger children.
+/* v2-8: Scroll reveal (.fade-in + .fade-up) and stat number count-up.
    Safety: page loads usable even if observer fails. */
 (function(){
-  var els = document.querySelectorAll('.fade-in');
+  var els = document.querySelectorAll('.fade-in, .fade-up');
   if (!els.length) return;
-  // Mark elements above the fold as visible immediately (no fade-in for them)
+  // Mark elements above the fold as visible immediately
   var aboveFold = function(el){var r=el.getBoundingClientRect();return r.top < window.innerHeight * 0.9};
   els.forEach(function(el){ if (aboveFold(el)) el.classList.add('visible'); });
   // Fallback: after 2.5s force any remaining hidden visible so nothing stays invisible
-  setTimeout(function(){ document.querySelectorAll('.fade-in:not(.visible)').forEach(function(el){ el.classList.add('visible'); }); }, 2500);
+  setTimeout(function(){ document.querySelectorAll('.fade-in:not(.visible), .fade-up:not(.visible)').forEach(function(el){ el.classList.add('visible'); }); }, 2500);
   if (!('IntersectionObserver' in window)) return;
   var obs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
@@ -1090,11 +1100,42 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=docum
     });
   }, {threshold:0.12, rootMargin:'0px 0px -10% 0px'});
   els.forEach(function(el){ if (!el.classList.contains('visible')) obs.observe(el); });
+
+  /* Count-up on stat numbers when they enter viewport */
+  var nums = document.querySelectorAll('.stat-num, .aiw-stat-num');
+  if (!nums.length || !('IntersectionObserver' in window)) return;
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var numObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      var raw = (el.textContent || '').trim();
+      var m = raw.match(/^([\d,]+(?:\.\d+)?)(.*)$/);
+      if (!m){ numObs.unobserve(el); return; }
+      var target = parseFloat(m[1].replace(/,/g,''));
+      var suffix = m[2];
+      if (prefersReduced || !isFinite(target)){ numObs.unobserve(el); return; }
+      var duration = 1200;
+      var start = performance.now();
+      var format = function(n){ return (target >= 100 ? Math.round(n) : (Math.round(n*10)/10)).toLocaleString('en-GB') + suffix; };
+      el.textContent = format(0);
+      var step = function(now){
+        var t = Math.min(1, (now - start) / duration);
+        // ease-out cubic
+        var eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = format(target * eased);
+        if (t < 1) requestAnimationFrame(step);
+        else el.textContent = format(target);
+      };
+      requestAnimationFrame(step);
+      numObs.unobserve(el);
+    });
+  }, {threshold:0.5});
+  nums.forEach(function(n){ numObs.observe(n); });
 })();
 </script>
 
 <!-- ACCESSIBILITY: UserWay Widget -->
 <script>
 (function(d){
-  var s = d.createElement("script");
-  s.setAttribute("data-
+  va
