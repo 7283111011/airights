@@ -2203,3 +2203,305 @@ section{padding:96px 0 !important}
 .footer-editorial{background:#FFFFFF !important;color:rgb(110,110,115) !important;border-top:1px solid rgba(0,0,0,.08) !important}
 .fe-brand{color:rgb(29,29,31) !important}
 .fe-status,.fe-copy,.fe-legal-only a{color:rgb(110,110,115) !important}
+
+
+/* ====================================================================
+   vFINAL-2: Reviewer round 2.
+   Address: bigger/centered hero, kill blue overuse, real dark moments,
+   hide Partners placeholder, polish cards/founder/footer.
+   ==================================================================== */
+
+/* 1. HERO - center, much bigger, ultra-bold */
+.hero.hero-cinematic{
+  text-align:center !important;
+  padding:160px 0 120px !important;
+  min-height:80vh !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+.hero-cinematic .hero-content{
+  text-align:center !important;
+  align-items:center !important;
+  max-width:1100px !important;
+  padding:0 32px !important;
+  margin:0 auto !important;
+}
+.hero-cinematic .hero-content > *{
+  text-align:center !important;
+  align-self:center !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+.hero-cinematic h1{
+  font-size:clamp(56px,8vw,96px) !important;
+  line-height:1.04 !important;
+  letter-spacing:-0.03em !important;
+  font-weight:800 !important;
+  color:rgb(29,29,31) !important;
+  text-align:center !important;
+  max-width:18ch !important;
+  margin:0 auto 26px !important;
+}
+.hero-cinematic .hero-tagline{
+  font-size:24px !important;
+  line-height:1.35 !important;
+  font-weight:400 !important;
+  text-align:center !important;
+  max-width:720px !important;
+  margin:0 auto 36px !important;
+  color:rgb(110,110,115) !important;
+}
+.hero-cinematic .hero-btns{justify-content:center !important}
+.hero-scroll{left:50% !important;transform:translateX(-50%) !important}
+
+/* 2. TYPOGRAPHY - section heads bigger and heavier */
+.legis-head h2,
+.research-head h2,
+.aiw-dashboard-band .aiw-head h2,
+.news-head h2,
+.mission-text-center .sh,
+.nls-text .nls-h,
+.ct-head h2,
+.members-heading,
+.trustees-left h2,
+.founder h2,
+section h2.sh{
+  font-size:clamp(40px,5.5vw,68px) !important;
+  line-height:1.05 !important;
+  letter-spacing:-0.025em !important;
+  font-weight:800 !important;
+  color:rgb(29,29,31) !important;
+  max-width:18ch;
+}
+.fp-panel-title-large{font-weight:800 !important;font-size:clamp(40px,5vw,56px) !important}
+body,p,.sb,li,a{font-size:17px;line-height:1.6}
+.legis-head p,.research-head p,.aiw-dashboard-band .aiw-lede,.news-head p,.ct-head p,.mission-text-center .sb,.nls-text .nls-blurb,.members-intro,.trustees-left p,.dh-sub{
+  font-size:19px !important;line-height:1.55 !important;color:rgb(110,110,115) !important;
+}
+
+/* 3. KILL THE BLUE EVERYWHERE except primary CTAs */
+:root{
+  --c-blue:rgb(0,113,227);
+  --c-orange:#F56300;
+}
+/* In-text links: dark, underline on hover */
+section a:not(.btn-p):not(.btn-o):not(.nav-cta):not(.dh-btn-p):not(.dh-btn-o):not(.fp-panel-cta):not(.trustees-btn-p):not(.trustees-btn-o):not(.ct-cta):not(.aiw-cta-btn):not(.rp-cta):not(.briefing){
+  color:rgb(29,29,31) !important;
+  text-decoration:none !important;
+  border-bottom:1px solid rgba(0,0,0,.20);
+  transition:border-color .2s ease;
+}
+section a:not(.btn-p):not(.btn-o):not(.nav-cta):not(.dh-btn-p):not(.dh-btn-o):not(.fp-panel-cta):not(.trustees-btn-p):not(.trustees-btn-o):not(.ct-cta):not(.aiw-cta-btn):not(.rp-cta):not(.briefing):hover{
+  border-color:rgb(29,29,31) !important;
+}
+/* Sector chip dots / mission icons: monochrome */
+.mg-circle{stroke:rgb(29,29,31) !important}
+.mg-icon{stroke:rgb(29,29,31) !important}
+.mg-icon[fill="#0065BD"]{fill:rgb(29,29,31) !important}
+.mg-label{fill:rgb(29,29,31) !important}
+/* Project tab active uses warm orange instead of blue */
+.fp-tab-active{
+  background:rgba(245,99,0,.10) !important;
+  color:rgb(245,99,0) !important;
+  border-left-color:rgb(245,99,0) !important;
+}
+.rp-tab-active{
+  background:rgba(245,99,0,.10) !important;
+  color:rgb(245,99,0) !important;
+  border-left-color:rgb(245,99,0) !important;
+}
+/* Eyebrow accents to dark */
+.legis-eyebrow,.dh-eyebrow,.aiw-dashboard-band .aiw-eyebrow,.trustees-eyebrow,.fp-panel-num,.briefing-num,.sl-mark{
+  color:rgb(110,110,115) !important;
+}
+.legis-eyebrow::before,.dh-eyebrow::before,.aiw-dashboard-band .aiw-eyebrow::before,.trustees-eyebrow::before,.sl-mark::before{
+  background:rgb(110,110,115) !important;
+}
+/* Legis-status tags monochrome */
+.legis-status-warn{background:rgb(245,245,247) !important;color:rgb(110,110,115) !important}
+.legis-status-dropped{background:rgb(245,245,247) !important;color:rgb(110,110,115) !important}
+.legis-status-good{background:rgba(245,99,0,.10) !important;color:rgb(245,99,0) !important}
+.legis-status-info{background:rgb(245,245,247) !important;color:rgb(110,110,115) !important}
+/* News source labels in warm orange (matches Live Coverage) */
+.news-source{color:rgb(245,99,0) !important}
+.news-lead-tag{background:rgb(245,99,0) !important}
+.news-badge{background:rgb(245,99,0) !important}
+
+/* 4. NAV polish */
+.nav-cta{font-weight:600 !important}
+.nav{
+  background:rgba(255,255,255,.72) !important;
+  backdrop-filter:saturate(180%) blur(20px) !important;
+  -webkit-backdrop-filter:saturate(180%) blur(20px) !important;
+}
+/* Note: logo image already serves the yellow-on-AI mark.
+   Make it monochrome via filter so it reads as restrained brand */
+.nav-logo img.brand-mark{filter:grayscale(100%) contrast(1.2) brightness(.9)}
+
+/* 5. DARK MOMENTS - stats section + news section + contact section */
+/* The stats inside Mission become a full-width dark band */
+.mission-centered .stat-callout{
+  background:rgb(15,15,17) !important;
+  margin:96px -100vw 0 !important;
+  padding:96px 100vw !important;
+  border-top:none !important;
+  display:grid !important;
+  grid-template-columns:repeat(3,1fr) !important;
+  gap:48px !important;
+  position:relative !important;
+  width:auto !important;
+  max-width:none !important;
+}
+.mission-centered .stat-callout > *{
+  grid-column:auto !important;
+  max-width:none;
+  text-align:left;
+}
+.stat-row{
+  background:transparent !important;
+  border:none !important;
+  padding:0 !important;
+  color:#FFF !important;
+}
+.stat-num{
+  color:#FFF !important;
+  font-size:clamp(72px,9vw,120px) !important;
+  font-weight:800 !important;
+  letter-spacing:-0.04em !important;
+  line-height:.95 !important;
+}
+.stat-num::after{display:none !important}
+.stat-text{color:rgba(255,255,255,.85) !important;font-size:17px !important;line-height:1.5 !important;margin-top:18px}
+.stat-text .stat-src,.stat-text .stat-src a{color:rgba(255,255,255,.5) !important;font-size:12px !important}
+
+/* News room stays dark - lift it harder */
+.news-room{background:rgb(15,15,17) !important;padding:96px 0 !important}
+.news-bar{background:rgba(255,255,255,.06) !important;border-radius:14px;margin:0 28px 32px !important;max-width:1180px;margin-left:auto !important;margin-right:auto !important}
+.news-head h2{color:#FFF !important}
+.news-head p,.news-head p a{color:rgba(255,255,255,.75) !important}
+.news-head p a{color:rgb(245,99,0) !important;border-bottom:1px solid rgba(245,99,0,.4) !important}
+.news-lead{background:rgba(255,255,255,.04) !important;border:1px solid rgba(255,255,255,.08) !important;color:#FFF !important;border-radius:18px !important;padding:36px 40px !important}
+.news-lead h3{color:#FFF !important;font-size:36px !important;font-weight:800 !important;letter-spacing:-0.02em !important;line-height:1.1 !important}
+.news-lead p{color:rgba(255,255,255,.78) !important;font-size:18px !important;line-height:1.5 !important}
+.news-lead-cta{color:rgb(245,99,0) !important}
+.news-item{background:rgba(255,255,255,.04) !important;border:1px solid rgba(255,255,255,.08) !important;color:#FFF !important;border-radius:14px !important;padding:18px 22px !important;margin-bottom:10px !important;transition:background .25s ease}
+.news-item:hover{background:rgba(255,255,255,.08) !important;padding-left:22px !important}
+.news-item h4{color:#FFF !important;font-size:17px !important}
+.news-item p{color:rgba(255,255,255,.65) !important;font-size:14px !important}
+.news-footer{background:transparent !important;color:rgba(255,255,255,.55) !important;border-top:1px solid rgba(255,255,255,.10) !important;padding:24px 28px !important}
+.news-footer a{color:rgb(245,99,0) !important;border-bottom:1px solid rgba(245,99,0,.4)}
+
+/* Contact section dark */
+.ct-section{background:rgb(15,15,17) !important;padding:120px 0 !important}
+.ct-head h2{color:#FFF !important;font-size:clamp(48px,6vw,72px) !important;font-weight:800 !important;letter-spacing:-0.025em !important}
+.ct-head p{color:rgba(255,255,255,.7) !important;font-size:21px !important}
+.ct-picker{background:rgba(255,255,255,.06) !important;border:1px solid rgba(255,255,255,.10) !important;border-radius:18px !important}
+.ct-picker-label{color:rgba(255,255,255,.6) !important}
+.ct-select{background:rgba(0,0,0,.4) !important;border-color:rgba(255,255,255,.18) !important;color:#FFF !important}
+.ct-panel{background:rgba(255,255,255,.04) !important;border:1px solid rgba(255,255,255,.08) !important;color:#FFF !important;border-radius:18px !important}
+.ct-panel h3{color:#FFF !important;font-size:28px !important;font-weight:800 !important}
+.ct-panel p{color:rgba(255,255,255,.78) !important}
+.ct-panel a{color:rgb(245,99,0) !important;border-bottom:1px solid rgba(245,99,0,.4)}
+.ct-form-wrap{background:rgba(255,255,255,.04) !important;border:1px solid rgba(255,255,255,.08) !important;color:#FFF !important;border-radius:18px !important}
+.ct-form-h{color:#FFF !important}
+.ct-form-sub{color:rgba(255,255,255,.68) !important}
+.ct-field-label{color:rgba(255,255,255,.6) !important}
+.ct-field input,.ct-field textarea{background:rgba(0,0,0,.4) !important;border-color:rgba(255,255,255,.18) !important;color:#FFF !important}
+.ct-field input:focus,.ct-field textarea:focus{border-color:rgba(255,255,255,.50) !important;background:rgba(0,0,0,.6) !important}
+.ct-form-fine{color:rgba(255,255,255,.5) !important}
+.ct-form-fine a{color:rgb(245,99,0) !important}
+
+/* 6. HIDE Partners placeholder until we have logos */
+section.members,
+.members{display:none !important}
+
+/* 7. Mission stats - the dark band styling is in section 5 above */
+
+/* 8. CARD SYSTEM unified */
+.legis-card,
+.briefing,
+.entry,
+.ct-panel:not([class*="dark"]),
+.fp-panel,
+.rp-panel,
+.aiw-stat,
+.trustees-stat{
+  border-radius:14px !important;
+  box-shadow:0 2px 12px rgba(0,0,0,.06) !important;
+  padding:24px !important;
+}
+.legis-card{padding:28px 26px !important}
+.legis-section{background:#FFFFFF !important}
+
+/* 9. FOUNDER section - cinematic photo, brief text */
+.founder-editorial{background:rgb(245,245,247) !important;padding:96px 0 !important}
+.founder-portrait img{
+  border-radius:50% !important;
+  width:200px !important;
+  height:200px !important;
+  object-fit:cover !important;
+  border:4px solid #FFF;
+  box-shadow:0 6px 24px rgba(0,0,0,.10);
+}
+.founder-name{font-size:28px !important;font-weight:800 !important;color:rgb(29,29,31) !important}
+.founder-role{color:rgb(110,110,115) !important;font-size:15px !important}
+.f-pullquote{font-size:32px !important;font-weight:700 !important;color:rgb(29,29,31) !important;line-height:1.2 !important;font-style:normal !important;letter-spacing:-0.015em !important;margin-bottom:32px !important;max-width:760px}
+.f-bio p{font-size:18px !important;line-height:1.6 !important;color:rgb(60,60,67) !important;max-width:680px}
+
+/* 10. FOOTER - thin top border, grouped */
+.footer-editorial{background:#FFFFFF !important;border-top:1px solid rgba(0,0,0,.10) !important;padding:48px 28px !important}
+.fe-inner{max-width:1180px !important;margin:0 auto !important}
+.fe-brand{font-size:13px !important;font-weight:700 !important;color:rgb(29,29,31) !important}
+.fe-status{font-size:12px !important;color:rgb(110,110,115) !important;font-style:normal !important;text-align:left !important}
+.fe-legal-only{display:flex !important;flex-wrap:wrap;gap:8px 24px !important;padding:18px 0 !important;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);margin-top:18px}
+.fe-legal-only a{font-size:12px !important;color:rgb(110,110,115) !important;border-bottom:none !important}
+.fe-legal-only a:hover{color:rgb(29,29,31) !important}
+.fe-copy{font-size:12px !important;color:rgb(110,110,115) !important;margin-top:18px !important}
+
+/* AI Alerts band heading bigger */
+.aiw-dashboard-band{padding:120px 0 !important;background:#FFFFFF !important}
+.aiw-dashboard-band .aiw-head h2{font-size:clamp(48px,6vw,72px) !important;font-weight:800 !important;letter-spacing:-0.025em !important}
+
+/* Legal Tracker heading bigger */
+.legis-section{padding:120px 0 !important}
+.legis-head h2{font-size:clamp(48px,6vw,72px) !important;font-weight:800 !important;letter-spacing:-0.025em !important}
+
+/* Research heading bigger */
+.research-section{padding:120px 0 !important;background:#FFFFFF !important}
+.research-head h2{font-size:clamp(48px,6vw,72px) !important;font-weight:800 !important;letter-spacing:-0.025em !important}
+
+/* Projects heading */
+.pillars-section{padding:120px 0 !important}
+.pillars-section .sh{font-size:clamp(48px,6vw,72px) !important;font-weight:800 !important;letter-spacing:-0.025em !important}
+
+/* Newsletter heading */
+.nls-band{background:rgb(245,245,247) !important;padding:120px 28px !important}
+.nls-text .nls-h{font-size:clamp(40px,5vw,60px) !important;font-weight:800 !important;letter-spacing:-0.022em !important}
+
+/* Mission heading */
+.mission-text-center .sh{font-size:clamp(48px,6vw,72px) !important;font-weight:800 !important;letter-spacing:-0.025em !important}
+.mission-text-center{text-align:left}
+.mission-text-center > *{text-align:left}
+.sec-centered{align-items:stretch !important}
+
+/* Trustees */
+.trustees-banner{background:#FFFFFF !important;padding:120px 0 !important;border-top:1px solid rgba(0,0,0,.06) !important;border-bottom:1px solid rgba(0,0,0,.06)}
+.trustees-eyebrow{color:rgb(110,110,115) !important}
+.trustees-eyebrow::before{background:rgb(110,110,115) !important}
+.trustees-left h2{color:rgb(29,29,31) !important;font-size:clamp(48px,6vw,72px) !important;font-weight:800 !important;letter-spacing:-0.025em !important}
+.trustees-left p{color:rgb(110,110,115) !important;font-size:19px !important}
+.trustees-stat{background:rgb(245,245,247) !important;border:none !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;box-shadow:0 2px 12px rgba(0,0,0,.04) !important;border-radius:14px !important;padding:22px 24px !important}
+.trustees-stat-num{color:rgb(29,29,31) !important;font-size:32px !important;font-weight:800 !important}
+.trustees-stat-label{color:rgb(110,110,115) !important}
+.trustees-btn-p{background:rgb(29,29,31) !important;color:#FFF !important}
+.trustees-btn-p:hover{filter:brightness(1.10) !important;background:rgb(29,29,31) !important}
+.trustees-btn-o{color:rgb(29,29,31) !important;border-color:rgba(0,0,0,.20) !important;background:transparent !important}
+.trustees-btn-o:hover{background:rgba(0,0,0,.04) !important}
+
+/* Section spacing tighter for cohesion */
+section{padding:120px 0 !important}
+@media(max-width:780px){
+  section{padding:64px 0 !important}
+  .hero.hero-cinematic{padding:80px 0 64px !important}
+  .mission-centered .stat-callout{grid-template-columns:1fr !important;padding:64px 24px !important;margin:48px 0 0 !important;gap:48px !important}
+}
