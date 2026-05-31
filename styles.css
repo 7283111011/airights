@@ -1468,3 +1468,385 @@ body::before{
   background-image:url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   mix-blend-mode:multiply;
 }
+
+
+/* ================================================================
+   APPLE-INSPIRED DESIGN SYSTEM
+   Overrides applied at end of file for cascade priority.
+   ================================================================ */
+
+:root{
+  --ink:rgb(29,29,31);
+  --ink-mute:rgb(110,110,115);
+  --bg-white:#FFFFFF;
+  --bg-cool:rgb(245,245,247);
+  --bg-cool-2:rgb(250,250,252);
+  --c-blue:rgb(0,113,227);
+  --c-blue-deep:rgb(0,102,204);
+  --c-orange:#F56300;
+  --c-line:rgba(0,0,0,.08);
+  --sans:"SF Pro Text","SF Pro Icons","Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --ease-out:cubic-bezier(0,0,0.5,1);
+}
+
+/* Body resets */
+body{
+  font-family:var(--sans) !important;
+  color:var(--ink) !important;
+  background:var(--bg-white) !important;
+  font-size:17px;
+  line-height:1.47;
+  letter-spacing:-0.374px;
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings:"kern" 1,"ss01" 1;
+}
+body::before{display:none}
+
+/* Headlines - Inter serif gone, big sans-serif semibold takes over */
+h1,h2,h3,h4,h5,h6,
+.sh,.dh h1,.legis-head h2,.research-head h2,.news-head h2,
+.aiw-dashboard-band .aiw-head h2,.members-heading,.ct-head h2,
+.trustees-left h2,.fp-panel-body h3,.rp-panel h3,.ct-form-h{
+  font-family:var(--sans);
+  font-weight:600;
+  letter-spacing:-0.28px;
+  color:var(--ink);
+  font-style:normal;
+}
+.mission-text-center .sh{
+  font-style:normal;
+  font-weight:600;
+}
+
+/* Apple-scale section headlines */
+.dh h1,
+.legis-head h2,
+.research-head h2,
+.news-head h2,
+.aiw-dashboard-band .aiw-head h2,
+.members-heading,
+.ct-head h2{
+  font-size:clamp(40px,5vw,56px);
+  line-height:1.07;
+  letter-spacing:-0.28px;
+  font-weight:600;
+}
+.mission-text-center .sh{
+  font-size:clamp(36px,4.4vw,56px);
+  line-height:1.07;
+  letter-spacing:-0.28px;
+  font-weight:600;
+}
+.hero-cinematic h1{
+  font-size:clamp(48px,7vw,80px);
+  line-height:1.04;
+  letter-spacing:-0.32px;
+  font-weight:600;
+}
+
+/* Sub-headlines and card titles */
+.fp-panel-body h3,.rp-panel h3,.briefing h2,.ct-panel h3,.ct-form-h,.legis-card h3{
+  font-size:28px;
+  line-height:1.14;
+  letter-spacing:0.196px;
+  font-weight:600;
+  font-family:var(--sans);
+}
+
+/* Section eyebrow becomes Apple category label */
+.sl-mark,.dh-eyebrow,.aiw-dashboard-band .aiw-eyebrow,.trustees-eyebrow{
+  font-family:var(--sans);
+  font-size:14px;
+  font-weight:400;
+  letter-spacing:0;
+  text-transform:none;
+  color:var(--ink-mute);
+}
+.sl-mark::before,.dh-eyebrow::before,.aiw-dashboard-band .aiw-eyebrow::before,.trustees-eyebrow::before{display:none}
+
+/* Body copy */
+p,.sb,.mission-text-center .sb,.legis-head p,.research-head p,.news-head p,.dh-sub{
+  font-size:17px;
+  line-height:1.47;
+  letter-spacing:-0.374px;
+  color:var(--ink);
+}
+.legis-head p,.research-head p,.ct-head p,.dh-sub,.aiw-lede{
+  color:var(--ink-mute) !important;
+  font-size:19px;
+  line-height:1.42;
+  letter-spacing:0.012em;
+}
+
+/* ============== NAV ============== */
+.nav{
+  height:44px;
+  padding:0 22px;
+  background:rgba(250,250,252,.86) !important;
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--c-line);
+}
+.nav.nav-transparent{
+  background:rgba(0,0,0,.32) !important;
+  backdrop-filter:saturate(140%) blur(14px);
+  -webkit-backdrop-filter:saturate(140%) blur(14px);
+  border-bottom-color:transparent;
+  height:44px;
+}
+.nav-links{gap:24px}
+.nav-links a{
+  font-size:12px !important;
+  font-weight:400 !important;
+  letter-spacing:0 !important;
+  color:rgba(0,0,0,.85) !important;
+  text-shadow:none !important;
+  transition:opacity .25s var(--ease-out);
+}
+.nav-links a:hover{color:rgba(0,0,0,1) !important;opacity:.9}
+.nav.nav-transparent .nav-links a{color:rgba(255,255,255,.92) !important}
+.nav.nav-transparent .nav-links a:hover{color:#FFF !important}
+.nav-logo img.brand-mark{width:88px !important;height:auto !important}
+.nav-cta{
+  font-size:12px !important;
+  padding:6px 14px !important;
+  border-radius:980px;
+  background:var(--c-blue) !important;
+  color:#FFF !important;
+  border:none !important;
+  font-weight:500;
+  letter-spacing:0;
+  text-shadow:none !important;
+}
+.nav-cta:hover{background:rgb(0,98,201) !important;transform:none}
+.nav.nav-transparent .nav-cta{background:var(--c-blue) !important;border:none !important;backdrop-filter:none;-webkit-backdrop-filter:none}
+
+/* ============== BUTTONS - PILL ============== */
+.btn-p,.dh-btn-p,.fp-panel-cta,.trustees-btn-p,.ct-cta,.ct-form-submit,.cn-toggle,.aiw-cta-btn,.rp-cta,.dh-btn-p{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:11px 21px;
+  border-radius:980px;
+  background:var(--c-blue);
+  color:#FFF;
+  font-family:var(--sans);
+  font-size:17px;
+  font-weight:400;
+  letter-spacing:-0.022em;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:filter .25s var(--ease-out),background-color .25s var(--ease-out);
+  box-shadow:none;
+  text-transform:none;
+}
+.btn-p:hover,.dh-btn-p:hover,.fp-panel-cta:hover,.trustees-btn-p:hover,.ct-cta:hover,.ct-form-submit:hover,.aiw-cta-btn:hover,.rp-cta:hover{
+  filter:brightness(.96);
+  background:var(--c-blue);
+  transform:none;
+}
+
+.btn-o,.dh-btn-o,.trustees-btn-o{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:11px 21px;
+  border-radius:980px;
+  background:transparent;
+  color:var(--c-blue);
+  border:1px solid rgba(0,113,227,.50);
+  font-family:var(--sans);
+  font-size:17px;
+  font-weight:400;
+  letter-spacing:-0.022em;
+  text-decoration:none;
+  transition:background-color .25s var(--ease-out);
+}
+.btn-o:hover,.dh-btn-o:hover,.trustees-btn-o:hover{background:rgba(0,113,227,.06);border-color:var(--c-blue);transform:none}
+
+/* Inline "Learn more ›" style links */
+.legis-cta,.briefing-cta,.aiw-citizen-cta a,.fp-panel-cta-link,.news-lead-cta{
+  color:var(--c-blue) !important;
+  font-size:17px !important;
+  font-weight:400 !important;
+  text-decoration:none;
+  letter-spacing:-0.022em;
+}
+.legis-cta::after{content:" A"}
+
+/* ============== CARDS ============== */
+.legis-card,.fp-panel,.rp-panel,.briefing,.ct-panel,.entry,.stat-row{
+  border-radius:18px;
+  box-shadow:none !important;
+  background:var(--bg-cool);
+  border:none;
+}
+.legis-card{padding:32px 30px}
+.legis-card:hover{transform:none;box-shadow:none !important}
+.legis-card::before{display:none}
+.legis-card-warning,.legis-card-positive,.legis-card-dropped,.legis-card-info{border-top:none}
+
+/* Larger feature/promo cards */
+.aiw-stat,.legis-grid > a,.briefing,.ct-panel{
+  border-radius:18px;
+}
+
+/* ============== SECTION RHYTHM ============== */
+section{padding:80px 0}
+.mission-centered,.legis-section,.pillars-section,.research-section,.ct-section,.members{padding:120px 0}
+.aiw-dashboard-band{padding:120px 0}
+.trustees-banner{padding:120px 0}
+
+/* Alternating backgrounds */
+#mission{background:var(--bg-white)}
+#legislation{background:var(--bg-cool) !important;border:none}
+.legis-section{background:var(--bg-cool) !important}
+#projects{background:var(--bg-white) !important;color:var(--ink) !important}
+.pillars-section{background:var(--bg-white) !important;color:var(--ink) !important}
+#research{background:var(--bg-cool) !important}
+.research-section{background:var(--bg-cool) !important}
+.aiw-dashboard-band{background:var(--bg-white) !important}
+.nls-band{background:var(--bg-cool) !important;border:none}
+.nls-band::before{display:none}
+.ct-section{background:var(--bg-white) !important}
+
+/* Pillars section was navy - now white with subtle border */
+.pillars-section{background:var(--bg-white) !important;color:var(--ink) !important}
+.pillars-section .sh,.pillars-section .sb,.pillars-section h2,.pillars-section h3{color:var(--ink) !important}
+.pillars-section .sb{color:var(--ink-mute) !important}
+.fp-master-detail{background:var(--bg-cool) !important;border:none !important;padding:24px;border-radius:28px}
+.fp-tab{color:var(--ink) !important;border-left-color:transparent !important;font-size:17px;border-radius:12px}
+.fp-tab:hover{background:rgba(0,0,0,.04) !important;color:var(--ink) !important}
+.fp-tab-active{background:rgba(0,113,227,.08) !important;color:var(--c-blue) !important;border-left-color:var(--c-blue) !important}
+.fp-panel{background:var(--bg-white) !important;border-radius:18px;overflow:hidden}
+.fp-panel-hero{background:linear-gradient(135deg,var(--bg-cool) 0%,var(--bg-cool-2) 100%) !important;color:var(--ink) !important;border-bottom:none}
+.fp-panel-hero::before,.fp-panel-hero::after{display:none}
+.fp-panel-num{color:var(--c-blue) !important}
+.fp-panel-title-large{color:var(--ink) !important;font-size:48px;letter-spacing:-0.28px}
+.fp-panel-subtitle{color:var(--ink-mute) !important}
+.fp-panel-tag{color:var(--c-blue);background:transparent;padding:0;font-weight:400;font-size:14px;letter-spacing:0;text-transform:none}
+.fp-panel-body h3{color:var(--ink)}
+.fp-panel-body p{color:var(--ink);font-size:17px;line-height:1.47}
+
+/* Research section to white-on-cool */
+.rp-master-detail{background:var(--bg-white) !important;border:none !important;box-shadow:none !important;border-radius:28px;padding:24px}
+.rp-tab{font-size:17px;border-radius:12px}
+.rp-tab:hover{background:rgba(0,0,0,.04) !important;color:var(--ink) !important}
+.rp-tab-active{background:rgba(0,113,227,.08) !important;color:var(--c-blue) !important;border-left-color:var(--c-blue) !important}
+.rp-panel{background:var(--bg-cool) !important;border-radius:18px}
+.rp-panel h3{color:var(--ink)}
+.rp-panel p{color:var(--ink)}
+.rp-mean{background:var(--bg-white);border-left-color:var(--c-blue)}
+
+/* AI Alerts band - keep darker for product hero feel */
+.aiw-dashboard-band{background:linear-gradient(135deg,#0F172A 0%,#1A2A47 100%) !important;color:#FFF}
+.aiw-dashboard-band::before{display:none}
+.aiw-bg-pattern{display:none}
+.aiw-dashboard-band h2{color:#FFF}
+.aiw-stat{background:rgba(255,255,255,.06);border:none !important;border-radius:18px}
+.aiw-stat-num{color:#FFF !important;font-family:var(--sans);font-weight:600;font-size:48px}
+
+/* Trustees - clean dark card not oxblood */
+.trustees-banner{background:rgb(29,29,31) !important;color:#FFF}
+.trustees-bg{display:none !important}
+.trustees-banner::after{display:none !important}
+.trustees-stat{background:rgba(255,255,255,.06);border:none;border-radius:18px}
+.trustees-stat-num{color:#FFF}
+.trustees-btn-p{background:#FFF !important;color:rgb(29,29,31) !important}
+.trustees-btn-p:hover{filter:brightness(.94)}
+.trustees-btn-o{color:#FFF;border-color:rgba(255,255,255,.40)}
+.trustees-btn-o:hover{background:rgba(255,255,255,.08);border-color:#FFF}
+
+/* News room - keep dark Apple style */
+.news-room{background:rgb(29,29,31) !important;color:#FFF}
+.news-bar{background:rgba(0,0,0,.30)}
+.news-badge{background:var(--c-orange)}
+.news-lead{background:rgba(255,255,255,.04) !important;border:none !important;border-radius:18px;padding:36px 38px}
+.news-lead::before{display:none}
+.news-lead-tag{background:var(--c-orange)}
+.news-item{border-bottom-color:rgba(255,255,255,.10)}
+
+/* Newsletter band - cream Apple style */
+.nls-band{padding:80px 28px}
+.nls-band::before{display:none}
+.nls-text .nls-h{font-family:var(--sans);font-size:40px;font-weight:600;letter-spacing:-0.28px;color:var(--ink)}
+.nls-text .nls-blurb{font-size:17px;color:var(--ink-mute)}
+.nls-form input{background:var(--bg-white);border:1px solid var(--c-line);color:var(--ink);border-radius:980px;padding:11px 21px}
+.nls-form button{background:var(--c-blue);color:#FFF;border-radius:980px;padding:11px 21px;font-size:17px;font-weight:400;letter-spacing:-0.022em;text-transform:none}
+
+/* Contact picker as Apple panel */
+.ct-picker{background:var(--bg-cool);border:none;border-radius:18px;padding:24px}
+.ct-select{background:#FFF;border:1px solid var(--c-line);border-radius:12px;font-size:17px}
+.ct-panel{background:var(--bg-cool);border:none;border-radius:18px;padding:32px 32px}
+.ct-form-wrap{background:var(--bg-cool);border:none;border-radius:18px;padding:32px 32px}
+
+/* Stats */
+.stat-callout{border-top:1px solid var(--c-line)}
+.stat-num{font-family:var(--sans) !important;font-weight:600;font-size:40px;color:var(--ink) !important}
+.stat-num::after{display:none}
+.stat-text{color:var(--ink-mute);font-size:14px}
+
+/* ============== MOTION - desaturate-to-color + opacity 0->1 ============== */
+.fade-in{
+  opacity:0;
+  filter:saturate(0);
+  transition:opacity 1.2s var(--ease-out),filter 1.2s var(--ease-out);
+  will-change:opacity,filter;
+}
+.fade-in.visible{
+  opacity:1;
+  filter:saturate(1);
+}
+/* Stagger sibling cards */
+.legis-grid .legis-card,
+.aiw-stats .aiw-stat,
+.fp-panels .fp-panel-active,
+.stat-callout .stat-row{
+  animation:appleAppear 1s var(--ease-out) both;
+}
+.legis-grid .legis-card:nth-child(1),.aiw-stats .aiw-stat:nth-child(1){animation-delay:.05s}
+.legis-grid .legis-card:nth-child(2),.aiw-stats .aiw-stat:nth-child(2){animation-delay:.12s}
+.legis-grid .legis-card:nth-child(3),.aiw-stats .aiw-stat:nth-child(3){animation-delay:.19s}
+.legis-grid .legis-card:nth-child(4),.aiw-stats .aiw-stat:nth-child(4){animation-delay:.26s}
+.legis-grid .legis-card:nth-child(5){animation-delay:.33s}
+.legis-grid .legis-card:nth-child(6){animation-delay:.40s}
+.legis-grid .legis-card:nth-child(7){animation-delay:.47s}
+.legis-grid .legis-card:nth-child(8){animation-delay:.54s}
+@keyframes appleAppear{
+  from{opacity:0;filter:saturate(0);transform:translateY(0)}
+  to{opacity:1;filter:saturate(1);transform:translateY(0)}
+}
+
+/* Card hover - subtle Apple scale */
+.legis-card,.briefing,.fp-panel,.aiw-stat{transition:transform .3s var(--ease-out)}
+.legis-card:hover,.briefing:hover,.aiw-stat:hover{transform:scale(1.02);will-change:transform}
+
+/* Hero scroll arrow */
+.hero-scroll-label{font-size:12px;letter-spacing:0;text-transform:none;color:rgba(255,255,255,.85)}
+
+/* Get involved CTA inline */
+.aiw-cta-block .aiw-cta-text{color:rgba(255,255,255,.78);font-size:17px}
+.aiw-cta-block .aiw-cta-btn{background:#FFF;color:rgb(29,29,31);box-shadow:none;padding:11px 21px;border-radius:980px;font-size:17px;font-weight:400}
+.aiw-cta-block .aiw-cta-btn:hover{filter:brightness(.94)}
+
+/* Footer */
+.footer-editorial{background:var(--bg-white) !important;color:var(--ink-mute)}
+.fe-brand{color:var(--ink);font-size:14px;font-weight:600}
+.fe-status{color:var(--ink-mute);font-size:12px}
+.fe-legal-only a{color:var(--ink-mute) !important;font-size:12px}
+.fe-legal-only a:hover{color:var(--ink) !important}
+.fe-copy{color:var(--ink-mute);font-size:12px}
+.footer-editorial{border-top:1px solid var(--c-line)}
+
+/* Override hero/dark backgrounds */
+.hero.hero-cinematic .hero-overlay{background:linear-gradient(180deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.42) 60%,rgba(0,0,0,.65) 100%)}
+
+@media(max-width:780px){
+  .nav-links{display:none}
+  .nav{padding:0 14px}
+  section{padding:60px 0}
+  .mission-centered,.legis-section,.pillars-section,.research-section,.ct-section,.nls-band,.aiw-dashboard-band,.trustees-banner,.members{padding:64px 0}
+  .dh h1,.legis-head h2,.research-head h2,.news-head h2,.aiw-dashboard-band .aiw-head h2,.members-heading,.ct-head h2,.mission-text-center .sh{font-size:32px;line-height:1.1}
+  .hero-cinematic h1{font-size:40px;line-height:1.07}
+}
