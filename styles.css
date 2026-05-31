@@ -2505,3 +2505,282 @@ section{padding:120px 0 !important}
   .hero.hero-cinematic{padding:80px 0 64px !important}
   .mission-centered .stat-callout{grid-template-columns:1fr !important;padding:64px 24px !important;margin:48px 0 0 !important;gap:48px !important}
 }
+
+
+/* ====================================================================
+   vFINAL-3: Discipline pass per reviewer round 3.
+   - Kill black buttons (one CTA system only)
+   - Lock card system: 18px radius, exact shadow, 28px padding
+   - Strip Legal Tracker status pill colors -> plain dark labels
+   - Lock orange to ONE role: news source attribution / live indicator
+   - Tighten body max-width to 620px
+   - Add subtle texture to dark sections
+   - Hide NHS-DWP icon row (looks unfinished per reviewer)
+   - Footer column rhythm
+   - Add visual depth to dark news lead
+   ==================================================================== */
+
+:root{
+  --section-pad:120px;
+  --container:980px;
+  --container-wide:1180px;
+  --c-text:rgb(29,29,31);
+  --c-text-2:rgb(110,110,115);
+  --c-line:rgba(0,0,0,.08);
+  --c-blue:rgb(0,113,227);
+  --c-orange:#F56300;
+  --card-r:18px;
+  --card-shadow:0 4px 20px rgba(0,0,0,.08);
+  --card-pad:28px 32px;
+}
+
+/* 1. KILL BLACK BUTTONS - everything CTA goes blue, secondary stays outlined */
+.trustees-btn-p{
+  background:var(--c-blue) !important;
+  color:#FFF !important;
+}
+.trustees-btn-p:hover{
+  filter:brightness(.96) !important;
+  background:var(--c-blue) !important;
+}
+.trustees-btn-o{
+  background:transparent !important;
+  color:var(--c-blue) !important;
+  border:1px solid rgba(0,113,227,.30) !important;
+}
+.trustees-btn-o:hover{
+  background:rgba(0,113,227,.06) !important;
+  border-color:rgba(0,113,227,.50) !important;
+}
+
+/* 2. LOCK CARD SYSTEM */
+.legis-card,
+.briefing,
+.entry,
+.ct-panel,
+.fp-panel,
+.rp-panel,
+.aiw-stat,
+.trustees-stat,
+.stat-row{
+  border-radius:var(--card-r) !important;
+  box-shadow:var(--card-shadow) !important;
+  padding:var(--card-pad) !important;
+}
+.aiw-stat,.trustees-stat,.stat-row{padding:24px 28px !important}
+
+/* 3. STRIP STATUS PILL COLORS on Legal Tracker - just typography */
+.legis-status,
+.legis-status-warn,
+.legis-status-dropped,
+.legis-status-good,
+.legis-status-info{
+  background:transparent !important;
+  color:rgb(110,110,115) !important;
+  padding:0 !important;
+  border:none !important;
+  font-size:11px !important;
+  font-weight:600 !important;
+  letter-spacing:0.08em !important;
+  text-transform:uppercase !important;
+  margin-bottom:8px !important;
+}
+.legis-card::before{display:none !important}
+.legis-date{color:rgb(110,110,115) !important;text-transform:uppercase !important;letter-spacing:0.08em !important;font-size:11px !important;font-weight:600 !important}
+.legis-cta{color:var(--c-blue) !important;font-size:15px !important;font-weight:500 !important}
+
+/* 4. LOCK ORANGE to one role: news source / live indicator only */
+/* Anywhere orange was creeping back in - replace with grey or blue */
+.fp-tab-active{
+  background:rgba(0,113,227,.10) !important;
+  color:var(--c-blue) !important;
+  border-left-color:var(--c-blue) !important;
+}
+.rp-tab-active{
+  background:rgba(0,113,227,.10) !important;
+  color:var(--c-blue) !important;
+  border-left-color:var(--c-blue) !important;
+}
+.legis-cta::after{display:none !important}
+.fp-panel-tag{color:rgb(110,110,115) !important;background:transparent !important;text-transform:uppercase !important;letter-spacing:0.08em !important;font-size:11px !important;font-weight:600 !important}
+.rp-tag{background:rgb(245,245,247) !important;color:rgb(110,110,115) !important;border:none !important;text-transform:uppercase !important;letter-spacing:0.08em !important;font-size:11px !important;font-weight:600 !important}
+
+/* Orange retained ONLY for: news live coverage bar, news source attribution, news lead-tag */
+.news-source{color:var(--c-orange) !important}
+.news-badge{background:var(--c-orange) !important}
+.news-lead-tag{background:var(--c-orange) !important}
+.news-lead-cta{color:var(--c-orange) !important}
+.news-room a,.news-footer a,.news-head p a{color:var(--c-orange) !important;border-bottom-color:rgba(245,99,0,.4) !important}
+
+/* 5. BODY COPY MAX-WIDTH lock to 620 */
+.legis-head p,
+.research-head p,
+.aiw-dashboard-band .aiw-lede,
+.news-head p,
+.ct-head p,
+.mission-text-center .sb,
+.nls-text .nls-blurb,
+.trustees-left p,
+.dh-sub,
+.fp-panel-body p,
+.rp-panel p,
+.legis-card p,
+.briefing-summary,
+.ct-panel p,
+.f-bio p{
+  max-width:620px !important;
+  font-size:17px !important;
+  line-height:1.55 !important;
+}
+
+/* 6. DARK SECTIONS - subtle texture / depth */
+.mission-centered .stat-callout{
+  background:radial-gradient(ellipse at center,#1A1A1C 0%,#0F0F11 80%) !important;
+  position:relative;
+}
+.mission-centered .stat-callout::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:32px 32px;
+  pointer-events:none;
+  opacity:.5;
+}
+.news-room{
+  background:radial-gradient(ellipse at 30% 20%,#1A1A1C 0%,#0F0F11 70%) !important;
+  position:relative;
+}
+.news-room::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:linear-gradient(90deg,rgba(245,99,0,.08) 0%,transparent 30%);
+  pointer-events:none;
+}
+.ct-section{
+  background:radial-gradient(ellipse at 70% 80%,#1A1A1C 0%,#0F0F11 70%) !important;
+  position:relative;
+}
+
+/* 7. HIDE NHS-DWP icon row (reviewer says it looks unfinished) */
+.mission-graphic{display:none !important}
+
+/* 8. FOOTER COLUMN RHYTHM */
+.footer-editorial{padding:64px 28px 32px !important}
+.fe-inner{max-width:var(--container-wide) !important;display:grid !important;grid-template-columns:2fr 3fr !important;gap:48px !important;padding-bottom:24px;border-bottom:1px solid var(--c-line);align-items:start}
+.fe-top{display:flex;flex-direction:column;gap:8px;text-align:left !important;align-items:flex-start !important;flex:none !important}
+.fe-brand{font-size:13px !important;font-weight:600 !important;color:var(--c-text) !important}
+.fe-status{font-size:12px !important;color:var(--c-text-2) !important;text-align:left !important;line-height:1.5;max-width:420px}
+.fe-links.fe-legal-only{
+  display:grid !important;
+  grid-template-columns:repeat(3,1fr) !important;
+  gap:10px 22px !important;
+  padding:0 !important;
+  border:none !important;
+  margin:0 !important;
+  align-self:start;
+}
+.fe-legal-only a{font-size:12px !important;color:var(--c-text-2) !important;border-bottom:none !important;padding:0 !important;line-height:1.5}
+.fe-legal-only a:hover{color:var(--c-text) !important}
+.fe-copy{font-size:11px !important;color:var(--c-text-2) !important;margin-top:24px !important;max-width:var(--container-wide);text-align:left}
+@media(max-width:780px){
+  .fe-inner{grid-template-columns:1fr !important;gap:32px !important}
+  .fe-links.fe-legal-only{grid-template-columns:1fr 1fr !important}
+}
+
+/* 9. SECTION PADDING via variable - tighten and unify */
+section{padding:var(--section-pad) 0 !important}
+.hero.hero-cinematic{padding:140px 0 100px !important}
+
+/* 10. DARK NEWS LEAD - add subtle gradient overlay so left panel reads as designed not bare */
+.news-lead{
+  background:linear-gradient(135deg,rgba(245,99,0,.12) 0%,rgba(255,255,255,.04) 50%,rgba(255,255,255,.02) 100%) !important;
+  border:1px solid rgba(255,255,255,.10) !important;
+  position:relative;
+  overflow:hidden;
+}
+.news-lead::after{
+  content:"";
+  position:absolute;
+  top:-50%;
+  right:-30%;
+  width:120%;
+  height:200%;
+  background:radial-gradient(ellipse,rgba(245,99,0,.10) 0%,transparent 60%);
+  pointer-events:none;
+}
+.news-lead > *{position:relative;z-index:1}
+
+/* Header readability - bump nav letter spacing slightly */
+.nav-links a{letter-spacing:0.03em !important}
+
+/* Cards inside dark sections (news-item) keep their own treatment */
+.news-item{box-shadow:none !important;padding:18px 22px !important}
+.aiw-stat{box-shadow:none !important;background:rgb(245,245,247) !important;padding:24px 26px !important}
+.trustees-stat{box-shadow:0 2px 12px rgba(0,0,0,.04) !important;padding:24px 26px !important}
+
+/* Mobile - keep dark stats full-width */
+@media(max-width:780px){
+  .mission-centered .stat-callout{padding:64px 24px !important;margin:48px 0 0 !important;border-radius:24px}
+  .mission-centered .stat-callout::after{display:none}
+  .news-room{padding:64px 0 !important}
+  .ct-section{padding:80px 0 !important}
+}
+
+
+/* Unify newsletter body sizing */
+.nls-text .nls-blurb{font-size:17px !important;line-height:1.55 !important;max-width:560px !important;color:rgb(110,110,115) !important}
+.nls-form input{height:46px;border-radius:980px}
+.nls-form button{height:46px}
+
+/* AI Alerts band lede sizing parity */
+.aiw-dashboard-band .aiw-lede{font-size:19px !important;line-height:1.5 !important;color:rgb(110,110,115) !important;max-width:620px}
+.aiw-dashboard-band .aiw-meta-row{font-size:13px !important;color:rgb(110,110,115) !important}
+
+/* Mission - text follows the same scale */
+.mission-text-center .sb{font-size:19px !important;line-height:1.5 !important;color:rgb(110,110,115) !important}
+
+/* Hero tagline: scale parity with other ledes */
+.hero-cinematic .hero-tagline{font-size:21px !important;line-height:1.45 !important;color:rgb(110,110,115) !important}
+
+/* Founder pull-quote: same scale system */
+.f-pullquote{font-size:28px !important;font-weight:600 !important;color:rgb(29,29,31) !important;line-height:1.25 !important;letter-spacing:-0.012em !important;max-width:760px}
+
+/* Founder bio body */
+.f-bio p{font-size:17px !important;line-height:1.55 !important;color:rgb(60,60,67) !important;max-width:620px !important}
+
+/* Card body inside Legal Tracker */
+.legis-card p{font-size:15px !important;line-height:1.5 !important;color:rgb(60,60,67) !important;max-width:none !important;margin-bottom:18px !important}
+.legis-card h3{font-size:21px !important;font-weight:700 !important;line-height:1.2 !important;letter-spacing:-0.005em !important}
+
+/* Research panel body */
+.rp-panel p{font-size:17px !important;line-height:1.55 !important;color:rgb(60,60,67) !important;max-width:none !important}
+
+/* Tab labels */
+.fp-tab,.rp-tab{font-size:15px !important;font-weight:500 !important}
+
+/* News item typography */
+.news-item h4{font-size:16px !important;font-weight:600 !important;line-height:1.3 !important;color:#FFF !important}
+.news-item p{font-size:14px !important;line-height:1.45 !important;color:rgba(255,255,255,.65) !important;margin-top:6px !important}
+.news-item-meta{font-size:10px !important;letter-spacing:0.12em !important;text-transform:uppercase !important;color:rgba(255,255,255,.55) !important;font-weight:600 !important;margin-bottom:8px !important}
+.news-source{color:#FF7A2E !important;font-weight:600 !important}
+
+/* News lead typography */
+.news-lead-meta{font-size:11px !important;letter-spacing:0.12em !important;text-transform:uppercase !important;color:rgba(255,255,255,.65) !important;font-weight:600 !important;margin-bottom:12px !important}
+.news-lead h3{font-size:32px !important;font-weight:800 !important;letter-spacing:-0.022em !important;line-height:1.1 !important;color:#FFF !important;margin-bottom:16px !important}
+.news-lead p{font-size:17px !important;line-height:1.55 !important;color:rgba(255,255,255,.78) !important;max-width:560px !important}
+
+/* In the news section heading inside dark moment */
+.news-head h2{color:#FFF !important;font-size:clamp(40px,5vw,56px) !important}
+.news-head p{color:rgba(255,255,255,.68) !important;font-size:19px !important;max-width:620px}
+.news-head p a{color:#FF7A2E !important;border-bottom:1px solid rgba(255,122,46,.4) !important}
+
+/* Contact section headings within dark moment */
+.ct-head h2{color:#FFF !important;font-size:clamp(40px,5vw,56px) !important}
+.ct-head p{color:rgba(255,255,255,.68) !important;font-size:19px !important}
+
+/* CTA button text discipline */
+.btn-p,.dh-btn-p,.aiw-cta-btn,.trustees-btn-p,.ct-cta,.ct-form-submit,.fp-panel-cta,.rp-cta,.nav-cta{
+  font-weight:500 !important;
+}
