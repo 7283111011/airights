@@ -340,8 +340,7 @@
   <div class="legis-bg-pattern" aria-hidden="true"></div>
   <div class="legis-inner">
     <div class="legis-head fade-in">
-      <div class="legis-eyebrow">United Kingdom AI law tracker</div>
-      <h2>Proposed Legislation and Regulation</h2>
+      <h2>Legal Tracker</h2>
       <p>What is currently on the statute book, in consultation, in court, or stalled in Whitehall. These are the eight events that define the United Kingdom&rsquo;s response to artificial intelligence right now.</p>
     </div>
     <div class="legis-grid fade-in">
@@ -410,7 +409,7 @@
   <div class="sec">
     <div class="fade-in">
       <h2 class="sh">The Foundation&rsquo;s Projects</h2>
-      <p class="sb sb-wide">Five workstreams. Click a title on the left to see the project in detail.</p>
+      <p class="sb sb-wide">Medicines have the MHRA. Aviation has the CAA. Banks have the FCA. Artificial intelligence in the United Kingdom has none of these. The Foundation is built to fill that gap from both ends: helping the public understand and use their rights, and pushing the people who write the rules to write better ones. Each of the five projects below tackles one part of that mission. Pick a project on the left to see what it does.</p>
     </div>
 
     <div class="fp-master-detail fade-in">
@@ -629,8 +628,8 @@
 <section id="news">
   <div class="sec">
     <div class="fade-in">
-      <h2 class="sh">UK artificial intelligence policy and regulation</h2>
-      <p class="sb">A curated reading list of recent UK news on AI law, regulation and governance, drawn from credible national sources. <em>The Foundation's positions are in the newsletter, the Concerns block above, and on our <a href="campaigns.html" style="color:#0065BD">Campaigns hub</a>.</em></p>
+      <h2 class="sh">In the news</h2>
+      <p class="sb">A curated reading list of the most useful recent reporting on artificial intelligence in the United Kingdom: parliamentary papers, regulator decisions, courts, departmental announcements. The Foundation&rsquo;s own positions sit in the <a href="campaigns.html" style="color:#0065BD">Campaigns hub</a> and the fortnightly newsletter.</p>
     </div>
     <div class="ng" id="news-grid">
       <article class="nc">
@@ -677,7 +676,7 @@
 <!-- PARTNERS CAROUSEL -->
 <section class="members" aria-label="FAIR partners">
   <div class="members-inner">
-    <h2 class="members-heading">Our partners</h2>
+    <h2 class="members-heading">Partners and Supporters</h2>
     <p class="members-intro">The Foundation is building a network of charity-sector partners, academic institutions, professional bodies, civil-society organisations and individual experts. The list below will grow as partnerships are formalised. We are particularly interested in collaborations with organisations focused on data rights, child online safety, NHS data, public-law accountability, and civil liberties.</p>
     <div class="members-marquee">
       <div class="members-track">
@@ -902,16 +901,24 @@
 </section>
 
 <script>
-/* Sync the contact form topic and subject with the dropdown choice */
+/* Sync the contact form topic + subject with dropdown; hide form for routes that already have their own action */
 (function(){
   var sel = document.getElementById('ct-select');
   if (!sel) return;
   var topic = document.getElementById('ct-topic');
   var subject = document.getElementById('ct-subject');
+  var formWrap = document.getElementById('ct-form-wrap');
+  // Routes where a contact form does not make sense (use the action in the panel instead)
+  var NO_FORM = ['ct-supporter','ct-office','ct-safeguarding','ct-trustee','ct-project-lead','ct-working-group','ct-donate'];
   function sync(){
+    var val = sel.value;
     var label = sel.options[sel.selectedIndex].text;
     if (topic) topic.value = label;
     if (subject) subject.value = 'New Foundation contact: ' + label;
+    if (formWrap){
+      if (NO_FORM.indexOf(val) >= 0) formWrap.style.display = 'none';
+      else formWrap.style.display = '';
+    }
   }
   sel.addEventListener('change', sync);
   sync();
