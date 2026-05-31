@@ -1787,17 +1787,12 @@ section{padding:80px 0}
 .stat-num::after{display:none}
 .stat-text{color:var(--ink-mute);font-size:14px}
 
-/* ============== MOTION - desaturate-to-color + opacity 0->1 ============== */
-.fade-in{
-  opacity:0;
-  filter:saturate(0);
-  transition:opacity 1.2s var(--ease-out),filter 1.2s var(--ease-out);
-  will-change:opacity,filter;
-}
-.fade-in.visible{
-  opacity:1;
-  filter:saturate(1);
-}
+/* MOTION - desaturate-to-color fade-in, with SAFE DEFAULT.
+   Sections render at full opacity by default; .stagger-on enables the hidden state. */
+.fade-in{opacity:1;filter:none;transition:opacity 1.2s var(--ease-out),filter 1.2s var(--ease-out)}
+.fade-in.stagger-on{opacity:0;filter:saturate(0)}
+.fade-in.visible{opacity:1;filter:saturate(1)}
+.fade-in.stagger-on.visible{opacity:1;filter:saturate(1)}
 /* Stagger sibling cards */
 .legis-grid .legis-card,
 .aiw-stats .aiw-stat,
@@ -1850,3 +1845,4 @@ section{padding:80px 0}
   .dh h1,.legis-head h2,.research-head h2,.news-head h2,.aiw-dashboard-band .aiw-head h2,.members-heading,.ct-head h2,.mission-text-center .sh{font-size:32px;line-height:1.1}
   .hero-cinematic h1{font-size:40px;line-height:1.07}
 }
+                                                                                                                                                                                                                                                                                                                                                                                              

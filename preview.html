@@ -1063,4 +1063,41 @@ function submitContactForm(e){
 // Bio modal handlers
 function openBioModal(){var m=document.getElementById('bio-modal');if(!m)return;m.classList.add('open');document.body.style.overflow='hidden';}
 function closeBioModal(){var m=document.getElementById('bio-modal');if(!m)return;m.classList.remove('open');document.body.style.overflow='';}
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.getElementById('bio-m
+
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.getElementById('bio-modal');if(m&&m.classList.contains('open'))closeBioModal();}});
+
+/* Stagger reveal observer - adds .visible to .fade-in / .stagger-on as they intersect */
+(function(){
+  var els = document.querySelectorAll('.fade-in, .stagger-on');
+  if (!els.length) return;
+  // Safety: mark everything visible after 100ms so nothing stays hidden if the observer fails
+  setTimeout(function(){ els.forEach(function(el){ el.classList.add('visible'); }); }, 100);
+  if (!('IntersectionObserver' in window)) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){ obs.observe(el); });
+})();
+</script>
+
+<!-- ACCESSIBILITY: UserWay Widget -->
+<script>
+(function(d){
+  var s = d.createElement("script");
+  s.setAttribute("data-position", 5);
+  s.setAttribute("data-account", "5dDh6GLInL");
+  s.setAttribute("src", "https://cdn.userway.org/widget.js");
+  (d.body || d.head).appendChild(s);
+})(document);
+</script>
+
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script>
+
+</body>
+</html>
