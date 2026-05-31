@@ -63,15 +63,15 @@
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav" id="navbar">
-  <a href="/" class="nav-logo"><img src="images/FAIR_logo.png" alt="FAIR" width="150" height="103" class="brand-mark"></a>
+<!-- NAV (transparent over hero, white on scroll) -->
+<nav class="nav nav-transparent" id="navbar">
+  <a href="/" class="nav-logo"><img src="images/FAIR_logo.png" alt="FAIR" width="150" height="103" class="brand-mark brand-mark-light"><img src="images/FAIR_logo_white_lg.png" alt="FAIR" width="150" height="103" class="brand-mark brand-mark-dark"></a>
   <div class="nav-links">
-    <a href="learn.html">Learn</a>
+    <a href="#mission">Mission</a>
+    <a href="#projects">Projects</a>
+    <a href="#research">Research</a>
     <a href="ai-alerts.html">Alerts</a>
-    <a href="report.html">Report</a>
-    <a href="campaigns.html">Campaign</a>
-    <a href="ask.html">Ask</a>
+    <a href="#contact">Contact</a>
   </div>
   <a href="#get-involved" class="nav-cta">Get involved</a>
   <button class="mobile-toggle" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Toggle menu">
@@ -79,13 +79,27 @@
   </button>
 </nav>
 <div class="mobile-menu" id="mob">
-  <a href="learn.html" onclick="this.parentElement.classList.remove('open')">Learn</a>
+  <a href="#mission" onclick="this.parentElement.classList.remove('open')">Mission</a>
+  <a href="#projects" onclick="this.parentElement.classList.remove('open')">Projects</a>
+  <a href="#research" onclick="this.parentElement.classList.remove('open')">Research</a>
   <a href="ai-alerts.html" onclick="this.parentElement.classList.remove('open')">Alerts</a>
-  <a href="report.html" onclick="this.parentElement.classList.remove('open')">Report</a>
-  <a href="campaigns.html" onclick="this.parentElement.classList.remove('open')">Campaign</a>
-  <a href="ask.html" onclick="this.parentElement.classList.remove('open')">Ask</a>
+  <a href="#contact" onclick="this.parentElement.classList.remove('open')">Contact</a>
   <a href="#get-involved" onclick="this.parentElement.classList.remove('open')">Get involved</a>
 </div>
+<script>
+/* Toggle nav transparency on scroll */
+(function(){
+  var n = document.getElementById('navbar');
+  if (!n) return;
+  var threshold = 80;
+  var onScroll = function(){
+    if (window.scrollY > threshold) n.classList.remove('nav-transparent');
+    else n.classList.add('nav-transparent');
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
 
 <!-- HERO (full-screen cinematic) -->
 <section class="hero hero-cinematic" id="home">
@@ -96,7 +110,7 @@
   <div class="hero-content">
     <div class="hero-mark"><img src="images/FAIR_logo_white_lg.png" alt="FAIR" width="260" height="178"></div>
     <h1>The Foundation for Artificial Intelligence Rights</h1>
-    <p class="hero-tagline">Artificial intelligence is being built into the country around you. We are here to help you understand it, push back on it, and demand it works for you.</p>
+    <p class="hero-tagline">Artificial intelligence is being implemented at an unprecedented speed in both the public and private sectors. Our team is here to help ensure that the general public knows their rights and that organisations uphold ethical standards.</p>
     <div class="hero-btns">
       <a href="learn.html" class="btn-p">Learn about AI</a>
       <a href="report.html" class="btn-o">Report your experience</a>
@@ -115,15 +129,8 @@
 <section class="nls-band" id="newsletter-band" aria-label="Newsletter signup">
   <div class="nls-inner">
     <div class="nls-text">
-      <span class="nls-eyebrow">FAIR Briefings</span>
-      <h2 class="nls-h">Stay up to date. Sign up to our newsletter.</h2>
-      <p class="nls-blurb">Subscribe to the FAIR Briefing and we will send you a fortnightly update by email. You will not need to keep checking back. Each issue covers what is happening in UK artificial intelligence policy, including open consultations, court judgments, regulator decisions, and the campaigns FAIR is working on. UK only. Plain English. No tracking.</p>
-      <div class="nls-meta">
-        <span>Fortnightly</span>
-        <span>~800 words</span>
-        <span>Free</span>
-        <span>Easy to unsubscribe</span>
-      </div>
+      <h2 class="nls-h">Newsletter</h2>
+      <p class="nls-blurb">A fortnightly email from FAIR. Plain English, United Kingdom only, no tracking. We cover what is happening in artificial intelligence policy, the campaigns FAIR is working on, and the rights you have when AI is used on you.</p>
     </div>
     <div class="nls-cta">
       <form action="https://buttondown.com/api/emails/embed-subscribe/airights" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/airights', 'popupwindow')" class="nls-form">
@@ -141,9 +148,8 @@
   <div class="aiw-bg-pattern" aria-hidden="true"></div>
   <div class="aiw-inner">
     <div class="aiw-head">
-      <span class="aiw-eyebrow">FAIR Public-Interest Register</span>
-      <h2>AI Alerts. Eyes on UK public-sector artificial intelligence.</h2>
-      <p class="aiw-lede">A live register of every confirmed contract, partnership, memorandum of understanding and pilot involving a United Kingdom public body. Scanned every day. Every entry sourced from Contracts Finder, Hansard, GOV.UK, Algorithmic Transparency Records or established public-interest reporting.</p>
+      <h2>AI Alerts</h2>
+      <p class="aiw-lede">A free register of all published information about artificial intelligence implementation by the United Kingdom Government and its respective agencies. Scanned every day. Every entry sourced.</p>
       <div class="aiw-meta-row"><span class="aiw-pulse" aria-hidden="true"></span><span>Live &middot; Updated daily at 08:00 BST</span></div>
     </div>
 
@@ -264,16 +270,32 @@
 })();
 </script>
 
-<!-- MISSION: What FAIR is for -->
-<section id="mission">
-  <div class="sec">
+<!-- MISSION -->
+<section id="mission" class="mission-centered">
+  <div class="sec sec-centered">
+    <div class="mission-illus fade-in" aria-hidden="true">
+      <!-- Placeholder line-art. Replace with licensed Adobe Stock illustration (see deliverables/Adobe-Stock-Mission.md). -->
+      <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#0065BD" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="180" cy="110" r="64" opacity=".18"/>
+        <circle cx="180" cy="110" r="42" opacity=".35"/>
+        <circle cx="180" cy="110" r="22" fill="#FACC15" opacity=".55" stroke="none"/>
+        <g opacity=".75">
+          <circle cx="60" cy="50" r="3" fill="#0065BD" stroke="none"/>
+          <circle cx="310" cy="40" r="3" fill="#0065BD" stroke="none"/>
+          <circle cx="330" cy="170" r="3" fill="#0065BD" stroke="none"/>
+          <circle cx="40" cy="180" r="3" fill="#0065BD" stroke="none"/>
+          <line x1="180" y1="110" x2="60" y2="50"/>
+          <line x1="180" y1="110" x2="310" y2="40"/>
+          <line x1="180" y1="110" x2="330" y2="170"/>
+          <line x1="180" y1="110" x2="40" y2="180"/>
+        </g>
+        <text x="180" y="115" text-anchor="middle" font-family="Public Sans,sans-serif" font-weight="700" font-size="18" fill="#0F172A" stroke="none">FAIR</text>
+      </svg>
+    </div>
     <div class="fade-in">
-      <div class="mission-text mission-text-full">
-        <span class="sl">What FAIR is for</span>
-        <h2 class="sh">Right now in the UK, AI is being used to decide whether you get a benefit payment, whether your face matches a police watchlist, whether your child&rsquo;s coursework is genuine, whether your CV makes the shortlist, whether your X-ray gets a second look, and whether your doctor can spend more time with you or less.</h2>
-        <p class="sb">Most of this is happening without anyone asking you, and often without anyone telling you.</p>
-        <p class="sb" style="margin-top:14px">The law is moving - but slowly, and not always in your favour. The <a href="https://www.legislation.gov.uk/ukpga/2025/18/section/80" target="_blank" rel="noopener">Data (Use and Access) Act 2025</a> came into force on 5 February 2026 and made it easier, not harder, for organisations to make automated decisions about you. The promised Government AI Bill has been quietly dropped. The <a href="https://www.gov.uk/government/collections/crime-and-policing-act-2026" target="_blank" rel="noopener">Crime and Policing Act 2026</a> has banned the apps that strip clothes off photographs of women and children - a real win - but enforcement is only as good as the agencies behind it. And after a year-long consultation in which 88% of online respondents asked the Government to require AI companies to license copyrighted work, ministers <a href="https://www.gov.uk/government/consultations/copyright-and-artificial-intelligence" target="_blank" rel="noopener">postponed the decision again in March 2026</a>.</p>
-        <p class="sb" style="margin-top:14px">FAIR exists because UK citizens are being asked to live inside a system they did not consent to and were not taught to navigate. Our job is to help you navigate it - and to keep the pressure on the people who can change it.</p>
+      <div class="mission-text mission-text-center">
+        <h2 class="sh">Right now in the United Kingdom, artificial intelligence is being used to decide whether you get a benefit payment, whether your face matches a police watchlist, whether your child&rsquo;s coursework is genuine, whether your CV makes the shortlist, whether your X-ray gets a second look, and whether your doctor can spend more time with you or less.</h2>
+        <p class="sb">Most of this is happening without anyone asking you, and often without anyone telling you. FAIR exists because British citizens are being asked to live inside a system they did not consent to and were not taught to navigate. Our job is to help you navigate it, and to keep the pressure on the people who can change it.</p>
       </div>
     </div>
 
@@ -314,136 +336,262 @@
   </div>
 </section>
 
-<!-- WHAT WE DO -->
-<section id="pillars" class="pillars-section">
-  <div class="sec">
-    <div class="fade-in">
-      <span class="sl">What we do</span>
-      <h2 class="sh">The work of the Foundation</h2>
-      <p class="sb sb-wide">Medicines have the MHRA. Aviation has the CAA. Banks have the FCA. Artificial intelligence in the United Kingdom has none of these. FAIR exists to fill that gap from both ends: helping the public understand and use their rights, and pushing the people in charge to write better ones.</p>
+<!-- LEGISLATION TRACKER -->
+<section id="legislation" class="legis-section">
+  <div class="legis-inner">
+    <div class="legis-head fade-in">
+      <h2>Where the law sits today</h2>
+      <p>The legal framework around artificial intelligence is moving, slowly, and not always in the public&rsquo;s favour. These are the four events of the last twelve months that matter most.</p>
     </div>
-    <div class="five-pillars fade-in">
-      <a href="learn.html" class="fp-card">
-        <div class="fp-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8 v18 a2 2 0 0 0 2 2 h10 v-22 h-10 a2 2 0 0 0 -2 2 z"/><path d="M16 6 h10 a2 2 0 0 1 2 2 v18 a2 2 0 0 1 -2 2 h-10"/><line x1="8" y1="13" x2="13" y2="13"/><line x1="8" y1="18" x2="13" y2="18"/></svg></div>
-        <h3 class="fp-name">Learn</h3>
-        <p>Age-tiered AI education for the British public, mapped to the UK curriculum. Free, plain English, fact-checked.</p>
+    <div class="legis-grid fade-in">
+      <a href="https://www.legislation.gov.uk/ukpga/2025/18/section/80" target="_blank" rel="noopener" class="legis-card legis-card-warning">
+        <div class="legis-date">In force 5 February 2026</div>
+        <div class="legis-status legis-status-warn">Live</div>
+        <h3>Data (Use and Access) Act 2025</h3>
+        <p>Made it <em>easier</em>, not harder, for organisations to make solely automated decisions about people. Articles 22A to 22D set the new defaults.</p>
+        <span class="legis-cta">Read at legislation.gov.uk &rarr;</span>
       </a>
-      <a href="ai-alerts.html" class="fp-card">
-        <div class="fp-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4 l12 22 h-24 z"/><line x1="16" y1="13" x2="16" y2="20"/><circle cx="16" cy="23" r="1"/></svg></div>
-        <h3 class="fp-name">Alerts</h3>
-        <p>A public-interest register of every confirmed AI contract, pilot and system in United Kingdom public services. Scanned daily. Every entry sourced.</p>
+      <a href="https://www.gov.uk/government/news/ai-bill" target="_blank" rel="noopener" class="legis-card legis-card-dropped">
+        <div class="legis-date">Quietly dropped, 2025</div>
+        <div class="legis-status legis-status-dropped">Dropped</div>
+        <h3>Government AI Bill</h3>
+        <p>The promised comprehensive AI Bill was shelved with no replacement timetable. The United Kingdom has no horizontal AI statute as of today.</p>
+        <span class="legis-cta">Read background &rarr;</span>
       </a>
-      <a href="report.html" class="fp-card">
-        <div class="fp-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6 h22 a2 2 0 0 1 2 2 v14 a2 2 0 0 1 -2 2 h-12 l-7 6 v-6 h-3 a2 2 0 0 1 -2 -2 v-14 a2 2 0 0 1 2 -2 z"/><line x1="10" y1="13" x2="22" y2="13"/><line x1="10" y1="18" x2="18" y2="18"/></svg></div>
-        <h3 class="fp-name">Report</h3>
-        <p>A safe channel for people in the United Kingdom to tell us when AI has been used on them, badly or otherwise.</p>
+      <a href="https://www.gov.uk/government/collections/crime-and-policing-act-2026" target="_blank" rel="noopener" class="legis-card legis-card-positive">
+        <div class="legis-date">Royal Assent 2026</div>
+        <div class="legis-status legis-status-good">In force</div>
+        <h3>Crime and Policing Act 2026</h3>
+        <p>Banned the apps that strip clothes off photographs of women and children. A real win. Enforcement, however, is only as good as the agencies behind it.</p>
+        <span class="legis-cta">Read at gov.uk &rarr;</span>
       </a>
-      <a href="campaigns.html" class="fp-card">
-        <div class="fp-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M28 6 l-18 8 v8 l18 8 z"/><line x1="10" y1="14" x2="10" y2="22"/><path d="M14 22 v4 a2 2 0 0 1 -2 2 h-2 a2 2 0 0 1 -2 -2 v-4"/></svg></div>
-        <h3 class="fp-name">Campaign</h3>
-        <p>Specific, time-bound campaigns on the issues with the clearest evidence and the strongest public mandate.</p>
-      </a>
-      <a href="submissions.html" class="fp-card">
-        <div class="fp-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="20" height="24" rx="2"/><line x1="11" y1="11" x2="21" y2="11"/><line x1="11" y1="16" x2="21" y2="16"/><line x1="11" y1="21" x2="17" y2="21"/></svg></div>
-        <h3 class="fp-name">Engage</h3>
-        <p>Independent, evidence-based work with Parliament and the regulators, including written evidence and submissions.</p>
+      <a href="https://www.gov.uk/government/consultations/copyright-and-artificial-intelligence" target="_blank" rel="noopener" class="legis-card legis-card-warning">
+        <div class="legis-date">Postponed March 2026</div>
+        <div class="legis-status legis-status-warn">Stalled</div>
+        <h3>Copyright and AI consultation</h3>
+        <p>After a year-long consultation in which 88% of online respondents asked Government to require AI companies to license copyrighted work, ministers postponed the decision again.</p>
+        <span class="legis-cta">Read the consultation &rarr;</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- WHERE THE EVIDENCE IS LOUDEST -->
-<section id="concerns" class="concerns-editorial">
+<!-- FAIR PROJECTS (master-detail: titles left, detail panel right) -->
+<section id="projects" class="pillars-section">
   <div class="sec">
     <div class="fade-in">
-      <span class="sl">What is actually going wrong</span>
-      <h2 class="sh">Where the evidence is loudest right now</h2>
-      <p class="sb sb-wide">These are the areas where UK research is unambiguous, regulators are concerned, and the public has not yet been given clear information. Each one is sourced. Click through to read the original.</p>
+      <h2 class="sh">FAIR Projects</h2>
+      <p class="sb sb-wide">Five workstreams. Click a title on the left to see the project in detail.</p>
     </div>
-    <ol class="cn-list" id="cn-list">
-      <li class="cn-row fade-in">
-        <span class="cn-num">01</span>
-        <div class="cn-body">
-          <div class="cn-area">In the NHS</div>
-          <p>The NHS Federated Data Platform, built by Palantir under a contract worth up to &pound;330 million awarded in November 2023, is being rolled out across up to 240 trusts. A contract break-clause review is reported for spring 2027. The British Medical Association voted to oppose the rollout at its June 2025 representatives&rsquo; meeting. The MHRA&rsquo;s National Commission into the Regulation of AI in Healthcare closed its call for evidence on 2 February 2026 and is due to report in summer 2026. An Oxford-led study (Nature Medicine, February 2026) of 1,300 UK participants found large language models do <em>not</em> improve self-diagnosis accuracy and frequently produce unsafe recommendations.</p>
-          <div class="cn-mean">What this means for you: AI is being put into NHS systems faster than the rules to govern it.</div>
-          <div class="cn-cta"><a href="campaigns.html">Back the healthcare AI disclosure campaign &rarr;</a></div>
-        </div>
-      </li>
-      <li class="cn-row fade-in">
-        <span class="cn-num">02</span>
-        <div class="cn-body">
-          <div class="cn-area">At the DWP</div>
-          <p>The Universal Credit Advances ML model (operational since 2022) was confirmed by a DWP fairness analysis - released to the Public Law Project under FOI in late 2024 - to show statistically significant referral and outcome disparity across age, disability, marital status and nationality. The National Audit Office and Public Accounts Committee have repeatedly flagged the lack of transparency. As of April 2025, DWP was still &ldquo;finalising publication&rdquo; of its algorithmic transparency records.</p>
-          <div class="cn-mean">What this means for you: an algorithm may be deciding whether your benefits get paid, with no explanation and no proper appeal route.</div>
-          <div class="cn-cta"><a href="know-your-rights.html">Know your rights on automated decisions &rarr;</a></div>
-        </div>
-      </li>
-      <li class="cn-row fade-in">
-        <span class="cn-num">03</span>
-        <div class="cn-body">
-          <div class="cn-area">At the Home Office</div>
-          <p>The Identify and Prioritise Immigration Cases (IPIC) algorithm, in use since 2019-20, processes the cases of around 41,000 people facing potential removal. Caseworkers click &ldquo;accept&rdquo; with no explanation required; rejections require written justification. Privacy International filed an ICO complaint on 18 August 2025 and an ICO investigation is open. A facial age estimation system for asylum seekers is being trialled.</p>
-          <div class="cn-mean">What this means for you: the workflow nudges decision-makers towards the algorithm&rsquo;s answer rather than independent judgement.</div>
-          <div class="cn-cta"><a href="report.html">Report your experience &rarr;</a></div>
-        </div>
-      </li>
-      <li class="cn-row fade-in">
-        <span class="cn-num">04</span>
-        <div class="cn-body">
-          <div class="cn-area">In policing</div>
-          <p>The Metropolitan Police&rsquo;s live facial recognition deployments led to 962 arrests between September 2024 and September 2025, with over 1,400 cumulative arrests since LFR was scaled up. The High Court has ruled the Met&rsquo;s use is lawful, but Black and Asian respondents to the Ada/Turing Wave 2 survey were significantly more concerned about police facial recognition (57% and 52%) than the general population (39%).</p>
-          <div class="cn-mean">What this means for you: who counts as a &ldquo;match&rdquo; depends partly on how the system was trained, and the burden of being wrongly stopped does not fall evenly across the country.</div>
-          <div class="cn-cta"><a href="know-your-rights.html">Know your rights about police data &rarr;</a></div>
-        </div>
-      </li>
-      <li class="cn-row fade-in">
-        <span class="cn-num">05</span>
-        <div class="cn-body">
-          <div class="cn-area">In children&rsquo;s lives</div>
-          <p>Ofcom&rsquo;s <em>Online Nation 2025</em> (10 December 2025) found 79% of UK online 13-17 year olds, and 40% of 7-12 year olds, now use generative AI; Snapchat My AI is the most-used by children at 51% of online 7-17s; ChatGPT registered 1.8 billion UK visits in the first eight months of 2025. The Internet Watch Foundation logged a 26,385% year-on-year rise in AI-generated child sexual abuse videos in 2025 (3,443, up from 13 in 2024). The Crime and Policing Act 2026 has criminalised the supply of nudification tools, but possession-side gaps remain.</p>
-          <div class="cn-mean">What this means for you: most parents and carers do not know how their children are using AI, and the tools to harm those children are evolving faster than the laws to stop it.</div>
-          <div class="cn-cta"><a href="learn.html">Read the parents&rsquo; guide &rarr;</a></div>
-        </div>
-      </li>
-      <li class="cn-row fade-in">
-        <span class="cn-num">06</span>
-        <div class="cn-body">
-          <div class="cn-area">In schools</div>
-          <p>The National Education Union&rsquo;s 2026 <em>State of Education</em> survey of 9,408 teachers found 76% now use AI for daily work, 49% of schools have no AI policy at all, and 66% of secondary teachers say pupils&rsquo; critical thinking has declined because of AI. The National Literacy Trust&rsquo;s 2025 survey of more than 60,000 13-18 year olds found 1 in 4 (25.1%) admitted to &ldquo;just copying&rdquo; AI outputs into homework, up from 20.9% in 2024.</p>
-          <div class="cn-mean">What this means for you: schools are using AI without consistent rules, and the skills that qualifications are supposed to certify are being eroded.</div>
-          <div class="cn-cta"><a href="learn.html">Read the secondary-age guide &rarr;</a></div>
-        </div>
-      </li>
-      <li class="cn-row fade-in">
-        <span class="cn-num">07</span>
-        <div class="cn-body">
-          <div class="cn-area">In universities</div>
-          <p>The Russell Group&rsquo;s five principles (2023, refreshed 2024-25) and JCQ&rsquo;s April 2025 guidance set the rules. The Kosmyna et al. MIT Media Lab study (June 2025, <em>Your Brain on ChatGPT</em>) used EEG to track 54 participants writing essays with and without LLM help, and reported significantly weaker brain connectivity and &ldquo;cognitive debt&rdquo; in heavy LLM users. Caveat: arXiv preprint, not yet peer-reviewed.</p>
-          <div class="cn-mean">What this means for you: heavy AI use during learning may carry cognitive costs we do not yet fully understand.</div>
-          <div class="cn-cta"><a href="learn.html">Read the students&rsquo; guide &rarr;</a></div>
-        </div>
-      </li>
-      <li class="cn-row fade-in">
-        <span class="cn-num">08</span>
-        <div class="cn-body">
-          <div class="cn-area">In creative work</div>
-          <p>UK creative industries generated &pound;146 billion in GVA in 2024 (around 6% of the economy). 11,500+ responses to the December 2024-February 2025 Government copyright consultation included 88% (10,112 of online respondents) backing licensing in all cases and only 3% backing the Government&rsquo;s preferred opt-out option. The 18 March 2026 Written Ministerial Statement formally dropped the opt-out and announced four follow-up workstreams. The High Court&rsquo;s judgment in <em>Getty Images v Stability AI</em> [2025] EWHC 2863 (Ch) was the first UK ruling on generative AI and copyright; it left the central training-data question open and effectively passed it to Parliament.</p>
-          <div class="cn-mean">What this means for you: your creative work may be training AI right now, and the law has not yet caught up.</div>
-          <div class="cn-cta"><a href="campaigns.html">Back the licensing-first campaign &rarr;</a></div>
-        </div>
-      </li>
-    <li class="cn-row fade-in">
-        <span class="cn-num">09</span>
-        <div class="cn-body">
-          <div class="cn-area">On the human-in-the-loop problem</div>
-          <p>The Data (Use and Access) Act 2025&rsquo;s new UK GDPR Article 22A (in force 5 February 2026) ties the whole automated-decision regime to whether there is &ldquo;meaningful human involvement&rdquo;, a term the Act does not define. The Secretary of State is empowered (Article 22D) to define it by secondary legislation. Until that happens, every UK automated-decision system in the public and private sector sits in a definitional grey area.</p>
-          <div class="cn-mean">What this means for you: even after February 2026, the rules on whether a human has to actually consider your case are still being written.</div>
-          <div class="cn-cta"><a href="campaigns.html">Back the meaningful-human-involvement campaign &rarr;</a></div>
-        </div>
-      </li>
-    </ol>
-    <button class="cn-toggle" id="cn-toggle" onclick="toggleConcerns()" aria-expanded="false">Show all 9 concerns &darr;</button>
+
+    <div class="fp-master-detail fade-in">
+      <div class="fp-list" role="tablist" aria-label="FAIR Projects">
+        <button class="fp-tab fp-tab-active" role="tab" aria-selected="true" data-target="fp-learn">
+          <span class="fp-tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6 v14 a1 1 0 0 0 1 1 h8 V5 H4 a1 1 0 0 0 -1 1 z"/><path d="M12 5 h8 a1 1 0 0 1 1 1 v14 a1 1 0 0 1 -1 1 h-8"/><line x1="6" y1="10" x2="10" y2="10"/><line x1="6" y1="14" x2="10" y2="14"/></svg></span>
+          <span class="fp-tab-label">Learn</span>
+          <span class="fp-tab-arrow" aria-hidden="true">&rsaquo;</span>
+        </button>
+        <button class="fp-tab" role="tab" aria-selected="false" data-target="fp-alerts">
+          <span class="fp-tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 l9 17 h-18 z"/><line x1="12" y1="10" x2="12" y2="15"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg></span>
+          <span class="fp-tab-label">AI Alerts</span>
+          <span class="fp-tab-arrow" aria-hidden="true">&rsaquo;</span>
+        </button>
+        <button class="fp-tab" role="tab" aria-selected="false" data-target="fp-report">
+          <span class="fp-tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5 h16 a1 1 0 0 1 1 1 v10 a1 1 0 0 1 -1 1 h-9 l-5 4 v-4 H4 a1 1 0 0 1 -1 -1 V6 a1 1 0 0 1 1 -1 z"/><line x1="7" y1="10" x2="17" y2="10"/><line x1="7" y1="14" x2="13" y2="14"/></svg></span>
+          <span class="fp-tab-label">Report</span>
+          <span class="fp-tab-arrow" aria-hidden="true">&rsaquo;</span>
+        </button>
+        <button class="fp-tab" role="tab" aria-selected="false" data-target="fp-campaign">
+          <span class="fp-tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5 l-13 6 v6 l13 6 z"/><line x1="8" y1="11" x2="8" y2="17"/><path d="M11 17 v3 a1 1 0 0 1 -1 1 h-2 a1 1 0 0 1 -1 -1 v-3"/></svg></span>
+          <span class="fp-tab-label">Campaign</span>
+          <span class="fp-tab-arrow" aria-hidden="true">&rsaquo;</span>
+        </button>
+        <button class="fp-tab" role="tab" aria-selected="false" data-target="fp-engage">
+          <span class="fp-tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1.5"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/></svg></span>
+          <span class="fp-tab-label">Engage</span>
+          <span class="fp-tab-arrow" aria-hidden="true">&rsaquo;</span>
+        </button>
+      </div>
+
+      <div class="fp-panels">
+        <article class="fp-panel fp-panel-active" id="fp-learn" role="tabpanel">
+          <div class="fp-panel-image" aria-hidden="true">
+            <!-- Replace with Adobe Stock illustration: see deliverables/Adobe-Stock-Projects.md -->
+            <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7EB6E8" stop-opacity=".25"/><stop offset="1" stop-color="#0065BD" stop-opacity=".10"/></linearGradient></defs><rect width="320" height="200" fill="url(#g1)"/><g fill="none" stroke="#0065BD" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M110 70 v60 a3 3 0 0 0 3 3 h30 v-66 h-30 a3 3 0 0 0 -3 3 z"/><path d="M143 67 h40 a3 3 0 0 1 3 3 v60 a3 3 0 0 1 -3 3 h-40"/><line x1="120" y1="85" x2="135" y2="85"/><line x1="120" y1="95" x2="135" y2="95"/><line x1="120" y1="105" x2="132" y2="105"/></g></svg>
+          </div>
+          <div class="fp-panel-body">
+            <div class="fp-panel-tag">Project 01 / Public education</div>
+            <h3>Learn</h3>
+            <p>Age-tiered education on artificial intelligence for the British public, mapped to the United Kingdom curriculum. Free, plain English, fact-checked, and designed to be used in schools, by parents, and by adults who want to know what AI actually does to them.</p>
+            <a href="learn.html" class="fp-panel-cta">Open the Learning Library &rarr;</a>
+          </div>
+        </article>
+
+        <article class="fp-panel" id="fp-alerts" role="tabpanel">
+          <div class="fp-panel-image" aria-hidden="true">
+            <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FACC15" stop-opacity=".25"/><stop offset="1" stop-color="#CA8A04" stop-opacity=".12"/></linearGradient></defs><rect width="320" height="200" fill="url(#g2)"/><g fill="none" stroke="#CA8A04" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M160 60 l34 60 h-68 z"/><line x1="160" y1="84" x2="160" y2="100"/><circle cx="160" cy="110" r="2" fill="#CA8A04"/></g></svg>
+          </div>
+          <div class="fp-panel-body">
+            <div class="fp-panel-tag">Project 02 / Public-interest register</div>
+            <h3>AI Alerts</h3>
+            <p>A free, daily-scanned register of every confirmed artificial intelligence contract, partnership, memorandum of understanding and pilot involving a United Kingdom public body. Every entry sourced from Contracts Finder, Hansard, GOV.UK, Algorithmic Transparency Records or established UK public-interest reporting.</p>
+            <a href="ai-alerts.html" class="fp-panel-cta">Open the AI Alerts dashboard &rarr;</a>
+          </div>
+        </article>
+
+        <article class="fp-panel" id="fp-report" role="tabpanel">
+          <div class="fp-panel-image" aria-hidden="true">
+            <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCA5A5" stop-opacity=".25"/><stop offset="1" stop-color="#DC2626" stop-opacity=".10"/></linearGradient></defs><rect width="320" height="200" fill="url(#g3)"/><g fill="none" stroke="#DC2626" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M120 70 h80 a3 3 0 0 1 3 3 v52 a3 3 0 0 1 -3 3 h-44 l-22 16 v-16 h-14 a3 3 0 0 1 -3 -3 V73 a3 3 0 0 1 3 -3 z"/><line x1="132" y1="90" x2="188" y2="90"/><line x1="132" y1="104" x2="174" y2="104"/></g></svg>
+          </div>
+          <div class="fp-panel-body">
+            <div class="fp-panel-tag">Project 03 / Citizen casework</div>
+            <h3>Report</h3>
+            <p>A safe and structured channel for people in the United Kingdom to tell us when artificial intelligence has been used on them, badly or otherwise. Reports inform our research, our campaigns, and our submissions to Parliament and regulators. Anonymity is preserved by default.</p>
+            <a href="report.html" class="fp-panel-cta">Open the reporting form &rarr;</a>
+          </div>
+        </article>
+
+        <article class="fp-panel" id="fp-campaign" role="tabpanel">
+          <div class="fp-panel-image" aria-hidden="true">
+            <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C4B5FD" stop-opacity=".30"/><stop offset="1" stop-color="#7C3AED" stop-opacity=".10"/></linearGradient></defs><rect width="320" height="200" fill="url(#g4)"/><g fill="none" stroke="#7C3AED" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M210 60 l-70 30 v22 l70 30 z"/><line x1="140" y1="90" x2="140" y2="112"/><path d="M150 112 v12 a3 3 0 0 1 -3 3 h-6 a3 3 0 0 1 -3 -3 v-12"/></g></svg>
+          </div>
+          <div class="fp-panel-body">
+            <div class="fp-panel-tag">Project 04 / Time-bound campaigns</div>
+            <h3>Campaign</h3>
+            <p>Specific, time-bound campaigns on the issues with the clearest evidence and the strongest public mandate. We pick fights we can finish, with measurable targets and named decision-makers, and we publish what worked and what did not.</p>
+            <a href="campaigns.html" class="fp-panel-cta">See current campaigns &rarr;</a>
+          </div>
+        </article>
+
+        <article class="fp-panel" id="fp-engage" role="tabpanel">
+          <div class="fp-panel-image" aria-hidden="true">
+            <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#86EFAC" stop-opacity=".30"/><stop offset="1" stop-color="#059669" stop-opacity=".10"/></linearGradient></defs><rect width="320" height="200" fill="url(#g5)"/><g fill="none" stroke="#059669" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="130" y="55" width="60" height="90" rx="3"/><line x1="142" y1="78" x2="178" y2="78"/><line x1="142" y1="92" x2="178" y2="92"/><line x1="142" y1="106" x2="170" y2="106"/></g></svg>
+          </div>
+          <div class="fp-panel-body">
+            <div class="fp-panel-tag">Project 05 / Parliament and regulators</div>
+            <h3>Engage</h3>
+            <p>Independent, evidence-based written submissions to Parliament, regulators and Government consultations. FAIR represents the public interest in the rooms where AI policy is actually written.</p>
+            <a href="submissions.html" class="fp-panel-cta">Read recent submissions &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE THE EVIDENCE IS LOUDEST -->
+<section id="research" class="research-section">
+  <div class="research-inner">
+    <div class="research-head fade-in">
+      <h2>Research and Publications</h2>
+      <p>Nine areas where United Kingdom research is unambiguous, regulators are concerned, and the public has not yet been given clear information. Pick an area on the left to read the evidence in detail.</p>
+    </div>
+
+    <div class="rp-master-detail fade-in">
+      <div class="rp-list" role="tablist" aria-label="Research areas">
+        <button class="rp-tab rp-tab-active" role="tab" aria-selected="true" data-target="rp-nhs">
+          <span class="rp-tab-num">01</span><span class="rp-tab-label">In the NHS</span>
+        </button>
+        <button class="rp-tab" role="tab" aria-selected="false" data-target="rp-dwp">
+          <span class="rp-tab-num">02</span><span class="rp-tab-label">At the DWP</span>
+        </button>
+        <button class="rp-tab" role="tab" aria-selected="false" data-target="rp-home-office">
+          <span class="rp-tab-num">03</span><span class="rp-tab-label">At the Home Office</span>
+        </button>
+        <button class="rp-tab" role="tab" aria-selected="false" data-target="rp-police">
+          <span class="rp-tab-num">04</span><span class="rp-tab-label">In policing</span>
+        </button>
+        <button class="rp-tab" role="tab" aria-selected="false" data-target="rp-children">
+          <span class="rp-tab-num">05</span><span class="rp-tab-label">In children&rsquo;s lives</span>
+        </button>
+        <button class="rp-tab" role="tab" aria-selected="false" data-target="rp-schools">
+          <span class="rp-tab-num">06</span><span class="rp-tab-label">In schools</span>
+        </button>
+        <button class="rp-tab" role="tab" aria-selected="false" data-target="rp-uni">
+          <span class="rp-tab-num">07</span><span class="rp-tab-label">In universities</span>
+        </button>
+        <button class="rp-tab" role="tab" aria-selected="false" data-target="rp-creative">
+          <span class="rp-tab-num">08</span><span class="rp-tab-label">In creative work</span>
+        </button>
+        <button class="rp-tab" role="tab" aria-selected="false" data-target="rp-loop">
+          <span class="rp-tab-num">09</span><span class="rp-tab-label">Human in the loop</span>
+        </button>
+      </div>
+
+      <div class="rp-panels">
+        <article class="rp-panel rp-panel-active" id="rp-nhs" role="tabpanel">
+          <div class="rp-panel-head"><span class="rp-tag" style="background:#7EB6E8">Health</span><span class="rp-num">01</span></div>
+          <h3>In the NHS</h3>
+          <p>The NHS Federated Data Platform, built by Palantir under a contract worth up to &pound;330 million awarded in November 2023, is being rolled out across up to 240 trusts. A contract break-clause review is reported for spring 2027. The British Medical Association voted to oppose the rollout at its June 2025 representatives&rsquo; meeting. The MHRA&rsquo;s National Commission into the Regulation of AI in Healthcare closed its call for evidence on 2 February 2026 and is due to report in summer 2026. An Oxford-led study (<em>Nature Medicine</em>, February 2026) of 1,300 UK participants found large language models do not improve self-diagnosis accuracy and frequently produce unsafe recommendations.</p>
+          <div class="rp-mean">What this means for you: artificial intelligence is being put into NHS systems faster than the rules to govern it.</div>
+          <a href="campaigns.html" class="rp-cta">Back the healthcare AI disclosure campaign &rarr;</a>
+        </article>
+
+        <article class="rp-panel" id="rp-dwp" role="tabpanel">
+          <div class="rp-panel-head"><span class="rp-tag" style="background:#FCA5A5">Welfare</span><span class="rp-num">02</span></div>
+          <h3>At the DWP</h3>
+          <p>The Universal Credit Advances machine-learning model (operational since 2022) was confirmed by a DWP fairness analysis, released to the Public Law Project under FOI in late 2024, to show statistically significant referral and outcome disparity across age, disability, marital status and nationality. The National Audit Office and Public Accounts Committee have repeatedly flagged the lack of transparency. As of April 2025, DWP was still &ldquo;finalising publication&rdquo; of its algorithmic transparency records.</p>
+          <div class="rp-mean">What this means for you: an algorithm may be deciding whether your benefits get paid, with no explanation and no proper appeal route.</div>
+          <a href="know-your-rights.html" class="rp-cta">Know your rights on automated decisions &rarr;</a>
+        </article>
+
+        <article class="rp-panel" id="rp-home-office" role="tabpanel">
+          <div class="rp-panel-head"><span class="rp-tag" style="background:#FDBA74">Immigration</span><span class="rp-num">03</span></div>
+          <h3>At the Home Office</h3>
+          <p>The Identify and Prioritise Immigration Cases (IPIC) algorithm, in use since 2019 to 2020, processes the cases of around 41,000 people facing potential removal. Caseworkers click &ldquo;accept&rdquo; with no explanation required; rejections require written justification. Privacy International filed an ICO complaint on 18 August 2025 and an ICO investigation is open. A facial age estimation system for asylum seekers is being trialled.</p>
+          <div class="rp-mean">What this means for you: the workflow nudges decision-makers towards the algorithm&rsquo;s answer rather than independent judgement.</div>
+          <a href="report.html" class="rp-cta">Report your experience &rarr;</a>
+        </article>
+
+        <article class="rp-panel" id="rp-police" role="tabpanel">
+          <div class="rp-panel-head"><span class="rp-tag" style="background:#CBD5E1;color:#0F172A">Policing</span><span class="rp-num">04</span></div>
+          <h3>In policing</h3>
+          <p>The Metropolitan Police&rsquo;s live facial recognition deployments led to 962 arrests between September 2024 and September 2025, with over 1,400 cumulative arrests since LFR was scaled up. The High Court has ruled the Met&rsquo;s use lawful, but Black and Asian respondents to the Ada / Turing Wave 2 survey were significantly more concerned about police facial recognition (57% and 52%) than the general population (39%).</p>
+          <div class="rp-mean">What this means for you: who counts as a match depends partly on how the system was trained, and the burden of being wrongly stopped does not fall evenly across the country.</div>
+          <a href="know-your-rights.html" class="rp-cta">Know your rights about police data &rarr;</a>
+        </article>
+
+        <article class="rp-panel" id="rp-children" role="tabpanel">
+          <div class="rp-panel-head"><span class="rp-tag" style="background:#C4B5FD">Children</span><span class="rp-num">05</span></div>
+          <h3>In children&rsquo;s lives</h3>
+          <p>Ofcom&rsquo;s <em>Online Nation 2025</em> (10 December 2025) found 79% of UK online 13 to 17 year olds, and 40% of 7 to 12 year olds, now use generative AI; Snapchat My AI is the most-used by children at 51% of online 7 to 17s; ChatGPT registered 1.8 billion UK visits in the first eight months of 2025. The Internet Watch Foundation logged a 26,385% year-on-year rise in AI-generated child sexual abuse videos in 2025 (3,443, up from 13 in 2024). The Crime and Policing Act 2026 has criminalised the supply of nudification tools, but possession-side gaps remain.</p>
+          <div class="rp-mean">What this means for you: most parents and carers do not know how their children are using artificial intelligence, and the tools to harm those children are evolving faster than the laws to stop it.</div>
+          <a href="learn.html" class="rp-cta">Read the parents&rsquo; guide &rarr;</a>
+        </article>
+
+        <article class="rp-panel" id="rp-schools" role="tabpanel">
+          <div class="rp-panel-head"><span class="rp-tag" style="background:#86EFAC;color:#0F172A">Schools</span><span class="rp-num">06</span></div>
+          <h3>In schools</h3>
+          <p>The National Education Union&rsquo;s 2026 <em>State of Education</em> survey of 9,408 teachers found 76% now use AI for daily work, 49% of schools have no AI policy at all, and 66% of secondary teachers say pupils&rsquo; critical thinking has declined because of AI. The National Literacy Trust&rsquo;s 2025 survey of more than 60,000 13 to 18 year olds found 1 in 4 (25.1%) admitted to &ldquo;just copying&rdquo; AI outputs into homework, up from 20.9% in 2024.</p>
+          <div class="rp-mean">What this means for you: schools are using artificial intelligence without consistent rules, and the skills that qualifications are supposed to certify are being eroded.</div>
+          <a href="learn.html" class="rp-cta">Read the secondary-age guide &rarr;</a>
+        </article>
+
+        <article class="rp-panel" id="rp-uni" role="tabpanel">
+          <div class="rp-panel-head"><span class="rp-tag" style="background:#86EFAC;color:#0F172A">Universities</span><span class="rp-num">07</span></div>
+          <h3>In universities</h3>
+          <p>The Russell Group&rsquo;s five principles (2023, refreshed 2024 to 2025) and JCQ&rsquo;s April 2025 guidance set the rules. The Kosmyna et al. MIT Media Lab study (June 2025, <em>Your Brain on ChatGPT</em>) used EEG to track 54 participants writing essays with and without LLM help, and reported significantly weaker brain connectivity and &ldquo;cognitive debt&rdquo; in heavy LLM users. Caveat: arXiv preprint, not yet peer-reviewed.</p>
+          <div class="rp-mean">What this means for you: heavy AI use during learning may carry cognitive costs we do not yet fully understand.</div>
+          <a href="learn.html" class="rp-cta">Read the students&rsquo; guide &rarr;</a>
+        </article>
+
+        <article class="rp-panel" id="rp-creative" role="tabpanel">
+          <div class="rp-panel-head"><span class="rp-tag" style="background:#FACC15;color:#0F172A">Creative</span><span class="rp-num">08</span></div>
+          <h3>In creative work</h3>
+          <p>United Kingdom creative industries generated &pound;146 billion in GVA in 2024 (around 6% of the economy). 11,500+ responses to the December 2024 to February 2025 Government copyright consultation included 88% (10,112 of online respondents) backing licensing in all cases, and only 3% backing the Government&rsquo;s preferred opt-out option. The 18 March 2026 Written Ministerial Statement formally dropped the opt-out and announced four follow-up workstreams. The High Court&rsquo;s judgment in <em>Getty Images v Stability AI</em> [2025] EWHC 2863 (Ch) was the first United Kingdom ruling on generative AI and copyright; it left the central training-data question open and effectively passed it to Parliament.</p>
+          <div class="rp-mean">What this means for you: your creative work may be training artificial intelligence right now, and the law has not yet caught up.</div>
+          <a href="campaigns.html" class="rp-cta">Back the licensing-first campaign &rarr;</a>
+        </article>
+
+        <article class="rp-panel" id="rp-loop" role="tabpanel">
+          <div class="rp-panel-head"><span class="rp-tag" style="background:#0065BD">Law</span><span class="rp-num">09</span></div>
+          <h3>Human in the loop</h3>
+          <p>The Data (Use and Access) Act 2025&rsquo;s new UK GDPR Article 22A (in force 5 February 2026) ties the whole automated-decision regime to whether there is &ldquo;meaningful human involvement&rdquo;, a term the Act does not define. The Secretary of State is empowered (Article 22D) to define it by secondary legislation. Until that happens, every United Kingdom automated-decision system in the public and private sector sits in a definitional grey area.</p>
+          <div class="rp-mean">What this means for you: even after February 2026, the rules on whether a human has to actually consider your case are still being written.</div>
+          <a href="campaigns.html" class="rp-cta">Back the meaningful-human-involvement campaign &rarr;</a>
+        </article>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -452,7 +600,6 @@
 <section id="news">
   <div class="sec">
     <div class="fade-in">
-      <span class="sl">Live Feed</span>
       <h2 class="sh">UK artificial intelligence policy and regulation</h2>
       <p class="sb">A curated reading list of recent UK news on AI law, regulation and governance, drawn from credible national sources. <em>FAIR positions are in the FAIR Briefing newsletter, the Concerns block above, and on our <a href="campaigns.html" style="color:#0065BD">Campaigns hub</a>.</em></p>
     </div>
@@ -526,59 +673,162 @@
     </div>
 
     <div class="founder-text fade-in">
-      <div class="f-eyebrow">Why I Started FAIR</div>
       <blockquote class="f-pullquote">&ldquo;Most of my career, I have supported drug development by helping organisations navigate complex regulatory requirements, ensuring patient safety and rights are upheld whilst generating data of the highest integrity.&rdquo;</blockquote>
 
       <div class="f-bio">
-        <p>Scott has spent close to two decades advising drug-development organisations on the regulatory frameworks designed to protect patients in clinical trials. He is in the final stages of an LLB at the University of Law, with postgraduate study in AI Law at the University of Oxford and Intellectual Property at Brunel University London. The immediate catalyst for FAIR was his final research project on the LLB, which examined whether United Kingdom intellectual property law had been adapted to the use of artificial intelligence by organisations and to the protection of the creators whose work increasingly trains those systems. The conclusion, on both counts, was that it had not. FAIR is the organisation he set up in response, on the conviction that the British public deserves the same rigour of protection from artificial intelligence that we have long given to medicines, and because the people most affected by these systems in this country are not the people currently being asked.</p>
+        <p>Scott has spent close to two decades advising drug-development organisations on the regulatory frameworks designed to protect patients in clinical trials. He is in the final stages of an LLB at the University of Law, with postgraduate study in AI Law at the University of Oxford and Intellectual Property at Brunel University London. The immediate catalyst for FAIR was his final research project on the LLB, which examined whether lectual property law had been adapted to the use of artificial intelligence by organisations and to the protection of the creators whose work increasingly trains those systems. The conclusion, on both counts, was that it had not. FAIR is the organisation he set up in response, on the conviction that the British public deserves the same rigour of protection from artificial intelligence that we have long given to medicines, and because the people most affected by these systems in this country are not the people currently being asked.</p>
       </div>
       <div class="founder-cta-row">
         <a href="founder.html" class="founder-link">Read full biography &rarr;</a>
-      </div>
-
-      <div class="trustees-placeholder">
-        <strong>Trustees: applications open.</strong> FAIR&rsquo;s founding Trustees will form our governing body and bear the legal duties associated with charitable trusteeship in England and Wales. We are particularly keen to hear from candidates with finance, safeguarding, fundraising and lived-experience backgrounds, alongside the legal, policy and technical expertise typical of governance boards. <a href="#get-involved">See Get Involved &rarr;</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GET INVOLVED + CONTACT (two columns, one row) -->
-<section class="contact-editorial gi-contact-section" id="get-involved">
+<!-- TRUSTEES RECRUITMENT BANNER (standalone, high-priority) -->
+<section class="trustees-banner" id="trustees" aria-labelledby="trustees-h">
+  <div class="trustees-bg" aria-hidden="true"></div>
+  <div class="trustees-inner">
+    <div class="trustees-left">
+      <div class="trustees-eyebrow">Founding Trustees</div>
+      <h2 id="trustees-h">Applications open</h2>
+      <p>FAIR&rsquo;s founding Trustees will form the charity&rsquo;s governing body and bear the legal duties associated with charitable trusteeship in England and Wales (Charity Commission CC3). The board sets strategy, holds the Foundation to account, and is collectively responsible for FAIR&rsquo;s public benefit.</p>
+      <p class="trustees-sought">We are particularly keen to hear from candidates with finance, safeguarding, fundraising and lived-experience backgrounds, alongside the legal, policy and technical expertise typical of governance boards.</p>
+      <div class="trustees-actions">
+        <a href="board-application.html" class="trustees-btn-p">Apply to serve as a Trustee</a>
+        <a href="board-application.html" class="trustees-btn-o">Read the role description</a>
+      </div>
+    </div>
+    <div class="trustees-right" aria-hidden="true">
+      <div class="trustees-stats">
+        <div class="trustees-stat"><div class="trustees-stat-num">5&ndash;7</div><div class="trustees-stat-label">Founding seats</div></div>
+        <div class="trustees-stat"><div class="trustees-stat-num">~8h</div><div class="trustees-stat-label">Per month, average</div></div>
+        <div class="trustees-stat"><div class="trustees-stat-num">3 yr</div><div class="trustees-stat-label">Initial term</div></div>
+        <div class="trustees-stat"><div class="trustees-stat-num">Open</div><div class="trustees-stat-label">Until filled</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GET INVOLVED + CONTACT (single dropdown picker) -->
+<section class="ct-section" id="get-involved">
   <a id="contact" class="anchor-alias" aria-hidden="true"></a>
-  <div class="ce-inner-1col">
-    <div class="ce-intro fade-in">
-      <span class="sl">Get involved or get in touch</span>
-      <h2 class="sh">Two ways in. Pick whichever fits.</h2>
-      <p class="sb sb-wide">No membership fee and no minimum qualification. Choose a route on the left to join FAIR, or pick a channel on the right to reach the team.</p>
+  <div class="ct-inner">
+    <div class="ct-head fade-in">
+      <h2>Get involved or get in touch</h2>
+      <p>Pick the option that fits. We show you exactly what to do next.</p>
     </div>
 
-    <div class="gi-contact-grid fade-in">
-      <div class="gi-col">
-        <h3 class="gi-col-h">Get involved</h3>
-        <div class="gi-routes">
-          <details class="gi-route"><summary><span class="gi-label">For everyone</span><span class="gi-name">Become a FAIR Supporter</span><span class="gi-arrow" aria-hidden="true">+</span></summary><div class="gi-body"><p>Get the fortnightly FAIR Briefing, alerts on the campaigns we are running, and early access to our learning materials. Free, no tracking, easy to unsubscribe.</p><a href="#newsletter-band" class="gi-cta">Subscribe &rarr;</a></div></details>
-          <details class="gi-route"><summary><span class="gi-label">If AI has affected you</span><span class="gi-name">Share your story</span><span class="gi-arrow" aria-hidden="true">+</span></summary><div class="gi-body"><p>Tell us about an experience you have had with artificial intelligence in a UK public service, school, workplace or app. Your story will be anonymised, kept secure, and used to shape our research and our campaigns.</p><a href="report.html" class="gi-cta">Report your experience &rarr;</a></div></details>
-          <details class="gi-route"><summary><span class="gi-label">Volunteer your expertise</span><span class="gi-name">Working Groups</span><span class="gi-arrow" aria-hidden="true">+</span></summary><div class="gi-body"><p>If you have lived or professional experience in any of our priority areas, including patients, carers, parents, teachers, social workers, benefits claimants, lawyers, academics, technologists, journalists and public servants, we would like to hear from you. Working Group members commit a few hours over a defined project window.</p><a href="board-application.html" class="gi-cta">Apply to a Working Group &rarr;</a></div></details>
-          <details class="gi-route"><summary><span class="gi-label">Lead a project</span><span class="gi-name">Project Leads</span><span class="gi-arrow" aria-hidden="true">+</span></summary><div class="gi-body"><p>Project Leads convene one of our priority workstreams. This is a substantive, time-bound voluntary role for someone with relevant subject-matter expertise, paid in some cases once core funding is secured.</p><a href="board-application.html" class="gi-cta">Apply to be a Project Lead &rarr;</a></div></details>
-          <details class="gi-route"><summary><span class="gi-label">Governance</span><span class="gi-name">Trustees</span><span class="gi-arrow" aria-hidden="true">+</span></summary><div class="gi-body"><p>FAIR’s founding Trustees will form our governing body and bear the legal duties associated with charitable trusteeship in England and Wales (Charity Commission CC3). We are particularly keen to hear from candidates with finance, safeguarding, fundraising and lived-experience backgrounds, alongside the legal, policy and technical expertise typical of governance boards.</p><a href="board-application.html" class="gi-cta">Apply to serve as a Trustee &rarr;</a></div></details>
-          <details class="gi-route"><summary><span class="gi-label">Donate</span><span class="gi-name">Donations open after registration</span><span class="gi-arrow" aria-hidden="true">+</span></summary><div class="gi-body"><p>Donations will be open as soon as our charitable registration is granted. Until then, you can register for a notification and we will write to you when Gift Aid becomes available.</p><a href="mailto:info@airights.org.uk?subject=Notify%20when%20donations%20open" class="gi-cta">Register for a notification &rarr;</a></div></details>
-        </div>
+    <div class="ct-picker fade-in">
+      <label class="ct-picker-label" for="ct-select">I want to&hellip;</label>
+      <div class="ct-select-wrap">
+        <select class="ct-select" id="ct-select" aria-label="Choose what you want to do">
+          <optgroup label="Get involved">
+            <option value="ct-supporter" selected>Get the FAIR newsletter</option>
+            <option value="ct-story">Share my experience with AI</option>
+            <option value="ct-working-group">Volunteer with a Working Group</option>
+            <option value="ct-project-lead">Lead a project</option>
+            <option value="ct-trustee">Apply to be a Trustee</option>
+            <option value="ct-donate">Register interest in donating</option>
+          </optgroup>
+          <optgroup label="Contact">
+            <option value="ct-ask">Ask FAIR a question (public)</option>
+            <option value="ct-press">Press enquiry</option>
+            <option value="ct-partners">Partnerships and research</option>
+            <option value="ct-info">General enquiries</option>
+            <option value="ct-office">Registered office</option>
+            <option value="ct-accessibility">Report an accessibility issue</option>
+            <option value="ct-complaints">Make a complaint</option>
+            <option value="ct-safeguarding">Safeguarding concern</option>
+          </optgroup>
+        </select>
       </div>
+    </div>
 
-      <div class="cr-col">
-        <h3 class="gi-col-h">Contact us</h3>
-        <div class="cr-grid">
-          <details class="cr-row"><summary><span class="cr-label">For the public, Ask FAIR</span><span class="cr-arrow" aria-hidden="true">+</span></summary><div class="cr-body"><p>Have a question about artificial intelligence in a United Kingdom public service, school or app? Have a story to share? Want help understanding a letter you have received about an automated decision? Email <a href="mailto:ask@airights.org.uk">ask@airights.org.uk</a>. We read everything and reply within 5 working days.</p></div></details>
-          <details class="cr-row"><summary><span class="cr-label">For journalists</span><span class="cr-arrow" aria-hidden="true">+</span></summary><div class="cr-body"><p><a href="mailto:press@airights.org.uk">press@airights.org.uk</a>. We respond same-day for breaking stories and within 24 hours otherwise.</p></div></details>
-          <details class="cr-row"><summary><span class="cr-label">For partners, researchers and policymakers</span><span class="cr-arrow" aria-hidden="true">+</span></summary><div class="cr-body"><p><a href="mailto:partners@airights.org.uk">partners@airights.org.uk</a></p></div></details>
-          <details class="cr-row"><summary><span class="cr-label">General enquiries</span><span class="cr-arrow" aria-hidden="true">+</span></summary><div class="cr-body"><p><a href="mailto:info@airights.org.uk">info@airights.org.uk</a></p></div></details>
-          <details class="cr-row"><summary><span class="cr-label">Registered office</span><span class="cr-arrow" aria-hidden="true">+</span></summary><div class="cr-body"><p>71-75 Shelton Street, Covent Garden, London WC2H 9JQ, United Kingdom. <em>This is FAIR’s registered correspondence address; we do not currently operate a public helpdesk in person.</em></p></div></details>
-          <details class="cr-row"><summary><span class="cr-label">Accessibility</span><span class="cr-arrow" aria-hidden="true">+</span></summary><div class="cr-body"><p>This site is built to WCAG 2.2 AA. If you find an accessibility issue, please email <a href="mailto:accessibility@airights.org.uk">accessibility@airights.org.uk</a> and we will fix it.</p></div></details>
-          <details class="cr-row"><summary><span class="cr-label">Complaints</span><span class="cr-arrow" aria-hidden="true">+</span></summary><div class="cr-body"><p>Once registered, FAIR will publish a complaints policy in line with Charity Commission guidance. In the interim, complaints can be sent to <a href="mailto:complaints@airights.org.uk">complaints@airights.org.uk</a>.</p></div></details>
-          <details class="cr-row"><summary><span class="cr-label">Safeguarding</span><span class="cr-arrow" aria-hidden="true">+</span></summary><div class="cr-body"><p>If your contact relates to a child or vulnerable adult at risk, please contact the police on 999 (urgent) or 101 (non-urgent), the NSPCC helpline on 0808 800 5000, or the Internet Watch Foundation report line at <a href="https://report.iwf.org.uk/" target="_blank" rel="noopener">report.iwf.org.uk</a>. FAIR cannot act as a substitute for those services.</p></div></details>
-        </div>
-      </div>
+    <div class="ct-panels fade-in">
+      <article class="ct-panel ct-panel-active" id="ct-supporter">
+        <div class="ct-panel-tag">Newsletter</div>
+        <h3>Get the FAIR newsletter</h3>
+        <p>Subscribe to the fortnightly FAIR update. Plain English, no tracking, easy to unsubscribe. You will get alerts on campaigns we are running and early access to learning materials.</p>
+        <a href="#newsletter-band" class="ct-cta">Go to subscribe form &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-story">
+        <div class="ct-panel-tag">Report</div>
+        <h3>Share my experience with AI</h3>
+        <p>Tell us about an experience you have had with artificial intelligence in a United Kingdom public service, school, workplace or app. Your story will be anonymised, kept secure, and used to shape our research and our campaigns.</p>
+        <a href="report.html" class="ct-cta">Open the reporting form &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-working-group">
+        <div class="ct-panel-tag">Working Groups</div>
+        <h3>Volunteer with a Working Group</h3>
+        <p>If you have lived or professional experience in any of our priority areas (patients, carers, parents, teachers, social workers, benefits claimants, lawyers, academics, technologists, journalists, public servants), we want to hear from you. Working Group members commit a few hours over a defined project window.</p>
+        <a href="board-application.html" class="ct-cta">Apply to a Working Group &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-project-lead">
+        <div class="ct-panel-tag">Project Leads</div>
+        <h3>Lead a project</h3>
+        <p>Project Leads convene one of our priority workstreams. This is a substantive, time-bound voluntary role for someone with relevant subject-matter expertise. Paid in some cases once core funding is secured.</p>
+        <a href="board-application.html" class="ct-cta">Apply to be a Project Lead &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-trustee">
+        <div class="ct-panel-tag">Governance</div>
+        <h3>Apply to be a Trustee</h3>
+        <p>FAIR&rsquo;s founding Trustees will form our governing body and bear the legal duties associated with charitable trusteeship in England and Wales (Charity Commission CC3). We particularly welcome finance, safeguarding, fundraising and lived-experience candidates.</p>
+        <a href="board-application.html" class="ct-cta">Apply to serve as a Trustee &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-donate">
+        <div class="ct-panel-tag">Donate</div>
+        <h3>Register interest in donating</h3>
+        <p>Donations will be open as soon as our charitable registration is granted. Until then, you can register for a notification and we will write to you when Gift Aid becomes available.</p>
+        <a href="mailto:info@airights.org.uk?subject=Notify%20when%20donations%20open" class="ct-cta">Register for a notification &rarr;</a>
+      </article>
+
+      <article class="ct-panel" id="ct-ask">
+        <div class="ct-panel-tag">Ask FAIR</div>
+        <h3>Ask FAIR a question</h3>
+        <p>Have a question about artificial intelligence in a United Kingdom public service, school or app? Have a story to share? Want help understanding a letter you have received about an automated decision? Email <a href="mailto:ask@airights.org.uk">ask@airights.org.uk</a>. We read everything and reply within 5 working days.</p>
+        <a href="mailto:ask@airights.org.uk" class="ct-cta">Email ask@airights.org.uk &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-press">
+        <div class="ct-panel-tag">Press</div>
+        <h3>Press enquiry</h3>
+        <p>We respond same-day for breaking stories and within 24 hours otherwise. Subject matter includes copyright reform, AI and child safety, AI in healthcare, AI in education, parliamentary advocacy, and the parallel between pharmaceutical regulation and AI governance.</p>
+        <a href="mailto:press@airights.org.uk" class="ct-cta">Email press@airights.org.uk &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-partners">
+        <div class="ct-panel-tag">Partners</div>
+        <h3>Partnerships and research</h3>
+        <p>Partner organisations, researchers and policymakers.</p>
+        <a href="mailto:partners@airights.org.uk" class="ct-cta">Email partners@airights.org.uk &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-info">
+        <div class="ct-panel-tag">General</div>
+        <h3>General enquiries</h3>
+        <p>For anything that does not fit one of the other channels.</p>
+        <a href="mailto:info@airights.org.uk" class="ct-cta">Email info@airights.org.uk &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-office">
+        <div class="ct-panel-tag">Office</div>
+        <h3>Registered office</h3>
+        <p>71-75 Shelton Street, Covent Garden, London WC2H 9JQ, United Kingdom. <em>This is FAIR&rsquo;s registered correspondence address; we do not currently operate a public helpdesk in person.</em></p>
+      </article>
+      <article class="ct-panel" id="ct-accessibility">
+        <div class="ct-panel-tag">Accessibility</div>
+        <h3>Report an accessibility issue</h3>
+        <p>This site is built to WCAG 2.2 AA. If you find an accessibility issue, please email <a href="mailto:accessibility@airights.org.uk">accessibility@airights.org.uk</a> and we will fix it.</p>
+        <a href="mailto:accessibility@airights.org.uk" class="ct-cta">Email accessibility@airights.org.uk &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-complaints">
+        <div class="ct-panel-tag">Complaints</div>
+        <h3>Make a complaint</h3>
+        <p>Once registered, FAIR will publish a complaints policy in line with Charity Commission guidance. In the interim, complaints can be sent to <a href="mailto:complaints@airights.org.uk">complaints@airights.org.uk</a>.</p>
+        <a href="mailto:complaints@airights.org.uk" class="ct-cta">Email complaints@airights.org.uk &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-safeguarding">
+        <div class="ct-panel-tag">Safeguarding</div>
+        <h3>Safeguarding concern</h3>
+        <p>If your contact relates to a child or vulnerable adult at risk, please contact the police on 999 (urgent) or 101 (non-urgent), the NSPCC helpline on 0808 800 5000, or the Internet Watch Foundation report line at <a href="https://report.iwf.org.uk/" target="_blank" rel="noopener">report.iwf.org.uk</a>. FAIR cannot act as a substitute for those services.</p>
+      </article>
     </div>
 
     <div style="display:none">
@@ -596,6 +846,42 @@
     </div>
   </div>
 </section>
+
+<script>
+/* Master-detail tabs (FAIR Projects + Research and Publications) */
+(function(){
+  function wire(containerSel, tabSel, panelSel, activeTabCls, activePanelCls){
+    document.querySelectorAll(containerSel).forEach(function(container){
+      var tabs = container.querySelectorAll(tabSel);
+      var panels = container.querySelectorAll(panelSel);
+      tabs.forEach(function(tab){
+        tab.addEventListener('click', function(){
+          tabs.forEach(function(t){ t.classList.remove(activeTabCls); t.setAttribute('aria-selected','false'); });
+          panels.forEach(function(p){ p.classList.remove(activePanelCls); });
+          tab.classList.add(activeTabCls);
+          tab.setAttribute('aria-selected','true');
+          var target = document.getElementById(tab.dataset.target);
+          if (target) target.classList.add(activePanelCls);
+        });
+      });
+    });
+  }
+  wire('.fp-master-detail', '.fp-tab', '.fp-panel', 'fp-tab-active', 'fp-panel-active');
+  wire('.rp-master-detail', '.rp-tab', '.rp-panel', 'rp-tab-active', 'rp-panel-active');
+})();
+
+/* Get Involved / Contact picker */
+(function(){
+  var sel = document.getElementById('ct-select');
+  if (!sel) return;
+  var panels = document.querySelectorAll('.ct-panel');
+  sel.addEventListener('change', function(){
+    panels.forEach(function(p){ p.classList.remove('ct-panel-active'); });
+    var target = document.getElementById(sel.value);
+    if (target) target.classList.add('ct-panel-active');
+  });
+})();
+</script>
 
 <!-- FOOTER (editorial) -->
 <footer class="footer-editorial">
@@ -632,8 +918,6 @@
       </div>
     </div>
     <div class="bio-modal-body">
-      <p>Scott has spent close to two decades advising drug-development organisations on the regulatory frameworks designed to protect patients in clinical trials. He is in the final stages of an LLB at the University of Law, with postgraduate study in AI Law at the University of Oxford and Intellectual Property at Brunel University London.</p>
-      <p>The immediate catalyst for FAIR was his final LLB research project, which examined whether United Kingdom intellectual property law had been adapted to the use of artificial intelligence by organisations and to the protection of the creators whose work increasingly trains those systems. The conclusion, on both counts, was that it had not. FAIR is the organisation he set up in response.</p>
       <p>For the full biography, visit the <a href="founder.html">founder page</a>.</p>
     </div>
   </div>
@@ -643,4 +927,79 @@
 <script>
 (function(d){
   var s = d.createElement("script");
-  s.setAttribute("data-positi
+  s.setAttribute("data-position", 5);
+  s.setAttribute("data-account", "5dDh6GLInL");
+  s.setAttribute("src", "https://cdn.userway.org/widget.js");
+  (d.body || d.head).appendChild(s);
+})(document);
+</script>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll',function(){
+  var n=document.getElementById('navbar');
+  if(window.scrollY>20){n.classList.add('scrolled')}else{n.classList.remove('scrolled')}
+});
+
+// Fade-in observer
+var obs=new IntersectionObserver(function(e){
+  e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(function(el){obs.observe(el)});
+
+// Formspree contact form (hidden but functional)
+var FORMSPREE_ID = 'xykognyk';
+var RECAPTCHA_SITE_KEY = '6Lcur9QsAAAAAE1ApFj2LDVszSME-EjcDg6reJDE';
+function submitForm(e){
+  e.preventDefault();
+  var hp = document.getElementById('hp-website');
+  if (hp && hp.value) { return; }
+  var name=document.getElementById('name').value.trim();
+  var email=document.getElementById('email').value.trim();
+  if(!name||!email){alert('Please fill in your name and email.');return}
+  var btn=document.getElementById('submit-btn');
+  btn.textContent='Sending...';btn.disabled=true;
+  function send(token){
+    var data={name:name,email:email,role:document.getElementById('role').value,interest:document.getElementById('interest').value,message:document.getElementById('message').value,'g-recaptcha-response': token || '',_subject:'New FAIR contact: '+name};
+    fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+    .then(function(r){if(r.ok){document.getElementById('form-wrap').style.display='none';document.getElementById('form-ok').style.display='block';}else{document.getElementById('form-wrap').style.display='none';document.getElementById('form-err').style.display='block';}})
+    .catch(function(){document.getElementById('form-wrap').style.display='none';document.getElementById('form-err').style.display='block';});
+  }
+  if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
+    grecaptcha.ready(function(){grecaptcha.execute(RECAPTCHA_SITE_KEY, {action: 'submit_contact'}).then(send).catch(function(){send('');});});
+  } else { send(''); }
+}
+
+(function(){try{var consent=localStorage.getItem('fair-cookies');if(consent){var b=document.getElementById('cookie-bar');if(b)b.style.display='none';}}catch(e){}})();
+
+// Bio modal
+function openBioModal(){var m=document.getElementById('bio-modal');if(!m)return;m.classList.add('open');document.body.style.overflow='hidden';}
+function closeBioModal(){var m=document.getElementById('bio-modal');if(!m)return;m.classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.getElementById('bio-modal');if(m&&m.classList.contains('open'))closeBioModal();}});
+
+
+function toggleConcerns(){var c=document.getElementById('cn-list');var b=document.getElementById('cn-toggle');if(!c||!b)return;var open=c.classList.toggle('cn-open');b.setAttribute('aria-expanded',open?'true':'false');b.innerHTML=open?'Show fewer concerns &uarr;':'Show all 9 concerns &darr;';}
+</script>
+
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script>
+
+<!-- COOKIE NOTICE (bulletproof) -->
+<div id="cookie-bar" class="cookie-notice" style="display:none">
+  <p>This site uses privacy-friendly analytics. No third-party cookies, no cross-site tracking. <a href="privacy.html">Privacy</a>.</p>
+  <div class="cookie-btns">
+    <button type="button" class="cookie-accept" onclick="(function(){var b=document.getElementById('cookie-bar');if(b){b.style.display='none';}try{localStorage.setItem('fair-cookies','accepted');}catch(e){}})()">OK</button>
+    <button type="button" class="cookie-reject" onclick="(function(){var b=document.getElementById('cookie-bar');if(b){b.style.display='none';}try{localStorage.setItem('fair-cookies','rejected');}catch(e){}})()">Essential only</button>
+  </div>
+</div>
+<script>
+(function(){
+  var b = document.getElementById('cookie-bar');
+  if(!b) return;
+  var stored = null;
+  try { stored = localStorage.getItem('fair-cookies'); } catch(e){}
+  if(!stored){ b.style.display = 'flex'; }
+})();
+</script>
+
+</body>
+</html>
