@@ -2862,7 +2862,7 @@ section{padding:var(--section-pad) 0 !important}
 
 /* SLOT 3: STATS DARK SECTION backdrop - Adobe Stock 801585708 */
 .mission-centered .stat-callout{
-  background-image:url("images/photos/stats-bg.jpg");
+  background-image:url("https://as2.ftcdn.net/jpg/08/01/58/57/1000_F_801585708_da2porNNx6SjESgCX5960UuR2EVL5PPT.jpg");
   background-size:cover;
   background-position:center;
   background-blend-mode:multiply;
