@@ -109,7 +109,7 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>The Foundation for Artificial Intelligence Rights</h1>
-    <p class="hero-tagline">Artificial intelligence is being implemented at an unprecedented speed in both the public and private sectors. Our team is here to help ensure that the general public knows their rights and that organisations uphold ethical standards.</p>
+    <p class="hero-tagline">Artificial intelligence is moving fast. We make sure the public knows their rights, and organisations meet a higher standard.</p>
     <div class="hero-btns">
       <a href="learn.html" class="btn-p">Learn about AI</a>
       <a href="report.html" class="btn-o">Report your experience</a>
@@ -282,8 +282,8 @@
       <div class="mission-text mission-text-center">
         <div class="sl-mark">About the Foundation</div>
         <h2 class="sh">A new United Kingdom institution for one of the defining questions of our generation.</h2>
-        <p class="sb">The Foundation for Artificial Intelligence Rights is a British organisation in formation. It was set up to do three things: track how artificial intelligence is being used in the public services that affect every citizen, push for the law to keep up with what is actually happening on the ground, and translate both into plain English so the public is never the last to know.</p>
-        <p class="sb">Medicines have the MHRA. Aviation has the CAA. Banks have the FCA. Artificial intelligence has none of these. The Foundation exists to close that gap from both ends, with research that holds up to scrutiny and a public-interest mandate that does not bend to the people being scrutinised. It is being built to last.</p>
+        <p class="sb">A British organisation in formation. We track how artificial intelligence is being used in public services, push for the law to keep up, and translate both into plain English.</p>
+        <p class="sb">Medicines have the MHRA. Aviation has the CAA. Banks have the FCA. Artificial intelligence has none of these. We exist to close that gap.</p>
       </div>
     </div>
 
@@ -330,7 +330,7 @@
   <div class="legis-inner">
     <div class="legis-head fade-in">
       <h2>Legal Tracker.</h2>
-      <p>What is currently on the statute book, in consultation, in court, or stalled in Whitehall. These are the eight events that define the United Kingdom&rsquo;s response to artificial intelligence right now.</p>
+      <p>The eight pieces of law, regulation and litigation that define the United Kingdom&rsquo;s response to artificial intelligence right now.</p>
     </div>
     <div class="legis-grid fade-in">
       <a href="https://www.legislation.gov.uk/ukpga/2025/18/section/80" target="_blank" rel="noopener" class="legis-card legis-card-warning">
@@ -398,7 +398,7 @@
   <div class="sec">
     <div class="fade-in">
       <h2 class="sh">The Foundation&rsquo;s Projects.</h2>
-      <p class="sb sb-wide">Medicines have the MHRA. Aviation has the CAA. Banks have the FCA. Artificial intelligence in the United Kingdom has none of these. The Foundation is built to fill that gap from both ends: helping the public understand and use their rights, and pushing the people who write the rules to write better ones. Each of the five projects below tackles one part of that mission. Pick a project on the left to see what it does.</p>
+      <p class="sb sb-wide">Five projects. Pick one on the left.</p>
     </div>
 
     <div class="fp-master-detail fade-in">
@@ -510,7 +510,7 @@
   <div class="research-inner">
     <div class="research-head fade-in">
       <h2>Research and Publications.</h2>
-      <p>Nine areas where United Kingdom research is unambiguous, regulators are concerned, and the public has not yet been given clear information. Pick an area on the left to read the evidence in detail.</p>
+      <p>Nine areas. The research is unambiguous. The public has not been told.</p>
     </div>
 
     <div class="rp-master-detail fade-in">
@@ -1066,12 +1066,16 @@ function closeBioModal(){var m=document.getElementById('bio-modal');if(!m)return
 
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.getElementById('bio-modal');if(m&&m.classList.contains('open'))closeBioModal();}});
 
-/* Stagger reveal observer - adds .visible to .fade-in / .stagger-on as they intersect */
+/* Apple-style scroll reveal: desaturate-to-color + opacity 0->1 + stagger children.
+   Safety: page loads usable even if observer fails. */
 (function(){
-  var els = document.querySelectorAll('.fade-in, .stagger-on');
+  var els = document.querySelectorAll('.fade-in');
   if (!els.length) return;
-  // Safety: mark everything visible after 100ms so nothing stays hidden if the observer fails
-  setTimeout(function(){ els.forEach(function(el){ el.classList.add('visible'); }); }, 100);
+  // Mark elements above the fold as visible immediately (no fade-in for them)
+  var aboveFold = function(el){var r=el.getBoundingClientRect();return r.top < window.innerHeight * 0.9};
+  els.forEach(function(el){ if (aboveFold(el)) el.classList.add('visible'); });
+  // Fallback: after 2.5s force any remaining hidden visible so nothing stays invisible
+  setTimeout(function(){ document.querySelectorAll('.fade-in:not(.visible)').forEach(function(el){ el.classList.add('visible'); }); }, 2500);
   if (!('IntersectionObserver' in window)) return;
   var obs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
@@ -1080,8 +1084,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=docum
         obs.unobserve(e.target);
       }
     });
-  }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
-  els.forEach(function(el){ obs.observe(el); });
+  }, {threshold:0.12, rootMargin:'0px 0px -10% 0px'});
+  els.forEach(function(el){ if (!el.classList.contains('visible')) obs.observe(el); });
 })();
 </script>
 
@@ -1089,15 +1093,4 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=docum
 <script>
 (function(d){
   var s = d.createElement("script");
-  s.setAttribute("data-position", 5);
-  s.setAttribute("data-account", "5dDh6GLInL");
-  s.setAttribute("src", "https://cdn.userway.org/widget.js");
-  (d.body || d.head).appendChild(s);
-})(document);
-</script>
-
-<!-- Cloudflare Web Analytics -->
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script>
-
-</body>
-</html>
+  s.setAttribute("data-
