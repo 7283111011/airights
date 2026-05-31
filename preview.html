@@ -101,12 +101,9 @@
 })();
 </script>
 
-<!-- HERO (full-screen cinematic) -->
-<section class="hero hero-cinematic" id="home">
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="images/FAIR_hero_poster.jpg">
-    <source src="images/FAIR_hero.mp4" type="video/mp4">
-  </video>
-  <div class="hero-overlay"></div>
+<!-- HERO (Adobe Stock 580655661: man with phone, Big Ben) -->
+<section class="hero hero-cinematic has-photo" id="home" style="background-image:url('images/photos/hero.jpg')">
+  <div class="hero-photo-overlay"></div>
   <div class="hero-content">
     <h1>The Foundation for Artificial Intelligence Rights</h1>
     <p class="hero-tagline">Artificial intelligence is moving fast. We make sure the public knows their rights, and organisations meet a higher standard.</p>
@@ -278,12 +275,16 @@
 <!-- MISSION -->
 <section id="mission" class="mission-centered">
   <div class="sec sec-centered">
-    <div class="fade-in">
+    <div class="mission-grid fade-in">
       <div class="mission-text mission-text-center">
         <div class="sl-mark">About the Foundation</div>
         <h2 class="sh">A new United Kingdom institution for one of the defining questions of our generation.</h2>
         <p class="sb">A British organisation in formation. We track how artificial intelligence is being used in public services, push for the law to keep up, and translate both into plain English.</p>
         <p class="sb">Medicines have the MHRA. Aviation has the CAA. Banks have the FCA. Artificial intelligence has none of these. We exist to close that gap.</p>
+      </div>
+      <div class="mission-photo" aria-hidden="true">
+        <!-- Adobe Stock 1022436370: AI ethics, woman at laptop with legal scales overlay -->
+        <picture><img src="images/photos/mission.jpg" alt="" width="640" height="720" loading="lazy" decoding="async"></picture>
       </div>
     </div>
 
@@ -326,6 +327,8 @@
 
 <!-- PROPOSED LEGISLATION AND REGULATION -->
 <section id="legislation" class="legis-section">
+  <!-- Adobe Stock 1613220393: gold scales of justice, cinematic dark -->
+  <div class="legis-banner" aria-hidden="true" style="background-image:url('images/photos/legal-tracker.jpg')"><div class="legis-banner-overlay"></div><div class="legis-banner-title">Legal Tracker.</div></div>
   <div class="legis-bg-pattern" aria-hidden="true"></div>
   <div class="legis-inner">
     <div class="legis-head fade-in">
@@ -487,7 +490,7 @@
           </div>
         </article>
 
-        <article class="fp-panel" id="fp-engage" role="tabpanel">
+        <article class="fp-panel has-photo" id="fp-engage" role="tabpanel" style="background-image:url('images/photos/engage.jpg')">
           <div class="fp-panel-hero" aria-hidden="true" style="--accent:#059669">
             <div class="fp-panel-num">05</div>
             <div class="fp-panel-title-large">Engage</div>
@@ -545,7 +548,7 @@
       </div>
 
       <div class="rp-panels">
-        <article class="rp-panel rp-panel-active" id="rp-nhs" role="tabpanel">
+        <article class="rp-panel rp-panel-active has-photo" id="rp-nhs" role="tabpanel" style="background-image:url('images/photos/nhs.jpg')">
           <div class="rp-panel-head"><span class="rp-tag" style="background:#7EB6E8">Health</span><span class="rp-num">01</span></div>
           <h3>In the NHS</h3>
           <p>The NHS Federated Data Platform, built by Palantir under a contract worth up to &pound;330 million awarded in November 2023, is being rolled out across up to 240 trusts. A contract break-clause review is reported for spring 2027. The British Medical Association voted to oppose the rollout at its June 2025 representatives&rsquo; meeting. The MHRA&rsquo;s National Commission into the Regulation of AI in Healthcare closed its call for evidence on 2 February 2026 and is due to report in summer 2026. An Oxford-led study (<em>Nature Medicine</em>, February 2026) of 1,300 UK participants found large language models do not improve self-diagnosis accuracy and frequently produce unsafe recommendations.</p>
@@ -639,7 +642,8 @@
 
     <div class="news-layout fade-in">
       <!-- LEAD STORY -->
-      <a href="https://publications.parliament.uk/pa/ld5901/ldselect/ldcomm/267/26702.htm" target="_blank" rel="noopener" class="news-lead">
+      <a href="https://publications.parliament.uk/pa/ld5901/ldselect/ldcomm/267/26702.htm" target="_blank" rel="noopener" class="news-lead has-photo" style="background-image:url('images/photos/news-lead.jpg')">
+        <div class="news-lead-photo-overlay" aria-hidden="true"></div>
         <div class="news-lead-tag">Top story</div>
         <div class="news-lead-meta"><span class="news-source">UK Parliament</span><span class="news-sep">&middot;</span><span>6 March 2026</span></div>
         <h3>AI, Copyright and the Creative Industries</h3>

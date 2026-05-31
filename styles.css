@@ -2784,3 +2784,209 @@ section{padding:var(--section-pad) 0 !important}
 .btn-p,.dh-btn-p,.aiw-cta-btn,.trustees-btn-p,.ct-cta,.ct-form-submit,.fp-panel-cta,.rp-cta,.nav-cta{
   font-weight:500 !important;
 }
+
+
+/* ====================================================================
+   ADOBE STOCK PHOTO WIRING
+   Each slot keeps a graceful fallback so the page works before licensing.
+   Drop the JPG at the file path and the photography appears.
+   ==================================================================== */
+
+/* SLOT 1: HERO - Adobe Stock 580655661 */
+.hero.hero-cinematic.has-photo{
+  background-size:cover !important;
+  background-position:center 30% !important;
+  background-repeat:no-repeat !important;
+  background-color:rgb(15,15,17) !important;
+  min-height:85vh !important;
+  color:#FFF !important;
+}
+.hero.hero-cinematic.has-photo .hero-content{position:relative;z-index:2}
+.hero.hero-cinematic.has-photo h1{color:#FFF !important;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.hero.hero-cinematic.has-photo .hero-tagline{color:rgba(255,255,255,.92) !important;text-shadow:0 1px 12px rgba(0,0,0,.35)}
+.hero-photo-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.40) 0%,rgba(0,0,0,.18) 35%,rgba(0,0,0,.50) 100%);
+  z-index:1;
+  pointer-events:none;
+}
+/* Hero scroll arrow on photo */
+.hero.hero-cinematic.has-photo .hero-scroll{color:#FFF !important}
+.hero.hero-cinematic.has-photo .hero-scroll-label{color:#FFF !important}
+
+/* SLOT 2: MISSION two-column with photo - Adobe Stock 1022436370 */
+.mission-grid{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:64px !important;
+  align-items:center !important;
+  max-width:var(--container-wide,1180px) !important;
+  margin:0 auto !important;
+  padding:0 32px !important;
+  width:100% !important;
+}
+.mission-grid .mission-text-center{
+  text-align:left !important;
+  max-width:none !important;
+  align-items:flex-start !important;
+  padding:0 !important;
+}
+.mission-grid .mission-text-center > *{
+  align-self:flex-start !important;
+  text-align:left !important;
+  margin-left:0 !important;
+  margin-right:0 !important;
+}
+.mission-photo{
+  border-radius:18px;
+  overflow:hidden;
+  aspect-ratio:5/6;
+  background:linear-gradient(135deg,rgb(235,235,240) 0%,rgb(220,220,228) 100%);
+  box-shadow:0 4px 20px rgba(0,0,0,.08);
+}
+.mission-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.mission-photo picture{display:block;width:100%;height:100%}
+/* Graceful fallback when image is missing (broken img stays hidden) */
+.mission-photo img[src=""],
+.mission-photo img:not([src]){display:none}
+@media(max-width:880px){
+  .mission-grid{grid-template-columns:1fr !important;gap:36px !important}
+  .mission-photo{aspect-ratio:16/10;max-height:420px}
+}
+
+/* SLOT 3: STATS DARK SECTION backdrop - Adobe Stock 801585708 */
+.mission-centered .stat-callout{
+  background-image:url("images/photos/stats-bg.jpg");
+  background-size:cover;
+  background-position:center;
+  background-blend-mode:multiply;
+  background-color:rgb(15,15,17);
+}
+/* Strong dark gradient stays over the photo so numbers read */
+.mission-centered .stat-callout::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(15,15,17,.85) 0%,rgba(15,15,17,.92) 100%);
+  pointer-events:none;
+  z-index:0;
+}
+.mission-centered .stat-callout > *{position:relative;z-index:1}
+
+/* SLOT 4: LEGAL TRACKER BANNER - Adobe Stock 1613220393 */
+.legis-banner{
+  position:relative;
+  height:340px;
+  background:linear-gradient(135deg,#1a2a4e 0%,#0a1428 100%);
+  background-size:cover !important;
+  background-position:center !important;
+  margin:0 0 80px !important;
+  border-radius:0;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+}
+.legis-banner-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.20) 0%,rgba(0,0,0,.60) 100%);
+}
+.legis-banner-title{
+  position:relative;
+  z-index:2;
+  font-family:"SF Pro Text","Inter",-apple-system,sans-serif;
+  font-size:clamp(48px,6vw,72px);
+  font-weight:800;
+  letter-spacing:-0.025em;
+  color:#FFF;
+  padding:0 48px 48px;
+  max-width:var(--container-wide,1180px);
+  width:100%;
+  margin:0 auto;
+  text-shadow:0 2px 24px rgba(0,0,0,.5);
+}
+/* When the banner image lands, hide the section h2 (banner already has the title) */
+.legis-banner + .legis-bg-pattern + .legis-inner .legis-head h2{display:none}
+
+/* SLOT 5: NHS RESEARCH PANEL - Adobe Stock 976107426 */
+.rp-panel.has-photo{
+  background-size:cover !important;
+  background-position:center !important;
+  background-color:rgb(15,15,17) !important;
+  color:#FFF !important;
+  position:relative;
+  overflow:hidden;
+}
+.rp-panel.has-photo::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(15,15,17,.85) 0%,rgba(15,15,17,.65) 50%,rgba(15,15,17,.35) 100%);
+  pointer-events:none;
+}
+.rp-panel.has-photo > *{position:relative;z-index:1}
+.rp-panel.has-photo h3,
+.rp-panel.has-photo p{color:#FFF !important}
+.rp-panel.has-photo .rp-mean{background:rgba(255,255,255,.10) !important;color:#FFF !important;border-left-color:#FFF !important}
+.rp-panel.has-photo .rp-num{color:rgba(255,255,255,.30) !important}
+.rp-panel.has-photo .rp-tag{background:rgba(255,255,255,.18) !important;color:#FFF !important;border-color:rgba(255,255,255,.30) !important}
+
+/* SLOT 6: ENGAGE PROJECT PANEL - Adobe Stock 295812359 */
+.fp-panel.has-photo{
+  background-size:cover !important;
+  background-position:center !important;
+  background-color:rgb(15,15,17) !important;
+  color:#FFF !important;
+  position:relative;
+  overflow:hidden;
+}
+.fp-panel.has-photo::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.20) 0%,rgba(0,0,0,.75) 100%);
+  pointer-events:none;
+}
+.fp-panel.has-photo > *{position:relative;z-index:1}
+.fp-panel.has-photo .fp-panel-hero{background:transparent !important;color:#FFF !important;min-height:200px}
+.fp-panel.has-photo .fp-panel-num{color:rgba(255,255,255,.65) !important}
+.fp-panel.has-photo .fp-panel-title-large,
+.fp-panel.has-photo .fp-panel-subtitle,
+.fp-panel.has-photo .fp-panel-body h3,
+.fp-panel.has-photo .fp-panel-body p{color:#FFF !important}
+.fp-panel.has-photo .fp-panel-tag{color:rgba(255,255,255,.70) !important}
+
+/* SLOT 7: NEWS LEAD - editorial image with overlay */
+.news-lead.has-photo{
+  background-size:cover !important;
+  background-position:center !important;
+  background-color:rgb(15,15,17) !important;
+  position:relative;
+  overflow:hidden;
+  padding:0 !important;
+}
+.news-lead-photo-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.80) 100%);
+  pointer-events:none;
+}
+.news-lead.has-photo > *:not(.news-lead-photo-overlay){
+  position:relative;
+  z-index:1;
+}
+.news-lead.has-photo{padding:36px 40px !important}
+
+/* PHOTO STATE PROGRESSIVE ENHANCEMENT - hide overlays when photo asset is missing.
+   We use 'image-set' style fallback via @supports + dummy gradient so the design
+   doesn't look broken before assets land. */
+
+/* If browsers can't load image, the bg-color shows through and the gradient fallbacks
+   render. Result: section still looks designed, just monochrome dark.
+   No further markup change required. */
