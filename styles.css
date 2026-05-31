@@ -2862,7 +2862,7 @@ section{padding:var(--section-pad) 0 !important}
 
 /* SLOT 3: STATS DARK SECTION backdrop - Adobe Stock 801585708 */
 .mission-centered .stat-callout{
-  background-image:url("https://as2.ftcdn.net/jpg/08/01/58/57/1000_F_801585708_da2porNNx6SjESgCX5960UuR2EVL5PPT.jpg");
+  background-image:none;
   background-size:cover;
   background-position:center;
   background-blend-mode:multiply;
@@ -3110,6 +3110,222 @@ section.teaser{padding-block:clamp(72px,9vw,120px) !important}
   max-width:none !important;
   margin-top:22px !important
 }
-idth:none !important;
-  margin-top:22px !important
+
+/* ============================================================ */
+/* V3 REBUILD — reviewer round 4 demands                        */
+/* Typographic hero/banners (no Adobe), nav-dark force,         */
+/* real scroll motion, button weight lock, deep Tailwind purge. */
+/* ============================================================ */
+
+/* v3-3: TYPOGRAPHIC HERO — pure dark, no images, no muddy gradient */
+.hero.hero-cinematic.hero-typographic{
+  background:#000 !important;
+  background-image:none !important;
+  background-color:#000 !important;
+  min-height:88vh !important;
+  position:relative !important;
+  overflow:hidden !important;
+  color:#FFF !important;
+  display:flex !important;
+  align-items:center !important;
 }
+.hero-typographic .hero-typo-bg{
+  position:absolute; inset:0; z-index:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 78% 88%, rgba(0,113,227,.22) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 15% 20%, rgba(245,99,0,.10) 0%, transparent 55%),
+    linear-gradient(180deg, #000 0%, #08080a 60%, #000 100%);
+  pointer-events:none;
+}
+.hero-typographic .hero-content{position:relative; z-index:2; max-width:1180px; margin:0 auto; padding:0 32px;}
+.hero-typographic h1{
+  color:#FFF !important;
+  font-size:clamp(48px,8.5vw,96px) !important;
+  font-weight:600 !important;
+  line-height:1.02 !important;
+  letter-spacing:-.028em !important;
+  max-width:14ch !important;
+  margin:0 !important;
+}
+.hero-typographic .hero-tagline{
+  color:rgba(255,255,255,.78) !important;
+  font-size:clamp(19px,2vw,26px) !important;
+  font-weight:400 !important;
+  margin-top:22px !important;
+  max-width:none !important;
+}
+.hero-typographic .hero-btns{margin-top:38px !important; display:flex !important; gap:14px !important;}
+.hero-typographic .hero-scroll{color:rgba(255,255,255,.6) !important;}
+.hero-typographic .hero-photo-overlay{display:none !important}
+.hero.hero-cinematic.has-photo,
+.hero.hero-cinematic{background-image:none !important;}
+
+/* v3-4: MISSION QUOTE — typographic right column, no image */
+.mission-quote{
+  position:relative;
+  padding:48px 44px;
+  border-radius:18px;
+  background:linear-gradient(180deg, #0f0f11 0%, #18181c 100%);
+  color:#FFF;
+  display:flex; flex-direction:column; justify-content:center;
+  min-height:380px;
+  box-shadow:0 8px 32px rgba(0,0,0,.18);
+}
+.mission-quote-mark{
+  font-family:'Inter','SF Pro Display',serif;
+  font-size:120px; line-height:.6;
+  color:rgba(0,113,227,.7);
+  margin-bottom:8px;
+}
+.mission-quote blockquote{
+  margin:0; padding:0; border:0;
+  font-family:'Inter','SF Pro Text',sans-serif;
+  font-size:clamp(22px,2.4vw,30px);
+  font-weight:500;
+  line-height:1.28;
+  letter-spacing:-.014em;
+  color:#FFF;
+}
+.mission-quote blockquote strong{font-weight:600; color:#FFF}
+.mission-quote blockquote em{font-style:italic; color:rgb(245,99,0); font-weight:500}
+.mission-quote-attr{
+  margin-top:24px;
+  font-size:13px; font-weight:400;
+  color:rgba(255,255,255,.55);
+  letter-spacing:.01em;
+}
+@media (max-width:880px){
+  .mission-quote{padding:36px 28px; min-height:auto;}
+  .mission-quote-mark{font-size:96px;}
+}
+
+/* v3-5: LEGAL TRACKER TYPOGRAPHIC BANNER */
+.legis-banner-typo{
+  background:linear-gradient(180deg, #0a0e1f 0%, #050a18 100%) !important;
+  background-image:none !important;
+  min-height:340px !important;
+  display:flex !important; flex-direction:column !important;
+  align-items:center !important; justify-content:center !important;
+  text-align:center !important;
+  padding:64px 32px !important;
+  position:relative !important;
+}
+.legis-banner-typo .legis-banner-eyebrow{
+  font-family:'Inter',sans-serif;
+  font-size:13px; font-weight:400;
+  color:rgba(255,255,255,.55);
+  letter-spacing:.04em; text-transform:none;
+  margin-bottom:18px;
+}
+.legis-banner-typo .legis-banner-title{
+  font-family:'Inter',sans-serif;
+  font-size:clamp(56px,9vw,96px);
+  font-weight:600;
+  letter-spacing:-.028em;
+  color:#FFF;
+  line-height:1;
+  margin:0;
+}
+.legis-banner-typo .legis-banner-rule{
+  margin-top:32px;
+  width:64px; height:1px;
+  background:rgba(0,113,227,.7);
+}
+.legis-banner-typo .legis-banner-overlay{display:none !important}
+
+/* v3-6: NHS + ENGAGE PANELS without photos — clean dark treatment */
+.rp-panel:not(.has-photo){background:linear-gradient(180deg,#1d1d1f 0%,#0f0f11 100%) !important; color:#FFF !important}
+.fp-panel:not(.has-photo){background:linear-gradient(180deg,#1d1d1f 0%,#0f0f11 100%) !important; color:#FFF !important}
+.rp-panel:not(.has-photo) h3,.fp-panel:not(.has-photo) h3,
+.rp-panel:not(.has-photo) p,.fp-panel:not(.has-photo) p{color:#FFF !important}
+.rp-panel:not(.has-photo) .rp-mean{background:rgba(255,255,255,.06) !important; color:#FFF !important; border-color:rgba(255,255,255,.12) !important}
+
+/* v3 NEWS LEAD TYPOGRAPHIC */
+.news-lead-typo{
+  background:linear-gradient(135deg,#0f0f11 0%,#1d1d1f 60%,rgba(0,113,227,.4) 100%) !important;
+  background-image:linear-gradient(135deg,#0f0f11 0%,#1d1d1f 60%,rgba(0,113,227,.4) 100%) !important;
+  color:#FFF !important;
+}
+.news-lead-typo .news-lead-photo-overlay{display:none !important}
+.news-lead-typo h3,.news-lead-typo p,.news-lead-typo .news-lead-meta,.news-lead-typo .news-lead-cta{color:#FFF !important}
+.news-lead-typo .news-lead-tag{background:rgb(245,99,0) !important; color:#FFF !important}
+
+/* v3 STATS CALLOUT — designed dark without image dependence */
+.mission-centered .stat-callout{
+  background-image:none !important;
+  background:linear-gradient(180deg,#0a0a0c 0%,#16161a 100%) !important;
+  background-color:#0a0a0c !important;
+}
+
+/* v3-2: NAV-DARK FORCE — beat every prior .nav-bar declaration */
+html body .nav-bar.nav-dark,
+html body header.nav-bar.nav-dark,
+html body #navbar.nav-dark{
+  background:rgba(15,15,17,.78) !important;
+  background-color:rgba(15,15,17,.78) !important;
+  border-bottom:1px solid rgba(255,255,255,.06) !important;
+  -webkit-backdrop-filter:saturate(1.8) blur(20px) !important;
+  backdrop-filter:saturate(1.8) blur(20px) !important;
+}
+html body .nav-bar.nav-dark .nav-link,
+html body .nav-bar.nav-dark a.nav-link{color:rgba(255,255,255,.92) !important}
+html body .nav-bar.nav-dark .nav-link:hover{color:#FFF !important}
+html body .nav-bar.nav-dark .nav-logo::before,
+html body .nav-bar.nav-dark .nav-brand::before{color:#FFF !important}
+
+/* v3 NAV-LOGO WITHOUT IMG — ::before wordmark visible when img element absent */
+.nav-logo{display:inline-flex !important; align-items:center !important; min-width:64px; height:32px; line-height:1; text-decoration:none !important}
+.nav-logo::before{
+  content:"FAIR";
+  font-family:'Inter',system-ui,-apple-system,'SF Pro Text',sans-serif !important;
+  font-weight:600 !important;
+  font-size:18px !important;
+  letter-spacing:-.012em !important;
+  color:rgb(29,29,31);
+  line-height:1 !important;
+}
+
+/* v3-8: REAL SCROLL FADE-UP — opacity:0 default, .visible adds opacity */
+/* The earlier .fade-in default was opacity:1 to prevent stuck-invisible.   */
+/* For .fade-up we want opacity:0 — JS adds .visible reliably + 2.5s safety */
+.fade-up:not(.visible){opacity:0 !important; transform:translateY(28px) !important}
+.fade-up.visible{opacity:1 !important; transform:translateY(0) !important}
+.fade-up{transition:opacity .75s cubic-bezier(.22,.61,.36,1), transform .75s cubic-bezier(.22,.61,.36,1) !important}
+@media (prefers-reduced-motion: reduce){
+  .fade-up:not(.visible),.fade-up{opacity:1 !important; transform:none !important}
+}
+
+/* v3-9: ALL BUTTONS WEIGHT 400 */
+.btn-p,.btn-o,.btn,.aiw-cta,.legis-cta,.rp-cta,.fp-cta,
+.nav-cta,.nav-cta-text,
+.trustees-btn-p,.trustees-btn-o,
+.teaser-cta a,.founder-link,.nls-btn,
+button.ct-route,button.fp-tab,button.rp-tab{
+  font-weight:400 !important;
+}
+
+/* v3-10: TAILWIND PALETTE HARD PURGE */
+/* Yellow, red, purple variants → Apple monochrome blue scale */
+[style*="#FACC15"],[style*="#facc15"],
+[style*="#B91C1C"],[style*="#b91c1c"],
+[style*="#4759f7"],[style*="#5c6ae5"]{
+  background:rgb(0,113,227) !important; color:#FFF !important;
+}
+/* Live indicator pulse — kill the green ring */
+.aiw-live-dot,.live-dot,.status-dot,
+.aiw-live,.aiw-band .aiw-live-dot{
+  background:rgb(245,99,0) !important;
+  box-shadow:0 0 0 4px rgba(245,99,0,.16) !important;
+}
+.aiw-live-pulse,.live-pulse{background:rgb(245,99,0) !important}
+/* All chart sector bars → monochrome blue with opacity variation */
+.aiw-bar,.aiw-sector-bar,.aiw-bar-fill,
+[class*="bar-fill-"],[class*="sector-fill-"]{
+  background:rgb(0,113,227) !important;
+}
+/* RP tag inline styles using non-Apple colors */
+.rp-tag[style*="background"],.fp-tag[style*="background"]{background:rgb(0,113,227) !important; color:#FFF !important}
+
+/* v3-11: PROJECTS + RESEARCH TEASER HIDE — confirm rules win */
+.pillars-section.teaser .fp-master-detail{display:none !important}
+.research-section.teaser .rp-master-detail{display:none !important}

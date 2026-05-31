@@ -65,7 +65,7 @@
 
 <!-- NAV (transparent over hero, white on scroll) -->
 <nav class="nav nav-transparent" id="navbar">
-  <a href="/" class="nav-logo"><img src="images/FAIR_logo.png" alt="FAIR" width="150" height="103" class="brand-mark brand-mark-light"><img src="images/FAIR_logo_white_lg.png" alt="FAIR" width="150" height="103" class="brand-mark brand-mark-dark"></a>
+  <a href="/" class="nav-logo" aria-label="FAIR — home"></a>
   <div class="nav-links">
     <a href="#mission">Mission</a>
     <a href="#projects">Projects</a>
@@ -118,9 +118,9 @@
 })();
 </script>
 
-<!-- HERO (Adobe Stock 580655661: man with phone, Big Ben) -->
-<section class="hero hero-cinematic has-photo" id="home" style="background-image:url('https://as1.ftcdn.net/jpg/05/80/65/56/1000_F_580655661_0krd9WtZTgixrRMHQYMpjIcYdRvxkkUN.jpg')">
-  <div class="hero-photo-overlay"></div>
+<!-- HERO (v3: typographic Apple-dark, no images) -->
+<section class="hero hero-cinematic hero-typographic" id="home">
+  <div class="hero-typo-bg" aria-hidden="true"></div>
   <div class="hero-content">
     <h1>AI rights for the United Kingdom.</h1>
     <p class="hero-tagline">The Foundation for Artificial Intelligence Rights.</p>
@@ -299,10 +299,15 @@
         <p class="sb">A British organisation in formation. We track how artificial intelligence is being used in public services, push for the law to keep up, and translate both into plain English.</p>
         <p class="sb">Medicines have the MHRA. Aviation has the CAA. Banks have the FCA. Artificial intelligence has none of these. We exist to close that gap.</p>
       </div>
-      <div class="mission-photo" aria-hidden="true">
-        <!-- Adobe Stock 1022436370: AI ethics, woman at laptop with legal scales overlay -->
-        <picture><img src="https://as2.ftcdn.net/jpg/10/22/43/63/1000_F_1022436370_S4wk4SZHdutwqagzJmMjHtQVvgK8jBs1.jpg" alt="" width="640" height="720" loading="lazy" decoding="async"></picture>
-      </div>
+      <aside class="mission-quote" aria-label="On the gap the Foundation closes">
+        <div class="mission-quote-mark" aria-hidden="true">&ldquo;</div>
+        <blockquote>
+          Medicines have the <strong>MHRA</strong>. Aviation has the <strong>CAA</strong>. Banks have the <strong>FCA</strong>.
+          <br><br>
+          Artificial intelligence has <em>none of these</em>.
+        </blockquote>
+        <div class="mission-quote-attr">The Foundation, on the gap we exist to close</div>
+      </aside>
     </div>
 
     <div class="stat-callout fade-in" aria-label="UK public attitudes to AI regulation">
@@ -344,8 +349,12 @@
 
 <!-- PROPOSED LEGISLATION AND REGULATION -->
 <section id="legislation" class="legis-section teaser">
-  <!-- Adobe Stock 1613220393: gold scales of justice, cinematic dark -->
-  <div class="legis-banner" aria-hidden="true" style="background-image:url('https://as2.ftcdn.net/jpg/16/13/22/03/1000_F_1613220393_kFMpxgRN3Lxa4CnfGBfLDLo8dssS1ESl.jpg')"><div class="legis-banner-overlay"></div><div class="legis-banner-title">Legal Tracker</div></div>
+  <!-- v3: Typographic dark banner, no images -->
+  <div class="legis-banner legis-banner-typo" aria-hidden="true">
+    <div class="legis-banner-eyebrow">United Kingdom statutes, regulations, judgments</div>
+    <div class="legis-banner-title">Legal Tracker</div>
+    <div class="legis-banner-rule"></div>
+  </div>
   <div class="legis-bg-pattern" aria-hidden="true"></div>
   <div class="legis-inner">
     <div class="legis-head fade-in fade-up">
@@ -419,11 +428,15 @@
 </section>
 
 <!-- FAIR PROJECTS (master-detail: titles left, detail panel right) -->
-<section id="projects" class="pillars-section">
+<section id="projects" class="pillars-section teaser">
   <div class="sec">
-    <div class="fade-in">
+    <div class="fade-in fade-up">
       <h2 class="sh">The Foundation&rsquo;s Projects</h2>
-      <p class="sb sb-wide">Five projects. Pick one on the left.</p>
+      <p class="sb sb-wide">Five public-interest projects from launch. Education, the AI Alerts register, public reporting, time-bound campaigns, and Parliamentary submissions.</p>
+    </div>
+
+    <div class="teaser-cta fade-up">
+      <a href="project-01.html">Explore the projects</a>
     </div>
 
     <div class="fp-master-detail fade-in">
@@ -512,7 +525,7 @@
           </div>
         </article>
 
-        <article class="fp-panel has-photo" id="fp-engage" role="tabpanel" style="background-image:url('https://as2.ftcdn.net/jpg/02/95/81/23/1000_F_295812359_SuxlSit7Emo8jeRTFBaoayKGqtSMuOID.jpg')">
+        <article class="fp-panel" id="fp-engage" role="tabpanel">
           <div class="fp-panel-hero" aria-hidden="true" style="--accent:#059669">
             <div class="fp-panel-num">05</div>
             <div class="fp-panel-title-large">Engage</div>
@@ -531,11 +544,15 @@
 </section>
 
 <!-- WHERE THE EVIDENCE IS LOUDEST -->
-<section id="research" class="research-section">
+<section id="research" class="research-section teaser">
   <div class="research-inner">
     <div class="research-head fade-in fade-up">
       <h2>Research and Publications</h2>
-      <p>Nine areas. The research is unambiguous. The public has not been told.</p>
+      <p>Nine sectors of United Kingdom artificial intelligence use, each with the evidence the public has not been told.</p>
+    </div>
+
+    <div class="teaser-cta fade-up">
+      <a href="reports.html">Read the research</a>
     </div>
 
     <div class="rp-master-detail fade-in">
@@ -570,7 +587,7 @@
       </div>
 
       <div class="rp-panels">
-        <article class="rp-panel rp-panel-active has-photo" id="rp-nhs" role="tabpanel" style="background-image:url('https://as1.ftcdn.net/jpg/09/76/10/74/1000_F_976107426_W4swM8uIQ3U9hx1oQ99lwWhrJiLcQbwb.jpg')">
+        <article class="rp-panel rp-panel-active" id="rp-nhs" role="tabpanel">
           <div class="rp-panel-head"><span class="rp-tag" style="background:#7EB6E8">Health</span><span class="rp-num">01</span></div>
           <h3>In the NHS</h3>
           <p>The NHS Federated Data Platform, built by Palantir under a contract worth up to &pound;330 million awarded in November 2023, is being rolled out across up to 240 trusts. A contract break-clause review is reported for spring 2027. The British Medical Association voted to oppose the rollout at its June 2025 representatives&rsquo; meeting. The MHRA&rsquo;s National Commission into the Regulation of AI in Healthcare closed its call for evidence on 2 February 2026 and is due to report in summer 2026. An Oxford-led study (<em>Nature Medicine</em>, February 2026) of 1,300 UK participants found large language models do not improve self-diagnosis accuracy and frequently produce unsafe recommendations.</p>
@@ -664,7 +681,7 @@
 
     <div class="news-layout fade-in">
       <!-- LEAD STORY -->
-      <a href="https://publications.parliament.uk/pa/ld5901/ldselect/ldcomm/267/26702.htm" target="_blank" rel="noopener" class="news-lead has-photo" style="background-image:url('images/photos/news-lead.jpg')">
+      <a href="https://publications.parliament.uk/pa/ld5901/ldselect/ldcomm/267/26702.htm" target="_blank" rel="noopener" class="news-lead news-lead-typo">
         <div class="news-lead-photo-overlay" aria-hidden="true"></div>
         <div class="news-lead-tag">Top story</div>
         <div class="news-lead-meta"><span class="news-source">UK Parliament</span><span class="news-sep">&middot;</span><span>6 March 2026</span></div>
@@ -728,7 +745,7 @@
       <blockquote class="f-pullquote">&ldquo;Most of my career, I have supported drug development by helping organisations navigate complex regulatory requirements, ensuring patient safety and rights are upheld whilst generating data of the highest integrity.&rdquo;</blockquote>
 
       <div class="f-bio">
-        <p>Scott has spent close to two decades advising drug-development organisations on the regulatory frameworks designed to protect patients in clinical trials. He is in the final stages of an LLB at the University of Law, with postgraduate study in AI Law at the University of Oxford and Intellectual Property at Brunel University London. The immediate catalyst for the Foundation was his final research project on the LLB, which examined whether lectual property law had been adapted to the use of artificial intelligence by organisations and to the protection of the creators whose work increasingly trains those systems. The conclusion, on both counts, was that it had not. The Foundation is the organisation he set up in response, on the conviction that the British public deserves the same rigour of protection from artificial intelligence that we have long given to medicines, and because the people most affected by these systems in this country are not the people currently being asked.</p>
+        <p>Scott has spent close to two decades advising drug-development organisations on the regulatory frameworks that protect patients in clinical trials. He is in the final stages of an LLB at the University of Law, with postgraduate study in AI Law at the University of Oxford. The Foundation grew directly out of that research project.</p>
       </div>
       <div class="founder-cta-row">
         <a href="founder.html" class="founder-link">Read full biography &rarr;</a>
