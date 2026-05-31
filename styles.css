@@ -733,15 +733,16 @@ img{display:block;max-width:100%}
 .hero-btns .btn-p,.hero-btns .btn-o{font-size:13px;padding:9px 18px}
 
 /* ============== STAT CALLOUT (Mission) ============== */
-.stat-callout{margin:0;padding:0;background:transparent;border:none;border-radius:0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;width:100%;align-self:stretch}
-.stat-row{display:flex;flex-direction:column;gap:14px;padding:28px 30px;background:#FFF;border:1px solid #E2E8F0;border-radius:8px;box-shadow:0 4px 14px rgba(15,23,42,.05);text-align:left;transition:transform .2s,box-shadow .2s}
-.stat-row:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(15,23,42,.08)}
-.stat-num{font-family:'Public Sans',sans-serif;font-size:3rem;font-weight:700;color:#0065BD;font-variant-numeric:tabular-nums;letter-spacing:-0.02em;line-height:1}
-.stat-text{font-size:0.9375rem;line-height:1.6;color:#334155}
-.stat-text .stat-src{display:block;margin-top:10px;padding-top:10px;border-top:1px solid #F1F5F9;font-size:0.75rem;color:#64748B;line-height:1.5}
+.stat-callout{margin:0;padding:36px 0 0;background:transparent;border:none;border-radius:0;border-top:1px solid #D4D2CC;display:grid;grid-template-columns:repeat(3,1fr);gap:36px;width:100%;align-self:stretch;text-align:left}
+.stat-row{display:flex;flex-direction:column;gap:10px;padding:0;background:transparent;border:none;border-radius:0;box-shadow:none;text-align:left;transition:none}
+.stat-row:hover{transform:none;box-shadow:none}
+.stat-num{font-family:'Crimson Pro','Source Serif 4',Georgia,serif;font-size:2.625rem;font-weight:500;color:#0F172A;font-variant-numeric:tabular-nums;letter-spacing:-0.02em;line-height:1.05}
+.stat-num::after{content:"";display:block;width:24px;height:2px;background:#0065BD;margin-top:10px}
+.stat-text{font-size:0.875rem;line-height:1.6;color:#475569}
+.stat-text .stat-src{display:block;margin-top:10px;padding-top:0;border-top:none;font-size:0.6875rem;color:#94A3B8;line-height:1.5;letter-spacing:.2px}
 .stat-text .stat-src a{color:#64748B;text-decoration:underline}
 @media(max-width:880px){
-  .stat-callout{grid-template-columns:1fr;gap:14px}
+  .stat-callout{grid-template-columns:1fr;gap:24px}
 }
 .stat-src{font-size:0.75rem;color:#64748B;font-style:italic;letter-spacing:0}
 .stat-src a{color:#0065BD;text-decoration:none}
@@ -1014,8 +1015,7 @@ details.cr-row .cr-body p{font-size:0.9375rem;line-height:1.65;color:#334155;mar
 .pillars-section .fp-card p{font-size:0.875rem;line-height:1.65}
 
 /* News section: distinct background */
-section#news{background:#F1EFE7;border-top:1px solid #D4D2CC;border-bottom:1px solid #D4D2CC;padding:64px 0}
-section#news .sec{padding-top:0;padding-bottom:0}
+/* Old #news rules removed - see .news-room for the new editorial treatment */
 .news-fallback{background:#FFF;border-radius:4px;border:1px solid #D4D2CC}
 
 /* Partners: distinct background (slightly darker than cream) */
@@ -1055,10 +1055,10 @@ section#news .sec{padding-top:0;padding-bottom:0}
 .mission-text-center .sh{font-size:clamp(1.5rem,2.5vw,2rem);font-weight:500;line-height:1.3;letter-spacing:-0.005em;color:#0F172A;margin-bottom:22px}
 .mission-text-center .sb{font-size:1.0625rem;line-height:1.75;color:#334155;max-width:820px;margin:0 auto}
 
-/* LEGAL TRACKER — cream parchment look, evokes Hansard / official record */
-.legis-section{padding:80px 0;background:#F6F1E7;border-top:3px solid #0F172A;border-bottom:1px solid #D4D2CC;position:relative;overflow:hidden}
-.legis-bg-pattern{position:absolute;inset:0;opacity:.08;background-image:repeating-linear-gradient(0deg,transparent 0,transparent 38px,#0F172A 38px,#0F172A 39px);pointer-events:none}
-.legis-section::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:repeating-linear-gradient(90deg,#0F172A 0,#0F172A 12px,transparent 12px,transparent 18px)}
+/* LEGAL TRACKER - clean editorial cream, no gimmicks */
+.legis-section{padding:96px 0;background:#FBFAF6;position:relative;overflow:hidden}
+.legis-bg-pattern{display:none}
+.legis-section::before{display:none}
 .legis-inner{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
 .legis-head{text-align:center;max-width:780px;margin:0 auto 48px}
 .legis-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:0.625rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#0065BD;margin-bottom:14px}
@@ -1299,4 +1299,172 @@ section#news .sec{padding-top:0;padding-bottom:0}
 @media(max-width:600px){
   .fp-panel-hero{height:160px;padding:24px 28px}
   .fp-panel-title-large{font-size:1.875rem}
+}
+
+/* =====================================================
+   ROUND-THREE DESIGN PASS
+   Typography system + motion + atmosphere
+   ===================================================== */
+
+/* Design tokens */
+:root{
+  --c-ink:#0F172A;
+  --c-ink-soft:#334155;
+  --c-mute:#64748B;
+  --c-bg:#FBFAF6;
+  --c-paper:#FFFFFF;
+  --c-line:#E2E8F0;
+  --c-blue:#0065BD;
+  --c-blue-hi:#0078DC;
+  --c-blue-soft:#EBF3FA;
+  --c-gold:#FACC15;
+  --c-crimson:#B91C1C;
+  --c-navy:#0F172A;
+  --c-cream:#FBFAF6;
+  --serif:'Crimson Pro','Source Serif 4',Georgia,serif;
+  --sans:'Public Sans',-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
+}
+
+/* Serif display headings - lift the whole site */
+.sh,
+.dh h1,
+.legis-head h2,
+.research-head h2,
+.news-head h2,
+.aiw-dashboard-band .aiw-head h2,
+.members-heading,
+.ct-head h2,
+.trustees-left h2,
+.fp-panel-body h3,
+.rp-panel h3,
+.briefing h2,
+.ct-form-h{
+  font-family:var(--serif);
+  font-weight:500;
+  letter-spacing:-0.015em;
+}
+
+/* Heavier serif treatment for the hero + opening pieces */
+.hero-cinematic h1,
+.mission-text-center .sh,
+.news-lead h3,
+.trustees-left h2{
+  font-family:var(--serif);
+  font-weight:600;
+  letter-spacing:-0.02em;
+}
+
+/* Italic serif accent for mission opener (editorial polish) */
+.mission-text-center .sh{
+  font-weight:500;
+  font-style:italic;
+}
+
+/* Section eyebrow mark - used above .sh */
+.sl-mark{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--sans);
+  font-size:0.6875rem;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--c-blue);
+  margin-bottom:18px;
+}
+.sl-mark::before{
+  content:"";
+  width:24px;
+  height:1.5px;
+  background:var(--c-blue);
+}
+
+/* Stagger reveal system: child elements fade up sequentially when their parent intersects */
+.stagger > * {
+  opacity:0;
+  transform:translateY(16px);
+  animation:staggerUp .8s cubic-bezier(.2,.7,.2,1) forwards;
+}
+.stagger > *:nth-child(1){animation-delay:.05s}
+.stagger > *:nth-child(2){animation-delay:.15s}
+.stagger > *:nth-child(3){animation-delay:.25s}
+.stagger > *:nth-child(4){animation-delay:.35s}
+.stagger > *:nth-child(5){animation-delay:.45s}
+.stagger > *:nth-child(6){animation-delay:.55s}
+.stagger > *:nth-child(7){animation-delay:.65s}
+.stagger > *:nth-child(8){animation-delay:.75s}
+@keyframes staggerUp{
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Hero stagger refinement - lighter, slower, more cinematic */
+.hero-cinematic .hero-content > *{
+  animation-duration:1.2s;
+  animation-timing-function:cubic-bezier(.16,.84,.32,1);
+}
+
+/* Subtle ambient lift on cards (gives depth without losing flatness) */
+.legis-card,
+.fp-panel,
+.rp-panel,
+.briefing,
+.entry,
+.ct-panel{
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s cubic-bezier(.2,.7,.2,1),border-color .15s;
+}
+.legis-card:hover{transform:translateY(-4px)}
+.briefing:hover{transform:translateY(-3px)}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+}
+
+/* Legal Tracker - rebuilt with proper editorial structure */
+.legis-head h2{font-family:var(--serif);font-size:clamp(2.25rem,4vw,3.25rem);font-weight:500;line-height:1.1;letter-spacing:-0.02em;color:var(--c-ink);margin-bottom:14px}
+.legis-head p{font-size:1.0625rem;line-height:1.65;color:var(--c-mute);max-width:680px;margin:0 auto}
+.legis-grid{margin-top:48px}
+.legis-card{background:var(--c-paper);border:1px solid var(--c-line);border-radius:6px;padding:28px 26px 24px;border-top:none;position:relative}
+.legis-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;border-radius:6px 6px 0 0}
+.legis-card-warning::before{background:linear-gradient(90deg,#CA8A04 0%,#F59E0B 100%)}
+.legis-card-dropped::before{background:linear-gradient(90deg,#64748B 0%,#94A3B8 100%)}
+.legis-card-positive::before{background:linear-gradient(90deg,#15803D 0%,#22C55E 100%)}
+.legis-card-info::before{background:linear-gradient(90deg,#0369A1 0%,#0EA5E9 100%)}
+.legis-card h3{font-family:var(--serif);font-weight:600;font-size:1.1875rem;line-height:1.25;color:var(--c-ink)}
+
+/* Mission lede - tighter, serif italic for impact */
+.mission-text-center .sh{font-size:clamp(1.625rem,2.6vw,2.125rem);line-height:1.25;color:var(--c-ink)}
+.mission-text-center .sb{margin-top:18px}
+.mission-text-center .sb + .sb{margin-top:18px}
+.mission-text-center .sl-mark{justify-content:center;align-self:center}
+.mission-text-center{display:flex;flex-direction:column;align-items:center}
+.mission-text-center > *{align-self:center}
+
+/* News head — properly editorial */
+.news-head h2{font-weight:600;color:#FFF}
+
+/* AI Alerts band head — keep serif but white */
+.aiw-dashboard-band .aiw-head h2{color:#FFF}
+
+/* Trustees serif treatment */
+.trustees-left h2{font-weight:600;color:#FFF}
+
+/* Partners and Supporters serif */
+.members-heading{font-family:var(--serif);font-weight:500;font-size:clamp(1.75rem,3vw,2.5rem);letter-spacing:-0.015em}
+
+/* Subtle ambient noise/grain overlay site-wide for paper feel (very low opacity) */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  opacity:.018;
+  background-image:url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  mix-blend-mode:multiply;
 }

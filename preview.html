@@ -10,7 +10,7 @@
 <title>FAIR | The Foundation for Artificial Intelligence Rights</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=Crimson+Pro:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <!-- Google reCAPTCHA v3 (invisible, score-based) -->
 <script src="https://www.google.com/recaptcha/api.js?render=6Lcur9QsAAAAAE1ApFj2LDVszSME-EjcDg6reJDE"></script>
@@ -129,7 +129,7 @@
   <div class="nls-inner">
     <div class="nls-text">
       <h2 class="nls-h">Newsletter</h2>
-      <p class="nls-blurb">A fortnightly email from the Foundation. Plain English, United Kingdom only, no tracking. We cover what is happening in artificial intelligence policy, the campaigns the Foundation is working on, and the rights you have when AI is used on you.</p>
+      <p class="nls-blurb">A biweekly email from the Foundation. Plain English, United Kingdom only, no tracking. We cover what is happening in artificial intelligence policy, the campaigns the Foundation is working on, and the rights you have when AI is used on you.</p>
     </div>
     <div class="nls-cta">
       <form action="https://buttondown.com/api/emails/embed-subscribe/airights" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/airights', 'popupwindow')" class="nls-form">
@@ -230,10 +230,16 @@
       var setText = function(id, v){ var el = document.getElementById(id); if (el) el.textContent = v; };
       setText('aiw-stat-total', total);
       setText('aiw-stat-sectors', Object.keys(byS).length);
+      // Latest scan label - relative to today since scanner runs daily at 08:00 BST
       if (latest){
         var p = latest.split('-');
-        var mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-        setText('aiw-stat-latest', parseInt(p[2],10) + ' ' + mo[parseInt(p[1],10)-1]);
+        var latestDay = new Date(parseInt(p[0],10), parseInt(p[1],10)-1, parseInt(p[2],10));
+        var today = new Date(); today.setHours(0,0,0,0);
+        var diff = Math.round((today - latestDay) / 86400000);
+        var label = diff <= 0 ? 'Today' : (diff === 1 ? 'Yesterday' : diff + ' days ago');
+        setText('aiw-stat-latest', label);
+      } else {
+        setText('aiw-stat-latest', 'Today');
       }
       var rounded = Math.round(totalPounds);
       setText('aiw-stat-value', rounded > 1000 ? (rounded/1000).toFixed(1) + 'b' : rounded);
@@ -272,13 +278,12 @@
 <!-- MISSION -->
 <section id="mission" class="mission-centered">
   <div class="sec sec-centered">
-    <div class="mission-eyebrow-row fade-in">
-      <div class="mission-eyebrow">The Foundation for Artificial Intelligence Rights</div>
-    </div>
     <div class="fade-in">
       <div class="mission-text mission-text-center">
-        <h2 class="sh">Right now in the United Kingdom, artificial intelligence is being used to decide whether you get a benefit payment, whether your face matches a police watchlist, whether your child&rsquo;s coursework is genuine, whether your CV makes the shortlist, whether your X-ray gets a second look, and whether your doctor can spend more time with you or less.</h2>
-        <p class="sb">Most of this is happening without anyone asking you, and often without anyone telling you. The Foundation exists because British citizens are being asked to live inside a system they did not consent to and were not taught to navigate. Our job is to help you navigate it, and to keep the pressure on the people who can change it.</p>
+        <div class="sl-mark">About the Foundation</div>
+        <h2 class="sh">A new United Kingdom institution for one of the defining questions of our generation.</h2>
+        <p class="sb">The Foundation for Artificial Intelligence Rights is a British organisation in formation. It was set up to do three things: track how artificial intelligence is being used in the public services that affect every citizen, push for the law to keep up with what is actually happening on the ground, and translate both into plain English so the public is never the last to know.</p>
+        <p class="sb">Medicines have the MHRA. Aviation has the CAA. Banks have the FCA. Artificial intelligence has none of these. The Foundation exists to close that gap from both ends, with research that holds up to scrutiny and a public-interest mandate that does not bend to the people being scrutinised. It is being built to last.</p>
       </div>
     </div>
 
@@ -629,7 +634,7 @@
 
     <div class="news-head fade-in">
       <h2>In the news</h2>
-      <p>What the Foundation is reading this week. Parliamentary papers, regulator decisions, court judgments, departmental announcements, drawn straight from the source. The Foundation&rsquo;s own positions sit in the <a href="campaigns.html">Campaigns hub</a> and the fortnightly newsletter.</p>
+      <p>What the Foundation is reading this week. Parliamentary papers, regulator decisions, court judgments, departmental announcements, drawn straight from the source. The Foundation&rsquo;s own positions sit in the <a href="campaigns.html">Campaigns hub</a> and the biweekly newsletter.</p>
     </div>
 
     <div class="news-layout fade-in">
@@ -781,7 +786,7 @@
       <article class="ct-panel ct-panel-active" id="ct-supporter">
         <div class="ct-panel-tag">Newsletter</div>
         <h3>Get the Foundation's newsletter</h3>
-        <p>Subscribe to the fortnightly update from the Foundation. Plain English, no tracking, easy to unsubscribe. You will get alerts on campaigns we are running and early access to learning materials.</p>
+        <p>Subscribe to the biweekly update from the Foundation. Plain English, no tracking, easy to unsubscribe. You will get alerts on campaigns we are running and early access to learning materials.</p>
         <a href="#newsletter-band" class="ct-cta">Go to subscribe form &rarr;</a>
       </article>
       <article class="ct-panel" id="ct-story">
@@ -1068,4 +1073,4 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=docum
   s.setAttribute("data-position", 4);
   s.setAttribute("data-account", "5dDh6GLInL");
   s.setAttribute("src", "https://cdn.userway.org/widget.js");
-  (d.body || d
+  (d.body || d                                                                                                                                                    
