@@ -3457,3 +3457,133 @@ html body .nav-bar.nav-transparent{
   font-style:normal !important;
   letter-spacing:-.012em !important;
 }
+
+/* ============================================================ */
+/* V5 EMERGENCY FIXES — reviewer round 6: bugs not design       */
+/* Logo back. Nav selector .nav not .nav-bar. News + ct kill    */
+/* cascade with ultra-specific rule. Ghost button white. Legal  */
+/* Tracker text-shadow gone. News links Apple blue. Acid green  */
+/* chart bars + live dot → blue family.                         */
+/* ============================================================ */
+
+/* v5-1: NAV LOGO — inline SVG already added to HTML, ensure visible */
+.nav-logo,.nav-brand{display:inline-flex !important;align-items:center !important;text-decoration:none !important;height:32px;color:rgb(29,29,31)}
+.nav-logo svg.nav-logo-svg,.nav-brand svg{display:block !important;height:18px;width:auto;color:currentColor}
+.nav-logo::before,.nav-brand::before{content:none !important}  /* drop pseudo, SVG is the truth */
+
+/* v5-2: NAV-DARK CORRECT SELECTOR — element is .nav, not .nav-bar */
+html body nav.nav.nav-dark,
+html body nav.nav.nav-transparent.nav-dark,
+html body .nav.nav-dark{
+  background:rgba(15,15,17,.78) !important;
+  background-color:rgba(15,15,17,.78) !important;
+  border-bottom:1px solid rgba(255,255,255,.06) !important;
+  -webkit-backdrop-filter:saturate(1.8) blur(20px) !important;
+  backdrop-filter:saturate(1.8) blur(20px) !important;
+}
+html body .nav.nav-dark .nav-links a,
+html body .nav.nav-dark a.nav-link,
+html body .nav.nav-dark .nav-links > a{
+  color:rgba(255,255,255,.92) !important;
+}
+html body .nav.nav-dark .nav-links a:hover{color:#FFF !important}
+html body .nav.nav-dark .nav-logo,
+html body .nav.nav-dark .nav-logo svg{color:#FFF !important}
+html body .nav.nav-dark .nav-cta{background:#FFF !important;color:rgb(29,29,31) !important}
+html body .nav.nav-transparent:not(.nav-dark){background:transparent !important;border-bottom-color:transparent !important}
+
+/* v5-3: NEWS-ROOM BACKGROUND — ultra-specific final rule, beats all 5 prior !important */
+html body section.news-room{
+  background:#1d1d1f !important;
+  background-image:none !important;
+  background-color:#1d1d1f !important;
+  color:#FFF !important;
+}
+html body section.news-room::before{display:none !important}
+html body section.news-room h2,
+html body section.news-room h3,
+html body section.news-room h4,
+html body section.news-room p,
+html body section.news-room .news-head p,
+html body section.news-room .news-source,
+html body section.news-room .news-item-meta,
+html body section.news-room .news-lead-meta{color:#FFF !important}
+html body section.news-room .news-lead p,
+html body section.news-room .news-item p{color:rgba(255,255,255,.72) !important}
+
+/* v5-7: NEWS LINKS — Apple blue, not the orange brand colour */
+html body section.news-room a,
+html body section.news-room .news-footer a,
+html body section.news-room .news-head p a{
+  color:rgb(0,113,227) !important;
+  border-bottom-color:rgba(0,113,227,.4) !important;
+}
+
+/* v5-4: CT-SECTION BACKGROUND — ultra-specific final rule, beats all 5 prior */
+html body section.ct-section{
+  background:#1d1d1f !important;
+  background-image:none !important;
+  background-color:#1d1d1f !important;
+  color:#FFF !important;
+}
+html body section.ct-section h2,
+html body section.ct-section .ct-head h2,
+html body section.ct-section .ct-head p{color:#FFF !important}
+html body section.ct-section .ct-head p{color:rgba(255,255,255,.72) !important}
+
+/* v5-5: HERO GHOST BUTTON — white border + white text on dark */
+.hero-typographic .btn-o,
+.hero.hero-cinematic .btn-o{
+  background:transparent !important;
+  border:1px solid rgba(255,255,255,.62) !important;
+  color:#FFF !important;
+}
+.hero-typographic .btn-o:hover,
+.hero.hero-cinematic .btn-o:hover{
+  background:rgba(255,255,255,.08) !important;
+  border-color:rgba(255,255,255,.86) !important;
+}
+
+/* v5-6: LEGAL TRACKER TITLE — strip text-shadow embossing */
+.legis-banner-title,
+.legis-banner-typo .legis-banner-title,
+section.legis-section .legis-banner-title{
+  text-shadow:none !important;
+  filter:none !important;
+}
+
+/* v5: CHART BARS — kill acid green, monochrome blue family */
+.aiw-bar,.aiw-bar-fill,.aiw-sector-bar,
+.aiw-cell-fill,.aiw-band [class*="bar-"],
+[class*="bar-fill-"],[class*="sector-fill-"],
+[class*="aiw-sector"] [style*="background"],
+[class*="aiw-sector"] [style*="--c-"]{
+  background:rgb(0,113,227) !important;
+  background-color:rgb(0,113,227) !important;
+  background-image:none !important;
+}
+/* Variation: alpha for value-graduated bars */
+.aiw-bar.bar-sm,.aiw-bar-sm{background:rgba(0,113,227,.45) !important}
+.aiw-bar.bar-md,.aiw-bar-md{background:rgba(0,113,227,.7) !important}
+.aiw-bar.bar-lg,.aiw-bar-lg{background:rgb(0,113,227) !important}
+/* Nuke acid greens, yellows, pinks, purples that crept in via inline style */
+[style*="rgb(34, 197, 94)"],[style*="rgb(34,197,94)"],
+[style*="#22c55e"],[style*="#FACC15"],[style*="#facc15"],
+[style*="#B91C1C"],[style*="#b91c1c"]{
+  background:rgb(0,113,227) !important;
+  color:#FFF !important;
+}
+
+/* v5: LIVE DOT WHITE (re-affirm — beat any prior orange/green) */
+html body .aiw-live-dot,
+html body .aiw-band .aiw-live-dot,
+html body .aiw-dashboard-band .aiw-live-dot,
+html body .live-dot,
+html body .status-dot{
+  background:#FFF !important;
+  background-color:#FFF !important;
+  box-shadow:0 0 0 4px rgba(255,255,255,.18) !important;
+}
+
+/* v5 stale rule cleanups */
+.news-room a:not([href*="airights.org.uk"]) {} /* no-op selector for documentation */
