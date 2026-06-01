@@ -3587,3 +3587,195 @@ html body .status-dot{
 
 /* v5 stale rule cleanups */
 .news-room a:not([href*="airights.org.uk"]) {} /* no-op selector for documentation */
+
+/* ============================================================ */
+/* V6 EMERGENCY BUG FIXES — reviewer round 7                    */
+/* Orange-on-blue CTAs. Invisible links. WCAG fails. White gap. */
+/* Washed-out heading. Ghost button. Founder link. Pulse dot.   */
+/* ============================================================ */
+
+/* v6-1: CRITICAL — Orange text on blue contact buttons */
+/* The contact section CTAs render orange-on-blue because --c-orange   */
+/* is inherited into .btn-p text colour. Force white at max specificity. */
+html body section.ct-section .btn-p,
+html body section.ct-section a.btn-p,
+html body section.ct-section .ct-panel .btn-p,
+html body section.ct-section .ct-route .btn-p,
+html body section.ct-section button.btn-p,
+html body .ct-section .ct-panel a[class*="btn"]{
+  color:#FFFFFF !important;
+  background:rgb(0,113,227) !important;
+  background-color:rgb(0,113,227) !important;
+  border-color:transparent !important;
+}
+html body section.ct-section .btn-p:hover,
+html body section.ct-section a.btn-p:hover{
+  background:rgb(0,95,200) !important;
+  color:#FFFFFF !important;
+}
+/* Ghost variant in contact section: blue text on transparent */
+html body section.ct-section .btn-o,
+html body section.ct-section a.btn-o{
+  color:#FFFFFF !important;
+  background:transparent !important;
+  border:1px solid rgba(255,255,255,.6) !important;
+}
+
+/* v6-2: HERO GHOST BUTTON — finally white (correct specificity) */
+html body section.hero.hero-cinematic .btn-o,
+html body section.hero.hero-typographic .btn-o,
+html body .hero-typographic .hero-btns .btn-o,
+html body #home .hero-btns .btn-o{
+  background:transparent !important;
+  background-color:transparent !important;
+  border:1px solid rgba(255,255,255,.62) !important;
+  color:#FFFFFF !important;
+}
+html body section.hero .btn-o:hover,
+html body #home .hero-btns .btn-o:hover{
+  background:rgba(255,255,255,.10) !important;
+  border-color:rgba(255,255,255,.92) !important;
+  color:#FFFFFF !important;
+}
+
+/* v6-3: DISCLAIMER LINKS (GDPR) — Apple blue + underline */
+html body .nls-band .nls-fine a,
+html body .nls-fine a{
+  color:rgb(0,113,227) !important;
+  text-decoration:underline !important;
+  text-decoration-color:rgba(0,113,227,.5) !important;
+  text-underline-offset:2px !important;
+  border-bottom:0 !important;
+}
+
+/* v6-4: AI ALERTS STAT LABELS — WCAG-compliant contrast */
+/* Stat labels were rgb(110,110,115) on rgb(245,245,247) = 3.8:1 (fails AA). */
+/* Darken to rgb(60,60,67) = ~7:1 ratio. */
+html body .aiw-band .aiw-stat-label,
+html body .aiw-dashboard-band .aiw-stat-label,
+html body section.aiw-band .aiw-stat-label{
+  color:rgb(60,60,67) !important;
+  font-weight:500 !important;
+}
+/* Also darken the lede + meta text */
+html body .aiw-band .aiw-lede,
+html body .aiw-dashboard-band .aiw-lede{
+  color:rgb(60,60,67) !important;
+}
+
+/* v6-5: KILL WHITE GAP ABOVE AI ALERTS */
+html body section.aiw-band,
+html body section.aiw-dashboard-band,
+html body #ai-alerts-band{
+  padding-top:72px !important;
+  padding-bottom:88px !important;
+}
+
+/* v6-6: LEGAL TRACKER HEADING — actually readable */
+/* Strip every text-shadow, opacity, filter on the title and its parents */
+html body section.legis-section .legis-banner-title,
+html body section.legis-section h2,
+html body section.legis-section .legis-head h2{
+  color:#1d1d1f !important;
+  text-shadow:none !important;
+  filter:none !important;
+  opacity:1 !important;
+  -webkit-text-fill-color:#1d1d1f !important;
+}
+html body section.legis-section .legis-banner-typo .legis-banner-title{
+  color:#FFFFFF !important;
+  -webkit-text-fill-color:#FFFFFF !important;
+}
+html body section.legis-section .legis-banner,
+html body section.legis-section .legis-banner-typo,
+html body section.legis-section .legis-head{
+  opacity:1 !important;
+  filter:none !important;
+}
+
+/* v6-7: NEWS-SECTION INVISIBLE LINKS */
+/* "Campaigns hub" in description + footer attribution + Report-it mailto */
+html body section.news-room .news-head p a,
+html body section.news-room p a{
+  color:#FFFFFF !important;
+  border-bottom:1px solid rgba(255,255,255,.45) !important;
+  text-decoration:none !important;
+  transition:border-color .2s ease;
+}
+html body section.news-room .news-head p a:hover,
+html body section.news-room p a:hover{
+  border-bottom-color:#FFFFFF !important;
+}
+html body section.news-room .news-footer{
+  color:rgba(255,255,255,.72) !important;
+  font-size:13px !important;
+}
+html body section.news-room .news-footer a{
+  color:rgb(0,113,227) !important;
+  border-bottom:1px solid rgba(0,113,227,.5) !important;
+}
+
+/* v6-8: "READ FULL BIOGRAPHY" — plain blue text link */
+html body .founder-editorial .founder-link,
+html body .founder a.founder-link,
+html body .founder-cta-row .founder-link{
+  display:inline !important;
+  padding:0 !important;
+  border:0 !important;
+  background:transparent !important;
+  background-color:transparent !important;
+  border-radius:0 !important;
+  color:rgb(0,113,227) !important;
+  font-family:'Inter',sans-serif !important;
+  font-size:17px !important;
+  font-weight:400 !important;
+  text-decoration:none !important;
+}
+html body .founder-editorial .founder-link:hover{
+  text-decoration:underline !important;
+  text-underline-offset:2px !important;
+  background:transparent !important;
+}
+
+/* v6-11: PULSE DOT — actually white this time. Beat inline style if present. */
+html body .aiw-live-dot,
+html body span.aiw-live-dot,
+html body div.aiw-live-dot,
+html body .aiw-band .aiw-live-dot,
+html body .aiw-dashboard-band .aiw-live-dot,
+html body [class*="aiw-live"],
+html body .live-dot,
+html body .status-dot,
+html body [data-live="true"]{
+  background:#FFFFFF !important;
+  background-color:#FFFFFF !important;
+  background-image:none !important;
+  box-shadow:0 0 0 4px rgba(255,255,255,.18) !important;
+  border-color:#FFFFFF !important;
+}
+/* If the dot lives on a LIGHT band now, switch to Apple blue */
+html body .aiw-band:not(.bg-dark) .aiw-live-dot,
+html body .aiw-dashboard-band:not(.bg-dark) .aiw-live-dot{
+  background:rgb(0,113,227) !important;
+  background-color:rgb(0,113,227) !important;
+  box-shadow:0 0 0 4px rgba(0,113,227,.16) !important;
+}
+
+/* v6: Newsletter band repositioned — ensure it still looks designed near bottom */
+html body section.nls-band{padding-top:80px !important; padding-bottom:80px !important}
+
+/* v6: AI Alerts band on light background — ensure good contrast */
+html body section.aiw-band,
+html body section.aiw-dashboard-band{
+  background:rgb(245,245,247) !important;
+}
+html body .aiw-band h2,
+html body .aiw-dashboard-band h2{color:rgb(29,29,31) !important}
+html body .aiw-band .aiw-lede{color:rgb(60,60,67) !important}
+
+/* Footer attribution + report link rendered above proper opacity */
+html body .news-footer{
+  margin-top:48px !important;
+  padding-top:24px !important;
+  border-top:1px solid rgba(255,255,255,.12) !important;
+}
