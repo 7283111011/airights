@@ -1845,7 +1845,7 @@ section{padding:80px 0}
   .dh h1,.legis-head h2,.research-head h2,.news-head h2,.aiw-dashboard-band .aiw-head h2,.members-heading,.ct-head h2,.mission-text-center .sh{font-size:32px;line-height:1.1}
   .hero-cinematic h1{font-size:40px;line-height:1.07}
 }
-                                                                                                                                                                                                                                                                                                                                                                                              
+
 /* FINAL SPECIFICITY FIXES: force Inter on hero + mission, fix Partners contrast */
 .hero-cinematic h1,
 .mission-text-center .sh,
