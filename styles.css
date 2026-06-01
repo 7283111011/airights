@@ -3880,3 +3880,131 @@ html body #legislation.teaser .teaser-cta{
   margin-top:32px !important;
   opacity:1 !important;
 }
+
+/* ============================================================ */
+/* V8 — round 8 reviewer fixes                                  */
+/* Real bug at line 2404 (.ct-panel a orange) — buttons use     */
+/* class .ct-cta, not .btn-p. Add explicit .ct-panel a + button */
+/* overrides + .aiw-pulse white (was always green).             */
+/* ============================================================ */
+
+/* v8: AIW PULSE DOT — actually .aiw-pulse, never .aiw-live-dot */
+html body .aiw-pulse,
+html body span.aiw-pulse,
+html body .aiw-band .aiw-pulse,
+html body .aiw-dashboard-band .aiw-pulse{
+  background:#FFFFFF !important;
+  background-color:#FFFFFF !important;
+  box-shadow:0 0 0 4px rgba(255,255,255,.18) !important;
+  border-color:#FFFFFF !important;
+}
+/* If pulse sits on a light band, switch to Apple blue */
+html body section.aiw-band:not(.bg-dark) .aiw-pulse,
+html body section.aiw-dashboard-band:not(.bg-dark) .aiw-pulse{
+  background:rgb(0,113,227) !important;
+  background-color:rgb(0,113,227) !important;
+  box-shadow:0 0 0 4px rgba(0,113,227,.16) !important;
+}
+
+/* v8: CT-PANEL ANCHORS — override line 2404 orange */
+html body section.ct-section .ct-panel a,
+html body section#get-involved .ct-panel a,
+html body #get-involved .ct-panel a,
+html body .ct-panels .ct-panel a{
+  color:#FFFFFF !important;
+  background-color:rgb(0,113,227) !important;
+  background:rgb(0,113,227) !important;
+  border-bottom:0 !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  padding:13px 26px !important;
+  border-radius:980px !important;
+  text-decoration:none !important;
+  font-size:17px !important;
+  font-weight:400 !important;
+  transition:background-color .2s ease !important;
+}
+html body section.ct-section .ct-panel a:hover{
+  background-color:rgb(0,95,200) !important;
+}
+/* Exception: anchors inside .ct-panel p (description text) stay as text links, Apple blue */
+html body section.ct-section .ct-panel p a{
+  background:transparent !important;
+  background-color:transparent !important;
+  color:rgb(0,113,227) !important;
+  padding:0 !important;
+  border-bottom:1px solid rgba(0,113,227,.4) !important;
+  border-radius:0 !important;
+  display:inline !important;
+  font-weight:400 !important;
+}
+
+/* v8: STATS BAND — now its own section, ensure dark background */
+html body section.stats-band{
+  background:linear-gradient(180deg,#0a0a0c 0%,#16161a 100%) !important;
+  background-color:#0a0a0c !important;
+  padding:96px 28px !important;
+  color:#FFFFFF !important;
+}
+html body section.stats-band .stat-callout{
+  background:transparent !important;
+  background-color:transparent !important;
+  background-image:none !important;
+  max-width:1180px !important;
+  margin:0 auto !important;
+  padding:0 !important;
+  display:grid !important;
+  grid-template-columns:repeat(3,1fr) !important;
+  gap:48px !important;
+}
+@media (max-width:880px){
+  html body section.stats-band .stat-callout{grid-template-columns:1fr !important;gap:36px !important}
+}
+html body section.stats-band .stat-num{
+  color:#FFFFFF !important;
+  font-size:clamp(64px,9vw,120px) !important;
+  font-weight:600 !important;
+  letter-spacing:-.03em !important;
+  line-height:1 !important;
+}
+html body section.stats-band .stat-text{
+  color:rgba(255,255,255,.78) !important;
+  font-size:17px !important;
+  margin-top:14px !important;
+}
+html body section.stats-band .stat-src{
+  display:block !important;
+  margin-top:10px !important;
+  font-size:12px !important;
+  color:rgba(255,255,255,.5) !important;
+}
+html body section.stats-band .stat-src a{
+  color:rgba(255,255,255,.65) !important;
+  text-decoration:underline !important;
+  text-underline-offset:2px !important;
+}
+
+/* v8: KILL MISSION padding-bottom — stats now its own section */
+html body #mission{padding-bottom:80px !important}
+
+/* v8: LEGIS-HEAD H2 — was hidden, restore */
+html body section.legis-section .legis-head{display:block !important; opacity:1 !important}
+html body section.legis-section .legis-head h2{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  color:#1d1d1f !important;
+  -webkit-text-fill-color:#1d1d1f !important;
+  font-size:clamp(40px,5vw,64px) !important;
+  font-weight:600 !important;
+  letter-spacing:-.022em !important;
+  line-height:1.06 !important;
+  margin:0 0 16px 0 !important;
+  text-shadow:none !important;
+  filter:none !important;
+}
+html body section.legis-section .legis-head p{
+  color:rgb(60,60,67) !important;
+  font-size:19px !important;
+  max-width:780px !important;
+}
