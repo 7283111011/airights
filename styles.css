@@ -208,9 +208,11 @@ section { padding: var(--section-pad-y) 28px; }
    7. BUTTON SYSTEM
    ────────────────────────────────────────────────────────── */
 
+/* Button system — explicit list of actual BUTTONS (not text-link CTAs inside cards) */
 .btn-p, .btn-o,
-.nls-cta, .ct-cta, .legis-cta, .rp-cta, .fp-panel-cta,
-.aiw-cta-btn, .trustees-btn-p, .teaser-cta a {
+.ct-cta, .rp-cta, .fp-panel-cta,
+.aiw-cta-btn, .trustees-btn-p, .teaser-cta a,
+.nls-form button[type="submit"] {
   display: inline-flex; align-items: center;
   padding: 13px 26px;
   border-radius: var(--radius-pill);
@@ -219,12 +221,15 @@ section { padding: var(--section-pad-y) 28px; }
   font-size: 17px; font-weight: 400; letter-spacing: -0.01em;
   text-decoration: none;
   border: 0;
+  font-family: inherit;
+  cursor: pointer;
   transition: background 0.2s var(--ease);
   white-space: nowrap;
 }
 .btn-p:hover, .btn-o:hover,
-.nls-cta:hover, .ct-cta:hover, .legis-cta:hover, .rp-cta:hover,
-.fp-panel-cta:hover, .aiw-cta-btn:hover, .trustees-btn-p:hover, .teaser-cta a:hover {
+.ct-cta:hover, .rp-cta:hover,
+.fp-panel-cta:hover, .aiw-cta-btn:hover, .trustees-btn-p:hover, .teaser-cta a:hover,
+.nls-form button[type="submit"]:hover {
   background: var(--blue-hover);
   color: #fff;
 }
@@ -520,8 +525,8 @@ section p a:not(.btn-p):hover { text-decoration-color: var(--blue); }
   margin-bottom: 16px;
   width: fit-content;
 }
-.legis-status-warn    { background: rgba(255, 184, 0, 0.12); color: #b8860b; }
-.legis-status-dropped { background: rgba(110, 110, 115, 0.12); color: var(--text-3); }
+.legis-status-warn    { background: rgba(110, 110, 115, 0.18); color: var(--text-2); }
+.legis-status-dropped { background: rgba(110, 110, 115, 0.08); color: var(--text-3); }
 .legis-status-good    { background: var(--blue-tint); color: var(--blue); }
 .legis-status-info    { background: var(--blue-tint); color: var(--blue); }
 .legis-card h3 { font-size: 19px; color: var(--text); margin: 0 0 12px 0; }
@@ -580,9 +585,9 @@ section p a:not(.btn-p):hover { text-decoration-color: var(--blue); }
 .news-lead {
   display: flex; flex-direction: column; justify-content: flex-end;
   background:
-    linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.75) 100%),
-    /* Parliament chamber — Unsplash */
-    url('https://images.unsplash.com/photo-1529655683826-aba9b3e77383?w=1400&q=85&auto=format&fit=crop') center / cover no-repeat;
+    linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.78) 100%),
+    /* Old law library / leather-bound legal volumes — Unsplash (different from Westminster hero) */
+    url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1400&q=85&auto=format&fit=crop') center / cover no-repeat;
   border-radius: var(--radius);
   padding: 28px;
   min-height: 380px;
@@ -609,7 +614,15 @@ section p a:not(.btn-p):hover { text-decoration-color: var(--blue); }
   margin-bottom: 10px;
 }
 .news-sep { opacity: 0.5; }
-.news-source { font-weight: 500; }
+/* News source labels — uppercase Apple-blue badge style for category identity */
+.news-source {
+  color: var(--blue);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 10px;
+}
+.news-lead .news-source { color: rgba(255, 255, 255, 0.92); }
 .news-lead h3 { font-size: 24px; color: #fff; margin: 0 0 12px 0; font-weight: 600; }
 .news-lead p { font-size: 15px; color: rgba(255, 255, 255, 0.8); margin: 0 0 16px 0; line-height: 1.5; }
 .news-lead-cta { font-size: 13px; color: #fff; font-weight: 500; }
@@ -617,15 +630,20 @@ section p a:not(.btn-p):hover { text-decoration-color: var(--blue); }
 .news-list { display: flex; flex-direction: column; gap: 14px; }
 .news-item {
   display: block;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.04);
+  position: relative;
+  padding: 20px 20px 20px 28px;
+  background: linear-gradient(135deg, rgba(0, 113, 227, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--blue);
   border-radius: var(--radius);
   text-decoration: none;
   color: #fff;
-  transition: background 0.2s var(--ease);
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
 }
-.news-item:hover { background: rgba(255, 255, 255, 0.07); }
+.news-item:hover {
+  background: linear-gradient(135deg, rgba(0, 113, 227, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+  transform: translateX(2px);
+}
 .news-item-meta {
   display: flex; gap: 8px;
   font-size: 11px;
@@ -723,8 +741,14 @@ section p a:not(.btn-p):hover { text-decoration-color: var(--blue); }
 .trustees-btn-p {
   background: #fff;
   color: var(--text);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
 }
-.trustees-btn-p:hover { background: rgba(255, 255, 255, 0.86); color: var(--text); }
+.trustees-btn-p:hover {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  transform: translateY(-1px);
+}
 
 /* ──────────────────────────────────────────────────────────
    18. NEWSLETTER BAND
@@ -744,7 +768,10 @@ section p a:not(.btn-p):hover { text-decoration-color: var(--blue); }
 @media (max-width: 880px) { .nls-inner { grid-template-columns: 1fr; gap: 32px; } }
 .nls-h { font-size: clamp(32px, 4vw, 48px); color: var(--text); margin: 0 0 16px 0; }
 .nls-blurb { font-size: 17px; color: var(--text-2); margin: 0; }
-.nls-form { display: flex; gap: 10px; flex-wrap: wrap; }
+/* .nls-cta is the right-column wrapper containing form + fine print — NOT a button */
+.nls-cta { display: flex; flex-direction: column; gap: 16px; }
+.nls-form { display: flex; gap: 10px; flex-wrap: nowrap; align-items: stretch; }
+@media (max-width: 480px) { .nls-form { flex-wrap: wrap; } }
 .nls-form input[type="email"] {
   flex: 1; min-width: 240px;
   padding: 13px 18px;
@@ -932,6 +959,28 @@ section p a:not(.btn-p):hover { text-decoration-color: var(--blue); }
   border-radius: 50%;
   border: 0;
   background: var(--bg-grey);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.bio-modal-close:hover { background: rgba(0, 0, 0, 0.12); }
+.bio-modal-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.bio-modal-portrait { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+.bio-modal-role { font-size: 13px; color: var(--text-3); }
+.bio-modal-body p { font-size: 15px; color: var(--text-2); line-height: 1.6; }
+.bio-modal-body a { color: var(--blue); text-decoration: underline; }
+
+/* ──────────────────────────────────────────────────────────
+   23. UTILITIES
+   ────────────────────────────────────────────────────────── */
+
+.sb-wide { max-width: 72ch; }
+
+/* Hide scroll arrow on small screens */
+@media (max-width: 720px) {
+  .hero-scroll { display: none; }
+}
+--bg-grey);
   font-size: 18px;
   cursor: pointer;
   display: flex; align-items: center; justify-content: center;
