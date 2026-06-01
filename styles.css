@@ -3779,3 +3779,104 @@ html body .news-footer{
   padding-top:24px !important;
   border-top:1px solid rgba(255,255,255,.12) !important;
 }
+
+/* ============================================================ */
+/* V7 EMERGENCY — id-selector specificity for teaser hide       */
+/* Despite earlier .class.teaser rules, sections still render   */
+/* full content on production. id+class beats class-only.       */
+/* ============================================================ */
+
+/* v7-1: TEASER HIDE — id+class specificity (1,2,0) beats any class rule */
+html body #legislation.teaser .legis-grid-extra{
+  display:none !important;
+  visibility:hidden !important;
+  height:0 !important;
+  max-height:0 !important;
+  overflow:hidden !important;
+  margin:0 !important;
+  padding:0 !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+}
+html body #projects.teaser .fp-master-detail,
+html body section#projects.teaser .fp-master-detail{
+  display:none !important;
+  visibility:hidden !important;
+  height:0 !important;
+  max-height:0 !important;
+  overflow:hidden !important;
+  margin:0 !important;
+  padding:0 !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+}
+html body #research.teaser .rp-master-detail,
+html body section#research.teaser .rp-master-detail{
+  display:none !important;
+  visibility:hidden !important;
+  height:0 !important;
+  max-height:0 !important;
+  overflow:hidden !important;
+  margin:0 !important;
+  padding:0 !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+}
+html body #news.teaser .news-bar,
+html body section#news.teaser .news-bar{
+  display:none !important;
+  visibility:hidden !important;
+  height:0 !important;
+  max-height:0 !important;
+  overflow:hidden !important;
+}
+html body #news.teaser .news-list .news-item:nth-of-type(n+4),
+html body section#news.teaser .news-list .news-item:nth-of-type(n+4){
+  display:none !important;
+  visibility:hidden !important;
+  height:0 !important;
+  max-height:0 !important;
+  overflow:hidden !important;
+}
+
+/* v7: KILL MISSION NHS/DWP/HomeOffice icon row — was supposed to die in v3 */
+html body #mission .mission-graphic,
+html body section#mission .mission-graphic{
+  display:none !important;
+  visibility:hidden !important;
+  height:0 !important;
+  max-height:0 !important;
+  overflow:hidden !important;
+}
+
+/* v7: MISSION LAYOUT — single-column when callout present (cleaner than 2-col fight) */
+html body #mission .mission-grid{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:64px !important;
+  align-items:center !important;
+  max-width:1180px !important;
+  margin:0 auto !important;
+}
+@media (max-width:880px){
+  html body #mission .mission-grid{
+    grid-template-columns:1fr !important;
+    gap:40px !important;
+  }
+}
+
+/* v7: TRUSTEES — also need id-selector specificity since trustees-teaser was a class */
+html body #trustees.trustees-banner.trustees-teaser .trustees-right,
+html body section#trustees.trustees-banner.trustees-teaser .trustees-stats{
+  display:none !important;
+}
+
+/* v7: FOOTER FOR HIDDEN SECTIONS — ensure CTA still shows when master-detail hidden */
+html body #projects.teaser .teaser-cta,
+html body #research.teaser .teaser-cta,
+html body #legislation.teaser .teaser-cta{
+  display:flex !important;
+  justify-content:center !important;
+  margin-top:32px !important;
+  opacity:1 !important;
+}

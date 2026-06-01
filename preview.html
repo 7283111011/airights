@@ -145,7 +145,6 @@
         <div class="sl-mark">About the Foundation</div>
         <h2 class="sh">A new United Kingdom institution for one of the defining questions of our generation.</h2>
         <p class="sb">A British organisation in formation. We track how artificial intelligence is being used in public services, push for the law to keep up, and translate both into plain English.</p>
-        <p class="sb">Medicines have the MHRA. Aviation has the CAA. Banks have the FCA. Artificial intelligence has none of these. We exist to close that gap.</p>
       </div>
       <aside class="mission-callout" aria-label="On the gap the Foundation closes">
         <p class="mission-callout-line">Medicines have the MHRA.</p>
@@ -177,7 +176,7 @@
             .mg-circle{fill:#FFF;stroke:#0065BD;stroke-width:2}
             .mg-icon{fill:none;stroke:#0065BD;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
             .mg-label{fill:#0F172A;font-family:'Public Sans',sans-serif;font-size:18px;font-weight:700;letter-spacing:.4px;text-anchor:middle}
-            .mg-line{stroke:#CBD5E1;stroke-width:1.5;stroke-dasharray:5 6}
+            .mg-line{stroke:#0071e3;stroke-width:1.5;stroke-dasharray:5 6}
           </style>
         </defs>
         <line x1="90" y1="90" x2="1010" y2="90" class="mg-line"/>
@@ -230,14 +229,14 @@
       <div class="aiw-sectors-head">Coverage by sector</div>
       <div class="aiw-sectors" id="aiw-sectors">
         <!-- Sensible defaults; JS overrides with live counts when ai-alerts.html is reachable -->
-        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#7EB6E8"></span>Health</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:90%;background:#7EB6E8"></div></div></div>
-        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#86EFAC"></span>Cross-Govt</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:75%;background:#86EFAC"></div></div></div>
-        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#CBD5E1"></span>Policing</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:55%;background:#CBD5E1"></div></div></div>
-        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#C4B5FD"></span>Justice</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:40%;background:#C4B5FD"></div></div></div>
-        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#FCA5A5"></span>Welfare</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:35%;background:#FCA5A5"></div></div></div>
-        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#FDBA74"></span>Immigration</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:28%;background:#FDBA74"></div></div></div>
-        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#FCD34D"></span>Tax</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:18%;background:#FCD34D"></div></div></div>
-        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#93C5FD"></span>AI Safety</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:15%;background:#93C5FD"></div></div></div>
+        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#0071e3"></span>Health</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:90%;background:#0071e3"></div></div></div>
+        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#0071e3"></span>Cross-Govt</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:75%;background:#0071e3"></div></div></div>
+        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#0071e3"></span>Policing</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:55%;background:#0071e3"></div></div></div>
+        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#0071e3"></span>Justice</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:40%;background:#0071e3"></div></div></div>
+        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#0071e3"></span>Welfare</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:35%;background:#0071e3"></div></div></div>
+        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#0071e3"></span>Immigration</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:28%;background:#0071e3"></div></div></div>
+        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#0071e3"></span>Tax</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:18%;background:#0071e3"></div></div></div>
+        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#0071e3"></span>AI Safety</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:15%;background:#0071e3"></div></div></div>
       </div>
     </div>
 
@@ -298,14 +297,14 @@
       setText('aiw-stat-value', rounded > 1000 ? (rounded/1000).toFixed(1) + 'b' : rounded);
       // Render the sector mini-bars
       var SECTORS = [
-        {key:'health', label:'Health', color:'#7EB6E8'},
-        {key:'government', label:'Cross-Govt', color:'#86EFAC'},
-        {key:'policing', label:'Policing', color:'#CBD5E1'},
-        {key:'justice', label:'Justice', color:'#C4B5FD'},
-        {key:'welfare', label:'Welfare', color:'#FCA5A5'},
-        {key:'immigration', label:'Immigration', color:'#FDBA74'},
-        {key:'tax', label:'Tax', color:'#FCD34D'},
-        {key:'safety', label:'AI Safety', color:'#93C5FD'}
+        {key:'health', label:'Health', color:'#0071e3'},
+        {key:'government', label:'Cross-Govt', color:'#0071e3'},
+        {key:'policing', label:'Policing', color:'#0071e3'},
+        {key:'justice', label:'Justice', color:'#0071e3'},
+        {key:'welfare', label:'Welfare', color:'#0071e3'},
+        {key:'immigration', label:'Immigration', color:'#0071e3'},
+        {key:'tax', label:'Tax', color:'#0071e3'},
+        {key:'safety', label:'AI Safety', color:'#0071e3'}
       ];
       var max = 0;
       SECTORS.forEach(function(s){ if ((byS[s.key] || 0) > max) max = byS[s.key] || 0; });
@@ -570,7 +569,7 @@
 
       <div class="rp-panels">
         <article class="rp-panel rp-panel-active" id="rp-nhs" role="tabpanel">
-          <div class="rp-panel-head"><span class="rp-tag" style="background:#7EB6E8">Health</span><span class="rp-num">01</span></div>
+          <div class="rp-panel-head"><span class="rp-tag" style="background:#0071e3">Health</span><span class="rp-num">01</span></div>
           <h3>In the NHS</h3>
           <p>The NHS Federated Data Platform, built by Palantir under a contract worth up to &pound;330 million awarded in November 2023, is being rolled out across up to 240 trusts. A contract break-clause review is reported for spring 2027. The British Medical Association voted to oppose the rollout at its June 2025 representatives&rsquo; meeting. The MHRA&rsquo;s National Commission into the Regulation of AI in Healthcare closed its call for evidence on 2 February 2026 and is due to report in summer 2026. An Oxford-led study (<em>Nature Medicine</em>, February 2026) of 1,300 UK participants found large language models do not improve self-diagnosis accuracy and frequently produce unsafe recommendations.</p>
           <div class="rp-mean">What this means for you: artificial intelligence is being put into NHS systems faster than the rules to govern it.</div>
@@ -578,7 +577,7 @@
         </article>
 
         <article class="rp-panel" id="rp-dwp" role="tabpanel">
-          <div class="rp-panel-head"><span class="rp-tag" style="background:#FCA5A5">Welfare</span><span class="rp-num">02</span></div>
+          <div class="rp-panel-head"><span class="rp-tag" style="background:#0071e3">Welfare</span><span class="rp-num">02</span></div>
           <h3>At the DWP</h3>
           <p>The Universal Credit Advances machine-learning model (operational since 2022) was confirmed by a DWP fairness analysis, released to the Public Law Project under FOI in late 2024, to show statistically significant referral and outcome disparity across age, disability, marital status and nationality. The National Audit Office and Public Accounts Committee have repeatedly flagged the lack of transparency. As of April 2025, DWP was still &ldquo;finalising publication&rdquo; of its algorithmic transparency records.</p>
           <div class="rp-mean">What this means for you: an algorithm may be deciding whether your benefits get paid, with no explanation and no proper appeal route.</div>
@@ -586,7 +585,7 @@
         </article>
 
         <article class="rp-panel" id="rp-home-office" role="tabpanel">
-          <div class="rp-panel-head"><span class="rp-tag" style="background:#FDBA74">Immigration</span><span class="rp-num">03</span></div>
+          <div class="rp-panel-head"><span class="rp-tag" style="background:#0071e3">Immigration</span><span class="rp-num">03</span></div>
           <h3>At the Home Office</h3>
           <p>The Identify and Prioritise Immigration Cases (IPIC) algorithm, in use since 2019 to 2020, processes the cases of around 41,000 people facing potential removal. Caseworkers click &ldquo;accept&rdquo; with no explanation required; rejections require written justification. Privacy International filed an ICO complaint on 18 August 2025 and an ICO investigation is open. A facial age estimation system for asylum seekers is being trialled.</p>
           <div class="rp-mean">What this means for you: the workflow nudges decision-makers towards the algorithm&rsquo;s answer rather than independent judgement.</div>
@@ -594,7 +593,7 @@
         </article>
 
         <article class="rp-panel" id="rp-police" role="tabpanel">
-          <div class="rp-panel-head"><span class="rp-tag" style="background:#CBD5E1;color:#0F172A">Policing</span><span class="rp-num">04</span></div>
+          <div class="rp-panel-head"><span class="rp-tag" style="background:#0071e3;color:#0F172A">Policing</span><span class="rp-num">04</span></div>
           <h3>In policing</h3>
           <p>The Metropolitan Police&rsquo;s live facial recognition deployments led to 962 arrests between September 2024 and September 2025, with over 1,400 cumulative arrests since LFR was scaled up. The High Court has ruled the Met&rsquo;s use lawful, but Black and Asian respondents to the Ada / Turing Wave 2 survey were significantly more concerned about police facial recognition (57% and 52%) than the general population (39%).</p>
           <div class="rp-mean">What this means for you: who counts as a match depends partly on how the system was trained, and the burden of being wrongly stopped does not fall evenly across the country.</div>
@@ -602,7 +601,7 @@
         </article>
 
         <article class="rp-panel" id="rp-children" role="tabpanel">
-          <div class="rp-panel-head"><span class="rp-tag" style="background:#C4B5FD">Children</span><span class="rp-num">05</span></div>
+          <div class="rp-panel-head"><span class="rp-tag" style="background:#0071e3">Children</span><span class="rp-num">05</span></div>
           <h3>In children&rsquo;s lives</h3>
           <p>Ofcom&rsquo;s <em>Online Nation 2025</em> (10 December 2025) found 79% of UK online 13 to 17 year olds, and 40% of 7 to 12 year olds, now use generative AI; Snapchat My AI is the most-used by children at 51% of online 7 to 17s; ChatGPT registered 1.8 billion UK visits in the first eight months of 2025. The Internet Watch Foundation logged a 26,385% year-on-year rise in AI-generated child sexual abuse videos in 2025 (3,443, up from 13 in 2024). The Crime and Policing Act 2026 has criminalised the supply of nudification tools, but possession-side gaps remain.</p>
           <div class="rp-mean">What this means for you: most parents and carers do not know how their children are using artificial intelligence, and the tools to harm those children are evolving faster than the laws to stop it.</div>
@@ -610,7 +609,7 @@
         </article>
 
         <article class="rp-panel" id="rp-schools" role="tabpanel">
-          <div class="rp-panel-head"><span class="rp-tag" style="background:#86EFAC;color:#0F172A">Schools</span><span class="rp-num">06</span></div>
+          <div class="rp-panel-head"><span class="rp-tag" style="background:#0071e3;color:#0F172A">Schools</span><span class="rp-num">06</span></div>
           <h3>In schools</h3>
           <p>The National Education Union&rsquo;s 2026 <em>State of Education</em> survey of 9,408 teachers found 76% now use AI for daily work, 49% of schools have no AI policy at all, and 66% of secondary teachers say pupils&rsquo; critical thinking has declined because of AI. The National Literacy Trust&rsquo;s 2025 survey of more than 60,000 13 to 18 year olds found 1 in 4 (25.1%) admitted to &ldquo;just copying&rdquo; AI outputs into homework, up from 20.9% in 2024.</p>
           <div class="rp-mean">What this means for you: schools are using artificial intelligence without consistent rules, and the skills that qualifications are supposed to certify are being eroded.</div>
@@ -618,7 +617,7 @@
         </article>
 
         <article class="rp-panel" id="rp-uni" role="tabpanel">
-          <div class="rp-panel-head"><span class="rp-tag" style="background:#86EFAC;color:#0F172A">Universities</span><span class="rp-num">07</span></div>
+          <div class="rp-panel-head"><span class="rp-tag" style="background:#0071e3;color:#0F172A">Universities</span><span class="rp-num">07</span></div>
           <h3>In universities</h3>
           <p>The Russell Group&rsquo;s five principles (2023, refreshed 2024 to 2025) and JCQ&rsquo;s April 2025 guidance set the rules. The Kosmyna et al. MIT Media Lab study (June 2025, <em>Your Brain on ChatGPT</em>) used EEG to track 54 participants writing essays with and without LLM help, and reported significantly weaker brain connectivity and &ldquo;cognitive debt&rdquo; in heavy LLM users. Caveat: arXiv preprint, not yet peer-reviewed.</p>
           <div class="rp-mean">What this means for you: heavy AI use during learning may carry cognitive costs we do not yet fully understand.</div>
