@@ -14,9 +14,6 @@
 <link rel="stylesheet" href="styles.css">
 <!-- v13: Preload hero media for LCP — swap URL when editorial photo is licensed -->
 <link rel="preload" as="image" href="https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=2000&q=85&auto=format&fit=crop" fetchpriority="high">
-<!-- v16: GSAP + ScrollTrigger for Apple-style scroll choreography -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 <!-- Google reCAPTCHA v3 (invisible, score-based) -->
 <script src="https://www.google.com/recaptcha/api.js?render=6Lcur9QsAAAAAE1ApFj2LDVszSME-EjcDg6reJDE"></script>
 <!-- Favicon -->
@@ -171,11 +168,11 @@
       <a href="report.html" class="btn-p">Report your experience</a>
     </div>
   </div>
-  <a href="#ai-alerts-band" class="hero-scroll hero-scroll-minimal" aria-label="Scroll down">
-    <svg width="16" height="22" viewBox="0 0 24 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M12 4v18"/>
-      <path d="M6 16l6 6 6-6"/>
-    </svg>
+  <a href="#ai-alerts-band" class="hero-scroll" aria-label="Scroll to AI Alerts">
+    <span class="hero-scroll-label">See AI Alerts</span>
+    <span class="hero-scroll-arrow" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </span>
   </a>
 </section>
 
@@ -235,6 +232,80 @@
 <!-- AI ALERTS BAND — signature visual: The AI State Map -->
 <section class="aiw-band aiw-dashboard-band" id="ai-alerts-band" aria-label="AI Alerts - UK public-sector AI register">
   <!-- v15: AI State Map restored as the AI Alerts signature visual (sign moved to footer) -->
+<<<<<<< HEAD
+=======
+  <div class="aiw-statemap" aria-hidden="true">
+    <svg viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <radialGradient id="node-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="rgba(0,113,227,1)" stop-opacity="1"/>
+          <stop offset="40%" stop-color="rgba(0,113,227,0.55)"/>
+          <stop offset="100%" stop-color="rgba(0,113,227,0)"/>
+        </radialGradient>
+        <filter id="node-blur" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="4"/>
+        </filter>
+      </defs>
+
+      <!-- UK mainland — 40-point polygon following actual coastline geometry -->
+      <!-- Clockwise from Cape Wrath, through Scotland east, England, Wales, NI sea, back -->
+      <path class="aiw-map-shape" d="
+        M 240 60
+        L 270 70 L 295 95 L 310 130 L 315 165 L 310 195 L 295 220 L 285 240
+        L 305 260 L 318 285 L 322 315 L 305 345 L 320 360 L 332 380 L 332 410
+        L 348 435 L 338 460 L 305 470 L 270 472 L 235 470 L 200 478 L 175 488
+        L 153 482 L 162 460 L 180 445 L 200 425 L 175 425 L 152 410 L 145 380
+        L 155 350 L 142 320 L 168 312 L 198 305 L 215 290 L 212 265 L 220 240
+        L 200 222 L 175 215 L 158 195 L 175 162 L 200 140 L 215 105 L 222 80
+        L 240 60 Z
+      " fill="rgba(0,113,227,0.10)" stroke="rgba(0,113,227,0.55)" stroke-width="1.3" stroke-linejoin="round"/>
+
+      <!-- Northern Ireland — recognisable shape, west of Galloway across the Irish Sea -->
+      <path class="aiw-map-shape" d="
+        M 115 280
+        L 132 285 L 138 305 L 132 332 L 110 340 L 90 332 L 85 308 L 95 287
+        L 115 280 Z
+      " fill="rgba(0,113,227,0.08)" stroke="rgba(0,113,227,0.42)" stroke-width="1.1" stroke-linejoin="round"/>
+
+      <!-- Institutional nodes — repositioned for new map geometry -->
+      <g class="aiw-nodes">
+        <!-- Edinburgh (Scottish Government, DWP regional) -->
+        <circle class="aiw-node-glow" cx="298" cy="195" r="15"/>
+        <circle class="aiw-node" cx="298" cy="195" r="4"/>
+        <!-- Glasgow (Police Scotland) -->
+        <circle class="aiw-node-glow" cx="272" cy="210" r="12"/>
+        <circle class="aiw-node" cx="272" cy="210" r="3.2"/>
+        <!-- Newcastle (NHS regional / DWP) -->
+        <circle class="aiw-node-glow" cx="298" cy="265" r="12"/>
+        <circle class="aiw-node" cx="298" cy="265" r="3.5"/>
+        <!-- Manchester (NHS Federated Data Platform — major node) -->
+        <circle class="aiw-node-glow aiw-node-glow-major" cx="258" cy="310" r="20"/>
+        <circle class="aiw-node aiw-node-major" cx="258" cy="310" r="5.5"/>
+        <!-- Liverpool -->
+        <circle class="aiw-node-glow" cx="225" cy="320" r="11"/>
+        <circle class="aiw-node" cx="225" cy="320" r="3"/>
+        <!-- Leeds -->
+        <circle class="aiw-node-glow" cx="290" cy="318" r="11"/>
+        <circle class="aiw-node" cx="290" cy="318" r="3"/>
+        <!-- Birmingham (Home Office regional / DWP) -->
+        <circle class="aiw-node-glow" cx="275" cy="370" r="13"/>
+        <circle class="aiw-node" cx="275" cy="370" r="4"/>
+        <!-- Cardiff (Welsh Government) -->
+        <circle class="aiw-node-glow" cx="208" cy="418" r="12"/>
+        <circle class="aiw-node" cx="208" cy="418" r="3.5"/>
+        <!-- Bristol -->
+        <circle class="aiw-node-glow" cx="242" cy="430" r="10"/>
+        <circle class="aiw-node" cx="242" cy="430" r="3"/>
+        <!-- London (Home Office, DWP, Met Police, NHS Digital, Westminster — major node) -->
+        <circle class="aiw-node-glow aiw-node-glow-major" cx="318" cy="438" r="24"/>
+        <circle class="aiw-node aiw-node-major" cx="318" cy="438" r="6.5"/>
+        <!-- Belfast (Northern Ireland Civil Service) -->
+        <circle class="aiw-node-glow" cx="110" cy="308" r="11"/>
+        <circle class="aiw-node" cx="110" cy="308" r="3.2"/>
+      </g>
+    </svg>
+  </div>
+>>>>>>> parent of 11ac055 (update)
   <div class="aiw-inner">
     <div class="aiw-head">
       <h2>AI Alerts</h2>
@@ -371,6 +442,7 @@
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!-- FOUNDER (v20: restored after v10 cut — environmental portrait + copy) -->
 <section class="founder" id="founder" aria-label="The Foundation, restated">
   <div class="founder-media" aria-hidden="true">
@@ -470,6 +542,8 @@
 </section>
 
 
+=======
+>>>>>>> parent of 11ac055 (update)
 <!-- GET INVOLVED + CONTACT (single dropdown picker) -->
 <section class="ct-section" id="get-involved">
   <a id="contact" class="anchor-alias" aria-hidden="true"></a>
@@ -727,28 +801,28 @@ function submitContactForm(e){
 <div class="bio-modal" id="bio-modal" role="dialog" aria-labelledby="bio-modal-title" aria-modal="true">
   <div class="bio-modal-backdrop" onclick="closeBioModal()"></div>
   <div class="bio-modal-content">
-    <button class="bio-modal-close" onclick="closeBioModal()" aria-label="Close">&times;</button>
+    <button class="bio-modal-close" onclick="closeBioModal()" aria-label="Close biography">&times;</button>
     <div class="bio-modal-header">
-      <img class="bio-modal-portrait" src="images/SMheadshot2026-256.jpg" alt="" width="64" height="64">
+      <div class="bio-modal-portrait"><img loading="lazy" src="images/SMheadshot2026-256.jpg" width="88" height="88" alt="Scott McCulloch"></div>
       <div>
         <h3 id="bio-modal-title">Scott McCulloch</h3>
-        <div class="bio-modal-role">Founder, FAIR</div>
+        <p class="bio-modal-role">Founder, FAIR</p>
       </div>
     </div>
     <div class="bio-modal-body">
-      <p>Scott has spent close to two decades advising drug-development organisations on the regulatory frameworks that protect patients in clinical trials. He is in the final stages of an LLB at the University of Law, with postgraduate study in AI Law at the University of Oxford.</p>
-      <p>The Foundation grew directly out of his final LLB research project, which examined whether United Kingdom intellectual property law had been adapted to the use of artificial intelligence. The conclusion was that it had not.</p>
+      <p>Scott has spent close to two decades advising drug-development organisations on the regulatory frameworks designed to protect patients in clinical trials. He is in the final stages of an LLB at the University of Law, with postgraduate study in AI Law at the University of Oxford and Intellectual Property at Brunel University London.</p>
+      <p>The immediate catalyst for the Foundation was his final LLB research project, which examined whether United Kingdom intellectual property law had been adapted to the use of artificial intelligence by organisations and to the protection of the creators whose work increasingly trains those systems. The conclusion, on both counts, was that it had not. The Foundation is the organisation he set up in response.</p>
       <p>For the full biography, visit the <a href="founder.html">founder page</a>.</p>
     </div>
   </div>
 </div>
 
-<!-- COOKIE BANNER -->
-<div class="cookie-notice" id="cookie-bar" role="region" aria-label="Cookie consent" style="display:none">
+<!-- COOKIE NOTICE -->
+<div id="cookie-bar" class="cookie-notice" style="display:none">
   <p>This site uses privacy-friendly analytics. No third-party cookies, no cross-site tracking. <a href="privacy.html">Privacy</a>.</p>
   <div class="cookie-btns">
-    <button class="cookie-accept" onclick="(function(){try{localStorage.setItem('fair-cookies','accepted');}catch(e){}document.getElementById('cookie-bar').style.display='none';})();">OK</button>
-    <button class="cookie-reject" onclick="(function(){try{localStorage.setItem('fair-cookies','essential');}catch(e){}document.getElementById('cookie-bar').style.display='none';})();">Essential only</button>
+    <button type="button" class="cookie-accept" onclick="(function(){var b=document.getElementById('cookie-bar');if(b){b.style.display='none';}try{localStorage.setItem('fair-cookies','accepted');}catch(e){}})()">OK</button>
+    <button type="button" class="cookie-reject" onclick="(function(){var b=document.getElementById('cookie-bar');if(b){b.style.display='none';}try{localStorage.setItem('fair-cookies','rejected');}catch(e){}})()">Essential only</button>
   </div>
 </div>
 <script>
@@ -759,19 +833,29 @@ function submitContactForm(e){
   try { stored = localStorage.getItem('fair-cookies'); } catch(e) {}
   if (!stored) { b.style.display = 'flex'; }
 })();
+// Bio modal handlers
 function openBioModal(){var m=document.getElementById('bio-modal');if(!m)return;m.classList.add('open');document.body.style.overflow='hidden';}
 function closeBioModal(){var m=document.getElementById('bio-modal');if(!m)return;m.classList.remove('open');document.body.style.overflow='';}
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.getElementById('bio-modal');if(m&&m.classList.contains('open'))closeBioModal();}});
 
+<<<<<<< HEAD
 /* Safety observer (GSAP also handles, but observer kicks in if GSAP fails) */
+=======
+/* v14: Scroll reveal — above-fold immediate, below-fold on intersect, 5s safety */
+>>>>>>> parent of 11ac055 (update)
 (function(){
   var els = document.querySelectorAll('.fade-in, .fade-up');
   if (!els.length) return;
   var aboveFold = function(el){ var r = el.getBoundingClientRect(); return r.top < window.innerHeight * 0.85; };
+  /* 1. Above-fold elements: visible immediately (so the page doesn't flash blank) */
   els.forEach(function(el){ if (aboveFold(el)) el.classList.add('visible'); });
+  /* 2. Safety fallback: after 5s any element still unmarked gets revealed */
   setTimeout(function(){
-    document.querySelectorAll('.fade-in:not(.visible), .fade-up:not(.visible)').forEach(function(el){ el.classList.add('visible'); });
+    document.querySelectorAll('.fade-in:not(.visible), .fade-up:not(.visible)').forEach(function(el){
+      el.classList.add('visible');
+    });
   }, 5000);
+  /* 3. Real scroll-triggered observer for below-fold elements */
   if (!('IntersectionObserver' in window)) return;
   var obs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
@@ -779,6 +863,37 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=docum
     });
   }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
   els.forEach(function(el){ if (!el.classList.contains('visible')) obs.observe(el); });
+
+  /* Count-up on stat numbers */
+  var nums = document.querySelectorAll('.stat-num, .aiw-stat-num');
+  if (!nums.length || !('IntersectionObserver' in window)) return;
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var numObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      var raw = (el.textContent || '').trim();
+      var m = raw.match(/^([\d,]+(?:\.\d+)?)(.*)$/);
+      if (!m){ numObs.unobserve(el); return; }
+      var target = parseFloat(m[1].replace(/,/g,''));
+      var suffix = m[2];
+      if (prefersReduced || !isFinite(target)){ numObs.unobserve(el); return; }
+      var duration = 1200;
+      var start = performance.now();
+      var format = function(n){ return (target >= 100 ? Math.round(n) : (Math.round(n*10)/10)).toLocaleString('en-GB') + suffix; };
+      el.textContent = format(0);
+      var step = function(now){
+        var t = Math.min(1, (now - start) / duration);
+        var eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = format(target * eased);
+        if (t < 1) requestAnimationFrame(step);
+        else el.textContent = format(target);
+      };
+      requestAnimationFrame(step);
+      numObs.unobserve(el);
+    });
+  }, {threshold:0.5});
+  nums.forEach(function(n){ numObs.observe(n); });
 })();
 </script>
 
@@ -796,6 +911,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=docum
 <!-- Cloudflare Web Analytics -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script>
 
+<<<<<<< HEAD
 <!-- v16: GSAP CHOREOGRAPHY -->
 <script>
 (function waitForGSAP(){
@@ -870,5 +986,7 @@ window.addEventListener('load', function(){
 });
 </script>
 
+=======
+>>>>>>> parent of 11ac055 (update)
 </body>
 </html>
