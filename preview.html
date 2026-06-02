@@ -73,9 +73,15 @@
   <a href="/" class="nav-logo" aria-label="FAIR — home"><svg class="nav-logo-svg" width="56" height="18" viewBox="0 0 56 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><text x="0" y="14" font-family="Inter, system-ui, -apple-system, 'SF Pro Text', sans-serif" font-size="17" font-weight="600" letter-spacing="-0.2" fill="currentColor">FAIR</text></svg></a>
   <div class="nav-links">
     <a href="#what">What we do</a>
+<<<<<<< HEAD
     <a href="#ai-alerts-band">AI Alerts</a>
     <a href="#founder">Research</a>
     <a href="#get-involved">Get involved</a>
+=======
+    <a href="ai-alerts.html">Alerts</a>
+    <a href="reports.html">Research</a>
+    <a href="#get-involved">Contact</a>
+>>>>>>> parent of 7755744 (updates)
   </div>
   <a href="#get-involved" class="nav-cta">Get involved</a>
   <button class="mobile-toggle" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Toggle menu">
@@ -84,6 +90,7 @@
 </nav>
 <div class="mobile-menu" id="mob">
   <a href="#what" onclick="this.parentElement.classList.remove('open')">What we do</a>
+<<<<<<< HEAD
   <a href="#ai-alerts-band" onclick="this.parentElement.classList.remove('open')">AI Alerts</a>
   <a href="#founder" onclick="this.parentElement.classList.remove('open')">Research</a>
   <a href="#get-involved" onclick="this.parentElement.classList.remove('open')">Get involved</a>
@@ -107,11 +114,47 @@
   window.addEventListener('scroll', update, {passive: true});
   window.addEventListener('resize', update, {passive: true});
   update();
+=======
+  <a href="ai-alerts.html" onclick="this.parentElement.classList.remove('open')">Alerts</a>
+  <a href="reports.html" onclick="this.parentElement.classList.remove('open')">Research</a>
+  <a href="#get-involved" onclick="this.parentElement.classList.remove('open')">Contact</a>
+  <a href="#get-involved" onclick="this.parentElement.classList.remove('open')">Get involved</a>
+</div>
+<script>
+/* v2-4: Nav adaptive — transparent over hero, dark frosted glass while hero in view, light after */
+(function(){
+  var n = document.getElementById('navbar');
+  if (!n) return;
+  var hero = document.querySelector('.hero-cinematic') || document.getElementById('home');
+  var threshold = 80;
+  var onScroll = function(){
+    var y = window.scrollY;
+    var heroBottom = hero ? hero.offsetTop + hero.offsetHeight - 80 : 0;
+    // Below the hero entirely: standard light frosted glass
+    if (y > heroBottom){
+      n.classList.remove('nav-transparent');
+      n.classList.remove('nav-dark');
+      return;
+    }
+    // At top of page: transparent (let hero photo show through)
+    if (y < threshold){
+      n.classList.add('nav-transparent');
+      n.classList.add('nav-dark');  // dark mode while transparent over dark hero
+      return;
+    }
+    // Scrolled but still over the dark hero: opaque dark frosted glass
+    n.classList.remove('nav-transparent');
+    n.classList.add('nav-dark');
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll, {passive:true});
+  onScroll();
+>>>>>>> parent of 7755744 (updates)
 })();
 </script>
 
-<!-- HERO (v18: clean architecture — single .hero, arrow-only CTA) -->
-<section class="hero" id="home">
+<!-- HERO (v13: editorial hero system — <picture> + responsive sources + overlay) -->
+<section class="hero hero-cinematic hero-typographic" id="home">
   <div class="hero-media" aria-hidden="true">
     <picture>
       <source media="(max-width:720px)" srcset="https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=900&q=80&auto=format&fit=crop">
@@ -123,15 +166,15 @@
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content">
     <h1>AI rights for the United Kingdom.</h1>
-    <p>Know your rights. Watch the contracts. Push the law.</p>
+    <p class="hero-tagline">Know your rights. Watch the contracts. Push the law.</p>
     <div class="hero-btns">
       <a href="report.html" class="btn-p">Report your experience</a>
     </div>
   </div>
-  <a href="#ai-alerts-band" class="hero-cta" aria-label="Scroll down">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M12 5v14"/>
-      <path d="M7 14l5 5 5-5"/>
+  <a href="#ai-alerts-band" class="hero-scroll hero-scroll-minimal" aria-label="Scroll down">
+    <svg width="16" height="22" viewBox="0 0 24 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 4v18"/>
+      <path d="M6 16l6 6 6-6"/>
     </svg>
   </a>
 </section>
@@ -142,7 +185,9 @@
 
 <!-- WHAT WE DO — three cards (v10 Apple restraint) -->
 <section class="what" id="what" aria-label="What the Foundation does">
-  <div class="what-inner">    <h2 class="what-headline">Three things, done well.</h2>
+  <div class="what-inner">
+    <div class="what-eyebrow">The Foundation</div>
+    <h2 class="what-headline">Three things, done well.</h2>
     <div class="what-grid">
       <article class="what-card">
         <div class="what-media" aria-hidden="true">
@@ -187,70 +232,58 @@
   </div>
 </section>
 
-<!-- AI ALERTS (v19: sticky storytelling — singular premium scroll moment) -->
-<section class="ai-alerts" id="ai-alerts-band" aria-label="AI Alerts - where public AI is already operating">
-  <div class="alerts-sticky">
-    <div class="alerts-visual">
-      <div class="alerts-atmosphere" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=1600&q=80&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
-      </div>
-      <div class="alerts-map-shell">
-        <svg class="uk-map" viewBox="0 0 800 960" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <radialGradient id="pulse" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#7ec3ff"/>
-              <stop offset="100%" stop-color="transparent"/>
-            </radialGradient>
-          </defs>
-          <path class="uk-outline" d="M352 76L425 92L470 150L442 242L500 316L470 438L510 602L460 718L384 792L278 744L242 610L190 498L232 356L204 238L268 142Z"/>
-          <g class="deployments">
-            <g class="deploy-node" data-sector="nhs">
-              <circle class="node-glow" cx="372" cy="488" r="52"/>
-              <circle class="node-dot" cx="372" cy="488" r="7"/>
-            </g>
-            <g class="deploy-node" data-sector="dwp">
-              <circle class="node-glow" cx="318" cy="390" r="42"/>
-              <circle class="node-dot" cx="318" cy="390" r="6"/>
-            </g>
-            <g class="deploy-node" data-sector="police">
-              <circle class="node-glow" cx="428" cy="614" r="48"/>
-              <circle class="node-dot" cx="428" cy="614" r="7"/>
-            </g>
-            <g class="deploy-node" data-sector="immigration">
-              <circle class="node-glow" cx="408" cy="302" r="40"/>
-              <circle class="node-dot" cx="408" cy="302" r="6"/>
-            </g>
-          </g>
-        </svg>
-      </div>
+<!-- AI ALERTS BAND — signature visual: The AI State Map -->
+<section class="aiw-band aiw-dashboard-band" id="ai-alerts-band" aria-label="AI Alerts - UK public-sector AI register">
+  <!-- v15: AI State Map restored as the AI Alerts signature visual (sign moved to footer) -->
+  <div class="aiw-inner">
+    <div class="aiw-head">
+      <h2>AI Alerts</h2>
+      <p class="aiw-lede">A free register of all published information about artificial intelligence implementation by the United Kingdom Government and its respective agencies. Scanned every day. Every entry sourced.</p>
+      <div class="aiw-meta-row"><span class="aiw-pulse" aria-hidden="true"></span><span>Live &middot; Updated daily at 08:00 BST</span></div>
     </div>
-    <div class="alerts-copy">
-      <h2>AI Alerts. Where public AI is already operating.</h2>
-      <p>Healthcare. Welfare. Immigration. Policing. A continuously updated register of confirmed deployments across United Kingdom public services.</p>
-      <a href="ai-alerts.html" class="alerts-btn">Open full register</a>
-    </div>
-  </div>
 
-  <div class="alerts-chapters">
-    <article class="alert-step" data-step="nhs">
-      <h3>NHS</h3>
-      <p>Palantir. Federated Data Platform. Up to &pound;330 million. Healthcare infrastructure at national scale.</p>
-    </article>
-    <article class="alert-step" data-step="dwp">
-      <h3>DWP</h3>
-      <p>Machine learning inside welfare systems. Operational. Deployed. Largely invisible.</p>
-    </article>
-    <article class="alert-step" data-step="police">
-      <h3>Met Police</h3>
-      <p>Algorithmic systems inside policing workflows. Public accountability still developing.</p>
-    </article>
-    <article class="alert-step" data-step="immigration">
-      <h3>Home Office</h3>
-      <p>Automated assessment. Risk scoring. Administrative decision systems.</p>
-    </article>
+    <!-- Live stats -->
+    <div class="aiw-stats">
+      <div class="aiw-stat">
+        <div class="aiw-stat-num"><span id="aiw-stat-total">100</span><span class="aiw-stat-suffix">+</span></div>
+        <div class="aiw-stat-label">Confirmed entries</div>
+      </div>
+      <div class="aiw-stat">
+        <div class="aiw-stat-num" id="aiw-stat-sectors">8</div>
+        <div class="aiw-stat-label">Sectors covered</div>
+      </div>
+      <div class="aiw-stat">
+        <div class="aiw-stat-num" id="aiw-stat-latest">Today</div>
+        <div class="aiw-stat-label">Latest scan</div>
+      </div>
+      <div class="aiw-stat">
+        <div class="aiw-stat-num">&pound;<span id="aiw-stat-value">347</span><span class="aiw-stat-suffix">m+</span></div>
+        <div class="aiw-stat-label">Disclosed value</div>
+      </div>
+    </div>
+
+    <!-- Mini sector breakdown -->
+    <div class="aiw-sectors-wrap">
+      <div class="aiw-sectors-head">Coverage by sector</div>
+      <div class="aiw-sectors" id="aiw-sectors">
+        <!-- Sensible defaults; JS overrides with live counts when ai-alerts.html is reachable -->
+        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#0071e3"></span>Health</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:90%;background:#0071e3"></div></div></div>
+        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#0071e3"></span>Cross-Govt</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:75%;background:#0071e3"></div></div></div>
+        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#0071e3"></span>Policing</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:55%;background:#0071e3"></div></div></div>
+        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#0071e3"></span>Justice</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:40%;background:#0071e3"></div></div></div>
+        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#0071e3"></span>Welfare</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:35%;background:#0071e3"></div></div></div>
+        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#0071e3"></span>Immigration</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:28%;background:#0071e3"></div></div></div>
+        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#0071e3"></span>Tax</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:18%;background:#0071e3"></div></div></div>
+        <div class="aiw-sb-row"><span class="aiw-sb-label"><span class="aiw-sb-dot" style="background:#0071e3"></span>AI Safety</span><div class="aiw-sb-bar"><div class="aiw-sb-fill" style="width:15%;background:#0071e3"></div></div></div>
+      </div>
+    </div>
+
+    <div class="aiw-cta-block">
+      <p class="aiw-cta-text">See what artificial intelligence is being used in your local NHS trust, police force or council.</p>
+      <a href="ai-alerts.html" class="aiw-cta-btn">Open the full register &rarr;</a>
+    </div>
   </div>
 </section>
-
 
 <script>
 /* Pull live AI Alerts stats from ai-alerts.html and update the homepage band.
@@ -337,6 +370,7 @@
 <!-- PARTNERS section removed v2 (no real logos yet) -->
 
 
+<<<<<<< HEAD
 <!-- FOUNDER (v20: restored after v10 cut — environmental portrait + copy) -->
 <section class="founder" id="founder" aria-label="The Foundation, restated">
   <div class="founder-media" aria-hidden="true">
@@ -350,45 +384,212 @@
     <p>The Foundation for Artificial Intelligence Rights exists to increase public understanding of artificial intelligence and the rights it engages.</p>
     <p>Independent. Evidence-led. United Kingdom focused.</p>
     <a href="founder.html" class="founder-link">Read more about the Foundation &rarr;</a>
+=======
+<!-- v16: STICKY TIMELINE — "Where it's already happening" -->
+<section class="timeline-section" id="timeline" aria-label="Where AI is already deployed in UK public services">
+  <div class="timeline-inner">
+    <!-- Left column: sticky visual that evolves as you scroll -->
+    <div class="timeline-visual">
+      <div class="timeline-visual-inner">
+        <div class="timeline-eyebrow">United Kingdom · Public sector</div>
+        <h2 class="timeline-headline">Where it&rsquo;s already&nbsp;happening.</h2>
+        <p class="timeline-lede">Four institutional deployments. Each affects millions of people. None of them was put to a public vote.</p>
+        <svg class="timeline-map" viewBox="0 0 460 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <defs>
+            <radialGradient id="tl-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(0,113,227,1)"/>
+              <stop offset="50%" stop-color="rgba(0,113,227,0.55)"/>
+              <stop offset="100%" stop-color="rgba(0,113,227,0)"/>
+            </radialGradient>
+            <filter id="tl-blur" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="5"/>
+            </filter>
+          </defs>
+          <!-- Soft connecting network -->
+          <g class="timeline-network" opacity="0.14">
+            <line x1="270" y1="240" x2="240" y2="310" stroke="rgba(0,113,227,0.5)" stroke-width="0.8"/>
+            <line x1="240" y1="310" x2="260" y2="370" stroke="rgba(0,113,227,0.5)" stroke-width="0.8"/>
+            <line x1="260" y1="370" x2="300" y2="438" stroke="rgba(0,113,227,0.6)" stroke-width="1"/>
+            <line x1="270" y1="240" x2="300" y2="438" stroke="rgba(0,113,227,0.3)" stroke-width="0.6" stroke-dasharray="2 4"/>
+          </g>
+          <!-- Four chapter nodes, dim until their chapter activates -->
+          <g class="timeline-nodes">
+            <g class="timeline-node" data-step="nhs">
+              <circle class="tn-glow" cx="240" cy="310" r="18" fill="url(#tl-glow)" filter="url(#tl-blur)"/>
+              <circle class="tn-dot" cx="240" cy="310" r="5" fill="rgba(255,255,255,0.95)"/>
+              <text x="252" y="314" class="tn-label" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.86)">NHS</text>
+            </g>
+            <g class="timeline-node" data-step="dwp">
+              <circle class="tn-glow" cx="270" cy="240" r="16" fill="url(#tl-glow)" filter="url(#tl-blur)"/>
+              <circle class="tn-dot" cx="270" cy="240" r="4.5" fill="rgba(255,255,255,0.95)"/>
+              <text x="282" y="244" class="tn-label" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.86)">DWP</text>
+            </g>
+            <g class="timeline-node" data-step="ho">
+              <circle class="tn-glow" cx="260" cy="370" r="16" fill="url(#tl-glow)" filter="url(#tl-blur)"/>
+              <circle class="tn-dot" cx="260" cy="370" r="4.5" fill="rgba(255,255,255,0.95)"/>
+              <text x="272" y="374" class="tn-label" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.86)">Home Office</text>
+            </g>
+            <g class="timeline-node" data-step="met">
+              <circle class="tn-glow" cx="300" cy="438" r="22" fill="url(#tl-glow)" filter="url(#tl-blur)"/>
+              <circle class="tn-dot" cx="300" cy="438" r="6" fill="rgba(255,255,255,0.95)"/>
+              <text x="314" y="442" class="tn-label" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.86)">Met Police</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <!-- Right column: scrolling chapters -->
+    <div class="timeline-steps">
+      <article class="timeline-step" data-step="nhs">
+        <div class="timeline-step-eyebrow">Healthcare</div>
+        <h3>The NHS Federated Data Platform.</h3>
+        <p>Built by Palantir under a contract worth up to <strong>&pound;330 million</strong> awarded in November 2023. Rolling out across up to 240 trusts. The British Medical Association voted to oppose the rollout at its June 2025 representatives&rsquo; meeting.</p>
+        <a href="reports.html#nhs" class="timeline-link">Read the research &rarr;</a>
+      </article>
+      <article class="timeline-step" data-step="dwp">
+        <div class="timeline-step-eyebrow">Welfare</div>
+        <h3>The Universal Credit Advances algorithm.</h3>
+        <p>A machine-learning model operational since 2022. A DWP fairness analysis, released under FOI in late 2024, confirmed <strong>statistically significant referral and outcome disparity</strong> across age, disability, marital status and nationality. As of April 2025, DWP was still &ldquo;finalising publication&rdquo; of its algorithmic transparency records.</p>
+        <a href="reports.html#dwp" class="timeline-link">Know your rights &rarr;</a>
+      </article>
+      <article class="timeline-step" data-step="ho">
+        <div class="timeline-step-eyebrow">Immigration</div>
+        <h3>The Identify and Prioritise Immigration Cases system.</h3>
+        <p>The IPIC algorithm, in use since 2019&ndash;20, processes the cases of around <strong>41,000 people</strong> facing potential removal. Caseworkers click &ldquo;accept&rdquo; with no explanation required; rejections require written justification. ICO investigation open.</p>
+        <a href="report.html" class="timeline-link">Share your experience &rarr;</a>
+      </article>
+      <article class="timeline-step" data-step="met">
+        <div class="timeline-step-eyebrow">Policing</div>
+        <h3>Live facial recognition by the Metropolitan Police.</h3>
+        <p>LFR deployments led to <strong>962 arrests</strong> between September 2024 and September 2025, with over 1,400 cumulative since LFR was scaled up. Black and Asian respondents to the Ada / Turing Wave 2 survey were significantly more concerned about police facial recognition than the general population.</p>
+        <a href="campaigns.html" class="timeline-link">Back the campaign &rarr;</a>
+      </article>
+    </div>
+>>>>>>> parent of 7755744 (updates)
   </div>
 </section>
 
-<!-- GET INVOLVED (v20: 4-card route system) -->
-<section class="involved" id="get-involved" aria-label="Get involved with the Foundation">
-  <div class="involved-inner">
-    <h2>Get involved. Choose a route.</h2>
-    <div class="involved-grid">
-      <button class="route-card is-active" data-route="report" type="button">
-        <div class="route-title">Report an experience</div>
-        <p>Tell the Foundation where AI has been used on you. Anonymous by default.</p>
-      </button>
-      <button class="route-card" data-route="research" type="button">
-        <div class="route-title">Research &amp; media</div>
-        <p>Collaborate. Investigate. Share evidence.</p>
-      </button>
-      <button class="route-card" data-route="partner" type="button">
-        <div class="route-title">Partner with the Foundation</div>
-        <p>Institutions. Campaigns. Professional collaboration.</p>
-      </button>
-      <button class="route-card" data-route="support" type="button">
-        <div class="route-title">Support the Foundation</div>
-        <p>Funding. Networks. Strategic support.</p>
-      </button>
+
+<!-- GET INVOLVED + CONTACT (single dropdown picker) -->
+<section class="ct-section" id="get-involved">
+  <a id="contact" class="anchor-alias" aria-hidden="true"></a>
+  <div class="ct-inner">
+    <div class="ct-head">
+      <h2>Get involved or get in touch.</h2>
+      <p>Pick the option that fits. We show you exactly what to do next.</p>
     </div>
-    <div class="route-panel">
-      <div class="route-content is-active" data-panel="report">
-        <a href="report.html" class="route-cta">Report your experience &rarr;</a>
-      </div>
-      <div class="route-content" data-panel="research">
-        <a href="mailto:press@airights.org.uk" class="route-cta">Contact research team &rarr;</a>
-      </div>
-      <div class="route-content" data-panel="partner">
-        <a href="mailto:partners@airights.org.uk" class="route-cta">Discuss partnership &rarr;</a>
-      </div>
-      <div class="route-content" data-panel="support">
-        <a href="mailto:info@airights.org.uk?subject=Support%20the%20Foundation" class="route-cta">Support FAIR &rarr;</a>
+
+    <div class="ct-picker">
+      <div class="ct-select-wrap">
+        <select class="ct-select" id="ct-select" aria-label="Choose what you want to do">
+          <optgroup label="Get involved">
+            <option value="ct-story" selected>Share my experience with AI</option>
+            <option value="ct-supporter">Get the Foundation's newsletter</option>
+            <option value="ct-working-group">Volunteer with a Working Group</option>
+            <option value="ct-project-lead">Lead a project</option>
+            <option value="ct-trustee">Apply to be a Trustee</option>
+            <option value="ct-donate">Register interest in donating</option>
+          </optgroup>
+          <optgroup label="Contact">
+            <option value="ct-ask">Ask FAIR a question (public)</option>
+            <option value="ct-press">Press enquiry</option>
+            <option value="ct-partners">Partnerships and research</option>
+            <option value="ct-info">General enquiries</option>
+            <option value="ct-office">Registered office</option>
+            <option value="ct-accessibility">Report an accessibility issue</option>
+            <option value="ct-complaints">Make a complaint</option>
+            <option value="ct-safeguarding">Safeguarding concern</option>
+          </optgroup>
+        </select>
       </div>
     </div>
+
+    <div class="ct-panels">
+      <article class="ct-panel ct-panel-active" id="ct-supporter">
+        <div class="ct-panel-tag">Newsletter</div>
+        <h3>Get the Foundation's newsletter</h3>
+        <p>Subscribe to the biweekly update from the Foundation. Plain English, no tracking, easy to unsubscribe. You will get alerts on campaigns we are running and early access to learning materials.</p>
+        <a href="#newsletter-band" class="ct-cta">Go to subscribe form &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-story">
+        <div class="ct-panel-tag">Report</div>
+        <h3>Share my experience with AI</h3>
+        <p>Tell us about an experience you have had with artificial intelligence in a United Kingdom public service, school, workplace or app. Your story will be anonymised, kept secure, and used to shape our research and our campaigns.</p>
+        <a href="report.html" class="ct-cta">Open the reporting form &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-working-group">
+        <div class="ct-panel-tag">Working Groups</div>
+        <h3>Volunteer with a Working Group</h3>
+        <p>If you have lived or professional experience in any of our priority areas (patients, carers, parents, teachers, social workers, benefits claimants, lawyers, academics, technologists, journalists, public servants), we want to hear from you. Working Group members commit a few hours over a defined project window.</p>
+        <a href="board-application.html" class="ct-cta">Apply to a Working Group &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-project-lead">
+        <div class="ct-panel-tag">Project Leads</div>
+        <h3>Lead a project</h3>
+        <p>Project Leads convene one of our priority workstreams. This is a substantive, time-bound voluntary role for someone with relevant subject-matter expertise. Paid in some cases once core funding is secured.</p>
+        <a href="board-application.html" class="ct-cta">Apply to be a Project Lead &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-trustee">
+        <div class="ct-panel-tag">Governance</div>
+        <h3>Apply to be a Trustee</h3>
+        <p>The Foundation&rsquo;s founding Trustees will form our governing body and bear the legal duties associated with charitable trusteeship in England and Wales (Charity Commission CC3). We particularly welcome finance, safeguarding, fundraising and lived-experience candidates.</p>
+        <a href="board-application.html" class="ct-cta">Apply to serve as a Trustee &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-donate">
+        <div class="ct-panel-tag">Donate</div>
+        <h3>Register interest in donating</h3>
+        <p>Donations will be open as soon as our charitable registration is granted. Until then, you can register for a notification and we will write to you when Gift Aid becomes available.</p>
+        <a href="mailto:info@airights.org.uk?subject=Notify%20when%20donations%20open" class="ct-cta">Register for a notification &rarr;</a>
+      </article>
+
+      <article class="ct-panel" id="ct-ask">
+        <div class="ct-panel-tag">Ask FAIR</div>
+        <h3>Ask FAIR a question</h3>
+        <p>Have a question about artificial intelligence in a United Kingdom public service, school or app? Have a story to share? Want help understanding a letter you have received about an automated decision? Email <a href="mailto:ask@airights.org.uk">ask@airights.org.uk</a>. We read everything and reply within 5 working days.</p>
+        <a href="mailto:ask@airights.org.uk" class="ct-cta">Email ask@airights.org.uk &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-press">
+        <div class="ct-panel-tag">Press</div>
+        <h3>Press enquiry</h3>
+        <p>We respond same-day for breaking stories and within 24 hours otherwise. Subject matter includes copyright reform, AI and child safety, AI in healthcare, AI in education, parliamentary advocacy, and the parallel between pharmaceutical regulation and AI governance.</p>
+        <a href="mailto:press@airights.org.uk" class="ct-cta">Email press@airights.org.uk &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-partners">
+        <div class="ct-panel-tag">Partners</div>
+        <h3>Partnerships and research</h3>
+        <p>Partner organisations, researchers and policymakers.</p>
+        <a href="mailto:partners@airights.org.uk" class="ct-cta">Email partners@airights.org.uk &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-info">
+        <div class="ct-panel-tag">General</div>
+        <h3>General enquiries</h3>
+        <p>For anything that does not fit one of the other channels.</p>
+        <a href="mailto:info@airights.org.uk" class="ct-cta">Email info@airights.org.uk &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-office">
+        <div class="ct-panel-tag">Office</div>
+        <h3>Registered office</h3>
+        <p>International House, 50 Essex Street, London WC2R 3JF, United Kingdom. <em>This is the Foundation&rsquo;s registered correspondence address; we do not currently operate a public helpdesk in person.</em></p>
+      </article>
+      <article class="ct-panel" id="ct-accessibility">
+        <div class="ct-panel-tag">Accessibility</div>
+        <h3>Report an accessibility issue</h3>
+        <p>This site is built to WCAG 2.2 AA. If you find an accessibility issue, please email <a href="mailto:accessibility@airights.org.uk">accessibility@airights.org.uk</a> and we will fix it.</p>
+        <a href="mailto:accessibility@airights.org.uk" class="ct-cta">Email accessibility@airights.org.uk &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-complaints">
+        <div class="ct-panel-tag">Complaints</div>
+        <h3>Make a complaint</h3>
+        <p>Once registered, the Foundation will publish a complaints policy in line with Charity Commission guidance. In the interim, complaints can be sent to <a href="mailto:complaints@airights.org.uk">complaints@airights.org.uk</a>.</p>
+        <a href="mailto:complaints@airights.org.uk" class="ct-cta">Email complaints@airights.org.uk &rarr;</a>
+      </article>
+      <article class="ct-panel" id="ct-safeguarding">
+        <div class="ct-panel-tag">Safeguarding</div>
+        <h3>Safeguarding concern</h3>
+        <p>If your contact relates to a child or vulnerable adult at risk, please contact the police on 999 (urgent) or 101 (non-urgent), the NSPCC helpline on 0808 800 5000, or the Internet Watch Foundation report line at <a href="https://report.iwf.org.uk/" target="_blank" rel="noopener">report.iwf.org.uk</a>. The Foundation cannot act as a substitute for those services.</p>
+      </article>
+    </div>
+
   </div>
 </section>
 
@@ -486,31 +687,39 @@ function submitContactForm(e){
 </script>
 
 <!-- FOOTER (editorial) -->
-<!-- FOOTER (v20: 3-block simple structure) -->
-<footer class="footer" id="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="footer-mark">FAIR</div>
-      <p>The Foundation for Artificial Intelligence Rights.<br>International House, 50 Essex Street, London WC2R 3JF, United Kingdom.</p>
-    </div>
-    <nav class="footer-links" aria-label="Footer">
-      <a href="#what">What we do</a>
-      <a href="#ai-alerts-band">AI Alerts</a>
-      <a href="reports.html">Research</a>
-      <a href="#get-involved">Get involved</a>
-    </nav>
-    <div class="footer-legal-row">
-      <div class="footer-legal">&copy; 2026 The Foundation for Artificial Intelligence Rights. London. United Kingdom.</div>
-      <div class="footer-policy-links">
-        <a href="privacy.html">Privacy</a>
-        <a href="accessibility.html">Accessibility</a>
-        <a href="complaints.html">Complaints</a>
-        <a href="safeguarding.html">Safeguarding</a>
-        <a href="terms.html">Terms</a>
-        <a href="cookies.html">Cookies</a>
+<footer class="footer-editorial">
+  <div class="fe-inner">
+    <div class="fe-top">
+      <div class="fe-brand-block">
+        <div class="fe-brand">The Foundation for Artificial Intelligence Rights</div>
+        <div class="fe-address">International House, 50 Essex Street, London WC2R 3JF, United Kingdom</div>
+        <div class="fe-status">The Foundation is in the process of registering with the Charity Commission. Address above is its registered correspondence office.</div>
+        <div class="fe-recaptcha">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.</div>
       </div>
-      <div class="footer-recaptcha">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.</div>
+      <div class="fe-sign-block" aria-hidden="true">
+        <div class="street-sign street-sign-footer">
+          <div class="street-sign-row street-sign-row-top">
+            <div class="street-sign-name">Essex Street</div>
+          </div>
+          <div class="street-sign-row street-sign-row-bottom">
+            <div class="street-sign-area">London</div>
+            <div class="street-sign-postcode">WC2R&nbsp;3JF</div>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="fe-links fe-legal-only">
+      <a href="privacy.html">Privacy</a>
+      <a href="accessibility.html">Accessibility</a>
+      <a href="complaints.html">Complaints</a>
+      <a href="safeguarding.html">Safeguarding</a>
+      <a href="terms.html">Terms</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="#" onclick="(function(){try{localStorage.removeItem('fair-cookies');}catch(e){}var b=document.getElementById('cookie-bar');if(b){b.style.display='flex';b.scrollIntoView({behavior:'smooth',block:'end'});}})();return false;">Cookie preferences</a>
+      <a href="modern-slavery.html">Modern slavery statement</a>
+      <a href="conflicts.html">Conflicts of interest</a>
+    </div>
+    <div class="fe-copy">&copy; 2026 The Foundation for Artificial Intelligence Rights. This page is a preview prior to registration.</div>
   </div>
 </footer>
 
@@ -587,26 +796,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=docum
 <!-- Cloudflare Web Analytics -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script>
 
-<!-- v20: ROUTE CARD HANDLERS -->
-<script>
-(function(){
-  var cards = document.querySelectorAll('.route-card');
-  if (!cards.length) return;
-  cards.forEach(function(card){
-    card.addEventListener('click', function(){
-      var route = card.dataset.route;
-      /* toggle active card */
-      cards.forEach(function(c){ c.classList.remove('is-active'); });
-      card.classList.add('is-active');
-      /* reveal matching panel */
-      document.querySelectorAll('.route-content').forEach(function(p){
-        p.classList.toggle('is-active', p.dataset.panel === route);
-      });
-    });
-  });
-})();
-</script>
-
 <!-- v16: GSAP CHOREOGRAPHY -->
 <script>
 (function waitForGSAP(){
@@ -616,8 +805,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=docum
   var gsap = window.gsap;
   var ScrollTrigger = window.ScrollTrigger;
   gsap.registerPlugin(ScrollTrigger);
-  /* v20: perf — only fire ScrollTrigger callbacks when stable */
-  ScrollTrigger.config({ limitCallbacks: true });
 
   var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReduced) return;
@@ -628,33 +815,39 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=docum
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
   });
 
-  /* SECTION-LEVEL REVEAL — single system per reviewer spec */
-  gsap.utils.toArray('section').forEach(function(section){
-    gsap.from(section.querySelectorAll('h2, p, .what-card'), {
-      opacity: 0, y: 70, duration: 1.15, stagger: 0.14, ease: 'power3.out',
-      scrollTrigger: { trigger: section, start: 'top 78%', toggleActions: 'play none none none' }
+  /* WHAT CARDS staggered entry */
+  gsap.utils.toArray('.what-card').forEach(function(card, i){
+    card.classList.add('is-anim');
+    gsap.to(card, {
+      opacity: 1, y: 0, scale: 1, duration: 1.05, ease: 'power3.out',
+      scrollTrigger: { trigger: card, start: 'top 82%', toggleActions: 'play none none none' },
+      delay: i * 0.08
     });
   });
 
-  /* v19: AI Alerts chapter <-> deployment node coordination */
-  gsap.utils.toArray('.alert-step').forEach(function(step){
-    var id = step.dataset.step;
-    var node = document.querySelector('.deploy-node[data-sector="' + id + '"]');
+  /* TIMELINE chapter to node coordination */
+  var steps = gsap.utils.toArray('.timeline-step');
+  var nodes = gsap.utils.toArray('.timeline-node');
+  function activateStep(idx){
+    steps.forEach(function(s,i){ s.classList.toggle('is-active', i === idx); });
+    nodes.forEach(function(n,i){ n.classList.toggle('is-active', i === idx); });
+  }
+  steps.forEach(function(step, i){
     ScrollTrigger.create({
-      trigger: step,
-      start: 'top center',
-      end: 'bottom center',
-      onEnter:     function(){ step.classList.add('active'); if (node) node.classList.add('active'); },
-      onLeave:     function(){ step.classList.remove('active'); if (node) node.classList.remove('active'); },
-      onEnterBack: function(){ step.classList.add('active'); if (node) node.classList.add('active'); },
-      onLeaveBack: function(){ step.classList.remove('active'); if (node) node.classList.remove('active'); }
+      trigger: step, start: 'top 60%', end: 'bottom 40%',
+      onEnter: function(){ activateStep(i); },
+      onEnterBack: function(){ activateStep(i); }
     });
   });
+  if (steps[0] && steps[0].getBoundingClientRect().top < window.innerHeight) activateStep(0);
 
-  /* v19: Apple depth motion on the UK map */
-  gsap.to('.uk-map', {
-    rotate: -2, y: '4%', ease: 'none',
-    scrollTrigger: { trigger: '.ai-alerts', scrub: true }
+  /* Section eyebrows + headlines: GSAP reveal by direct selector */
+  gsap.utils.toArray('.what-headline, .timeline-headline, .timeline-lede, .ct-head h2, .ct-head p, .aiw-head h2, .aiw-head .aiw-lede').forEach(function(el){
+    gsap.fromTo(el,
+      { opacity: 0, y: 28 },
+      { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 86%', toggleActions: 'play none none none' }
+      });
   });
 })();
 </script>
