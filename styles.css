@@ -3058,3 +3058,34 @@ html body .nav .nav-logo svg { color: currentColor; }
   font-size: 12px;
   line-height: 1.55;
 }
+
+/* ============================================================ */
+/* V23.1 -- REVIEWER FOLLOW-THROUGH (items skipped on round 1)  */
+/* ============================================================ */
+
+/* v23.1-1: AI Alerts -- proper gap between dept name and body
+   Reviewer asked for 24px minimum. Going to 28px for breath.
+   Also pulling scroll length from 82vh per chapter to 62vh
+   so the section earns its scroll commitment. */
+.alert-step {
+  min-height: 62vh;
+}
+.alert-step p {
+  margin-top: 28px;
+}
+
+/* v23.1-2: Founder/Accountability section -- Apple-style closing link */
+.founder-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 28px;
+  color: var(--blue);
+  font-size: 17px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.founder-link:hover {
+  color: var(--blue-hover);
+  transform: translateX(3px);
+}
