@@ -12,120 +12,133 @@
 <meta property="og:url" content="https://airights.org.uk/campaigns.html">
 <meta property="og:image" content="https://airights.org.uk/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Public Sans',sans-serif;color:#0F172A;background:#FBFAF6;line-height:1.65;-webkit-font-smoothing:antialiased}
-  .topbar{background:#FFF;border-bottom:1px solid #E2E8F0;padding:14px 28px}
-  .topbar-inner{max-width:980px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-  .topbar a.brand{font-weight:800;font-size:1rem;letter-spacing:5px;color:#0065BD;text-decoration:none}
-  .topbar a.back{font-size:0.75rem;color:#64748B;text-decoration:none;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
-  .topbar a.back:hover{color:#0065BD}
-  .wrap{max-width:780px;margin:0 auto;padding:48px 28px 80px}
-  .eyebrow{display:inline-block;padding:5px 14px;border-radius:99px;background:#EBF3FA;color:#0065BD;font-size:0.6875rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
-  h1{font-size:2rem;font-weight:600;line-height:1.2;color:#0F172A;letter-spacing:-0.01em;margin-bottom:14px}
-  .lede{font-size:1.0625rem;line-height:1.55;color:#334155;font-style:italic;margin-bottom:32px}
-  .meta{font-size:0.75rem;color:#64748B;margin-bottom:32px;letter-spacing:.3px}
-  h2{font-size:1.25rem;font-weight:700;color:#0F172A;margin:36px 0 12px;padding-top:16px;border-top:1px solid #1A2942;letter-spacing:-0.005em}
-  h2:first-of-type{padding-top:0;border-top:none;margin-top:0}
-  h3{font-size:1.0625rem;font-weight:700;color:#0F172A;margin:24px 0 8px}
-  p{font-size:0.9375rem;line-height:1.75;color:#334155;margin-bottom:14px}
-  a{color:#0065BD;text-decoration:none}
-  a:hover{text-decoration:underline}
-  ul{margin:0 0 16px 22px}
-  li{font-size:0.9375rem;line-height:1.75;color:#334155;margin-bottom:6px}
-  .callout{padding:18px 22px;background:#FFF;border-left:3px solid #1A2942;margin:20px 0;font-size:0.9375rem}
-  .callout-amber{padding:18px 22px;background:rgba(250,204,21,.10);border-left:3px solid #FACC15;margin:20px 0;font-size:0.9375rem;color:#92400E}
-  .source{font-size:0.8125rem;color:#64748B;font-style:italic}
-  .source a{font-style:normal;font-weight:600}
-  .scenario{padding:24px 0;border-bottom:1px solid #D4D2CC}
-  .scenario:last-child{border-bottom:none}
-  .scenario h3{margin-top:0}
-  .cta-row{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
-  .cta-row a{display:inline-block;padding:8px 16px;background:#FFF;border:1px solid #0065BD;border-radius:3px;font-size:0.8125rem;font-weight:600;color:#0065BD;text-decoration:none}
-  .cta-row a:hover{background:#0065BD;color:#FFF}
-  .audience{padding:24px 0;border-bottom:1px solid #D4D2CC}
-  .audience:last-child{border-bottom:none}
-  .audience-label{font-size:0.6875rem;letter-spacing:1.5px;text-transform:uppercase;color:#0065BD;font-weight:700;margin-bottom:6px}
-  .signposts{margin-top:32px;padding:24px;background:#FFF;border:1px solid #D4D2CC;border-radius:4px}
-  .signposts h3{margin-top:0;font-size:0.875rem;letter-spacing:1px;text-transform:uppercase;color:#1A2942;font-weight:700;margin-bottom:14px}
-  .signposts ul{margin:0;list-style:none;padding:0}
-  .signposts li{font-size:0.875rem;line-height:1.6;margin-bottom:8px;padding-left:0}
-  .pre-launch-note{margin-top:40px;padding:20px;background:#EBF3FA;border-radius:4px;font-size:0.875rem;color:#475569;line-height:1.65}
-  .pre-launch-note strong{color:#0065BD;font-weight:700}
-  footer{margin-top:48px;padding-top:24px;border-top:1px solid #D4D2CC;font-size:0.75rem;color:#64748B;line-height:1.7}
-
-  .brand-mark{display:block;width:150px;height:auto}
-  .nav .logo,.brand{display:inline-flex;align-items:center;letter-spacing:0;font-size:0;line-height:0}
-  .logo img.brand-mark-lg,.brand-mark-lg{display:block;width:220px;height:auto;margin:0 auto}
-  @media(max-width:780px){.brand-mark{width:130px}.brand-mark-lg{width:180px}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 </head>
 <body>
-<div class="topbar">
-  <div class="topbar-inner">
-    <a href="/" class="brand"><img src="images/FAIR_logo.png" alt="FAIR" width="150" height="103" class="brand-mark"></a>
-    <a href="/" class="back">&larr; Back to home</a>
+
+<header class="site-nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">FAIR</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#what">What we do</a>
+      <a href="ai-alerts.html">AI Alerts</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#get-involved">Get involved</a>
+    </nav>
+    <a href="index.html#get-involved" class="nav-cta">Get involved</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
   </div>
-</div>
-<main class="wrap">
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a href="index.html#what">What we do</a>
+  <a href="ai-alerts.html">AI Alerts</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#get-involved">Get involved</a>
+</nav>
 
-  <span class="eyebrow">Pillar 4 of 5</span>
-  <h1>Campaigns - take action</h1>
-  <p class="lede">FAIR runs a small number of focused, time-bound campaigns at any one time. Each one has a clear ask, a clear evidence base, and a clear set of things the public can do. We will not ask you to do anything that does not actually move the needle.</p>
-  <div class="meta">Last updated: 8 May 2026</div>
+<main>
 
-  <div class="pre-launch-note">
-    <strong>Coming soon.</strong> Each campaign below will have its own micro-page with an evidence brief PDF, a "Why this matters" summary, a TheyWorkForYou-powered email-your-MP widget, an action counter, and a campaign blog. To be notified when a campaign opens for sign-on, <a href="/#newsletter-band">subscribe to FAIR Briefings</a>.
-  </div>
+  <section class="page-hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container container-narrow">
+      <a class="back-link" href="index.html">&larr; Back to FAIR</a>
+      <span class="eyebrow reveal">Pillar 4 of 5</span>
+      <h1 class="reveal">Campaigns - take action</h1>
+      <p class="lede reveal" data-delay="1">FAIR runs a small number of focused, time-bound campaigns at any one time. Each one has a clear ask, a clear evidence base, and a clear set of things the public can do. We will not ask you to do anything that does not actually move the needle.</p>
+      <p class="page-meta reveal" data-delay="1">Last updated: 8 May 2026</p>
+    </div>
+  </section>
 
-  <div class="scenario">
-    <h3>Campaign 1 - Define "meaningful human involvement", properly</h3>
-    <p>The Data (Use and Access) Act 2025 gave the Secretary of State the power to define this term by regulation. Until they do, every UK automated decision sits in a legal grey area. Our ask: a robust statutory definition with a real appeal route.</p>
-    <p class="source">Source: <a href="https://www.legislation.gov.uk/ukpga/2025/18/section/80" target="_blank" rel="noopener">DUAA s.80 (UK GDPR Article 22D)</a>.</p>
-  </div>
+  <section class="section section-light" style="padding-top:56px">
+    <div class="container container-narrow prose reveal">
 
-  <div class="scenario">
-    <h3>Campaign 2 - Licensing-first AI copyright, before the next consultation closes</h3>
-    <p>We are backing the Lords Communications and Digital Committee's <a href="https://publications.parliament.uk/pa/ld5901/ldselect/ldcomm/267/26702.htm" target="_blank" rel="noopener">HL Paper 267 recommendations</a>: rule out the commercial TDM-with-opt-out model, mandate granular transparency on training data, close the gap on style imitation and digital replicas, and create an enforceable licensing market for UK rights-holders.</p>
-    <p class="source">88% of online respondents to the December 2024 - February 2025 Government consultation backed licensing in all cases; only 3% backed the Government's preferred opt-out option. The 18 March 2026 Written Ministerial Statement formally dropped the opt-out and announced four follow-up workstreams.</p>
-  </div>
+      <div class="note">
+        <strong>Coming soon.</strong> Each campaign below will have its own micro-page with an evidence brief PDF, a "Why this matters" summary, a TheyWorkForYou-powered email-your-MP widget, an action counter, and a campaign blog. To be notified when a campaign opens for sign-on, <a href="/#newsletter-band">subscribe to FAIR Briefings</a>.
+      </div>
 
-  <div class="scenario">
-    <h3>Campaign 3 - Possession offence for nudification tools</h3>
-    <p>The <a href="https://www.gov.uk/government/collections/crime-and-policing-act-2026" target="_blank" rel="noopener">Crime and Policing Act 2026</a> (Royal Assent 29 April 2026) banned the supply of nudification tools but not their possession. We are campaigning to close that gap, working with the IWF, NSPCC, and 5Rights.</p>
-  </div>
+      <h3>Campaign 1 - Define "meaningful human involvement", properly</h3>
+      <p>The Data (Use and Access) Act 2025 gave the Secretary of State the power to define this term by regulation. Until they do, every UK automated decision sits in a legal grey area. Our ask: a robust statutory definition with a real appeal route.</p>
+      <p class="source">Source: <a href="https://www.legislation.gov.uk/ukpga/2025/18/section/80" target="_blank" rel="noopener">DUAA s.80 (UK GDPR Article 22D)</a>.</p>
 
-  <div class="scenario">
-    <h3>Campaign 4 - Mandatory transparency on UK public-sector AI</h3>
-    <p>Make the <a href="https://www.gov.uk/algorithmic-transparency-records" target="_blank" rel="noopener">Algorithmic Transparency Recording Standard</a> mandatory and enforced. As of April 2025, the DWP was still "finalising publication" of its algorithmic transparency records. The Public Law Project has shown that compliance across Whitehall is patchy.</p>
-  </div>
+      <h3>Campaign 2 - Licensing-first AI copyright, before the next consultation closes</h3>
+      <p>We are backing the Lords Communications and Digital Committee's <a href="https://publications.parliament.uk/pa/ld5901/ldselect/ldcomm/267/26702.htm" target="_blank" rel="noopener">HL Paper 267 recommendations</a>: rule out the commercial TDM-with-opt-out model, mandate granular transparency on training data, close the gap on style imitation and digital replicas, and create an enforceable licensing market for UK rights-holders.</p>
+      <p class="source">88% of online respondents to the December 2024 - February 2025 Government consultation backed licensing in all cases; only 3% backed the Government's preferred opt-out option. The 18 March 2026 Written Ministerial Statement formally dropped the opt-out and announced four follow-up workstreams.</p>
 
-  <div class="scenario">
-    <h3>Campaign 5 - A statutory right to be told when AI is used in your healthcare</h3>
-    <p>Submission to the <a href="https://www.gov.uk/government/calls-for-evidence/regulation-of-ai-in-healthcare" target="_blank" rel="noopener">MHRA National Commission into the Regulation of AI in Healthcare</a>. The Commission closed its call for evidence on 2 February 2026 and is due to report in summer 2026. The British Medical Association voted to oppose the NHS Federated Data Platform rollout at its June 2025 representatives' meeting.</p>
-  </div>
+      <h3>Campaign 3 - Possession offence for nudification tools</h3>
+      <p>The <a href="https://www.gov.uk/government/collections/crime-and-policing-act-2026" target="_blank" rel="noopener">Crime and Policing Act 2026</a> (Royal Assent 29 April 2026) banned the supply of nudification tools but not their possession. We are campaigning to close that gap, working with the IWF, NSPCC, and 5Rights.</p>
 
-  <h2>What "taking action" with FAIR looks like</h2>
-  <ul>
-    <li><strong>Read the brief.</strong> Each campaign has a four-page evidence brief written for a non-specialist reader.</li>
-    <li><strong>Email your MP.</strong> We will provide a TheyWorkForYou-backed widget with a draft you can edit. Personal emails carry far more weight than templated ones; the widget exists to make the first sentence easy.</li>
-    <li><strong>Sign an open letter.</strong> For high-profile campaigns we will run a public sign-on with named signatories.</li>
-    <li><strong>Respond to the next Government consultation.</strong> We track open consultations in <a href="/#newsletter-band">FAIR Briefings</a> and provide a draft response you can adapt.</li>
-    <li><strong>Tell us what is happening.</strong> The strongest evidence we can put in front of policymakers is what is actually happening to people in this country. <a href="report.html">Report your experience</a>.</li>
-  </ul>
+      <h3>Campaign 4 - Mandatory transparency on UK public-sector AI</h3>
+      <p>Make the <a href="https://www.gov.uk/algorithmic-transparency-records" target="_blank" rel="noopener">Algorithmic Transparency Recording Standard</a> mandatory and enforced. As of April 2025, the DWP was still "finalising publication" of its algorithmic transparency records. The Public Law Project has shown that compliance across Whitehall is patchy.</p>
 
-  <div class="callout">
-    <strong>Why we do not ask for petition signatures alone.</strong> The Government's own analysis shows large templated petitions have little legislative weight. A smaller number of well-evidenced individual emails to specific MPs with relevant constituency interests is much more effective. That is the model FAIR uses.
-  </div>
+      <h3>Campaign 5 - A statutory right to be told when AI is used in your healthcare</h3>
+      <p>Submission to the <a href="https://www.gov.uk/government/calls-for-evidence/regulation-of-ai-in-healthcare" target="_blank" rel="noopener">MHRA National Commission into the Regulation of AI in Healthcare</a>. The Commission closed its call for evidence on 2 February 2026 and is due to report in summer 2026. The British Medical Association voted to oppose the NHS Federated Data Platform rollout at its June 2025 representatives' meeting.</p>
 
-  <footer>
-    The Foundation for Artificial Intelligence Rights (FAIR) is a UK organisation. Charitable application in progress with the Charity Commission for England and Wales.
-  </footer>
+      <h2>What "taking action" with FAIR looks like</h2>
+      <ul>
+        <li><strong>Read the brief.</strong> Each campaign has a four-page evidence brief written for a non-specialist reader.</li>
+        <li><strong>Email your MP.</strong> We will provide a TheyWorkForYou-backed widget with a draft you can edit. Personal emails carry far more weight than templated ones; the widget exists to make the first sentence easy.</li>
+        <li><strong>Sign an open letter.</strong> For high-profile campaigns we will run a public sign-on with named signatories.</li>
+        <li><strong>Respond to the next Government consultation.</strong> We track open consultations in <a href="/#newsletter-band">FAIR Briefings</a> and provide a draft response you can adapt.</li>
+        <li><strong>Tell us what is happening.</strong> The strongest evidence we can put in front of policymakers is what is actually happening to people in this country. <a href="report.html">Report your experience</a>.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Why we do not ask for petition signatures alone.</strong> The Government's own analysis shows large templated petitions have little legislative weight. A smaller number of well-evidenced individual emails to specific MPs with relevant constituency interests is much more effective. That is the model FAIR uses.
+      </div>
+
+      <p class="source">The Foundation for Artificial Intelligence Rights (FAIR) is a UK organisation. Charitable application in progress with the Charity Commission for England and Wales.</p>
+
+    </div>
+  </section>
+
 </main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="brand brand-footer">FAIR</div>
+      <p>The Foundation for Artificial Intelligence Rights.<br>International House, 50 Essex Street,<br>London WC2R 3JF, United Kingdom.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html#what">What we do</a>
+      <a href="ai-alerts.html">AI Alerts</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#get-involved">Get involved</a>
+    </nav>
+    <div class="footer-legal">
+      <div class="footer-policies">
+        <a href="privacy.html">Privacy</a>
+        <a href="accessibility.html">Accessibility</a>
+        <a href="complaints.html">Complaints</a>
+        <a href="safeguarding.html">Safeguarding</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 The Foundation for Artificial Intelligence Rights. London. United Kingdom.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var nav = document.getElementById('navbar');
+    if (nav) { var u=function(){nav.classList.toggle('scrolled', window.scrollY>30);}; window.addEventListener('scroll',u,{passive:true}); u(); }
+    var t=document.getElementById('navToggle'), m=document.getElementById('mobileMenu');
+    if (t&&m){ var s=function(o){document.body.classList.toggle('menu-open',o);t.setAttribute('aria-expanded',o?'true':'false');t.setAttribute('aria-label',o?'Close menu':'Open menu');};
+      t.addEventListener('click',function(){s(!document.body.classList.contains('menu-open'));});
+      m.addEventListener('click',function(e){if(e.target.tagName==='A')s(false);});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false);}); }
+    var els=document.querySelectorAll('.reveal'), r=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(r||!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in');});}
+    else{var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -10% 0px',threshold:0.05});els.forEach(function(e){io.observe(e);});}
+  })();
+</script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "a0dfe7202b37496d9bd8d11decfd496c"}}'></script>
 </body>
 </html>
