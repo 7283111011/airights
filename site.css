@@ -547,6 +547,17 @@ body.menu-open .mobile-menu { opacity: 1; visibility: visible; transform: transl
   color: var(--text-3);
 }
 .media-tag svg { width: 22px; height: 22px; opacity: 0.55; }
+.media-credit {
+  position: absolute; z-index: 3;
+  right: 10px; bottom: 9px;
+  font-size: 11px; letter-spacing: 0.01em; line-height: 1;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.42);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  padding: 5px 10px; border-radius: var(--radius-pill);
+}
+.media-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.media-credit a:hover { color: #fff; }
 .media-wide { aspect-ratio: 21 / 9; margin: 56px 0; }
 @media (max-width: 600px) { .media-wide { aspect-ratio: 4 / 3; } }
 
