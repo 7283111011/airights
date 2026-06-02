@@ -74,7 +74,7 @@
   <div class="nav-links">
     <a href="#what">What we do</a>
     <a href="#ai-alerts-band">AI Alerts</a>
-    <a href="reports.html">Research</a>
+    <a href="#founder">Research</a>
     <a href="#get-involved">Get involved</a>
   </div>
   <a href="#get-involved" class="nav-cta">Get involved</a>
@@ -85,7 +85,7 @@
 <div class="mobile-menu" id="mob">
   <a href="#what" onclick="this.parentElement.classList.remove('open')">What we do</a>
   <a href="#ai-alerts-band" onclick="this.parentElement.classList.remove('open')">AI Alerts</a>
-  <a href="reports.html" onclick="this.parentElement.classList.remove('open')">Research</a>
+  <a href="#founder" onclick="this.parentElement.classList.remove('open')">Research</a>
   <a href="#get-involved" onclick="this.parentElement.classList.remove('open')">Get involved</a>
 </div>
 <script>
@@ -655,6 +655,24 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=docum
     scrollTrigger: { trigger: '.ai-alerts', scrub: true }
   });
 })();
+</script>
+
+<!-- v22: GSAP POLISH (final layer per reviewer patch) -->
+<script>
+window.addEventListener('load', function(){
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.to('.hero-media img', {
+    y: '8%', ease: 'none',
+    scrollTrigger: { trigger: '.hero', scrub: true }
+  });
+  gsap.utils.toArray('.what-card').forEach(function(card){
+    gsap.from(card, {
+      opacity: 0, y: 40, duration: 0.9, ease: 'power3.out',
+      scrollTrigger: { trigger: card, start: 'top 84%' }
+    });
+  });
+});
 </script>
 
 </body>
