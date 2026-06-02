@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(python -c ' *)",
-      "Bash(xargs -n 1 -P 8 -I {} sh -c 'curl -fsSL -o \"$\\(basename \"$1\"\\)\" \"$1\" || echo \"FAILED: $1\"' _ {})"
+      "Bash(xargs -n 1 -P 8 -I {} sh -c 'curl -fsSL -o \"$\\(basename \"$1\"\\)\" \"$1\" || echo \"FAILED: $1\"' _ {})",
+      "Bash(ls .claude/launch.json)",
+      "Bash(python --version)",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }
