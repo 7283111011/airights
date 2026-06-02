@@ -11,6 +11,8 @@
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/favicon.svg">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -53,174 +55,222 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{font-size:16px}
-body{font-family:'Public Sans',sans-serif;color:#0F172A;background:#0F172A;-webkit-font-smoothing:antialiased;line-height:1.6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 24px;position:relative;overflow-x:hidden}
-
-/* HERO BACKGROUND VIDEO */
-.hero-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:#0F172A}
-.hero-bg video{width:100%;height:100%;object-fit:cover;object-position:center 30%}
-.hero-overlay{position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,rgba(15,23,42,.55) 0%,rgba(15,23,42,.30) 28%,rgba(15,23,42,.30) 72%,rgba(15,23,42,.65) 100%);pointer-events:none}
-@media (prefers-reduced-motion:reduce){.hero-bg video{display:none}}
-
-/* CARD */
-.wrap{max-width:720px;width:100%;text-align:center;position:relative;z-index:1;background:rgba(251,250,246,.94);padding:52px 56px;border-radius:6px;box-shadow:0 24px 64px rgba(15,23,42,.32),0 4px 12px rgba(15,23,42,.18);backdrop-filter:saturate(120%) blur(2px);-webkit-backdrop-filter:saturate(120%) blur(2px)}
-.logo{font-weight:800;font-size:2.125rem;letter-spacing:9px;color:#0065BD;margin-bottom:36px}
-h1{font-size:1.75rem;font-weight:600;letter-spacing:-0.005em;line-height:1.3;margin-bottom:22px;color:#0F172A}
-.lede{font-size:1rem;line-height:1.85;color:#475569;margin-bottom:18px;text-align:left}
-.lede:first-of-type{font-size:1.0625rem;color:#334155}
-.divider{width:48px;height:2px;background:#0065BD;margin:36px auto}
-
-/* FOUNDER QUOTE */
-.quote-block{margin:36px auto 32px;text-align:left;max-width:560px;padding:24px 28px;border-left:3px solid #0065BD;background:#F8FAFC;border-radius:0 4px 4px 0}
-.quote-block blockquote{font-size:1rem;line-height:1.7;color:#0F172A;font-style:italic;margin-bottom:12px}
-.quote-byline{font-size:0.875rem;color:#64748B;font-weight:600;letter-spacing:.3px}
-
-/* PILLAR LINKS */
-.pri{margin:32px 0}
-.pri-label{font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0065BD;margin-bottom:14px}
-.pri-list{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.pri-list a{display:inline-block;padding:6px 14px;background:#FFF;border:1px solid #E2E8F0;border-radius:99px;font-size:0.875rem;color:#334155;font-weight:600;text-decoration:none;transition:all .2s}
-.pri-list a:hover{border-color:#0065BD;color:#0065BD}
-
-/* CONTACT */
-.contact-card{padding:28px 24px;background:#F8FAFC;border-radius:6px;text-align:left;margin-bottom:32px}
-.contact-card-label{font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0065BD;margin-bottom:14px}
-.contact-card a{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:0.9375rem;color:#0F172A;text-decoration:none;padding:8px 0;border-bottom:1px solid #E2E8F0;transition:color .2s}
-.contact-card a:last-child{border-bottom:none}
-.contact-card a:hover{color:#0065BD}
-.contact-card a span:first-child{font-weight:600}
-.contact-card a span:last-child{font-size:0.8125rem;color:#94A3B8;font-weight:500}
-
-/* NOTICE */
-.notice{margin:24px auto 0;max-width:560px;padding:14px 18px;background:rgba(250,204,21,.10);border-left:3px solid #FACC15;border-radius:3px;font-size:0.8125rem;line-height:1.65;color:#475569;text-align:left}
-.notice a{color:#92400E;text-decoration:underline}
-
-/* FOOTER */
-.footer{font-size:0.875rem;color:#64748B;line-height:1.7;margin-top:32px}
-.footer-addr{margin-bottom:16px}
-.footer-mark{margin-top:16px;font-size:0.75rem;color:#94A3B8;letter-spacing:.5px}
-.footer-mark a{color:#94A3B8;text-decoration:none;transition:color .2s}
-.footer-mark a:hover{color:#0065BD}
-
-/* NEWSLETTER */
-.signup{margin:36px auto 28px;padding:24px 26px;background:#0F172A;border-radius:6px;text-align:left;color:#FFF}
-.signup-h{font-size:1.125rem;font-weight:600;color:#FFF;margin-bottom:6px;line-height:1.35}
-.signup-blurb{font-size:0.875rem;line-height:1.65;color:rgba(255,255,255,.78);margin-bottom:14px}
-.signup-form{display:flex;gap:8px;flex-wrap:wrap;align-items:stretch}
-.signup-form input{flex:1;min-width:200px;font-family:'Public Sans',sans-serif;font-size:0.9375rem;padding:11px 14px;border:1px solid rgba(255,255,255,.18);border-radius:3px;background:rgba(255,255,255,.06);color:#FFF;outline:none;transition:border-color .2s,background .2s}
-.signup-form input::placeholder{color:rgba(255,255,255,.5)}
-.signup-form input:focus{border-color:#7EB6E8;background:rgba(255,255,255,.10)}
-.signup-form button{padding:11px 22px;border-radius:3px;background:#0065BD;color:#FFF;font-family:'Public Sans',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s;white-space:nowrap}
-.signup-form button:hover{background:#0078DC}
-.signup-fine{font-size:0.6875rem;color:rgba(255,255,255,.5);margin-top:10px;line-height:1.55}
-.signup-fine a{color:rgba(255,255,255,.75);text-decoration:underline}
-
-/* COOKIE BAR */
-.cookie-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#0F172A;padding:16px 36px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;box-shadow:0 -2px 12px rgba(0,0,0,.15)}
-.cookie-bar p{font-size:0.875rem;color:rgba(255,255,255,.85);max-width:680px;line-height:1.6;margin:0}
-.cookie-bar a{color:#FFF;text-decoration:underline}
-.cookie-btns{display:flex;gap:8px;flex-shrink:0}
-.cookie-accept{padding:8px 20px;border-radius:3px;background:#0065BD;color:#FFF;font-family:'Public Sans',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
-.cookie-accept:hover{background:#004A8C}
-.cookie-reject{padding:8px 20px;border-radius:3px;background:transparent;color:rgba(255,255,255,.75);font-family:'Public Sans',sans-serif;font-size:0.8125rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;border:1px solid rgba(255,255,255,.25);cursor:pointer;transition:all .2s}
-.cookie-reject:hover{border-color:rgba(255,255,255,.5);color:#FFF}
-
-@media(max-width:600px){
-  body{padding:20px 16px}
-  .wrap{padding:32px 24px}
-  h1{font-size:1.375rem}
-  .logo{font-size:1.625rem;letter-spacing:6px}
-  .quote-block{padding:18px 20px;margin:28px auto 24px}
-  .quote-block blockquote{font-size:0.9375rem}
-  .contact-card a{flex-direction:column;align-items:flex-start;gap:2px}
-  .cookie-bar{padding:12px 16px}
-}
-
-  .brand-mark-lg{display:block;width:240px;height:auto;margin:0 auto 36px}
-  img.logo{margin-bottom:36px}
-  @media(max-width:780px){.brand-mark-lg{width:200px}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=1">
 </head>
 <body>
 
-<!-- HERO BACKGROUND VIDEO -->
-<div class="hero-bg" aria-hidden="true">
-  <video autoplay muted loop playsinline preload="metadata" poster="images/FAIR_hero_poster.jpg">
-    <source src="images/FAIR_hero.mp4" type="video/mp4">
-  </video>
-</div>
-<div class="hero-overlay" aria-hidden="true"></div>
-
-<main class="wrap">
-  <img class="logo brand-mark-lg" src="images/FAIR_logo.png" alt="FAIR" width="240" height="164">
-  <h1>The Foundation for Artificial Intelligence Rights</h1>
-  <p class="lede">Artificial intelligence is being built into the country around you. We are here to help you understand it, push back on it, and demand it works for you.</p>
-  <p class="lede">FAIR is a new United Kingdom organisation with two jobs. The first is to help people, including children, teenagers, students, working adults, older adults, families and carers, to understand what artificial intelligence is, what it can and cannot do, and what their rights are when a public service, school, employer or application uses it. The second is to hold the people building and buying these systems to account: in Whitehall, in Parliament, in regulators&rsquo; offices, in NHS trusts, in council chambers, and in police forces.</p>
-
-  <div class="divider"></div>
-
-  <div class="quote-block">
-    <blockquote>&ldquo;Most of my career, I have supported drug development by helping organisations navigate complex regulatory requirements, ensuring patient safety and rights are upheld whilst generating data of the highest integrity.&rdquo;</blockquote>
-    <div class="quote-byline">Scott McCulloch &middot; Founder, FAIR</div>
+<header class="site-nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">FAIR</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#what">What we do</a>
+      <a href="ai-alerts.html">AI Alerts</a>
+      <a href="#about">About</a>
+      <a href="#get-involved">Get involved</a>
+    </nav>
+    <a href="#get-involved" class="nav-cta">Get involved</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
   </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a href="#what">What we do</a>
+  <a href="ai-alerts.html">AI Alerts</a>
+  <a href="#about">About</a>
+  <a href="#get-involved">Get involved</a>
+</nav>
 
-  <div class="pri">
-    <div class="pri-label">The work of the Foundation</div>
-    <div class="pri-list">
-      <a href="preview.html#mission">Mission</a>
-      <a href="preview.html#projects">Projects</a>
-      <a href="preview.html#research">Research</a>
-      <a href="ai-alerts.html">Alerts</a>
-      <a href="preview.html#contact">Contact</a>
+<main>
+
+  <section class="hero" id="home">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container">
+      <h1 class="reveal">AI rights for the <span class="accent">United Kingdom.</span></h1>
+      <p class="lede reveal" data-delay="1">Know your rights. Watch the contracts. Push the law.</p>
+      <div class="hero-actions reveal" data-delay="2">
+        <a href="report.html" class="btn btn-primary">Report your experience</a>
+        <a href="#what" class="btn btn-ghost">What we do</a>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="signup">
-    <div class="signup-h">FAIR Briefings. The biweekly newsletter.</div>
-    <p class="signup-blurb">United Kingdom only. Plain English. No tracking. Open Government consultations, recent UK court judgments, regulator decisions, the most useful new research, and the campaigns FAIR is working on this week.</p>
-    <form action="https://buttondown.com/api/emails/embed-subscribe/airights" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/airights', 'popupwindow')" class="signup-form">
-      <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
-      <button type="submit">Subscribe</button>
-    </form>
-    <p class="signup-fine">Hosted by Buttondown. See <a href="newsletter.html">newsletter details</a> and <a href="privacy.html">privacy</a>.</p>
-  </div>
-
-  <div class="divider"></div>
-
-  <div class="contact-card">
-    <div class="contact-card-label">Contact us</div>
-    <a href="mailto:ask@airights.org.uk"><span>ask@airights.org.uk</span><span>Ask FAIR (for the public)</span></a>
-    <a href="mailto:press@airights.org.uk"><span>press@airights.org.uk</span><span>Journalists</span></a>
-    <a href="mailto:partners@airights.org.uk"><span>partners@airights.org.uk</span><span>Partners, researchers, policymakers</span></a>
-    <a href="mailto:info@airights.org.uk"><span>info@airights.org.uk</span><span>General enquiries</span></a>
-  </div>
-
-  <div class="notice">
-    FAIR is in the process of registering as a charity with the Charity Commission for England and Wales. Until that is granted, FAIR operates as a not-for-profit working group and cannot accept Gift Aid. <a href="https://www.gov.uk/setting-up-charity/register-your-charity" target="_blank" rel="noopener">About charity registration</a>.
-  </div>
-
-  <div class="footer">
-    <div class="footer-addr">
-      The Foundation for Artificial Intelligence Rights<br>
-      International House, 50 Essex Street, London WC2R 3JF
+  <section class="section section-light" id="what">
+    <div class="container">
+      <h2 class="section-heading reveal">Three things, done well.</h2>
+      <p class="section-lede reveal" data-delay="1">The Foundation works on three fronts — a public register, parliamentary submissions, and a safe channel for citizens to tell us where artificial intelligence has been used on them.</p>
+      <div class="grid grid-3">
+        <article class="card reveal" data-delay="1">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 12S5 5 12 5s10.5 7 10.5 7-3.5 7-10.5 7S1.5 12 1.5 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>Watch the contracts.</h3>
+          <p>A free public register of every confirmed artificial intelligence contract, partnership and pilot involving a United Kingdom public body. Scanned daily. Every entry sourced.</p>
+          <a href="ai-alerts.html" class="link-arrow">Open AI Alerts <span class="chev">&rarr;</span></a>
+        </article>
+        <article class="card reveal" data-delay="2">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-3 6h6Z"/><path d="m19 7-3 6h6Z"/><path d="M8 21h8"/></svg>
+          </div>
+          <h3>Push the law.</h3>
+          <p>Independent, evidence-led submissions to Parliament, regulators and Government on the harms with the clearest evidence and the strongest public mandate.</p>
+          <a href="reports.html" class="link-arrow">Read the research <span class="chev">&rarr;</span></a>
+        </article>
+        <article class="card reveal" data-delay="3">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4 6v5.5c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Know your rights.</h3>
+          <p>A safe and structured channel for people in the United Kingdom to tell the Foundation when artificial intelligence has been used on them. Anonymous by default.</p>
+          <a href="report.html" class="link-arrow">Share your experience <span class="chev">&rarr;</span></a>
+        </article>
+      </div>
     </div>
-    <div class="footer-mark">
-      &copy; 2026 FAIR &middot; United Kingdom &middot;
-      <a href="privacy.html">Privacy</a> &middot;
-      <a href="accessibility.html">Accessibility</a> &middot;
-      <a href="complaints.html">Complaints</a> &middot;
-      <a href="safeguarding.html">Safeguarding</a> &middot;
-      <a href="terms.html">Terms</a> &middot;
-      <a href="cookies.html">Cookies</a> &middot;
-      <a href="#" onclick="(function(){try{localStorage.removeItem('fair-cookies');}catch(e){}var b=document.getElementById('cookie-bar');if(b){b.style.display='flex';}})();return false;">Cookie preferences</a> &middot;
-      <a href="modern-slavery.html">Modern slavery</a> &middot;
-      <a href="conflicts.html">Conflicts of interest</a>
+  </section>
+
+  <section class="section section-grey" id="alerts">
+    <div class="container container-narrow">
+      <span class="eyebrow reveal">AI Alerts</span>
+      <h2 class="section-heading reveal">Where public AI is already operating.</h2>
+      <p class="section-lede reveal" data-delay="1">Healthcare. Welfare. Immigration. Policing. A continuously updated register of confirmed deployments across United Kingdom public services.</p>
+      <figure class="media media-wide reveal" data-delay="2">
+        <span class="media-tag" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg>
+          Houses of Parliament, Westminster
+        </span>
+        <img src="images/parliament.jpg"
+             alt="The Houses of Parliament in Westminster, seat of the United Kingdom government, viewed across the River Thames."
+             loading="lazy" decoding="async"
+             onerror="this.remove()">
+      </figure>
+      <div class="alerts-stats">
+        <div class="stat reveal"><div class="stat-num">NHS</div><div class="stat-cap">Palantir Federated Data Platform — up to £330m.</div></div>
+        <div class="stat reveal" data-delay="1"><div class="stat-num">DWP</div><div class="stat-cap">Machine learning inside welfare systems.</div></div>
+        <div class="stat reveal" data-delay="2"><div class="stat-num">Police</div><div class="stat-cap">Algorithmic tools across forces.</div></div>
+        <div class="stat reveal" data-delay="3"><div class="stat-num">Home Office</div><div class="stat-cap">Automated assessment in immigration casework.</div></div>
+      </div>
+      <a href="ai-alerts.html" class="btn btn-primary reveal">Open the full register</a>
     </div>
-  </div>
+  </section>
+
+  <section class="section section-light" id="projects">
+    <div class="container">
+      <span class="eyebrow reveal">Projects</span>
+      <h2 class="section-heading reveal">Five workstreams in formation.</h2>
+      <p class="section-lede reveal" data-delay="1">The Foundation's early projects span legislative reform, child safety, public education, transparency and regulatory engagement.</p>
+      <div class="grid grid-3">
+        <a class="proj-card reveal" data-delay="1" href="project-01.html"><span class="num">Project 01</span><h3>AI Copyright and Intellectual Property Reform</h3><span class="link-arrow">View project <span class="chev">&rarr;</span></span></a>
+        <a class="proj-card reveal" data-delay="2" href="project-02.html"><span class="num">Project 02</span><h3>AI and Child Safety</h3><span class="link-arrow">View project <span class="chev">&rarr;</span></span></a>
+        <a class="proj-card reveal" data-delay="3" href="project-03.html"><span class="num">Project 03</span><h3>Public Education and AI Literacy</h3><span class="link-arrow">View project <span class="chev">&rarr;</span></span></a>
+        <a class="proj-card reveal" data-delay="1" href="project-04.html"><span class="num">Project 04</span><h3>AI Transparency and Accountability</h3><span class="link-arrow">View project <span class="chev">&rarr;</span></span></a>
+        <a class="proj-card reveal" data-delay="2" href="project-05.html"><span class="num">Project 05</span><h3>Policy and Regulatory Engagement</h3><span class="link-arrow">View project <span class="chev">&rarr;</span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-grey" id="about">
+    <div class="container about-grid">
+      <div class="about-copy">
+        <span class="eyebrow reveal">The Foundation</span>
+        <h2 class="section-heading reveal">Built for public accountability.</h2>
+        <p class="lede-prose reveal" data-delay="1">Artificial intelligence is being built into the country around you. FAIR exists to help you understand it, push back on it, and demand it works for you.</p>
+        <p class="lede-prose reveal" data-delay="2">Independent. Evidence-led. United Kingdom focused.</p>
+        <blockquote class="reveal" data-delay="2" style="margin-top:28px;padding-left:22px;border-left:3px solid var(--blue);font-size:18px;line-height:1.5;color:var(--text)">
+          &ldquo;Most of my career, I have supported drug development by helping organisations navigate complex regulatory requirements, ensuring patient safety and rights are upheld whilst generating data of the highest integrity.&rdquo;
+          <cite style="display:block;margin-top:12px;font-size:14px;font-style:normal;color:var(--text-3)">Scott McCulloch · Founder, FAIR</cite>
+        </blockquote>
+        <a href="founder.html" class="link-arrow reveal" data-delay="2" style="margin-top:26px">More about the Foundation <span class="chev">&rarr;</span></a>
+      </div>
+      <figure class="media reveal" data-delay="1">
+        <span class="media-tag" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="8" r="2"/><circle cx="9" cy="18" r="2"/><circle cx="17" cy="17" r="2"/><path d="M7 6h10M6.5 7.5 8 16M11 18h4M18 10l-1 5"/></svg>
+          Data network
+        </span>
+        <img src="images/data-network.jpg"
+             alt="Abstract visualisation of a connected data network."
+             loading="lazy" decoding="async"
+             onerror="this.remove()">
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section-light" id="newsletter">
+    <div class="container">
+      <div class="signup">
+        <span class="eyebrow reveal">Newsletter</span>
+        <h2 class="section-heading reveal" style="max-width:none">FAIR Briefings.</h2>
+        <p class="section-lede reveal" data-delay="1" style="margin-left:auto;margin-right:auto">United Kingdom only. Plain English. No tracking. Open Government consultations, recent UK court judgments, regulator decisions, the most useful new research, and the campaigns FAIR is working on this week.</p>
+        <form action="https://buttondown.com/api/emails/embed-subscribe/airights" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/airights', 'popupwindow')" class="signup-form reveal" data-delay="1">
+          <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+        <p class="signup-fine reveal" data-delay="2">Hosted by Buttondown. See <a href="newsletter.html">newsletter details</a> and <a href="privacy.html">privacy</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-grey" id="get-involved">
+    <div class="container">
+      <h2 class="section-heading reveal">Get involved.</h2>
+      <p class="section-lede reveal" data-delay="1">Four ways to work with the Foundation.</p>
+      <div class="grid grid-2">
+        <a class="route reveal" data-delay="1" href="report.html">
+          <h3>Report an experience</h3>
+          <p>Tell the Foundation where artificial intelligence has been used on you. Anonymous by default.</p>
+          <span class="link-arrow">Open the form <span class="chev">&rarr;</span></span>
+        </a>
+        <a class="route reveal" data-delay="2" href="mailto:press@airights.org.uk">
+          <h3>Research &amp; media</h3>
+          <p>Collaborate on investigations or commission Foundation research for publication.</p>
+          <span class="link-arrow">press@airights.org.uk <span class="chev">&rarr;</span></span>
+        </a>
+        <a class="route reveal" data-delay="1" href="mailto:partners@airights.org.uk">
+          <h3>Partner with us</h3>
+          <p>Institutions, campaigns and professional bodies who share the Foundation's brief.</p>
+          <span class="link-arrow">partners@airights.org.uk <span class="chev">&rarr;</span></span>
+        </a>
+        <a class="route reveal" data-delay="2" href="mailto:ask@airights.org.uk">
+          <h3>Ask FAIR</h3>
+          <p>Questions from the public about artificial intelligence and your rights.</p>
+          <span class="link-arrow">ask@airights.org.uk <span class="chev">&rarr;</span></span>
+        </a>
+      </div>
+      <div class="note reveal" style="margin-top:32px;max-width:760px">
+        FAIR is in the process of registering as a charity with the Charity Commission for England and Wales. Until that is granted, FAIR operates as a not-for-profit working group and cannot accept Gift Aid. <a href="https://www.gov.uk/setting-up-charity/register-your-charity" target="_blank" rel="noopener">About charity registration</a>.
+      </div>
+    </div>
+  </section>
+
 </main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="brand brand-footer">FAIR</div>
+      <p>The Foundation for Artificial Intelligence Rights.<br>International House, 50 Essex Street,<br>London WC2R 3JF, United Kingdom.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#what">What we do</a>
+      <a href="ai-alerts.html">AI Alerts</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#get-involved">Get involved</a>
+    </nav>
+    <div class="footer-legal">
+      <div class="footer-policies">
+        <a href="privacy.html">Privacy</a>
+        <a href="accessibility.html">Accessibility</a>
+        <a href="complaints.html">Complaints</a>
+        <a href="safeguarding.html">Safeguarding</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="modern-slavery.html">Modern slavery</a>
+        <a href="conflicts.html">Conflicts of interest</a>
+        <a href="#" onclick="(function(){try{localStorage.removeItem('fair-cookies');}catch(e){}var b=document.getElementById('cookie-bar');if(b){b.style.display='flex';}})();return false;">Cookie preferences</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 The Foundation for Artificial Intelligence Rights. London. United Kingdom.</p>
+    </div>
+  </div>
+</footer>
 
 <!-- COOKIE NOTICE -->
 <div class="cookie-bar" id="cookie-bar" style="display:none">
@@ -230,14 +280,23 @@ h1{font-size:1.75rem;font-weight:600;letter-spacing:-0.005em;line-height:1.3;mar
     <button type="button" class="cookie-reject" onclick="(function(){var b=document.getElementById('cookie-bar');if(b){b.style.display='none';}try{localStorage.setItem('fair-cookies','rejected');}catch(e){}})()">Essential only</button>
   </div>
 </div>
+
 <script>
-(function(){
-  var b = document.getElementById('cookie-bar');
-  if (!b) return;
-  var stored = null;
-  try { stored = localStorage.getItem('fair-cookies'); } catch(e) {}
-  if (!stored) { b.style.display = 'flex'; }
-})();
+  (function(){
+    var nav = document.getElementById('navbar');
+    if (nav) { var u=function(){nav.classList.toggle('scrolled', window.scrollY>30);}; window.addEventListener('scroll',u,{passive:true}); u(); }
+    var t=document.getElementById('navToggle'), m=document.getElementById('mobileMenu');
+    if (t&&m){ var s=function(o){document.body.classList.toggle('menu-open',o);t.setAttribute('aria-expanded',o?'true':'false');t.setAttribute('aria-label',o?'Close menu':'Open menu');};
+      t.addEventListener('click',function(){s(!document.body.classList.contains('menu-open'));});
+      m.addEventListener('click',function(e){if(e.target.tagName==='A')s(false);});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false);}); }
+    var els=document.querySelectorAll('.reveal'), r=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(r||!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in');});}
+    else{var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -10% 0px',threshold:0.05});els.forEach(function(e){io.observe(e);});}
+    // Cookie bar
+    var b = document.getElementById('cookie-bar');
+    if (b) { var stored=null; try{stored=localStorage.getItem('fair-cookies');}catch(e){} if(!stored){b.style.display='flex';} }
+  })();
 </script>
 
 <!-- ACCESSIBILITY: UserWay Widget -->
@@ -254,4 +313,4 @@ h1{font-size:1.75rem;font-weight:600;letter-spacing:-0.005em;line-height:1.3;mar
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script>
 
 </body>
-<
+</html>

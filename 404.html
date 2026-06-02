@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Page not found | FAIR - The Foundation for Artificial Intelligence Rights</title>
-<meta name="description" content="The page you requested could not be found. Return to airights.org.uk to continue."
+<meta name="description" content="The page you requested could not be found. Return to airights.org.uk to continue.">
 <link rel="canonical" href="https://airights.org.uk/404.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FAIR - The Foundation for Artificial Intelligence Rights">
@@ -18,51 +18,89 @@
 <meta name="twitter:title" content="Page not found | FAIR">
 <meta name="twitter:description" content="The page you requested could not be found. Return to airights.org.uk to continue.">
 <meta name="twitter:image" content="https://airights.org.uk/og-image.png">
->
 <meta name="robots" content="noindex">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Public Sans',sans-serif;color:#0F172A;background:#FFF;-webkit-font-smoothing:antialiased;line-height:1.6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 24px}
-  .wrap{max-width:560px;width:100%;text-align:center}
-  .logo{font-weight:800;font-size:1.875rem;letter-spacing:9px;color:#0065BD;margin-bottom:8px}
-  .tag{font-size:0.6875rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#64748B;margin-bottom:48px}
-  .err{font-size:5rem;font-weight:200;color:#0065BD;line-height:1;margin-bottom:14px;letter-spacing:-2px}
-  h1{font-size:1.5rem;font-weight:600;color:#0F172A;margin-bottom:14px}
-  p{font-size:0.9375rem;color:#475569;margin-bottom:28px;line-height:1.85}
-  .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-  a.btn{display:inline-block;padding:12px 24px;border-radius:4px;font-size:0.8125rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;text-decoration:none;transition:all .2s}
-  .btn-p{background:#0065BD;color:#FFF}
-  .btn-p:hover{background:#004A8C}
-  .btn-s{background:transparent;color:#0065BD;border:1px solid #0065BD}
-  .btn-s:hover{background:#EBF3FA}
-  .footer{margin-top:48px;font-size:0.75rem;color:#94A3B8}
-  .footer a{color:#94A3B8;text-decoration:none;margin:0 8px}
-  .footer a:hover{color:#0065BD}
-
-  .brand-mark-lg{display:block;width:240px;height:auto;margin:0 auto 36px}
-  img.logo{margin-bottom:36px}
-  @media(max-width:780px){.brand-mark-lg{width:200px}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 </head>
 <body>
-<main class="wrap">
-  <img class="logo brand-mark-lg" src="images/FAIR_logo.png" alt="FAIR" width="220" height="151">
-  <div class="tag">The Foundation for Artificial Intelligence Rights</div>
-  <div class="err">404</div>
-  <h1>This page could not be found.</h1>
-  <p>The link you followed may be broken, the page may have moved, or you may have mistyped the address. We are sorry for the inconvenience.</p>
-  <div class="btns">
-    <a href="/" class="btn btn-p">Back to FAIR</a>
-    <a href="mailto:info@airights.org.uk" class="btn btn-s">Contact us</a>
+
+<header class="site-nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">FAIR</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#what">What we do</a>
+      <a href="ai-alerts.html">AI Alerts</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#get-involved">Get involved</a>
+    </nav>
+    <a href="index.html#get-involved" class="nav-cta">Get involved</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
   </div>
-  <div class="footer">
-    <a href="/privacy.html">Privacy</a>&middot;<a href="/terms.html">Terms</a>&middot;<a href="/accessibility.html">Accessibility</a>
-  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a href="index.html#what">What we do</a>
+  <a href="ai-alerts.html">AI Alerts</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#get-involved">Get involved</a>
+</nav>
+
+<main>
+  <section class="error-wrap">
+    <div class="error-code">404</div>
+    <h1>This page could not be found.</h1>
+    <p>The link you followed may be broken, the page may have moved, or you may have mistyped the address. We are sorry for the inconvenience.</p>
+    <div class="hero-actions">
+      <a href="index.html" class="btn btn-primary">Back to FAIR</a>
+      <a href="index.html#get-involved" class="btn btn-ghost">Contact us</a>
+    </div>
+  </section>
 </main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="brand brand-footer">FAIR</div>
+      <p>The Foundation for Artificial Intelligence Rights.<br>International House, 50 Essex Street,<br>London WC2R 3JF, United Kingdom.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html#what">What we do</a>
+      <a href="ai-alerts.html">AI Alerts</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#get-involved">Get involved</a>
+    </nav>
+    <div class="footer-legal">
+      <div class="footer-policies">
+        <a href="privacy.html">Privacy</a>
+        <a href="accessibility.html">Accessibility</a>
+        <a href="complaints.html">Complaints</a>
+        <a href="safeguarding.html">Safeguarding</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 The Foundation for Artificial Intelligence Rights. London. United Kingdom.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var nav = document.getElementById('navbar');
+    if (nav) { var u=function(){nav.classList.toggle('scrolled', window.scrollY>30);}; window.addEventListener('scroll',u,{passive:true}); u(); }
+    var t=document.getElementById('navToggle'), m=document.getElementById('mobileMenu');
+    if (t&&m){ var s=function(o){document.body.classList.toggle('menu-open',o);t.setAttribute('aria-expanded',o?'true':'false');t.setAttribute('aria-label',o?'Close menu':'Open menu');};
+      t.addEventListener('click',function(){s(!document.body.classList.contains('menu-open'));});
+      m.addEventListener('click',function(e){if(e.target.tagName==='A')s(false);});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false);}); }
+    var els=document.querySelectorAll('.reveal'), r=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(r||!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in');});}
+    else{var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -10% 0px',threshold:0.05});els.forEach(function(e){io.observe(e);});}
+  })();
+</script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
