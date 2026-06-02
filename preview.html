@@ -70,15 +70,9 @@
   <a href="/" class="nav-logo" aria-label="FAIR — home"><svg class="nav-logo-svg" width="56" height="18" viewBox="0 0 56 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><text x="0" y="14" font-family="Inter, system-ui, -apple-system, 'SF Pro Text', sans-serif" font-size="17" font-weight="600" letter-spacing="-0.2" fill="currentColor">FAIR</text></svg></a>
   <div class="nav-links">
     <a href="#what">What we do</a>
-<<<<<<< HEAD
     <a href="#ai-alerts-band">AI Alerts</a>
     <a href="#founder">Research</a>
     <a href="#get-involved">Get involved</a>
-=======
-    <a href="ai-alerts.html">Alerts</a>
-    <a href="reports.html">Research</a>
-    <a href="#get-involved">Contact</a>
->>>>>>> parent of 7755744 (updates)
   </div>
   <a href="#get-involved" class="nav-cta">Get involved</a>
   <button class="mobile-toggle" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Toggle menu">
@@ -87,7 +81,6 @@
 </nav>
 <div class="mobile-menu" id="mob">
   <a href="#what" onclick="this.parentElement.classList.remove('open')">What we do</a>
-<<<<<<< HEAD
   <a href="#ai-alerts-band" onclick="this.parentElement.classList.remove('open')">AI Alerts</a>
   <a href="#founder" onclick="this.parentElement.classList.remove('open')">Research</a>
   <a href="#get-involved" onclick="this.parentElement.classList.remove('open')">Get involved</a>
@@ -111,42 +104,6 @@
   window.addEventListener('scroll', update, {passive: true});
   window.addEventListener('resize', update, {passive: true});
   update();
-=======
-  <a href="ai-alerts.html" onclick="this.parentElement.classList.remove('open')">Alerts</a>
-  <a href="reports.html" onclick="this.parentElement.classList.remove('open')">Research</a>
-  <a href="#get-involved" onclick="this.parentElement.classList.remove('open')">Contact</a>
-  <a href="#get-involved" onclick="this.parentElement.classList.remove('open')">Get involved</a>
-</div>
-<script>
-/* v2-4: Nav adaptive — transparent over hero, dark frosted glass while hero in view, light after */
-(function(){
-  var n = document.getElementById('navbar');
-  if (!n) return;
-  var hero = document.querySelector('.hero-cinematic') || document.getElementById('home');
-  var threshold = 80;
-  var onScroll = function(){
-    var y = window.scrollY;
-    var heroBottom = hero ? hero.offsetTop + hero.offsetHeight - 80 : 0;
-    // Below the hero entirely: standard light frosted glass
-    if (y > heroBottom){
-      n.classList.remove('nav-transparent');
-      n.classList.remove('nav-dark');
-      return;
-    }
-    // At top of page: transparent (let hero photo show through)
-    if (y < threshold){
-      n.classList.add('nav-transparent');
-      n.classList.add('nav-dark');  // dark mode while transparent over dark hero
-      return;
-    }
-    // Scrolled but still over the dark hero: opaque dark frosted glass
-    n.classList.remove('nav-transparent');
-    n.classList.add('nav-dark');
-  };
-  window.addEventListener('scroll', onScroll, {passive:true});
-  window.addEventListener('resize', onScroll, {passive:true});
-  onScroll();
->>>>>>> parent of 7755744 (updates)
 })();
 </script>
 
@@ -232,80 +189,6 @@
 <!-- AI ALERTS BAND — signature visual: The AI State Map -->
 <section class="aiw-band aiw-dashboard-band" id="ai-alerts-band" aria-label="AI Alerts - UK public-sector AI register">
   <!-- v15: AI State Map restored as the AI Alerts signature visual (sign moved to footer) -->
-<<<<<<< HEAD
-=======
-  <div class="aiw-statemap" aria-hidden="true">
-    <svg viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-      <defs>
-        <radialGradient id="node-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="rgba(0,113,227,1)" stop-opacity="1"/>
-          <stop offset="40%" stop-color="rgba(0,113,227,0.55)"/>
-          <stop offset="100%" stop-color="rgba(0,113,227,0)"/>
-        </radialGradient>
-        <filter id="node-blur" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="4"/>
-        </filter>
-      </defs>
-
-      <!-- UK mainland — 40-point polygon following actual coastline geometry -->
-      <!-- Clockwise from Cape Wrath, through Scotland east, England, Wales, NI sea, back -->
-      <path class="aiw-map-shape" d="
-        M 240 60
-        L 270 70 L 295 95 L 310 130 L 315 165 L 310 195 L 295 220 L 285 240
-        L 305 260 L 318 285 L 322 315 L 305 345 L 320 360 L 332 380 L 332 410
-        L 348 435 L 338 460 L 305 470 L 270 472 L 235 470 L 200 478 L 175 488
-        L 153 482 L 162 460 L 180 445 L 200 425 L 175 425 L 152 410 L 145 380
-        L 155 350 L 142 320 L 168 312 L 198 305 L 215 290 L 212 265 L 220 240
-        L 200 222 L 175 215 L 158 195 L 175 162 L 200 140 L 215 105 L 222 80
-        L 240 60 Z
-      " fill="rgba(0,113,227,0.10)" stroke="rgba(0,113,227,0.55)" stroke-width="1.3" stroke-linejoin="round"/>
-
-      <!-- Northern Ireland — recognisable shape, west of Galloway across the Irish Sea -->
-      <path class="aiw-map-shape" d="
-        M 115 280
-        L 132 285 L 138 305 L 132 332 L 110 340 L 90 332 L 85 308 L 95 287
-        L 115 280 Z
-      " fill="rgba(0,113,227,0.08)" stroke="rgba(0,113,227,0.42)" stroke-width="1.1" stroke-linejoin="round"/>
-
-      <!-- Institutional nodes — repositioned for new map geometry -->
-      <g class="aiw-nodes">
-        <!-- Edinburgh (Scottish Government, DWP regional) -->
-        <circle class="aiw-node-glow" cx="298" cy="195" r="15"/>
-        <circle class="aiw-node" cx="298" cy="195" r="4"/>
-        <!-- Glasgow (Police Scotland) -->
-        <circle class="aiw-node-glow" cx="272" cy="210" r="12"/>
-        <circle class="aiw-node" cx="272" cy="210" r="3.2"/>
-        <!-- Newcastle (NHS regional / DWP) -->
-        <circle class="aiw-node-glow" cx="298" cy="265" r="12"/>
-        <circle class="aiw-node" cx="298" cy="265" r="3.5"/>
-        <!-- Manchester (NHS Federated Data Platform — major node) -->
-        <circle class="aiw-node-glow aiw-node-glow-major" cx="258" cy="310" r="20"/>
-        <circle class="aiw-node aiw-node-major" cx="258" cy="310" r="5.5"/>
-        <!-- Liverpool -->
-        <circle class="aiw-node-glow" cx="225" cy="320" r="11"/>
-        <circle class="aiw-node" cx="225" cy="320" r="3"/>
-        <!-- Leeds -->
-        <circle class="aiw-node-glow" cx="290" cy="318" r="11"/>
-        <circle class="aiw-node" cx="290" cy="318" r="3"/>
-        <!-- Birmingham (Home Office regional / DWP) -->
-        <circle class="aiw-node-glow" cx="275" cy="370" r="13"/>
-        <circle class="aiw-node" cx="275" cy="370" r="4"/>
-        <!-- Cardiff (Welsh Government) -->
-        <circle class="aiw-node-glow" cx="208" cy="418" r="12"/>
-        <circle class="aiw-node" cx="208" cy="418" r="3.5"/>
-        <!-- Bristol -->
-        <circle class="aiw-node-glow" cx="242" cy="430" r="10"/>
-        <circle class="aiw-node" cx="242" cy="430" r="3"/>
-        <!-- London (Home Office, DWP, Met Police, NHS Digital, Westminster — major node) -->
-        <circle class="aiw-node-glow aiw-node-glow-major" cx="318" cy="438" r="24"/>
-        <circle class="aiw-node aiw-node-major" cx="318" cy="438" r="6.5"/>
-        <!-- Belfast (Northern Ireland Civil Service) -->
-        <circle class="aiw-node-glow" cx="110" cy="308" r="11"/>
-        <circle class="aiw-node" cx="110" cy="308" r="3.2"/>
-      </g>
-    </svg>
-  </div>
->>>>>>> parent of 11ac055 (update)
   <div class="aiw-inner">
     <div class="aiw-head">
       <h2>AI Alerts</h2>
@@ -441,8 +324,6 @@
 <!-- PARTNERS section removed v2 (no real logos yet) -->
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 <!-- FOUNDER (v20: restored after v10 cut — environmental portrait + copy) -->
 <section class="founder" id="founder" aria-label="The Foundation, restated">
   <div class="founder-media" aria-hidden="true">
@@ -456,94 +337,10 @@
     <p>The Foundation for Artificial Intelligence Rights exists to increase public understanding of artificial intelligence and the rights it engages.</p>
     <p>Independent. Evidence-led. United Kingdom focused.</p>
     <a href="founder.html" class="founder-link">Read more about the Foundation &rarr;</a>
-=======
-<!-- v16: STICKY TIMELINE — "Where it's already happening" -->
-<section class="timeline-section" id="timeline" aria-label="Where AI is already deployed in UK public services">
-  <div class="timeline-inner">
-    <!-- Left column: sticky visual that evolves as you scroll -->
-    <div class="timeline-visual">
-      <div class="timeline-visual-inner">
-        <div class="timeline-eyebrow">United Kingdom · Public sector</div>
-        <h2 class="timeline-headline">Where it&rsquo;s already&nbsp;happening.</h2>
-        <p class="timeline-lede">Four institutional deployments. Each affects millions of people. None of them was put to a public vote.</p>
-        <svg class="timeline-map" viewBox="0 0 460 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-          <defs>
-            <radialGradient id="tl-glow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="rgba(0,113,227,1)"/>
-              <stop offset="50%" stop-color="rgba(0,113,227,0.55)"/>
-              <stop offset="100%" stop-color="rgba(0,113,227,0)"/>
-            </radialGradient>
-            <filter id="tl-blur" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="5"/>
-            </filter>
-          </defs>
-          <!-- Soft connecting network -->
-          <g class="timeline-network" opacity="0.14">
-            <line x1="270" y1="240" x2="240" y2="310" stroke="rgba(0,113,227,0.5)" stroke-width="0.8"/>
-            <line x1="240" y1="310" x2="260" y2="370" stroke="rgba(0,113,227,0.5)" stroke-width="0.8"/>
-            <line x1="260" y1="370" x2="300" y2="438" stroke="rgba(0,113,227,0.6)" stroke-width="1"/>
-            <line x1="270" y1="240" x2="300" y2="438" stroke="rgba(0,113,227,0.3)" stroke-width="0.6" stroke-dasharray="2 4"/>
-          </g>
-          <!-- Four chapter nodes, dim until their chapter activates -->
-          <g class="timeline-nodes">
-            <g class="timeline-node" data-step="nhs">
-              <circle class="tn-glow" cx="240" cy="310" r="18" fill="url(#tl-glow)" filter="url(#tl-blur)"/>
-              <circle class="tn-dot" cx="240" cy="310" r="5" fill="rgba(255,255,255,0.95)"/>
-              <text x="252" y="314" class="tn-label" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.86)">NHS</text>
-            </g>
-            <g class="timeline-node" data-step="dwp">
-              <circle class="tn-glow" cx="270" cy="240" r="16" fill="url(#tl-glow)" filter="url(#tl-blur)"/>
-              <circle class="tn-dot" cx="270" cy="240" r="4.5" fill="rgba(255,255,255,0.95)"/>
-              <text x="282" y="244" class="tn-label" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.86)">DWP</text>
-            </g>
-            <g class="timeline-node" data-step="ho">
-              <circle class="tn-glow" cx="260" cy="370" r="16" fill="url(#tl-glow)" filter="url(#tl-blur)"/>
-              <circle class="tn-dot" cx="260" cy="370" r="4.5" fill="rgba(255,255,255,0.95)"/>
-              <text x="272" y="374" class="tn-label" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.86)">Home Office</text>
-            </g>
-            <g class="timeline-node" data-step="met">
-              <circle class="tn-glow" cx="300" cy="438" r="22" fill="url(#tl-glow)" filter="url(#tl-blur)"/>
-              <circle class="tn-dot" cx="300" cy="438" r="6" fill="rgba(255,255,255,0.95)"/>
-              <text x="314" y="442" class="tn-label" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.86)">Met Police</text>
-            </g>
-          </g>
-        </svg>
-      </div>
-    </div>
-    <!-- Right column: scrolling chapters -->
-    <div class="timeline-steps">
-      <article class="timeline-step" data-step="nhs">
-        <div class="timeline-step-eyebrow">Healthcare</div>
-        <h3>The NHS Federated Data Platform.</h3>
-        <p>Built by Palantir under a contract worth up to <strong>&pound;330 million</strong> awarded in November 2023. Rolling out across up to 240 trusts. The British Medical Association voted to oppose the rollout at its June 2025 representatives&rsquo; meeting.</p>
-        <a href="reports.html#nhs" class="timeline-link">Read the research &rarr;</a>
-      </article>
-      <article class="timeline-step" data-step="dwp">
-        <div class="timeline-step-eyebrow">Welfare</div>
-        <h3>The Universal Credit Advances algorithm.</h3>
-        <p>A machine-learning model operational since 2022. A DWP fairness analysis, released under FOI in late 2024, confirmed <strong>statistically significant referral and outcome disparity</strong> across age, disability, marital status and nationality. As of April 2025, DWP was still &ldquo;finalising publication&rdquo; of its algorithmic transparency records.</p>
-        <a href="reports.html#dwp" class="timeline-link">Know your rights &rarr;</a>
-      </article>
-      <article class="timeline-step" data-step="ho">
-        <div class="timeline-step-eyebrow">Immigration</div>
-        <h3>The Identify and Prioritise Immigration Cases system.</h3>
-        <p>The IPIC algorithm, in use since 2019&ndash;20, processes the cases of around <strong>41,000 people</strong> facing potential removal. Caseworkers click &ldquo;accept&rdquo; with no explanation required; rejections require written justification. ICO investigation open.</p>
-        <a href="report.html" class="timeline-link">Share your experience &rarr;</a>
-      </article>
-      <article class="timeline-step" data-step="met">
-        <div class="timeline-step-eyebrow">Policing</div>
-        <h3>Live facial recognition by the Metropolitan Police.</h3>
-        <p>LFR deployments led to <strong>962 arrests</strong> between September 2024 and September 2025, with over 1,400 cumulative since LFR was scaled up. Black and Asian respondents to the Ada / Turing Wave 2 survey were significantly more concerned about police facial recognition than the general population.</p>
-        <a href="campaigns.html" class="timeline-link">Back the campaign &rarr;</a>
-      </article>
-    </div>
->>>>>>> parent of 7755744 (updates)
   </div>
 </section>
 
 
-=======
->>>>>>> parent of 11ac055 (update)
 <!-- GET INVOLVED + CONTACT (single dropdown picker) -->
 <section class="ct-section" id="get-involved">
   <a id="contact" class="anchor-alias" aria-hidden="true"></a>
@@ -838,11 +635,7 @@ function openBioModal(){var m=document.getElementById('bio-modal');if(!m)return;
 function closeBioModal(){var m=document.getElementById('bio-modal');if(!m)return;m.classList.remove('open');document.body.style.overflow='';}
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.getElementById('bio-modal');if(m&&m.classList.contains('open'))closeBioModal();}});
 
-<<<<<<< HEAD
 /* Safety observer (GSAP also handles, but observer kicks in if GSAP fails) */
-=======
-/* v14: Scroll reveal — above-fold immediate, below-fold on intersect, 5s safety */
->>>>>>> parent of 11ac055 (update)
 (function(){
   var els = document.querySelectorAll('.fade-in, .fade-up');
   if (!els.length) return;
@@ -911,7 +704,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=docum
 <!-- Cloudflare Web Analytics -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script>
 
-<<<<<<< HEAD
 <!-- v16: GSAP CHOREOGRAPHY -->
 <script>
 (function waitForGSAP(){
@@ -986,7 +778,5 @@ window.addEventListener('load', function(){
 });
 </script>
 
-=======
->>>>>>> parent of 11ac055 (update)
 </body>
 </html>
