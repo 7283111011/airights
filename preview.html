@@ -89,16 +89,14 @@
   <a href="#get-involved" onclick="this.parentElement.classList.remove('open')">Get involved</a>
 </div>
 <script>
-/* v23: Nav scroll — clean class toggle.
-   Over hero (transparent dark): white text. Past hero (frosted white): dark text.
-   No more dark-on-dark interpolation. */
+/* v23.2: Nav scroll — Apple-style early engagement.
+   Threshold dropped from heroHeight*0.85 to 60px so the frosted-white
+   state flips in the first 60px of scroll (matching apple.com). */
 (function(){
   var nav = document.getElementById('navbar');
-  var hero = document.querySelector('.hero') || document.getElementById('home');
-  if (!nav || !hero) return;
+  if (!nav) return;
   function update(){
-    var threshold = hero.offsetHeight * 0.85;
-    if (window.scrollY > threshold) {
+    if (window.scrollY > 60) {
       nav.classList.add('nav-scrolled');
       nav.classList.remove('nav-transparent');
     } else {
