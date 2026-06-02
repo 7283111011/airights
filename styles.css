@@ -1068,3 +1068,230 @@ section p a:not(.btn-p):hover { text-decoration-color: var(--blue); }
   transition: color 0.2s var(--ease);
 }
 .what-link:hover { color: var(--blue-hover); }
+
+/* ============================================================ */
+/* V11 — VISUAL ATMOSPHERE                                      */
+/* Hybrid Direction B (institutional photo on hero)             */
+/* + Direction C (abstract gradients, topographic, UK map)      */
+/* for the other three anchor moments.                          */
+/* ============================================================ */
+
+/* v11 — design tokens extension */
+:root {
+  --constitutional-deep:  rgb(8, 16, 32);
+  --constitutional-mid:   rgb(15, 28, 56);
+  --constitutional-blue:  rgb(20, 44, 88);
+  --signal-blue:          rgba(0, 113, 227, 0.42);
+  --signal-blue-soft:     rgba(0, 113, 227, 0.14);
+  --atmosphere-fog:       rgba(245, 245, 247, 0.5);
+  --topographic:          rgba(0, 113, 227, 0.06);
+}
+
+/* ──────────────────────────────────────────────────────────
+   v11 MOMENT 1 — HERO photographic integration
+   Deeper gradient blend so Westminster feels embedded.
+   ────────────────────────────────────────────────────────── */
+.hero-typo-bg::after {
+  background:
+    linear-gradient(180deg,
+      rgba(0, 0, 0, 0.40) 0%,
+      rgba(8, 16, 32, 0.58) 40%,
+      rgba(8, 16, 32, 0.88) 100%);
+}
+/* Soft blue bottom glow — image emerges into the page colour system */
+.hero.hero-cinematic.hero-typographic::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 240px;
+  background: linear-gradient(180deg, transparent 0%, var(--constitutional-deep) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ──────────────────────────────────────────────────────────
+   v11 MOMENT 2 — WHAT WE DO atmospheric anchor
+   Subtle topographic contour pattern. Section becomes a moment.
+   ────────────────────────────────────────────────────────── */
+.what {
+  background:
+    /* Topographic contour SVG — soft Apple-blue lines drifting horizontally */
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='600' viewBox='0 0 1200 600'><g fill='none' stroke='rgba(0,113,227,0.05)' stroke-width='1'><path d='M0 80 Q300 40 600 80 T1200 80'/><path d='M0 150 Q300 110 600 150 T1200 150'/><path d='M0 230 Q300 190 600 230 T1200 230'/><path d='M0 320 Q300 280 600 320 T1200 320'/><path d='M0 420 Q300 380 600 420 T1200 420'/><path d='M0 520 Q300 480 600 520 T1200 520'/></g></svg>"),
+    /* Soft blue radial wash from top-centre */
+    radial-gradient(ellipse at 50% 0%, var(--signal-blue-soft) 0%, transparent 60%),
+    var(--bg);
+  background-size: cover, auto, auto;
+  background-position: center, center, center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+/* Signal-line divider above the headline — Apple-style separator */
+.what-inner::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--blue);
+  margin: 0 auto 32px auto;
+  opacity: 0.6;
+}
+
+/* v11 cards lift up with glass treatment */
+.what-card {
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: saturate(1.4) blur(8px);
+  backdrop-filter: saturate(1.4) blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 24px rgba(8, 16, 32, 0.06);
+}
+
+/* ──────────────────────────────────────────────────────────
+   v11 MOMENT 3 — AI ALERTS atmospheric system
+   Deep constitutional gradient + topographic overlay + UK map.
+   This is the "single dramatic visual" the reviewer asked for.
+   ────────────────────────────────────────────────────────── */
+.aiw-band, .aiw-dashboard-band {
+  background:
+    /* UK map silhouette — abstract right-side anchor */
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='500' viewBox='0 0 400 500'><g fill='rgba(0,113,227,0.08)'><path d='M200 60 Q160 80 150 120 Q140 160 165 200 Q140 215 130 250 Q145 285 175 290 Q160 320 175 360 Q200 385 235 380 Q250 350 235 320 Q260 295 245 260 Q280 240 265 200 Q295 175 275 140 Q250 110 235 90 Q220 65 200 60 Z'/></g></svg>"),
+    /* Topographic signal lines */
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1400' height='800' viewBox='0 0 1400 800'><g fill='none' stroke='rgba(0,113,227,0.10)' stroke-width='0.8'><path d='M0 100 Q350 60 700 100 T1400 100'/><path d='M0 180 Q350 140 700 180 T1400 180'/><path d='M0 280 Q350 240 700 280 T1400 280'/><path d='M0 400 Q350 360 700 400 T1400 400'/><path d='M0 540 Q350 500 700 540 T1400 540'/><path d='M0 700 Q350 660 700 700 T1400 700'/></g></svg>"),
+    /* Atmospheric radial glow */
+    radial-gradient(ellipse at 30% 40%, var(--signal-blue) 0%, transparent 55%),
+    /* Constitutional deep base */
+    linear-gradient(180deg, var(--constitutional-mid) 0%, var(--constitutional-deep) 100%);
+  background-size: 400px 500px, cover, cover, cover;
+  background-position: right 5% center, center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  color: #fff;
+  position: relative;
+}
+.aiw-bg-pattern { display: none; }
+
+.aiw-band h2, .aiw-dashboard-band h2,
+.aiw-band .aiw-head h2 { color: #fff; }
+.aiw-band .aiw-lede,
+.aiw-dashboard-band .aiw-lede { color: rgba(255, 255, 255, 0.78); }
+.aiw-band .aiw-meta-row,
+.aiw-dashboard-band .aiw-meta-row { color: rgba(255, 255, 255, 0.65); }
+.aiw-band .aiw-pulse,
+.aiw-dashboard-band .aiw-pulse {
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.18);
+}
+
+/* Stat cards on dark — glass treatment */
+.aiw-band .aiw-stat,
+.aiw-dashboard-band .aiw-stat {
+  background: rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+}
+.aiw-band .aiw-stat-num,
+.aiw-dashboard-band .aiw-stat-num { color: #fff; }
+.aiw-band .aiw-stat-suffix { color: rgba(255, 255, 255, 0.6); }
+.aiw-band .aiw-stat-label,
+.aiw-dashboard-band .aiw-stat-label { color: rgba(255, 255, 255, 0.7); }
+
+/* Sectors panel — also glass */
+.aiw-band .aiw-sectors-wrap,
+.aiw-dashboard-band .aiw-sectors-wrap {
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+.aiw-band .aiw-sectors-head,
+.aiw-dashboard-band .aiw-sectors-head { color: rgba(255, 255, 255, 0.78); }
+.aiw-band .aiw-sb-label,
+.aiw-dashboard-band .aiw-sb-label { color: rgba(255, 255, 255, 0.84); }
+.aiw-band .aiw-sb-bar,
+.aiw-dashboard-band .aiw-sb-bar { background: rgba(255, 255, 255, 0.08); }
+.aiw-band .aiw-sb-fill,
+.aiw-dashboard-band .aiw-sb-fill { background: var(--blue); }
+.aiw-band .aiw-sb-count,
+.aiw-dashboard-band .aiw-sb-count { color: rgba(255, 255, 255, 0.6); }
+
+/* CTA block on dark — atmospheric glass */
+.aiw-band .aiw-cta-block,
+.aiw-dashboard-band .aiw-cta-block {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.24);
+}
+.aiw-band .aiw-cta-text { color: rgba(255, 255, 255, 0.92); }
+
+/* ──────────────────────────────────────────────────────────
+   v11 MOMENT 4 — GET INVOLVED atmospheric close
+   Deep blue radial closing, glass panel accordion.
+   ────────────────────────────────────────────────────────── */
+.ct-section {
+  background:
+    /* Atmospheric radial close — Apple-style page-end glow */
+    radial-gradient(ellipse at 50% 100%, var(--signal-blue) 0%, transparent 50%),
+    /* Deep constitutional gradient */
+    linear-gradient(180deg, var(--bg-dark) 0%, var(--constitutional-deep) 100%);
+  color: #fff;
+  position: relative;
+}
+.ct-section::before {
+  /* Subtle signal-line divider at top */
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 1px;
+  background: var(--blue);
+  opacity: 0.5;
+  margin-top: clamp(48px, 6vw, 80px);
+}
+
+/* Accordion picker — glass treatment */
+.ct-panel {
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+}
+.ct-select {
+  background: rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: saturate(1.4) blur(8px);
+  backdrop-filter: saturate(1.4) blur(8px);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* ──────────────────────────────────────────────────────────
+   v11 — REUSABLE UTILITIES
+   Glass panel, signal divider, topographic background
+   ────────────────────────────────────────────────────────── */
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+}
+.signal-divider {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--blue);
+  margin: 0 auto;
+  opacity: 0.55;
+}
+
+/* v11 — soft section transitions: subtle constitutional-blue line between sections */
+.what + .aiw-band,
+.what + .aiw-dashboard-band {
+  border-top: 1px solid rgba(0, 113, 227, 0.06);
+}
+.aiw-band + .ct-section,
+.aiw-dashboard-band + .ct-section {
+  border-top: none;
+}
