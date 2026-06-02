@@ -2132,3 +2132,568 @@ html body .fe-top { grid-template-columns: none; }
 .street-sign-footer .street-sign-name { font-size: 15px; }
 .street-sign-footer .street-sign-area { font-size: 11px; }
 .street-sign-footer .street-sign-postcode { font-size: 11px; }
+
+/* ============================================================ */
+/* V18 — REVIEWER DROP-IN PACKAGE                               */
+/* Hero rebuild, nav interpolation, single motion, micro-labels */
+/* gone, reCAPTCHA visible, what-card Vision-Pro polish.        */
+/* ============================================================ */
+
+/* v18-1: Nav-links underline-on-hover (Apple) */
+html body .nav-links a {
+  position: relative;
+  opacity: 0.82;
+  transition: opacity 0.24s ease, color 0.24s ease;
+}
+html body .nav-links a:hover { opacity: 1; }
+html body .nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -8px;
+  width: 100%; height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+html body .nav-links a:hover::after { transform: scaleX(1); }
+
+/* v18-2: HERO rebuild — single architecture, no .hero-cinematic noise */
+.hero, section.hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #000;
+  display: block;
+  padding: 0;
+}
+.hero .hero-media {
+  position: absolute; inset: 0;
+  z-index: 0;
+}
+.hero .hero-media picture, .hero .hero-media img {
+  width: 100%; height: 100%;
+  display: block;
+}
+.hero .hero-media img {
+  object-fit: cover;
+  object-position: center 30%;
+  transform: scale(1.08);
+  filter: saturate(0.82) contrast(1.06) brightness(0.72);
+}
+.hero .hero-overlay {
+  position: absolute; inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.72));
+  pointer-events: none;
+}
+.hero .hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: var(--container);
+  margin: 0 auto;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 40px;
+  color: #fff;
+}
+.hero .hero-content h1 {
+  font-size: clamp(3.6rem, 9vw, 8rem);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  max-width: 12ch;
+  color: #fff;
+  font-weight: 600;
+  margin: 0;
+}
+.hero .hero-content p {
+  margin-top: 24px;
+  font-size: 1.35rem;
+  opacity: 0.86;
+  max-width: 38ch;
+  color: #fff;
+  font-weight: 400;
+}
+.hero .hero-btns { margin-top: 38px; }
+
+/* v18-8: HERO CTA — arrow only, Apple-restrained */
+.hero-cta {
+  position: absolute;
+  left: 50%;
+  bottom: 44px;
+  transform: translateX(-50%);
+  opacity: 0.56;
+  color: #fff;
+  text-decoration: none;
+  z-index: 4;
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.hero-cta:hover {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+.hero-cta svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* v18-5: What card — Vision Pro-ish radius + slow media transition */
+.what-card {
+  overflow: hidden;
+  border-radius: 34px;
+}
+.what-media {
+  overflow: hidden;
+}
+.what-media img {
+  transition: transform 1.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.what-card:hover .what-media img {
+  transform: scale(1.05);
+}
+
+/* v18-6: Hide eyebrows site-wide (HTML removed but CSS safety) */
+.what-eyebrow, .timeline-eyebrow, .timeline-step-eyebrow { display: none !important; }
+
+/* v18-7: reCAPTCHA badge visible (reverse v14 hide) */
+.grecaptcha-badge {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  z-index: 999999 !important;
+}
+
+/* v18-8: Kill bounce keyframe + legacy hero classes */
+@keyframes bounce { 0%,100%{ transform: none; } 50%{ transform: none; } }
+.hero-cinematic, .hero-typographic,
+.hero-typo-bg, .hero-typo-bg::after,
+.hero-scroll-label, .hero-scroll-arrow,
+.hero-scroll, .hero-scroll-minimal {
+  /* Legacy class names — neutralised but their elements were swapped out */
+}
+
+/* v18: Nav text colour — controlled by JS inline style now, but ensure cascade */
+html body .nav .nav-links a { color: inherit; }
+html body .nav .nav-logo { color: inherit; }
+html body .nav .nav-logo svg { color: currentColor; }
+
+/* ============================================================ */
+/* V19 — AI ALERTS REBUILD (PART II)                            */
+/* Sticky storytelling: left sticky map + right scrolling       */
+/* chapters. Replaces both old AI Alerts band AND old timeline. */
+/* ============================================================ */
+
+.ai-alerts {
+  background: linear-gradient(180deg, #05070a 0%, #10151d 100%);
+  color: #fff;
+  padding: 0;
+  position: relative;
+}
+
+/* Sticky top: map column + copy column */
+.alerts-sticky {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  min-height: 100vh;
+}
+@media (max-width: 980px) {
+  .alerts-sticky { grid-template-columns: 1fr; }
+}
+
+.alerts-visual {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Atmospheric blurred image behind the map */
+.alerts-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.18;
+  pointer-events: none;
+}
+.alerts-atmosphere img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(10px) saturate(0.72);
+}
+
+.alerts-map-shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uk-map {
+  width: 78%;
+  max-width: 760px;
+  height: auto;
+  display: block;
+}
+.uk-outline {
+  fill: rgba(255, 255, 255, 0.03);
+  stroke: rgba(126, 195, 255, 0.34);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+.node-glow {
+  fill: url(#pulse);
+  opacity: 0.24;
+}
+.node-dot {
+  fill: #fff;
+}
+.deploy-node {
+  opacity: 0.18;
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.deploy-node.active {
+  opacity: 1;
+}
+.deploy-node.active .node-glow {
+  opacity: 0.7;
+  animation: deployPulse 3s ease-in-out infinite;
+}
+@keyframes deployPulse {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 0.9; }
+}
+
+.alerts-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+  min-height: 100vh;
+}
+@media (max-width: 980px) {
+  .alerts-copy { padding: 48px 28px; min-height: auto; }
+  .alerts-visual { position: relative; height: 60vh; }
+}
+.alerts-copy h2 {
+  font-size: clamp(3rem, 7vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  max-width: 12ch;
+  color: #fff;
+  font-weight: 600;
+  margin: 0;
+}
+.alerts-copy p {
+  margin-top: 32px;
+  font-size: 1.18rem;
+  opacity: 0.78;
+  max-width: 36ch;
+  color: #fff;
+}
+.alerts-btn {
+  margin-top: 44px;
+  width: max-content;
+  display: inline-flex; align-items: center;
+  padding: 13px 26px;
+  border-radius: var(--radius-pill);
+  background: var(--blue);
+  color: #fff;
+  font-size: 17px; font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.alerts-btn:hover { background: var(--blue-hover); }
+
+/* Scrolling chapters */
+.alerts-chapters {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 10vh 28px 20vh;
+}
+.alert-step {
+  min-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0.32;
+  transition: opacity 0.45s ease;
+}
+.alert-step.active { opacity: 1; }
+.alert-step h3 {
+  font-size: clamp(2rem, 4vw, 4rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: #fff;
+  font-weight: 600;
+  margin: 0;
+}
+.alert-step p {
+  margin-top: 18px;
+  font-size: 1.2rem;
+  line-height: 1.55;
+  max-width: 36ch;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* Override v17 quiet AI Alerts background (the new sticky version sets its own) */
+.ai-alerts.aiw-band,
+.ai-alerts.aiw-dashboard-band { background: linear-gradient(180deg, #05070a 0%, #10151d 100%); }
+
+/* ============================================================ */
+/* V20 — PART III: GET INVOLVED + FOUNDER + FOOTER REBUILD      */
+/* ============================================================ */
+
+/* v20-1: GET INVOLVED — 4-card route system */
+.involved {
+  background: #fff;
+  color: var(--text);
+  padding: clamp(96px, 12vw, 192px) 28px;
+}
+.involved-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.involved h2 {
+  font-size: clamp(3rem, 7vw, 6rem);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  font-weight: 600;
+  max-width: 16ch;
+  color: var(--text);
+}
+.involved-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 72px;
+}
+@media (max-width: 720px) {
+  .involved-grid { grid-template-columns: 1fr; }
+}
+.route-card {
+  text-align: left;
+  padding: 36px;
+  border-radius: 32px;
+  background: rgba(245, 245, 247, 0.9);
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+  transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+              background 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+.route-card:hover {
+  transform: translateY(-6px);
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+.route-card.is-active {
+  background: #fff;
+  border-color: rgba(0, 113, 227, 0.4);
+  box-shadow: 0 12px 32px rgba(0, 113, 227, 0.08);
+}
+.route-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--text);
+}
+.route-card p {
+  margin-top: 16px;
+  opacity: 0.72;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.route-panel {
+  margin-top: 56px;
+  min-height: 56px;
+}
+.route-content { display: none; }
+.route-content.is-active { display: block; }
+.route-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  background: var(--blue);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 980px;
+  font-weight: 500;
+  font-size: 17px;
+  transition: background 0.2s ease;
+}
+.route-cta:hover { background: var(--blue-hover); }
+
+/* v20-2: FOUNDER — large environmental portrait + copy */
+.founder {
+  background: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(120px, 14vw, 224px) 40px;
+}
+@media (max-width: 980px) {
+  .founder { grid-template-columns: 1fr; gap: 48px; padding: 96px 28px; }
+}
+.founder-media {
+  overflow: hidden;
+  border-radius: 42px;
+  aspect-ratio: 4 / 5;
+  background: var(--bg-grey);
+}
+.founder-media picture, .founder-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.founder-media img {
+  object-fit: cover;
+  filter: saturate(0.84) contrast(1.02);
+  transition: transform 1.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.founder:hover .founder-media img { transform: scale(1.03); }
+.founder-copy h2 {
+  font-size: clamp(3rem, 6vw, 6rem);
+  letter-spacing: -0.05em;
+  line-height: 1.02;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+  max-width: 14ch;
+}
+.founder-copy p {
+  margin-top: 24px;
+  font-size: 1.15rem;
+  opacity: 0.78;
+  max-width: 40ch;
+  color: var(--text-2);
+  line-height: 1.55;
+}
+
+/* v20-3: FOOTER — simple 3-block */
+.footer, footer.footer {
+  background: var(--bg-grey);
+  color: var(--text);
+  padding: 64px 0 28px;
+  border-top: none;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.footer-brand {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.footer-mark {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.footer-brand p {
+  font-size: 13px;
+  color: var(--text-3);
+  line-height: 1.5;
+  margin: 0;
+  text-align: right;
+  max-width: 40ch;
+}
+@media (max-width: 720px) {
+  .footer-brand p { text-align: left; }
+}
+.footer-links {
+  display: flex;
+  gap: 22px;
+  margin-top: 42px;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  opacity: 0.72;
+  color: var(--text);
+  font-size: 14px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.footer-links a:hover { opacity: 1; }
+.footer-legal-row {
+  margin-top: 42px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-legal {
+  opacity: 0.48;
+  font-size: 0.86rem;
+  color: var(--text-3);
+}
+.footer-policy-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 18px;
+  font-size: 11px;
+}
+.footer-policy-links a {
+  color: var(--text-3);
+  opacity: 0.6;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.footer-policy-links a:hover { opacity: 1; }
+.footer-recaptcha {
+  font-size: 10px;
+  color: var(--text-3);
+  opacity: 0.6;
+  line-height: 1.5;
+  max-width: 70ch;
+}
+.footer-recaptcha a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* v20: reCAPTCHA badge positioning */
+.grecaptcha-badge {
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 999999 !important;
+  bottom: 18px !important;
+  right: 18px !important;
+}
+
+/* v20: Performance — content-visibility on lazy images */
+.what-media img, .founder-media img, .alerts-atmosphere img {
+  content-visibility: auto;
+}
+
+/* Strip the v19 .fe-* footer rules — old footer structure is gone */
+.fe-inner, .fe-top, .fe-brand-block, .fe-sign-block,
+.fe-brand, .fe-address, .fe-status, .fe-recaptcha,
+.fe-links, .fe-copy { display: revert; }
