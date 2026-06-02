@@ -986,25 +986,85 @@ section p a:not(.btn-p):hover { text-decoration-color: var(--blue); }
 @media (max-width: 720px) {
   .hero-scroll { display: none; }
 }
---bg-grey);
-  font-size: 18px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-}
-.bio-modal-close:hover { background: rgba(0, 0, 0, 0.12); }
-.bio-modal-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
-.bio-modal-portrait { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
-.bio-modal-role { font-size: 13px; color: var(--text-3); }
-.bio-modal-body p { font-size: 15px; color: var(--text-2); line-height: 1.6; }
-.bio-modal-body a { color: var(--blue); text-decoration: underline; }
 
 /* ──────────────────────────────────────────────────────────
-   23. UTILITIES
+   24. WHAT WE DO — v10 three-card Apple section
    ────────────────────────────────────────────────────────── */
 
-.sb-wide { max-width: 72ch; }
-
-/* Hide scroll arrow on small screens */
-@media (max-width: 720px) {
-  .hero-scroll { display: none; }
+.what {
+  background: var(--bg);
+  padding: clamp(96px, 12vw, 160px) 28px;
 }
+.what-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  text-align: center;
+}
+.what-eyebrow {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+  margin-bottom: 18px;
+}
+.what-headline {
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 600;
+  letter-spacing: -0.024em;
+  line-height: 1.04;
+  color: var(--text);
+  margin: 0 auto 72px auto;
+  max-width: 18ch;
+}
+.what-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  text-align: left;
+}
+@media (max-width: 880px) {
+  .what-grid { grid-template-columns: 1fr; gap: 24px; }
+  .what-headline { margin-bottom: 48px; }
+}
+.what-card {
+  background: var(--bg-grey);
+  border-radius: 24px;
+  padding: 48px 36px 40px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s var(--ease);
+}
+.what-card:hover { transform: translateY(-4px); }
+.what-num {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+.what-card h3 {
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.08;
+  color: var(--text);
+  margin: 0 0 20px 0;
+  max-width: 14ch;
+}
+.what-card p {
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--text-2);
+  margin: 0 0 28px 0;
+  flex: 1;
+}
+.what-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--blue);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+.what-link:hover { color: var(--blue-hover); }
