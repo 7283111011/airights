@@ -21,102 +21,146 @@
 <title>Policy and Regulatory Engagement | FAIR</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 </head>
 <body>
 
-<nav class="nav scrolled" id="navbar">
-  <a href="preview.html" class="nav-logo"><img src="images/FAIR_logo.png" alt="FAIR" width="150" height="103" class="brand-mark"></a>
-  <div class="nav-links">
-    <a href="preview.html#mission" style="color:#334155">Mission</a>
-    <a href="preview.html#concerns" style="color:#334155">Concerns</a>
-    <a href="preview.html#projects" style="color:#334155">Projects</a>
-    <a href="preview.html#news" style="color:#334155">News</a>
-    <a href="preview.html#founder" style="color:#334155">Founder</a>
-    <a href="preview.html#contact" style="color:#334155">Contact</a>
+<header class="site-nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">FAIR</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#what">What we do</a>
+      <a href="ai-alerts.html">AI Alerts</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#get-involved">Get involved</a>
+    </nav>
+    <a href="index.html#get-involved" class="nav-cta">Get involved</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
   </div>
-  <a href="preview.html#contact" class="nav-cta" style="background:#0065BD;color:#FFF;border:1px solid #0065BD">Get involved</a>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a href="index.html#what">What we do</a>
+  <a href="ai-alerts.html">AI Alerts</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#get-involved">Get involved</a>
 </nav>
 
-<section class="proj-hero">
-  <div class="proj-hero-bg" style="background-image:url('https://t4.ftcdn.net/jpg/02/50/90/33/500_F_250903337_bKXo9uNrpU2rtQ0xXHFhNnBitK3D955a.jpg')"></div>
-  <div class="proj-hero-ov"></div>
-  <div class="proj-hero-inner">
-    <div class="proj-back"><a href="preview.html#projects">&larr; All projects</a></div>
-    <div class="proj-num">Project 05</div>
-    <h1>Policy and Regulatory Engagement</h1>
-    <p>FAIR will engage directly with Parliamentarians, submit expert evidence to Select Committees, draft model provisions, and work with cross party groups to ensure the forthcoming AI Bill contains enforceable rights and genuine accountability.</p>
-  </div>
-</section>
+<main>
 
-<section class="proj-meta">
-  <div class="proj-meta-inner">
-    <div class="proj-meta-row">
-      <div class="proj-meta-cell">
-        <div class="proj-meta-label">Project Lead</div>
-        <div class="proj-meta-val">To be appointed on formation of the Board</div>
-      </div>
-      <div class="proj-meta-cell">
-        <div class="proj-meta-label">Status</div>
-        <div class="proj-meta-val"><span class="status-dot status-planning"></span>In planning</div>
-      </div>
-      <div class="proj-meta-cell">
-        <div class="proj-meta-label">Workstream</div>
-        <div class="proj-meta-val">Core function</div>
-      </div>
+  <section class="page-hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container container-narrow">
+      <a class="back-link" href="index.html#projects">&larr; All projects</a>
+      <span class="eyebrow reveal">Project 05</span>
+      <h1 class="reveal">Policy and Regulatory Engagement</h1>
+      <p class="lede reveal" data-delay="1">FAIR will engage directly with Parliamentarians, submit expert evidence to Select Committees, draft model provisions, and work with cross party groups to ensure the forthcoming AI Bill contains enforceable rights and genuine accountability.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="proj-body">
-  <div class="proj-body-inner">
+  <section class="section section-light" style="padding-top:48px">
+    <div class="container container-narrow">
 
-    <h2>Background</h2>
-    <p>The AI (Regulation) Bill, having progressed through earlier parliamentary stages, has stalled. Successive Governments have deferred comprehensive AI legislation. The 2025 King&rsquo;s Speech and the 2026 Action Plan signalled a continued preference for non statutory mechanisms. FAIR considers that this position is no longer tenable in light of documented harms across healthcare, education, financial services, child safety, and the creative industries.</p>
+      <div class="meta-row reveal">
+        <div class="meta-cell">
+          <div class="meta-label">Project Lead</div>
+          <div class="meta-val">To be appointed on formation of the Board</div>
+        </div>
+        <div class="meta-cell">
+          <div class="meta-label">Status</div>
+          <div class="meta-val"><span class="status-dot status-planning"></span>In planning</div>
+        </div>
+        <div class="meta-cell">
+          <div class="meta-label">Workstream</div>
+          <div class="meta-val">Core function</div>
+        </div>
+      </div>
 
-    <h2>What FAIR will deliver</h2>
-    <ul class="proj-list">
-      <li>Expert written and oral evidence to relevant Select Committees, including the Science, Innovation and Technology Committee and the House of Lords AI in Weapon Systems Committee, where invited.</li>
-      <li>Draft model provisions corresponding to each of FAIR&rsquo;s priority areas, suitable for incorporation into a Government bill or a Private Member&rsquo;s bill.</li>
-      <li>Direct engagement with Parliamentarians on a cross party basis.</li>
-      <li>Public commentary on every significant AI policy development through plain-language briefings.</li>
-      <li>Submissions to Government and regulatory consultations on AI matters.</li>
-    </ul>
+      <div class="prose reveal" style="margin-top:48px">
 
-    <h2>Relevant legislation and instruments</h2>
-    <ul class="proj-list">
-      <li>AI (Regulation) Bill</li>
-      <li>AI Opportunities Action Plan 2026</li>
-      <li>King&rsquo;s Speech 2026 legislative programme</li>
-      <li>House of Commons Standing Orders relating to Select Committee evidence</li>
-    </ul>
+        <h2>Background</h2>
+        <p>The AI (Regulation) Bill, having progressed through earlier parliamentary stages, has stalled. Successive Governments have deferred comprehensive AI legislation. The 2025 King&rsquo;s Speech and the 2026 Action Plan signalled a continued preference for non statutory mechanisms. FAIR considers that this position is no longer tenable in light of documented harms across healthcare, education, financial services, child safety, and the creative industries.</p>
 
-    <h2>Further reading</h2>
-    <ul class="proj-list">
-      <li><a href="https://bills.parliament.uk/bills/3942" target="_blank" rel="noopener">AI (Regulation) Bill</a></li>
-      <li><a href="https://www.gov.uk/government/publications/ai-opportunities-action-plan" target="_blank" rel="noopener">AI Opportunities Action Plan</a></li>
-      <li><a href="https://committees.parliament.uk/" target="_blank" rel="noopener">UK Parliament Committees</a></li>
-    </ul>
+        <h2>What FAIR will deliver</h2>
+        <ul>
+          <li>Expert written and oral evidence to relevant Select Committees, including the Science, Innovation and Technology Committee and the House of Lords AI in Weapon Systems Committee, where invited.</li>
+          <li>Draft model provisions corresponding to each of FAIR&rsquo;s priority areas, suitable for incorporation into a Government bill or a Private Member&rsquo;s bill.</li>
+          <li>Direct engagement with Parliamentarians on a cross party basis.</li>
+          <li>Public commentary on every significant AI policy development through plain-language briefings.</li>
+          <li>Submissions to Government and regulatory consultations on AI matters.</li>
+        </ul>
 
-    <div class="proj-cta-block">
-      <h3>Interested in contributing?</h3>
-      <p>FAIR welcomes expressions of interest from parliamentary practitioners, legislative drafters, policy professionals, and senior practitioners across the regulated professions.</p>
-      <a href="preview.html#contact" class="btn-p">Register interest</a>
+        <h2>Relevant legislation and instruments</h2>
+        <ul>
+          <li>AI (Regulation) Bill</li>
+          <li>AI Opportunities Action Plan 2026</li>
+          <li>King&rsquo;s Speech 2026 legislative programme</li>
+          <li>House of Commons Standing Orders relating to Select Committee evidence</li>
+        </ul>
+
+        <h2>Further reading</h2>
+        <ul>
+          <li><a href="https://bills.parliament.uk/bills/3942" target="_blank" rel="noopener">AI (Regulation) Bill</a></li>
+          <li><a href="https://www.gov.uk/government/publications/ai-opportunities-action-plan" target="_blank" rel="noopener">AI Opportunities Action Plan</a></li>
+          <li><a href="https://committees.parliament.uk/" target="_blank" rel="noopener">UK Parliament Committees</a></li>
+        </ul>
+
+      </div>
+
+      <div class="cta-block reveal">
+        <h3>Interested in contributing?</h3>
+        <p>FAIR welcomes expressions of interest from parliamentary practitioners, legislative drafters, policy professionals, and senior practitioners across the regulated professions.</p>
+        <a href="index.html#get-involved" class="btn btn-primary">Register interest</a>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
+</main>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="ft-bot">
-      <div class="ft-copy">2026 The Foundation for Artificial Intelligence Rights. All rights reserved.</div>
-      <div class="ft-leg"><a href="preview.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="accessibility.html">Accessibility</a></div>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="brand brand-footer">FAIR</div>
+      <p>The Foundation for Artificial Intelligence Rights.<br>International House, 50 Essex Street,<br>London WC2R 3JF, United Kingdom.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html#what">What we do</a>
+      <a href="ai-alerts.html">AI Alerts</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#get-involved">Get involved</a>
+    </nav>
+    <div class="footer-legal">
+      <div class="footer-policies">
+        <a href="privacy.html">Privacy</a>
+        <a href="accessibility.html">Accessibility</a>
+        <a href="complaints.html">Complaints</a>
+        <a href="safeguarding.html">Safeguarding</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 The Foundation for Artificial Intelligence Rights. London. United Kingdom.</p>
     </div>
   </div>
 </footer>
 
+<script>
+  (function(){
+    var nav = document.getElementById('navbar');
+    if (nav) { var u=function(){nav.classList.toggle('scrolled', window.scrollY>30);}; window.addEventListener('scroll',u,{passive:true}); u(); }
+    var t=document.getElementById('navToggle'), m=document.getElementById('mobileMenu');
+    if (t&&m){ var s=function(o){document.body.classList.toggle('menu-open',o);t.setAttribute('aria-expanded',o?'true':'false');t.setAttribute('aria-label',o?'Close menu':'Open menu');};
+      t.addEventListener('click',function(){s(!document.body.classList.contains('menu-open'));});
+      m.addEventListener('click',function(e){if(e.target.tagName==='A')s(false);});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false);}); }
+    var els=document.querySelectorAll('.reveal'), r=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(r||!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in');});}
+    else{var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -10% 0px',threshold:0.05});els.forEach(function(e){io.observe(e);});}
+  })();
+</script>
 <!-- ACCESSIBILITY: UserWay Widget -->
 <script>
 (function(d){

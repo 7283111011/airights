@@ -12,144 +12,155 @@
 <meta property="og:url" content="https://airights.org.uk/know-your-rights.html">
 <meta property="og:image" content="https://airights.org.uk/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Public Sans',sans-serif;color:#0F172A;background:#FBFAF6;line-height:1.65;-webkit-font-smoothing:antialiased}
-  .topbar{background:#FFF;border-bottom:1px solid #E2E8F0;padding:14px 28px}
-  .topbar-inner{max-width:980px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-  .topbar a.brand{font-weight:800;font-size:1rem;letter-spacing:5px;color:#0065BD;text-decoration:none}
-  .topbar a.back{font-size:0.75rem;color:#64748B;text-decoration:none;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
-  .topbar a.back:hover{color:#0065BD}
-  .wrap{max-width:780px;margin:0 auto;padding:48px 28px 80px}
-  .eyebrow{display:inline-block;padding:5px 14px;border-radius:99px;background:#EBF3FA;color:#0065BD;font-size:0.6875rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
-  h1{font-size:2rem;font-weight:600;line-height:1.2;color:#0F172A;letter-spacing:-0.01em;margin-bottom:14px}
-  .lede{font-size:1.0625rem;line-height:1.55;color:#334155;font-style:italic;margin-bottom:32px}
-  .meta{font-size:0.75rem;color:#64748B;margin-bottom:32px;letter-spacing:.3px}
-  h2{font-size:1.25rem;font-weight:700;color:#0F172A;margin:36px 0 12px;padding-top:16px;border-top:1px solid #1A2942;letter-spacing:-0.005em}
-  h2:first-of-type{padding-top:0;border-top:none;margin-top:0}
-  h3{font-size:1.0625rem;font-weight:700;color:#0F172A;margin:24px 0 8px}
-  p{font-size:0.9375rem;line-height:1.75;color:#334155;margin-bottom:14px}
-  a{color:#0065BD;text-decoration:none}
-  a:hover{text-decoration:underline}
-  ul{margin:0 0 16px 22px}
-  li{font-size:0.9375rem;line-height:1.75;color:#334155;margin-bottom:6px}
-  .callout{padding:18px 22px;background:#FFF;border-left:3px solid #1A2942;margin:20px 0;font-size:0.9375rem}
-  .callout-amber{padding:18px 22px;background:rgba(250,204,21,.10);border-left:3px solid #FACC15;margin:20px 0;font-size:0.9375rem;color:#92400E}
-  .source{font-size:0.8125rem;color:#64748B;font-style:italic}
-  .source a{font-style:normal;font-weight:600}
-  .scenario{padding:24px 0;border-bottom:1px solid #D4D2CC}
-  .scenario:last-child{border-bottom:none}
-  .scenario h3{margin-top:0}
-  .cta-row{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
-  .cta-row a{display:inline-block;padding:8px 16px;background:#FFF;border:1px solid #0065BD;border-radius:3px;font-size:0.8125rem;font-weight:600;color:#0065BD;text-decoration:none}
-  .cta-row a:hover{background:#0065BD;color:#FFF}
-  .audience{padding:24px 0;border-bottom:1px solid #D4D2CC}
-  .audience:last-child{border-bottom:none}
-  .audience-label{font-size:0.6875rem;letter-spacing:1.5px;text-transform:uppercase;color:#0065BD;font-weight:700;margin-bottom:6px}
-  .signposts{margin-top:32px;padding:24px;background:#FFF;border:1px solid #D4D2CC;border-radius:4px}
-  .signposts h3{margin-top:0;font-size:0.875rem;letter-spacing:1px;text-transform:uppercase;color:#1A2942;font-weight:700;margin-bottom:14px}
-  .signposts ul{margin:0;list-style:none;padding:0}
-  .signposts li{font-size:0.875rem;line-height:1.6;margin-bottom:8px;padding-left:0}
-  .pre-launch-note{margin-top:40px;padding:20px;background:#EBF3FA;border-radius:4px;font-size:0.875rem;color:#475569;line-height:1.65}
-  .pre-launch-note strong{color:#0065BD;font-weight:700}
-  footer{margin-top:48px;padding-top:24px;border-top:1px solid #D4D2CC;font-size:0.75rem;color:#64748B;line-height:1.7}
-
-  .brand-mark{display:block;width:150px;height:auto}
-  .nav .logo,.brand{display:inline-flex;align-items:center;letter-spacing:0;font-size:0;line-height:0}
-  .logo img.brand-mark-lg,.brand-mark-lg{display:block;width:220px;height:auto;margin:0 auto}
-  @media(max-width:780px){.brand-mark{width:130px}.brand-mark-lg{width:180px}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 </head>
 <body>
-<div class="topbar">
-  <div class="topbar-inner">
-    <a href="/" class="brand"><img src="images/FAIR_logo.png" alt="FAIR" width="150" height="103" class="brand-mark"></a>
-    <a href="/" class="back">&larr; Back to home</a>
+
+<header class="site-nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">FAIR</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#what">What we do</a>
+      <a href="ai-alerts.html">AI Alerts</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#get-involved">Get involved</a>
+    </nav>
+    <a href="index.html#get-involved" class="nav-cta">Get involved</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
   </div>
-</div>
-<main class="wrap">
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a href="index.html#what">What we do</a>
+  <a href="ai-alerts.html">AI Alerts</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#get-involved">Get involved</a>
+</nav>
 
-  <span class="eyebrow">Pillar 3 of 5</span>
-  <h1>Know your rights</h1>
-  <p class="lede">Plain-English explainers of the rights you actually have under UK law when AI is used on you. Updated as the law changes - the last big change was 5 February 2026.</p>
-  <div class="meta">Last updated: 8 May 2026</div>
+<main>
 
-  <div class="pre-launch-note">
-    <strong>Coming soon.</strong> Each scenario below will be a downloadable two-sided A4 one-pager with an Easy Read version. To be told when they are published, <a href="/#newsletter-band">subscribe to FAIR Briefings</a>. In the meantime, the summaries below are accurate as of the date above.
-  </div>
-
-  <div class="scenario">
-    <h3>If a UK organisation has made an automated decision about you</h3>
-    <p>Under the <a href="https://www.legislation.gov.uk/ukpga/2025/18/section/80" target="_blank" rel="noopener">Data (Use and Access) Act 2025</a> (new UK GDPR Articles 22A to 22D, in force 5 February 2026), you have the right to: be told meaningful information about the decision; make representations about it; obtain human intervention from someone with the authority to change it; and contest it. The Government can make further regulations defining "meaningful human involvement" - we are tracking those at our <a href="campaigns.html">Campaigns page</a>.</p>
-    <p class="source">Authoritative sources: <a href="https://www.legislation.gov.uk/ukpga/2025/18/section/80" target="_blank" rel="noopener">DUAA s.80 on legislation.gov.uk</a>; <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/automated-decision-making-and-profiling/" target="_blank" rel="noopener">ICO guidance on automated decision-making</a>.</p>
-    <div class="cta-row">
-      <a href="report.html">Report your experience</a>
-      <a href="ask.html">Ask FAIR</a>
+  <section class="page-hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container container-narrow">
+      <a class="back-link" href="index.html">&larr; Back to FAIR</a>
+      <span class="eyebrow reveal">Pillar 3 of 5</span>
+      <h1 class="reveal">Know your rights</h1>
+      <p class="lede reveal" data-delay="1">Plain-English explainers of the rights you actually have under UK law when AI is used on you. Updated as the law changes - the last big change was 5 February 2026.</p>
+      <p class="page-meta reveal" data-delay="1">Last updated: 8 May 2026</p>
     </div>
-  </div>
+  </section>
 
-  <div class="scenario">
-    <h3>If your work has been used to train an AI model without permission</h3>
-    <p>UK copyright law currently does not have a clear answer - see the <a href="https://www.judiciary.uk/judgments/getty-images-v-stability-ai/" target="_blank" rel="noopener">Getty Images v Stability AI ruling of 4 November 2025</a>. The Government dropped its proposed opt-out exception in March 2026 and is now consulting on alternatives. In the meantime, you can deploy machine-readable rights reservations using robots.txt and <a href="https://contentcredentials.org/" target="_blank" rel="noopener">C2PA Content Credentials</a>. If you are a member of a creator's union (<a href="https://www2.societyofauthors.org/" target="_blank" rel="noopener">Society of Authors</a>, <a href="https://writersguild.org.uk/" target="_blank" rel="noopener">Writers' Guild of Great Britain</a>, Equity, Musicians' Union, BECTU, NUJ), they can advise on individual disputes.</p>
-    <p class="source">Authoritative sources: <a href="https://www.gov.uk/government/consultations/copyright-and-artificial-intelligence" target="_blank" rel="noopener">Government Written Ministerial Statement, 18 March 2026</a>; <a href="https://publications.parliament.uk/pa/ld5901/ldselect/ldcomm/267/26702.htm" target="_blank" rel="noopener">Lords Communications and Digital Committee, HL Paper 267, 6 March 2026</a>.</p>
-    <div class="cta-row">
-      <a href="campaigns.html">Back the licensing-first campaign</a>
+  <section class="section section-light" style="padding-top:56px">
+    <div class="container container-narrow prose reveal">
+
+      <div class="note">
+        <strong>Coming soon.</strong> Each scenario below will be a downloadable two-sided A4 one-pager with an Easy Read version. To be told when they are published, <a href="/#newsletter-band">subscribe to FAIR Briefings</a>. In the meantime, the summaries below are accurate as of the date above.
+      </div>
+
+      <h3>If a UK organisation has made an automated decision about you</h3>
+      <p>Under the <a href="https://www.legislation.gov.uk/ukpga/2025/18/section/80" target="_blank" rel="noopener">Data (Use and Access) Act 2025</a> (new UK GDPR Articles 22A to 22D, in force 5 February 2026), you have the right to: be told meaningful information about the decision; make representations about it; obtain human intervention from someone with the authority to change it; and contest it. The Government can make further regulations defining "meaningful human involvement" - we are tracking those at our <a href="campaigns.html">Campaigns page</a>.</p>
+      <p class="source">Authoritative sources: <a href="https://www.legislation.gov.uk/ukpga/2025/18/section/80" target="_blank" rel="noopener">DUAA s.80 on legislation.gov.uk</a>; <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/automated-decision-making-and-profiling/" target="_blank" rel="noopener">ICO guidance on automated decision-making</a>.</p>
+      <div class="cta-row">
+        <a class="link-arrow" href="report.html">Report your experience <span class="chev">&rarr;</span></a>
+        <a class="link-arrow" href="ask.html">Ask FAIR <span class="chev">&rarr;</span></a>
+      </div>
+
+      <h3>If your work has been used to train an AI model without permission</h3>
+      <p>UK copyright law currently does not have a clear answer - see the <a href="https://www.judiciary.uk/judgments/getty-images-v-stability-ai/" target="_blank" rel="noopener">Getty Images v Stability AI ruling of 4 November 2025</a>. The Government dropped its proposed opt-out exception in March 2026 and is now consulting on alternatives. In the meantime, you can deploy machine-readable rights reservations using robots.txt and <a href="https://contentcredentials.org/" target="_blank" rel="noopener">C2PA Content Credentials</a>. If you are a member of a creator's union (<a href="https://www2.societyofauthors.org/" target="_blank" rel="noopener">Society of Authors</a>, <a href="https://writersguild.org.uk/" target="_blank" rel="noopener">Writers' Guild of Great Britain</a>, Equity, Musicians' Union, BECTU, NUJ), they can advise on individual disputes.</p>
+      <p class="source">Authoritative sources: <a href="https://www.gov.uk/government/consultations/copyright-and-artificial-intelligence" target="_blank" rel="noopener">Government Written Ministerial Statement, 18 March 2026</a>; <a href="https://publications.parliament.uk/pa/ld5901/ldselect/ldcomm/267/26702.htm" target="_blank" rel="noopener">Lords Communications and Digital Committee, HL Paper 267, 6 March 2026</a>.</p>
+      <div class="cta-row">
+        <a class="link-arrow" href="campaigns.html">Back the licensing-first campaign <span class="chev">&rarr;</span></a>
+      </div>
+
+      <h3>If a deepfake or non-consensual intimate image has been made of you</h3>
+      <p>Creating a non-consensual intimate image is a criminal offence in England and Wales as of 6 February 2026 (<a href="https://www.legislation.gov.uk/ukpga/2003/42" target="_blank" rel="noopener">Sexual Offences Act 2003</a> as amended by the Data (Use and Access) Act 2025). Making and supplying nudification tools is a criminal offence under the <a href="https://www.gov.uk/government/collections/crime-and-policing-act-2026" target="_blank" rel="noopener">Crime and Policing Act 2026</a>. Report to the police via 101, the <a href="https://revengepornhelpline.org.uk/" target="_blank" rel="noopener">Revenge Porn Helpline</a> on 0345 6000 459, or <a href="https://report.iwf.org.uk/" target="_blank" rel="noopener">the Internet Watch Foundation</a> where children are involved.</p>
+      <div class="cta-row">
+        <a class="link-arrow" href="campaigns.html">Back the possession-offence campaign <span class="chev">&rarr;</span></a>
+      </div>
+
+      <h3>If a UK public service has used AI on you without telling you</h3>
+      <p>You can ask under the <a href="https://www.gov.uk/algorithmic-transparency-records" target="_blank" rel="noopener">Algorithmic Transparency Recording Standard</a> whether the body has registered the system - though compliance is patchy (the Public Law Project has shown that Whitehall has not consistently complied with the central register). You can also send a <a href="https://ico.org.uk/your-data-matters/your-right-of-access/" target="_blank" rel="noopener">Subject Access Request</a> under UK GDPR to find out what data has been processed about you.</p>
+      <div class="cta-row">
+        <a class="link-arrow" href="ai-alerts.html">Look up the system on AI Alerts <span class="chev">&rarr;</span></a>
+        <a class="link-arrow" href="report.html">Report your experience <span class="chev">&rarr;</span></a>
+      </div>
+
+      <h3>If your child's school is using AI in a way that worries you</h3>
+      <p>Schools must follow the Department for Education's <a href="https://www.gov.uk/government/publications/generative-artificial-intelligence-in-education" target="_blank" rel="noopener">June 2025 generative AI policy paper</a>, <a href="https://www.gov.uk/government/publications/keeping-children-safe-in-education--2" target="_blank" rel="noopener">KCSIE</a>, and (for assessments) <a href="https://www.jcq.org.uk/exams-office/malpractice/artificial-intelligence/" target="_blank" rel="noopener">JCQ guidance</a>. You can raise concerns with the school first, then the academy trust or local authority, then Ofsted.</p>
+      <div class="cta-row">
+        <a class="link-arrow" href="report.html">Tell us what is happening <span class="chev">&rarr;</span></a>
+      </div>
+
+      <h3>If you are worried about AI in your healthcare</h3>
+      <p>Some NHS trusts use AI for diagnostic support, triage, and administrative tasks. The MHRA's <a href="https://www.gov.uk/government/calls-for-evidence/regulation-of-ai-in-healthcare" target="_blank" rel="noopener">National Commission into the Regulation of AI in Healthcare</a> closed its call for evidence in February 2026 and is due to report in summer 2026. There is currently no statutory right to be told when AI is used in your care - which is one of the things FAIR is campaigning to change.</p>
+      <div class="cta-row">
+        <a class="link-arrow" href="campaigns.html">Back the healthcare disclosure campaign <span class="chev">&rarr;</span></a>
+      </div>
+
+      <div class="signposts">
+        <h3>If you need urgent help</h3>
+        <ul>
+          <li>Police (urgent): <strong>999</strong></li>
+          <li>Police (non-urgent): <strong>101</strong></li>
+          <li>NSPCC: <strong>0808 800 5000</strong></li>
+          <li>Samaritans: <strong>116 123</strong></li>
+          <li>Internet Watch Foundation: <a href="https://report.iwf.org.uk/" target="_blank" rel="noopener">report.iwf.org.uk</a></li>
+          <li>Revenge Porn Helpline: <strong>0345 6000 459</strong></li>
+        </ul>
+      </div>
+
+      <p class="source">The Foundation for Artificial Intelligence Rights (FAIR) is a UK organisation. Charitable application in progress with the Charity Commission for England and Wales.</p>
+
     </div>
-  </div>
+  </section>
 
-  <div class="scenario">
-    <h3>If a deepfake or non-consensual intimate image has been made of you</h3>
-    <p>Creating a non-consensual intimate image is a criminal offence in England and Wales as of 6 February 2026 (<a href="https://www.legislation.gov.uk/ukpga/2003/42" target="_blank" rel="noopener">Sexual Offences Act 2003</a> as amended by the Data (Use and Access) Act 2025). Making and supplying nudification tools is a criminal offence under the <a href="https://www.gov.uk/government/collections/crime-and-policing-act-2026" target="_blank" rel="noopener">Crime and Policing Act 2026</a>. Report to the police via 101, the <a href="https://revengepornhelpline.org.uk/" target="_blank" rel="noopener">Revenge Porn Helpline</a> on 0345 6000 459, or <a href="https://report.iwf.org.uk/" target="_blank" rel="noopener">the Internet Watch Foundation</a> where children are involved.</p>
-    <div class="cta-row">
-      <a href="campaigns.html">Back the possession-offence campaign</a>
-    </div>
-  </div>
-
-  <div class="scenario">
-    <h3>If a UK public service has used AI on you without telling you</h3>
-    <p>You can ask under the <a href="https://www.gov.uk/algorithmic-transparency-records" target="_blank" rel="noopener">Algorithmic Transparency Recording Standard</a> whether the body has registered the system - though compliance is patchy (the Public Law Project has shown that Whitehall has not consistently complied with the central register). You can also send a <a href="https://ico.org.uk/your-data-matters/your-right-of-access/" target="_blank" rel="noopener">Subject Access Request</a> under UK GDPR to find out what data has been processed about you.</p>
-    <div class="cta-row">
-      <a href="ai-alerts.html">Look up the system on AI Alerts</a>
-      <a href="report.html">Report your experience</a>
-    </div>
-  </div>
-
-  <div class="scenario">
-    <h3>If your child's school is using AI in a way that worries you</h3>
-    <p>Schools must follow the Department for Education's <a href="https://www.gov.uk/government/publications/generative-artificial-intelligence-in-education" target="_blank" rel="noopener">June 2025 generative AI policy paper</a>, <a href="https://www.gov.uk/government/publications/keeping-children-safe-in-education--2" target="_blank" rel="noopener">KCSIE</a>, and (for assessments) <a href="https://www.jcq.org.uk/exams-office/malpractice/artificial-intelligence/" target="_blank" rel="noopener">JCQ guidance</a>. You can raise concerns with the school first, then the academy trust or local authority, then Ofsted.</p>
-    <div class="cta-row">
-      <a href="report.html">Tell us what is happening</a>
-    </div>
-  </div>
-
-  <div class="scenario">
-    <h3>If you are worried about AI in your healthcare</h3>
-    <p>Some NHS trusts use AI for diagnostic support, triage, and administrative tasks. The MHRA's <a href="https://www.gov.uk/government/calls-for-evidence/regulation-of-ai-in-healthcare" target="_blank" rel="noopener">National Commission into the Regulation of AI in Healthcare</a> closed its call for evidence in February 2026 and is due to report in summer 2026. There is currently no statutory right to be told when AI is used in your care - which is one of the things FAIR is campaigning to change.</p>
-    <div class="cta-row">
-      <a href="campaigns.html">Back the healthcare disclosure campaign</a>
-    </div>
-  </div>
-
-  <div class="signposts">
-    <h3>If you need urgent help</h3>
-    <ul>
-      <li>Police (urgent): <strong>999</strong></li>
-      <li>Police (non-urgent): <strong>101</strong></li>
-      <li>NSPCC: <strong>0808 800 5000</strong></li>
-      <li>Samaritans: <strong>116 123</strong></li>
-      <li>Internet Watch Foundation: <a href="https://report.iwf.org.uk/" target="_blank" rel="noopener">report.iwf.org.uk</a></li>
-      <li>Revenge Porn Helpline: <strong>0345 6000 459</strong></li>
-    </ul>
-  </div>
-
-  <footer>
-    The Foundation for Artificial Intelligence Rights (FAIR) is a UK organisation. Charitable application in progress with the Charity Commission for England and Wales.
-  </footer>
 </main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="brand brand-footer">FAIR</div>
+      <p>The Foundation for Artificial Intelligence Rights.<br>International House, 50 Essex Street,<br>London WC2R 3JF, United Kingdom.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html#what">What we do</a>
+      <a href="ai-alerts.html">AI Alerts</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#get-involved">Get involved</a>
+    </nav>
+    <div class="footer-legal">
+      <div class="footer-policies">
+        <a href="privacy.html">Privacy</a>
+        <a href="accessibility.html">Accessibility</a>
+        <a href="complaints.html">Complaints</a>
+        <a href="safeguarding.html">Safeguarding</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 The Foundation for Artificial Intelligence Rights. London. United Kingdom.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var nav = document.getElementById('navbar');
+    if (nav) { var u=function(){nav.classList.toggle('scrolled', window.scrollY>30);}; window.addEventListener('scroll',u,{passive:true}); u(); }
+    var t=document.getElementById('navToggle'), m=document.getElementById('mobileMenu');
+    if (t&&m){ var s=function(o){document.body.classList.toggle('menu-open',o);t.setAttribute('aria-expanded',o?'true':'false');t.setAttribute('aria-label',o?'Close menu':'Open menu');};
+      t.addEventListener('click',function(){s(!document.body.classList.contains('menu-open'));});
+      m.addEventListener('click',function(e){if(e.target.tagName==='A')s(false);});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false);}); }
+    var els=document.querySelectorAll('.reveal'), r=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(r||!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in');});}
+    else{var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -10% 0px',threshold:0.05});els.forEach(function(e){io.observe(e);});}
+  })();
+</script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "a0dfe7202b37496d9bd8d11decfd496c"}}'></script>
 </body>
 </html>
