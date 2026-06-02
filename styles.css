@@ -12,7 +12,7 @@
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
-  font-family: 'Inter', system-ui, -apple-system, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
   font-size: 17px;
   line-height: 1.5;
   color: var(--text);
@@ -2958,4 +2958,103 @@ html body .nav .nav-logo svg { color: currentColor; }
   visibility: visible !important;
   opacity: 1 !important;
   z-index: 999999 !important;
+}
+
+/* ============================================================ */
+/* V23 -- REVIEWER PRECISION PATCH (Apple finishing pass)        */
+/* Nav scroll state, hero subtitle, what-grid heights,          */
+/* involved heading scale, route-card highlight, footer weight  */
+/* ============================================================ */
+
+/* v23-2: Nav scroll-state class system.
+   Past hero: frosted white background, dark text -- Apple pattern.
+   Replaces the v18 continuous interpolation that ended dark-on-dark. */
+.nav.nav-scrolled {
+  background: rgba(255, 255, 255, 0.82);
+  -webkit-backdrop-filter: saturate(1.8) blur(20px);
+  backdrop-filter: saturate(1.8) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  color: rgb(29, 29, 31);
+}
+.nav.nav-scrolled .nav-logo,
+.nav.nav-scrolled .nav-links a {
+  color: rgb(29, 29, 31);
+}
+.nav.nav-scrolled .nav-cta {
+  background: var(--blue);
+  color: #fff;
+}
+.nav.nav-scrolled .mobile-toggle {
+  color: rgb(29, 29, 31);
+}
+
+/* v23-8: Nav CTA padding bump 7/14 -> 8/16 (Apple spec) */
+.nav-cta {
+  padding: 8px 16px;
+}
+
+/* v23-3: Hero subtitle -- fix orphan, widen breath line */
+.hero p,
+.hero .hero-content p {
+  max-width: 42ch;
+}
+
+/* v23-3: Hero overlay -- lighter touch so the photo carries the mood */
+.hero-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.32) 55%,
+    rgba(0, 0, 0, 0.62) 100%
+  );
+}
+
+/* v23-4: WHAT-GRID -- equal card heights + CTA pinned to bottom */
+.what-grid {
+  align-items: stretch;
+}
+.what-card {
+  display: flex;
+  flex-direction: column;
+}
+.what-copy {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.what-copy .what-link {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+/* v23-5: Get involved -- section-heading scale, not display scale */
+.involved h2 {
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+  max-width: 16ch;
+}
+
+/* v23-6: Primary route card -- unmistakable selected state */
+.route-card {
+  border: 2px solid transparent;
+}
+.route-card.is-active {
+  background: #fff;
+  border: 2px solid var(--blue);
+  box-shadow: 0 14px 36px rgba(0, 113, 227, 0.12);
+}
+
+/* v23-7: Footer wordmark -- Apple wordmark weight, not display weight */
+.footer-mark {
+  font-weight: 600;
+}
+
+/* v23-7: Footer legal typography -- readable minimums */
+.footer-policy-links {
+  font-size: 12px;
+}
+.footer-recaptcha {
+  font-size: 12px;
+  line-height: 1.55;
 }

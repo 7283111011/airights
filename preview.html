@@ -89,19 +89,22 @@
   <a href="#get-involved" onclick="this.parentElement.classList.remove('open')">Get involved</a>
 </div>
 <script>
-/* v18: Nav scroll — continuous interpolation, no class toggle theatre */
+/* v23: Nav scroll — clean class toggle.
+   Over hero (transparent dark): white text. Past hero (frosted white): dark text.
+   No more dark-on-dark interpolation. */
 (function(){
   var nav = document.getElementById('navbar');
   var hero = document.querySelector('.hero') || document.getElementById('home');
   if (!nav || !hero) return;
   function update(){
-    var progress = Math.min(window.scrollY / (hero.offsetHeight * 0.75), 1);
-    nav.style.background = 'rgba(15, 15, 17, ' + (0.12 + progress * 0.78) + ')';
-    nav.style.backdropFilter = 'blur(' + (10 + progress * 14) + 'px)';
-    nav.style.webkitBackdropFilter = 'blur(' + (10 + progress * 14) + 'px)';
-    /* Text colour interpolation: white when over hero, dark when below */
-    var textProgress = Math.max(0, Math.min(1, (window.scrollY - hero.offsetHeight * 0.6) / (hero.offsetHeight * 0.3)));
-    nav.style.color = textProgress > 0.5 ? 'rgb(29,29,31)' : '#fff';
+    var threshold = hero.offsetHeight * 0.85;
+    if (window.scrollY > threshold) {
+      nav.classList.add('nav-scrolled');
+      nav.classList.remove('nav-transparent');
+    } else {
+      nav.classList.remove('nav-scrolled');
+      nav.classList.add('nav-transparent');
+    }
   }
   window.addEventListener('scroll', update, {passive: true});
   window.addEventListener('resize', update, {passive: true});
