@@ -14,6 +14,9 @@
 <link rel="stylesheet" href="styles.css">
 <!-- v13: Preload hero media for LCP — swap URL when editorial photo is licensed -->
 <link rel="preload" as="image" href="https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=2000&q=85&auto=format&fit=crop" fetchpriority="high">
+<!-- v16: GSAP + ScrollTrigger for Apple-style scroll choreography -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 <!-- Google reCAPTCHA v3 (invisible, score-based) -->
 <script src="https://www.google.com/recaptcha/api.js?render=6Lcur9QsAAAAAE1ApFj2LDVszSME-EjcDg6reJDE"></script>
 <!-- Favicon -->
@@ -136,11 +139,11 @@
       <a href="report.html" class="btn-p">Report your experience</a>
     </div>
   </div>
-  <a href="#ai-alerts-band" class="hero-scroll" aria-label="Scroll to AI Alerts">
-    <span class="hero-scroll-label">See AI Alerts</span>
-    <span class="hero-scroll-arrow" aria-hidden="true">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-    </span>
+  <a href="#ai-alerts-band" class="hero-scroll hero-scroll-minimal" aria-label="Scroll down">
+    <svg width="16" height="22" viewBox="0 0 24 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 4v18"/>
+      <path d="M6 16l6 6 6-6"/>
+    </svg>
   </a>
 </section>
 
@@ -213,25 +216,22 @@
         </filter>
       </defs>
 
-      <!-- UK mainland — 40-point polygon following actual coastline geometry -->
-      <!-- Clockwise from Cape Wrath, through Scotland east, England, Wales, NI sea, back -->
-      <path class="aiw-map-shape" d="
-        M 240 60
-        L 270 70 L 295 95 L 310 130 L 315 165 L 310 195 L 295 220 L 285 240
-        L 305 260 L 318 285 L 322 315 L 305 345 L 320 360 L 332 380 L 332 410
-        L 348 435 L 338 460 L 305 470 L 270 472 L 235 470 L 200 478 L 175 488
-        L 153 482 L 162 460 L 180 445 L 200 425 L 175 425 L 152 410 L 145 380
-        L 155 350 L 142 320 L 168 312 L 198 305 L 215 290 L 212 265 L 220 240
-        L 200 222 L 175 215 L 158 195 L 175 162 L 200 140 L 215 105 L 222 80
-        L 240 60 Z
-      " fill="rgba(0,113,227,0.10)" stroke="rgba(0,113,227,0.55)" stroke-width="1.3" stroke-linejoin="round"/>
-
-      <!-- Northern Ireland — recognisable shape, west of Galloway across the Irish Sea -->
-      <path class="aiw-map-shape" d="
-        M 115 280
-        L 132 285 L 138 305 L 132 332 L 110 340 L 90 332 L 85 308 L 95 287
-        L 115 280 Z
-      " fill="rgba(0,113,227,0.08)" stroke="rgba(0,113,227,0.42)" stroke-width="1.1" stroke-linejoin="round"/>
+      <!-- v16: Silhouette killed. Nodes float in constitutional atmosphere only.
+           Apple chip visualisation register — no shape pretending to be UK. -->
+      <!-- Soft connecting lines between major nodes — institutional network signal -->
+      <g class="aiw-map-network" opacity="0.18">
+        <line x1="298" y1="195" x2="305" y2="240" stroke="rgba(0,113,227,0.55)" stroke-width="0.8"/>
+        <line x1="298" y1="195" x2="272" y2="210" stroke="rgba(0,113,227,0.45)" stroke-width="0.7"/>
+        <line x1="305" y1="240" x2="258" y2="310" stroke="rgba(0,113,227,0.5)" stroke-width="0.8"/>
+        <line x1="258" y1="310" x2="225" y2="320" stroke="rgba(0,113,227,0.45)" stroke-width="0.7"/>
+        <line x1="258" y1="310" x2="290" y2="318" stroke="rgba(0,113,227,0.45)" stroke-width="0.7"/>
+        <line x1="258" y1="310" x2="275" y2="370" stroke="rgba(0,113,227,0.5)" stroke-width="0.8"/>
+        <line x1="275" y1="370" x2="208" y2="418" stroke="rgba(0,113,227,0.45)" stroke-width="0.7"/>
+        <line x1="275" y1="370" x2="242" y2="430" stroke="rgba(0,113,227,0.45)" stroke-width="0.7"/>
+        <line x1="275" y1="370" x2="318" y2="438" stroke="rgba(0,113,227,0.6)" stroke-width="1"/>
+        <line x1="242" y1="430" x2="318" y2="438" stroke="rgba(0,113,227,0.45)" stroke-width="0.7"/>
+        <line x1="110" y1="308" x2="225" y2="320" stroke="rgba(0,113,227,0.35)" stroke-width="0.6"/>
+      </g>
 
       <!-- Institutional nodes — repositioned for new map geometry -->
       <g class="aiw-nodes">
@@ -404,6 +404,90 @@
 
 
 <!-- PARTNERS section removed v2 (no real logos yet) -->
+
+
+<!-- v16: STICKY TIMELINE — "Where it's already happening" -->
+<section class="timeline-section" id="timeline" aria-label="Where AI is already deployed in UK public services">
+  <div class="timeline-inner">
+    <!-- Left column: sticky visual that evolves as you scroll -->
+    <div class="timeline-visual">
+      <div class="timeline-visual-inner">
+        <div class="timeline-eyebrow">United Kingdom · Public sector</div>
+        <h2 class="timeline-headline">Where it&rsquo;s already&nbsp;happening.</h2>
+        <p class="timeline-lede">Four institutional deployments. Each affects millions of people. None of them was put to a public vote.</p>
+        <svg class="timeline-map" viewBox="0 0 460 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <defs>
+            <radialGradient id="tl-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(0,113,227,1)"/>
+              <stop offset="50%" stop-color="rgba(0,113,227,0.55)"/>
+              <stop offset="100%" stop-color="rgba(0,113,227,0)"/>
+            </radialGradient>
+            <filter id="tl-blur" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="5"/>
+            </filter>
+          </defs>
+          <!-- Soft connecting network -->
+          <g class="timeline-network" opacity="0.14">
+            <line x1="270" y1="240" x2="240" y2="310" stroke="rgba(0,113,227,0.5)" stroke-width="0.8"/>
+            <line x1="240" y1="310" x2="260" y2="370" stroke="rgba(0,113,227,0.5)" stroke-width="0.8"/>
+            <line x1="260" y1="370" x2="300" y2="438" stroke="rgba(0,113,227,0.6)" stroke-width="1"/>
+            <line x1="270" y1="240" x2="300" y2="438" stroke="rgba(0,113,227,0.3)" stroke-width="0.6" stroke-dasharray="2 4"/>
+          </g>
+          <!-- Four chapter nodes, dim until their chapter activates -->
+          <g class="timeline-nodes">
+            <g class="timeline-node" data-step="nhs">
+              <circle class="tn-glow" cx="240" cy="310" r="18" fill="url(#tl-glow)" filter="url(#tl-blur)"/>
+              <circle class="tn-dot" cx="240" cy="310" r="5" fill="rgba(255,255,255,0.95)"/>
+              <text x="252" y="314" class="tn-label" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.86)">NHS</text>
+            </g>
+            <g class="timeline-node" data-step="dwp">
+              <circle class="tn-glow" cx="270" cy="240" r="16" fill="url(#tl-glow)" filter="url(#tl-blur)"/>
+              <circle class="tn-dot" cx="270" cy="240" r="4.5" fill="rgba(255,255,255,0.95)"/>
+              <text x="282" y="244" class="tn-label" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.86)">DWP</text>
+            </g>
+            <g class="timeline-node" data-step="ho">
+              <circle class="tn-glow" cx="260" cy="370" r="16" fill="url(#tl-glow)" filter="url(#tl-blur)"/>
+              <circle class="tn-dot" cx="260" cy="370" r="4.5" fill="rgba(255,255,255,0.95)"/>
+              <text x="272" y="374" class="tn-label" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.86)">Home Office</text>
+            </g>
+            <g class="timeline-node" data-step="met">
+              <circle class="tn-glow" cx="300" cy="438" r="22" fill="url(#tl-glow)" filter="url(#tl-blur)"/>
+              <circle class="tn-dot" cx="300" cy="438" r="6" fill="rgba(255,255,255,0.95)"/>
+              <text x="314" y="442" class="tn-label" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.86)">Met Police</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <!-- Right column: scrolling chapters -->
+    <div class="timeline-steps">
+      <article class="timeline-step" data-step="nhs">
+        <div class="timeline-step-eyebrow">Healthcare</div>
+        <h3>The NHS Federated Data Platform.</h3>
+        <p>Built by Palantir under a contract worth up to <strong>&pound;330 million</strong> awarded in November 2023. Rolling out across up to 240 trusts. The British Medical Association voted to oppose the rollout at its June 2025 representatives&rsquo; meeting.</p>
+        <a href="reports.html#nhs" class="timeline-link">Read the research &rarr;</a>
+      </article>
+      <article class="timeline-step" data-step="dwp">
+        <div class="timeline-step-eyebrow">Welfare</div>
+        <h3>The Universal Credit Advances algorithm.</h3>
+        <p>A machine-learning model operational since 2022. A DWP fairness analysis, released under FOI in late 2024, confirmed <strong>statistically significant referral and outcome disparity</strong> across age, disability, marital status and nationality. As of April 2025, DWP was still &ldquo;finalising publication&rdquo; of its algorithmic transparency records.</p>
+        <a href="reports.html#dwp" class="timeline-link">Know your rights &rarr;</a>
+      </article>
+      <article class="timeline-step" data-step="ho">
+        <div class="timeline-step-eyebrow">Immigration</div>
+        <h3>The Identify and Prioritise Immigration Cases system.</h3>
+        <p>The IPIC algorithm, in use since 2019&ndash;20, processes the cases of around <strong>41,000 people</strong> facing potential removal. Caseworkers click &ldquo;accept&rdquo; with no explanation required; rejections require written justification. ICO investigation open.</p>
+        <a href="report.html" class="timeline-link">Share your experience &rarr;</a>
+      </article>
+      <article class="timeline-step" data-step="met">
+        <div class="timeline-step-eyebrow">Policing</div>
+        <h3>Live facial recognition by the Metropolitan Police.</h3>
+        <p>LFR deployments led to <strong>962 arrests</strong> between September 2024 and September 2025, with over 1,400 cumulative since LFR was scaled up. Black and Asian respondents to the Ada / Turing Wave 2 survey were significantly more concerned about police facial recognition than the general population.</p>
+        <a href="campaigns.html" class="timeline-link">Back the campaign &rarr;</a>
+      </article>
+    </div>
+  </div>
+</section>
 
 
 <!-- GET INVOLVED + CONTACT (single dropdown picker) -->
@@ -663,28 +747,28 @@ function submitContactForm(e){
 <div class="bio-modal" id="bio-modal" role="dialog" aria-labelledby="bio-modal-title" aria-modal="true">
   <div class="bio-modal-backdrop" onclick="closeBioModal()"></div>
   <div class="bio-modal-content">
-    <button class="bio-modal-close" onclick="closeBioModal()" aria-label="Close biography">&times;</button>
+    <button class="bio-modal-close" onclick="closeBioModal()" aria-label="Close">&times;</button>
     <div class="bio-modal-header">
-      <div class="bio-modal-portrait"><img loading="lazy" src="images/SMheadshot2026-256.jpg" width="88" height="88" alt="Scott McCulloch"></div>
+      <img class="bio-modal-portrait" src="images/SMheadshot2026-256.jpg" alt="" width="64" height="64">
       <div>
         <h3 id="bio-modal-title">Scott McCulloch</h3>
-        <p class="bio-modal-role">Founder, FAIR</p>
+        <div class="bio-modal-role">Founder, FAIR</div>
       </div>
     </div>
     <div class="bio-modal-body">
-      <p>Scott has spent close to two decades advising drug-development organisations on the regulatory frameworks designed to protect patients in clinical trials. He is in the final stages of an LLB at the University of Law, with postgraduate study in AI Law at the University of Oxford and Intellectual Property at Brunel University London.</p>
-      <p>The immediate catalyst for the Foundation was his final LLB research project, which examined whether United Kingdom intellectual property law had been adapted to the use of artificial intelligence by organisations and to the protection of the creators whose work increasingly trains those systems. The conclusion, on both counts, was that it had not. The Foundation is the organisation he set up in response.</p>
+      <p>Scott has spent close to two decades advising drug-development organisations on the regulatory frameworks that protect patients in clinical trials. He is in the final stages of an LLB at the University of Law, with postgraduate study in AI Law at the University of Oxford.</p>
+      <p>The Foundation grew directly out of his final LLB research project, which examined whether United Kingdom intellectual property law had been adapted to the use of artificial intelligence. The conclusion was that it had not.</p>
       <p>For the full biography, visit the <a href="founder.html">founder page</a>.</p>
     </div>
   </div>
 </div>
 
-<!-- COOKIE NOTICE -->
-<div id="cookie-bar" class="cookie-notice" style="display:none">
+<!-- COOKIE BANNER -->
+<div class="cookie-notice" id="cookie-bar" role="region" aria-label="Cookie consent" style="display:none">
   <p>This site uses privacy-friendly analytics. No third-party cookies, no cross-site tracking. <a href="privacy.html">Privacy</a>.</p>
   <div class="cookie-btns">
-    <button type="button" class="cookie-accept" onclick="(function(){var b=document.getElementById('cookie-bar');if(b){b.style.display='none';}try{localStorage.setItem('fair-cookies','accepted');}catch(e){}})()">OK</button>
-    <button type="button" class="cookie-reject" onclick="(function(){var b=document.getElementById('cookie-bar');if(b){b.style.display='none';}try{localStorage.setItem('fair-cookies','rejected');}catch(e){}})()">Essential only</button>
+    <button class="cookie-accept" onclick="(function(){try{localStorage.setItem('fair-cookies','accepted');}catch(e){}document.getElementById('cookie-bar').style.display='none';})();">OK</button>
+    <button class="cookie-reject" onclick="(function(){try{localStorage.setItem('fair-cookies','essential');}catch(e){}document.getElementById('cookie-bar').style.display='none';})();">Essential only</button>
   </div>
 </div>
 <script>
@@ -695,25 +779,19 @@ function submitContactForm(e){
   try { stored = localStorage.getItem('fair-cookies'); } catch(e) {}
   if (!stored) { b.style.display = 'flex'; }
 })();
-// Bio modal handlers
 function openBioModal(){var m=document.getElementById('bio-modal');if(!m)return;m.classList.add('open');document.body.style.overflow='hidden';}
 function closeBioModal(){var m=document.getElementById('bio-modal');if(!m)return;m.classList.remove('open');document.body.style.overflow='';}
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.getElementById('bio-modal');if(m&&m.classList.contains('open'))closeBioModal();}});
 
-/* v14: Scroll reveal — above-fold immediate, below-fold on intersect, 5s safety */
+/* Safety fade-up observer (GSAP also handles, but observer kicks in if GSAP fails) */
 (function(){
   var els = document.querySelectorAll('.fade-in, .fade-up');
   if (!els.length) return;
   var aboveFold = function(el){ var r = el.getBoundingClientRect(); return r.top < window.innerHeight * 0.85; };
-  /* 1. Above-fold elements: visible immediately (so the page doesn't flash blank) */
   els.forEach(function(el){ if (aboveFold(el)) el.classList.add('visible'); });
-  /* 2. Safety fallback: after 5s any element still unmarked gets revealed */
   setTimeout(function(){
-    document.querySelectorAll('.fade-in:not(.visible), .fade-up:not(.visible)').forEach(function(el){
-      el.classList.add('visible');
-    });
+    document.querySelectorAll('.fade-in:not(.visible), .fade-up:not(.visible)').forEach(function(el){ el.classList.add('visible'); });
   }, 5000);
-  /* 3. Real scroll-triggered observer for below-fold elements */
   if (!('IntersectionObserver' in window)) return;
   var obs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
@@ -721,37 +799,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=docum
     });
   }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
   els.forEach(function(el){ if (!el.classList.contains('visible')) obs.observe(el); });
-
-  /* Count-up on stat numbers */
-  var nums = document.querySelectorAll('.stat-num, .aiw-stat-num');
-  if (!nums.length || !('IntersectionObserver' in window)) return;
-  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var numObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (!e.isIntersecting) return;
-      var el = e.target;
-      var raw = (el.textContent || '').trim();
-      var m = raw.match(/^([\d,]+(?:\.\d+)?)(.*)$/);
-      if (!m){ numObs.unobserve(el); return; }
-      var target = parseFloat(m[1].replace(/,/g,''));
-      var suffix = m[2];
-      if (prefersReduced || !isFinite(target)){ numObs.unobserve(el); return; }
-      var duration = 1200;
-      var start = performance.now();
-      var format = function(n){ return (target >= 100 ? Math.round(n) : (Math.round(n*10)/10)).toLocaleString('en-GB') + suffix; };
-      el.textContent = format(0);
-      var step = function(now){
-        var t = Math.min(1, (now - start) / duration);
-        var eased = 1 - Math.pow(1 - t, 3);
-        el.textContent = format(target * eased);
-        if (t < 1) requestAnimationFrame(step);
-        else el.textContent = format(target);
-      };
-      requestAnimationFrame(step);
-      numObs.unobserve(el);
-    });
-  }, {threshold:0.5});
-  nums.forEach(function(n){ numObs.observe(n); });
 })();
 </script>
 
@@ -768,6 +815,62 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=docum
 
 <!-- Cloudflare Web Analytics -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script>
+
+<!-- v16: GSAP CHOREOGRAPHY -->
+<script>
+(function waitForGSAP(){
+  if (typeof window.gsap === 'undefined' || typeof window.ScrollTrigger === 'undefined') {
+    return setTimeout(waitForGSAP, 80);
+  }
+  var gsap = window.gsap;
+  var ScrollTrigger = window.ScrollTrigger;
+  gsap.registerPlugin(ScrollTrigger);
+
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  /* HERO PARALLAX */
+  gsap.to('.hero-media img', {
+    y: '12%', scale: 1.08, ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+
+  /* WHAT CARDS staggered entry */
+  gsap.utils.toArray('.what-card').forEach(function(card, i){
+    card.classList.add('is-anim');
+    gsap.to(card, {
+      opacity: 1, y: 0, scale: 1, duration: 1.05, ease: 'power3.out',
+      scrollTrigger: { trigger: card, start: 'top 82%', toggleActions: 'play none none none' },
+      delay: i * 0.08
+    });
+  });
+
+  /* TIMELINE chapter to node coordination */
+  var steps = gsap.utils.toArray('.timeline-step');
+  var nodes = gsap.utils.toArray('.timeline-node');
+  function activateStep(idx){
+    steps.forEach(function(s,i){ s.classList.toggle('is-active', i === idx); });
+    nodes.forEach(function(n,i){ n.classList.toggle('is-active', i === idx); });
+  }
+  steps.forEach(function(step, i){
+    ScrollTrigger.create({
+      trigger: step, start: 'top 60%', end: 'bottom 40%',
+      onEnter: function(){ activateStep(i); },
+      onEnterBack: function(){ activateStep(i); }
+    });
+  });
+  if (steps[0] && steps[0].getBoundingClientRect().top < window.innerHeight) activateStep(0);
+
+  /* Generic .fade-up via GSAP for smoother feel */
+  gsap.utils.toArray('.fade-up:not(.what-card):not(.timeline-step)').forEach(function(el){
+    gsap.fromTo(el,
+      { opacity: 0, y: 32 },
+      { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+      });
+  });
+})();
+</script>
 
 </body>
 </html>
