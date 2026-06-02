@@ -5,7 +5,16 @@
       "Bash(xargs -n 1 -P 8 -I {} sh -c 'curl -fsSL -o \"$\\(basename \"$1\"\\)\" \"$1\" || echo \"FAILED: $1\"' _ {})",
       "Bash(ls .claude/launch.json)",
       "Bash(python --version)",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:airights.org.uk)",
+      "Bash(ls CNAME)",
+      "Bash(cat CNAME)",
+      "Bash(ls .github/workflows)",
+      "Bash(git fetch *)",
+      "Bash(curl -s \"https://airights.org.uk/preview.html?cb=$\\(date +%s\\)\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" \"https://airights.org.uk/preview.css?cb=$\\(date +%s\\)\")",
+      "Bash(curl -s \"https://airights.org.uk/preview.css?cb=$\\(date +%s\\)\")",
+      "WebSearch"
     ]
   }
 }
