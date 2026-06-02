@@ -1423,3 +1423,131 @@ section p a:not(.btn-p):hover { text-decoration-color: var(--blue); }
 
 /* GET INVOLVED — keep just the radial close, drop top divider */
 .ct-section::before { display: none; }
+
+/* ============================================================ */
+/* V13 — EDITORIAL HERO SYSTEM + MEDIA CARDS + KEN BURNS        */
+/* + dead-CSS cleanup directives (legacy rules listed below)    */
+/* ============================================================ */
+
+/* v13 — HERO: <picture> + overlay + subtle Ken Burns motion */
+.hero.hero-cinematic.hero-typographic {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  display: flex; align-items: center;
+  padding: 0 28px;
+}
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.hero-media picture, .hero-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.hero-media img {
+  object-fit: cover;
+  object-position: center 30%;
+  filter: saturate(0.82) contrast(1.04) brightness(0.78);
+  animation: heroDrift 22s ease-in-out infinite alternate;
+}
+@keyframes heroDrift {
+  from { transform: scale(1); }
+  to   { transform: scale(1.045); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-media img { animation: none; }
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg,
+    rgba(0, 0, 0, 0.22) 0%,
+    rgba(8, 16, 32, 0.62) 100%);
+  pointer-events: none;
+}
+.hero-content { z-index: 2; }
+/* Hide legacy .hero-typo-bg if a stale instance survives */
+.hero-typo-bg { display: none; }
+
+/* v13 — WHAT WE DO: media + copy card structure */
+.what-card {
+  padding: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(8, 16, 32, 0.08);
+  display: flex; flex-direction: column;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.what-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(8, 16, 32, 0.12);
+}
+.what-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--bg-grey);
+}
+.what-media picture, .what-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.what-media img {
+  object-fit: cover;
+  filter: saturate(0.88) contrast(1.02);
+  transition: transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.what-card:hover .what-media img { transform: scale(1.03); }
+.what-copy {
+  padding: 36px 32px 32px;
+  display: flex; flex-direction: column; flex: 1;
+}
+.what-num {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+.what-card h3 {
+  font-size: clamp(24px, 2.6vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.1;
+  color: var(--text);
+  margin: 0 0 14px 0;
+  max-width: 14ch;
+}
+.what-card p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-2);
+  margin: 0 0 24px 0;
+  flex: 1;
+}
+.what-link {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+/* v13 — DEAD CSS cleanup. Sections cut in v10 no longer have HTML to render.
+   Their rules remain in legacy CSS but match nothing — bloat only, harmless.
+   Listed here for grep'ability. Strip in styles-legacy migration. */
+/* dead: .mission, .mission-grid, .mission-text, .mission-callout-*, .stats-band,
+   .stat-callout, .stat-row, .stat-num, .stat-text, .stat-src,
+   .legis-*, .pillars-section, .fp-*, .research-section, .rp-*,
+   .news-room, .news-bar, .news-list, .news-item, .news-source, .news-lead-*,
+   .founder, .founder-editorial, .founder-portrait, .f-pullquote, .f-bio,
+   .trustees-banner, .trustees-btn-p, .trustees-eyebrow,
+   .nls-band, .nls-h, .nls-blurb, .nls-form */

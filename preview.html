@@ -12,6 +12,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<!-- v13: Preload hero media for LCP — swap URL when editorial photo is licensed -->
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=2000&q=85&auto=format&fit=crop" fetchpriority="high">
 <!-- Google reCAPTCHA v3 (invisible, score-based) -->
 <script src="https://www.google.com/recaptcha/api.js?render=6Lcur9QsAAAAAE1ApFj2LDVszSME-EjcDg6reJDE"></script>
 <!-- Favicon -->
@@ -116,9 +118,17 @@
 })();
 </script>
 
-<!-- HERO (v3: typographic Apple-dark, no images) -->
+<!-- HERO (v13: editorial hero system — <picture> + responsive sources + overlay) -->
 <section class="hero hero-cinematic hero-typographic" id="home">
-  <div class="hero-typo-bg" aria-hidden="true"></div>
+  <div class="hero-media" aria-hidden="true">
+    <picture>
+      <source media="(max-width:720px)" srcset="https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=900&q=80&auto=format&fit=crop">
+      <source media="(min-width:1601px)" srcset="https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=2400&q=85&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=2000&q=85&auto=format&fit=crop"
+           alt="" loading="eager" decoding="async" fetchpriority="high">
+    </picture>
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content">
     <h1>AI rights for the United Kingdom.</h1>
     <p class="hero-tagline">Know your rights. Watch the contracts. Push the law.</p>
@@ -145,22 +155,49 @@
     <h2 class="what-headline">Three things, done well.</h2>
     <div class="what-grid">
       <article class="what-card">
-        <div class="what-num">01</div>
-        <h3>Watch the contracts.</h3>
-        <p>A free public register of every confirmed artificial intelligence contract, partnership and pilot involving a United Kingdom public body. Scanned daily. Every entry sourced.</p>
-        <a href="ai-alerts.html" class="what-link">Open AI Alerts &rarr;</a>
+        <div class="what-media" aria-hidden="true">
+          <picture>
+            <source media="(max-width:720px)" srcset="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=720&q=80&auto=format&fit=crop">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1100&q=80&auto=format&fit=crop"
+                 alt="" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="what-copy">
+          <div class="what-num">01</div>
+          <h3>Watch the contracts.</h3>
+          <p>A free public register of every confirmed artificial intelligence contract, partnership and pilot involving a United Kingdom public body. Scanned daily. Every entry sourced.</p>
+          <a href="ai-alerts.html" class="what-link">Open AI Alerts &rarr;</a>
+        </div>
       </article>
       <article class="what-card">
-        <div class="what-num">02</div>
-        <h3>Push the law.</h3>
-        <p>Independent, evidence-led submissions to Parliament, regulators and Government on the harms with the clearest evidence and the strongest public mandate.</p>
-        <a href="reports.html" class="what-link">Read the research &rarr;</a>
+        <div class="what-media" aria-hidden="true">
+          <picture>
+            <source media="(max-width:720px)" srcset="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=720&q=80&auto=format&fit=crop">
+            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1100&q=80&auto=format&fit=crop"
+                 alt="" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="what-copy">
+          <div class="what-num">02</div>
+          <h3>Push the law.</h3>
+          <p>Independent, evidence-led submissions to Parliament, regulators and Government on the harms with the clearest evidence and the strongest public mandate.</p>
+          <a href="reports.html" class="what-link">Read the research &rarr;</a>
+        </div>
       </article>
       <article class="what-card">
-        <div class="what-num">03</div>
-        <h3>Know your rights.</h3>
-        <p>A safe and structured channel for people in the United Kingdom to tell the Foundation when artificial intelligence has been used on them. Anonymous by default.</p>
-        <a href="report.html" class="what-link">Share your experience &rarr;</a>
+        <div class="what-media" aria-hidden="true">
+          <picture>
+            <source media="(max-width:720px)" srcset="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=720&q=80&auto=format&fit=crop">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1100&q=80&auto=format&fit=crop"
+                 alt="" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="what-copy">
+          <div class="what-num">03</div>
+          <h3>Know your rights.</h3>
+          <p>A safe and structured channel for people in the United Kingdom to tell the Foundation when artificial intelligence has been used on them. Anonymous by default.</p>
+          <a href="report.html" class="what-link">Share your experience &rarr;</a>
+        </div>
       </article>
     </div>
   </div>
@@ -168,70 +205,61 @@
 
 <!-- AI ALERTS BAND — signature visual: The AI State Map -->
 <section class="aiw-band aiw-dashboard-band" id="ai-alerts-band" aria-label="AI Alerts - UK public-sector AI register">
-  <!-- v12: THE signature visual artifact — stylized UK silhouette + glowing institutional nodes -->
+  <!-- v13: AI State Map — proper UK silhouette + glowing institutional nodes -->
   <div class="aiw-statemap" aria-hidden="true">
-    <svg viewBox="0 0 460 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <svg viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
       <defs>
         <radialGradient id="node-glow" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stop-color="rgba(0,113,227,1)" stop-opacity="1"/>
-          <stop offset="40%" stop-color="rgba(0,113,227,0.6)"/>
+          <stop offset="40%" stop-color="rgba(0,113,227,0.55)"/>
           <stop offset="100%" stop-color="rgba(0,113,227,0)"/>
         </radialGradient>
         <filter id="node-blur" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="4"/>
         </filter>
       </defs>
-      <!-- UK mainland silhouette (Scotland → England → Wales) -->
-      <path class="aiw-map-shape" d="
-        M 240 60
-        Q 215 65 200 80 Q 185 90 195 110
-        Q 175 120 165 150 Q 175 175 195 180
-        Q 205 200 215 215
-        Q 195 225 175 240 Q 165 270 185 290
-        Q 200 310 195 335
-        Q 175 360 185 395 Q 200 425 215 440
-        Q 210 470 230 490 Q 255 485 265 460
-        Q 285 445 280 415 Q 290 390 280 360
-        Q 305 340 295 305 Q 310 280 305 250
-        Q 325 230 315 200 Q 305 165 290 145
-        Q 305 120 290 95 Q 270 70 240 60 Z
-      " fill="rgba(0,113,227,0.10)" stroke="rgba(0,113,227,0.5)" stroke-width="1.2"/>
-      <!-- Northern Ireland — small offset shape -->
-      <path class="aiw-map-shape" d="
-        M 130 215 Q 115 220 110 235
-        Q 115 250 130 252 Q 145 248 148 234
-        Q 145 220 130 215 Z
-      " fill="rgba(0,113,227,0.08)" stroke="rgba(0,113,227,0.4)" stroke-width="1"/>
 
-      <!-- Institutional nodes — each represents a sector cluster -->
+      <!-- UK mainland — Scotland, England, Wales — anatomically simplified -->
+      <path class="aiw-map-shape" d="M 295 70 L 280 85 L 265 80 L 250 90 L 235 85 L 220 95 L 215 115 L 225 130 L 215 145 L 200 150 L 190 165 L 195 185 L 215 195 L 230 215 L 245 230 L 235 245 L 215 255 L 200 270 L 195 295 L 210 315 L 225 330 L 230 355 L 215 375 L 195 395 L 185 425 L 200 450 L 220 470 L 240 480 L 235 500 L 250 515 L 275 515 L 290 500 L 305 490 L 325 485 L 340 470 L 360 460 L 375 445 L 365 420 L 350 405 L 345 380 L 360 360 L 355 335 L 340 315 L 350 290 L 365 270 L 375 245 L 360 220 L 370 195 L 380 170 L 370 145 L 360 125 L 350 105 L 335 90 L 320 78 L 305 70 Z" fill="rgba(0,113,227,0.10)" stroke="rgba(0,113,227,0.55)" stroke-width="1.3" stroke-linejoin="round"/>
+
+      <!-- Northern Ireland — separate landmass to the west -->
+      <path class="aiw-map-shape" d="M 145 280 L 130 285 L 120 300 L 120 320 L 130 335 L 150 340 L 170 335 L 180 320 L 175 300 L 160 285 Z" fill="rgba(0,113,227,0.08)" stroke="rgba(0,113,227,0.42)" stroke-width="1.1" stroke-linejoin="round"/>
+
+      <!-- Institutional nodes — placed at geographic city positions -->
       <g class="aiw-nodes">
-        <!-- Edinburgh (Scottish Govt / DWP) -->
-        <circle class="aiw-node" cx="220" cy="148" r="4"/>
-        <circle class="aiw-node-glow" cx="220" cy="148" r="14"/>
+        <!-- Edinburgh (Scottish Government, DWP regional) -->
+        <circle class="aiw-node-glow" cx="285" cy="175" r="16"/>
+        <circle class="aiw-node" cx="285" cy="175" r="4"/>
         <!-- Glasgow (Police Scotland) -->
-        <circle class="aiw-node" cx="195" cy="160" r="3"/>
-        <circle class="aiw-node-glow" cx="195" cy="160" r="11"/>
-        <!-- Newcastle (NHS regional) -->
-        <circle class="aiw-node" cx="245" cy="220" r="3.5"/>
-        <circle class="aiw-node-glow" cx="245" cy="220" r="12"/>
-        <!-- Manchester (NHS Federated Data Platform) -->
-        <circle class="aiw-node" cx="230" cy="285" r="5"/>
-        <circle class="aiw-node-glow" cx="230" cy="285" r="16"/>
+        <circle class="aiw-node-glow" cx="245" cy="180" r="12"/>
+        <circle class="aiw-node" cx="245" cy="180" r="3.2"/>
+        <!-- Newcastle (NHS regional / DWP) -->
+        <circle class="aiw-node-glow" cx="305" cy="240" r="12"/>
+        <circle class="aiw-node" cx="305" cy="240" r="3.5"/>
+        <!-- Manchester (NHS Federated Data Platform — major node) -->
+        <circle class="aiw-node-glow aiw-node-glow-major" cx="280" cy="320" r="20"/>
+        <circle class="aiw-node aiw-node-major" cx="280" cy="320" r="5.5"/>
         <!-- Liverpool -->
-        <circle class="aiw-node" cx="210" cy="295" r="3"/>
-        <circle class="aiw-node-glow" cx="210" cy="295" r="10"/>
+        <circle class="aiw-node-glow" cx="250" cy="335" r="11"/>
+        <circle class="aiw-node" cx="250" cy="335" r="3"/>
+        <!-- Leeds -->
+        <circle class="aiw-node-glow" cx="305" cy="320" r="11"/>
+        <circle class="aiw-node" cx="305" cy="320" r="3"/>
         <!-- Birmingham (Home Office regional / DWP) -->
-        <circle class="aiw-node" cx="240" cy="340" r="4"/>
-        <circle class="aiw-node-glow" cx="240" cy="340" r="13"/>
-        <!-- Cardiff (Welsh Govt) -->
-        <circle class="aiw-node" cx="210" cy="410" r="3.5"/>
-        <circle class="aiw-node-glow" cx="210" cy="410" r="12"/>
-        <!-- London (Home Office / DWP / Met Police / NHS Digital / Westminster) -->
-        <circle class="aiw-node aiw-node-major" cx="270" cy="425" r="6"/>
-        <circle class="aiw-node-glow aiw-node-glow-major" cx="270" cy="425" r="22"/>
+        <circle class="aiw-node-glow" cx="295" cy="395" r="13"/>
+        <circle class="aiw-node" cx="295" cy="395" r="4"/>
+        <!-- Cardiff (Welsh Government) -->
+        <circle class="aiw-node-glow" cx="245" cy="450" r="12"/>
+        <circle class="aiw-node" cx="245" cy="450" r="3.5"/>
+        <!-- Bristol -->
+        <circle class="aiw-node-glow" cx="285" cy="450" r="10"/>
+        <circle class="aiw-node" cx="285" cy="450" r="3"/>
+        <!-- London (Home Office, DWP, Met Police, NHS Digital, Westminster — biggest node) -->
+        <circle class="aiw-node-glow aiw-node-glow-major" cx="345" cy="465" r="26"/>
+        <circle class="aiw-node aiw-node-major" cx="345" cy="465" r="6.5"/>
         <!-- Belfast (Northern Ireland Civil Service) -->
-        <circle class="aiw-node" cx="129" cy="234" r="3"/>
-        <circle class="aiw-node-glow" cx="129" cy="234" r="10"/>
+        <circle class="aiw-node-glow" cx="148" cy="310" r="11"/>
+        <circle class="aiw-node" cx="148" cy="310" r="3.2"/>
       </g>
     </svg>
   </div>
