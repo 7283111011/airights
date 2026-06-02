@@ -153,7 +153,7 @@
   <div class="what-inner">
     <div class="what-eyebrow">The Foundation</div>
     <h2 class="what-headline fade-up">Three things, done well.</h2>
-    <div class="what-grid fade-up-stagger">
+    <div class="what-grid">
       <article class="what-card">
         <div class="what-media" aria-hidden="true">
           <picture>
@@ -199,22 +199,8 @@
 
 <!-- AI ALERTS BAND — signature visual: The AI State Map -->
 <section class="aiw-band aiw-dashboard-band" id="ai-alerts-band" aria-label="AI Alerts - UK public-sector AI register">
-  <!-- v14: Signature visual — London street sign for the Foundation's registered address -->
-  <div class="aiw-signage fade-up" aria-hidden="true">
-    <div class="street-sign">
-      <div class="street-sign-row street-sign-row-top">
-        <div class="street-sign-name">Essex Street</div>
-      </div>
-      <div class="street-sign-row street-sign-row-bottom">
-        <div class="street-sign-area">London</div>
-        <div class="street-sign-postcode">WC2R&nbsp;3JF</div>
-      </div>
-    </div>
-    <div class="aiw-signage-caption">The Foundation&rsquo;s registered office, City of Westminster.</div>
-  </div>
-
-  <!-- v13: AI State Map — kept hidden in DOM for now; reserved for future data viz -->
-  <div class="aiw-statemap" aria-hidden="true" hidden>
+  <!-- v15: AI State Map restored as the AI Alerts signature visual (sign moved to footer) -->
+  <div class="aiw-statemap" aria-hidden="true">
     <svg viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
       <defs>
         <radialGradient id="node-glow" cx="50%" cy="50%" r="50%">
@@ -293,7 +279,7 @@
     </div>
 
     <!-- Live stats -->
-    <div class="aiw-stats fade-up-stagger">
+    <div class="aiw-stats">
       <div class="aiw-stat">
         <div class="aiw-stat-num"><span id="aiw-stat-total">100</span><span class="aiw-stat-suffix">+</span></div>
         <div class="aiw-stat-label">Confirmed entries</div>
@@ -640,10 +626,23 @@ function submitContactForm(e){
 <footer class="footer-editorial">
   <div class="fe-inner">
     <div class="fe-top">
-      <div class="fe-brand">The Foundation for Artificial Intelligence Rights</div>
-      <div class="fe-address">International House, 50 Essex Street, London WC2R 3JF, United Kingdom</div>
-      <div class="fe-status">The Foundation is in the process of registering with the Charity Commission. Address above is its registered correspondence office.</div>
-      <div class="fe-recaptcha">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.</div>
+      <div class="fe-brand-block">
+        <div class="fe-brand">The Foundation for Artificial Intelligence Rights</div>
+        <div class="fe-address">International House, 50 Essex Street, London WC2R 3JF, United Kingdom</div>
+        <div class="fe-status">The Foundation is in the process of registering with the Charity Commission. Address above is its registered correspondence office.</div>
+        <div class="fe-recaptcha">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.</div>
+      </div>
+      <div class="fe-sign-block" aria-hidden="true">
+        <div class="street-sign street-sign-footer">
+          <div class="street-sign-row street-sign-row-top">
+            <div class="street-sign-name">Essex Street</div>
+          </div>
+          <div class="street-sign-row street-sign-row-bottom">
+            <div class="street-sign-area">London</div>
+            <div class="street-sign-postcode">WC2R&nbsp;3JF</div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="fe-links fe-legal-only">
       <a href="privacy.html">Privacy</a>
