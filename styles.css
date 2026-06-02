@@ -1609,3 +1609,150 @@ section p a:not(.btn-p):hover { text-decoration-color: var(--blue); }
 @media (prefers-reduced-motion: reduce) {
   .hero-scroll-arrow { animation: none; opacity: 0.85; }
 }
+
+/* ============================================================ */
+/* V14 — SIGNATURE STREET SIGN + reCAPTCHA + animation fixes    */
+/* ============================================================ */
+
+/* v14-4: Hide reCAPTCHA badge (Google policy: replace with attribution text in footer) */
+.grecaptcha-badge { visibility: hidden; opacity: 0; pointer-events: none; }
+
+/* v14-1 + v14-2: London street sign as the AI Alerts signature visual */
+.aiw-signage {
+  position: absolute;
+  left: clamp(-20px, 4vw, 60px);
+  top: 50%;
+  transform: translateY(-50%) rotate(-3deg);
+  width: clamp(280px, 36vw, 460px);
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.35));
+}
+@media (max-width: 980px) {
+  .aiw-signage {
+    position: relative;
+    left: auto; top: auto;
+    transform: rotate(-2deg);
+    margin: 0 auto 48px;
+    width: min(320px, 80%);
+    display: block;
+  }
+}
+.street-sign {
+  background: #ffffff;
+  border: 6px solid #1a1a1a;
+  padding: 22px 28px 22px;
+  font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  user-select: none;
+}
+.street-sign-row {
+  display: flex;
+  align-items: baseline;
+}
+.street-sign-row-top {
+  padding-bottom: 16px;
+  border-bottom: 2px solid #1a1a1a;
+}
+.street-sign-row-bottom {
+  padding-top: 14px;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.street-sign-name {
+  font-size: clamp(28px, 3.2vw, 42px);
+  letter-spacing: 0.02em;
+}
+.street-sign-area {
+  font-size: clamp(20px, 2.4vw, 30px);
+  letter-spacing: 0.02em;
+}
+.street-sign-postcode {
+  font-size: clamp(20px, 2.4vw, 30px);
+  letter-spacing: 0.01em;
+  color: #cc1f25;  /* the classic City of Westminster red */
+}
+.aiw-signage-caption {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.02em;
+  padding: 0 12px;
+}
+
+/* Hide the old State Map element (kept in DOM but display:none for future use) */
+.aiw-statemap[hidden],
+.aiw-statemap { display: none; }
+/* Restore display only if specifically opted in: future via .aiw-statemap.is-active */
+.aiw-statemap.is-active { display: block; }
+
+/* v14-6: Drop the 01/02/03 numbers — kept only if .what-num class returns */
+.what-num { display: none; }
+
+/* v14: footer additions — address + reCAPTCHA notice */
+.fe-address {
+  font-size: 13px;
+  color: var(--text-2);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+.fe-recaptcha {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-top: 12px;
+  line-height: 1.5;
+  max-width: 60ch;
+}
+.fe-recaptcha a {
+  color: var(--text-3);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.fe-recaptcha a:hover { color: var(--text); }
+
+/* v14-5: Scroll-in animation fix — make the visible state actually transition smoothly
+   and ensure elements start hidden when they're below the fold */
+.fade-up,
+.what-card.fade-up,
+.what-headline.fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Stagger children inside a fade-up container for "moving into position" effect */
+.fade-up-stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.fade-up-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+.fade-up-stagger.visible > *:nth-child(2) { transition-delay: 0.15s; }
+.fade-up-stagger.visible > *:nth-child(3) { transition-delay: 0.25s; }
+.fade-up-stagger.visible > *:nth-child(4) { transition-delay: 0.35s; }
+.fade-up-stagger.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-up, .fade-up-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

@@ -48,9 +48,9 @@
   "description": "A UK organisation advancing public understanding (charitable application in progress) of artificial intelligence and the rights it engages, in particular through the advancement of education and the advancement of human rights.",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "71-75 Shelton Street, Covent Garden",
+    "streetAddress": "International House, 50 Essex Street",
     "addressLocality": "London",
-    "postalCode": "WC2H 9JQ",
+    "postalCode": "WC2R 3JF",
     "addressCountry": "GB"
   },
   "email": "info@airights.org.uk",
@@ -152,8 +152,8 @@
 <section class="what" id="what" aria-label="What the Foundation does">
   <div class="what-inner">
     <div class="what-eyebrow">The Foundation</div>
-    <h2 class="what-headline">Three things, done well.</h2>
-    <div class="what-grid">
+    <h2 class="what-headline fade-up">Three things, done well.</h2>
+    <div class="what-grid fade-up-stagger">
       <article class="what-card">
         <div class="what-media" aria-hidden="true">
           <picture>
@@ -162,9 +162,7 @@
                  alt="" loading="lazy" decoding="async">
           </picture>
         </div>
-        <div class="what-copy">
-          <div class="what-num">01</div>
-          <h3>Watch the contracts.</h3>
+        <div class="what-copy">          <h3>Watch the contracts.</h3>
           <p>A free public register of every confirmed artificial intelligence contract, partnership and pilot involving a United Kingdom public body. Scanned daily. Every entry sourced.</p>
           <a href="ai-alerts.html" class="what-link">Open AI Alerts &rarr;</a>
         </div>
@@ -177,9 +175,7 @@
                  alt="" loading="lazy" decoding="async">
           </picture>
         </div>
-        <div class="what-copy">
-          <div class="what-num">02</div>
-          <h3>Push the law.</h3>
+        <div class="what-copy">          <h3>Push the law.</h3>
           <p>Independent, evidence-led submissions to Parliament, regulators and Government on the harms with the clearest evidence and the strongest public mandate.</p>
           <a href="reports.html" class="what-link">Read the research &rarr;</a>
         </div>
@@ -192,9 +188,7 @@
                  alt="" loading="lazy" decoding="async">
           </picture>
         </div>
-        <div class="what-copy">
-          <div class="what-num">03</div>
-          <h3>Know your rights.</h3>
+        <div class="what-copy">          <h3>Know your rights.</h3>
           <p>A safe and structured channel for people in the United Kingdom to tell the Foundation when artificial intelligence has been used on them. Anonymous by default.</p>
           <a href="report.html" class="what-link">Share your experience &rarr;</a>
         </div>
@@ -205,8 +199,22 @@
 
 <!-- AI ALERTS BAND — signature visual: The AI State Map -->
 <section class="aiw-band aiw-dashboard-band" id="ai-alerts-band" aria-label="AI Alerts - UK public-sector AI register">
-  <!-- v13: AI State Map — proper UK silhouette + glowing institutional nodes -->
-  <div class="aiw-statemap" aria-hidden="true">
+  <!-- v14: Signature visual — London street sign for the Foundation's registered address -->
+  <div class="aiw-signage fade-up" aria-hidden="true">
+    <div class="street-sign">
+      <div class="street-sign-row street-sign-row-top">
+        <div class="street-sign-name">Essex Street</div>
+      </div>
+      <div class="street-sign-row street-sign-row-bottom">
+        <div class="street-sign-area">London</div>
+        <div class="street-sign-postcode">WC2R&nbsp;3JF</div>
+      </div>
+    </div>
+    <div class="aiw-signage-caption">The Foundation&rsquo;s registered office, City of Westminster.</div>
+  </div>
+
+  <!-- v13: AI State Map — kept hidden in DOM for now; reserved for future data viz -->
+  <div class="aiw-statemap" aria-hidden="true" hidden>
     <svg viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
       <defs>
         <radialGradient id="node-glow" cx="50%" cy="50%" r="50%">
@@ -278,14 +286,14 @@
     </svg>
   </div>
   <div class="aiw-inner">
-    <div class="aiw-head">
+    <div class="aiw-head fade-up">
       <h2>AI Alerts</h2>
       <p class="aiw-lede">A free register of all published information about artificial intelligence implementation by the United Kingdom Government and its respective agencies. Scanned every day. Every entry sourced.</p>
       <div class="aiw-meta-row"><span class="aiw-pulse" aria-hidden="true"></span><span>Live &middot; Updated daily at 08:00 BST</span></div>
     </div>
 
     <!-- Live stats -->
-    <div class="aiw-stats">
+    <div class="aiw-stats fade-up-stagger">
       <div class="aiw-stat">
         <div class="aiw-stat-num"><span id="aiw-stat-total">100</span><span class="aiw-stat-suffix">+</span></div>
         <div class="aiw-stat-label">Confirmed entries</div>
@@ -416,7 +424,7 @@
 <section class="ct-section" id="get-involved">
   <a id="contact" class="anchor-alias" aria-hidden="true"></a>
   <div class="ct-inner">
-    <div class="ct-head fade-in fade-up">
+    <div class="ct-head fade-up">
       <h2>Get involved or get in touch.</h2>
       <p>Pick the option that fits. We show you exactly what to do next.</p>
     </div>
@@ -511,7 +519,7 @@
       <article class="ct-panel" id="ct-office">
         <div class="ct-panel-tag">Office</div>
         <h3>Registered office</h3>
-        <p>71-75 Shelton Street, Covent Garden, London WC2H 9JQ, United Kingdom. <em>This is the Foundation&rsquo;s registered correspondence address; we do not currently operate a public helpdesk in person.</em></p>
+        <p>International House, 50 Essex Street, London WC2R 3JF, United Kingdom. <em>This is the Foundation&rsquo;s registered correspondence address; we do not currently operate a public helpdesk in person.</em></p>
       </article>
       <article class="ct-panel" id="ct-accessibility">
         <div class="ct-panel-tag">Accessibility</div>
@@ -633,7 +641,9 @@ function submitContactForm(e){
   <div class="fe-inner">
     <div class="fe-top">
       <div class="fe-brand">The Foundation for Artificial Intelligence Rights</div>
-      <div class="fe-status">The Foundation is in the process of registering with the Charity Commission. The address above is its principal office.</div>
+      <div class="fe-address">International House, 50 Essex Street, London WC2R 3JF, United Kingdom</div>
+      <div class="fe-status">The Foundation is in the process of registering with the Charity Commission. Address above is its registered correspondence office.</div>
+      <div class="fe-recaptcha">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.</div>
     </div>
     <div class="fe-links fe-legal-only">
       <a href="privacy.html">Privacy</a>
@@ -691,18 +701,27 @@ function openBioModal(){var m=document.getElementById('bio-modal');if(!m)return;
 function closeBioModal(){var m=document.getElementById('bio-modal');if(!m)return;m.classList.remove('open');document.body.style.overflow='';}
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=document.getElementById('bio-modal');if(m&&m.classList.contains('open'))closeBioModal();}});
 
-/* Stagger reveal observer */
+/* v14: Scroll reveal — above-fold immediate, below-fold on intersect, 5s safety */
 (function(){
   var els = document.querySelectorAll('.fade-in, .fade-up');
   if (!els.length) return;
-  setTimeout(function(){ els.forEach(function(el){ el.classList.add('visible'); }); }, 100);
+  var aboveFold = function(el){ var r = el.getBoundingClientRect(); return r.top < window.innerHeight * 0.85; };
+  /* 1. Above-fold elements: visible immediately (so the page doesn't flash blank) */
+  els.forEach(function(el){ if (aboveFold(el)) el.classList.add('visible'); });
+  /* 2. Safety fallback: after 5s any element still unmarked gets revealed */
+  setTimeout(function(){
+    document.querySelectorAll('.fade-in:not(.visible), .fade-up:not(.visible)').forEach(function(el){
+      el.classList.add('visible');
+    });
+  }, 5000);
+  /* 3. Real scroll-triggered observer for below-fold elements */
   if (!('IntersectionObserver' in window)) return;
   var obs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if (e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
     });
-  }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
-  els.forEach(function(el){ obs.observe(el); });
+  }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+  els.forEach(function(el){ if (!el.classList.contains('visible')) obs.observe(el); });
 
   /* Count-up on stat numbers */
   var nums = document.querySelectorAll('.stat-num, .aiw-stat-num');
