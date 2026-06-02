@@ -2008,3 +2008,127 @@ html body .fe-top {
 
 /* Reverse the v15 grid layout — go back to flex column */
 html body .fe-top { grid-template-columns: none; }
+
+/* ============================================================ */
+/* V17 — THE SUBTRACTION PASS                                   */
+/* One animation system. One hero architecture. Quiet AI Alerts.*/
+/* Footer exhale. Sticky timeline is the only premium moment.   */
+/* ============================================================ */
+
+/* v17-1: Kill the legacy fade-up/fade-in system entirely.
+   GSAP owns all motion now. These overrides ensure stragglers
+   that still carry old classes render at full visibility. */
+.fade-up, .fade-in,
+.fade-up:not(.visible),
+.fade-in:not(.visible) {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* v17-2: Kill legacy hero CSS that conflicts with new architecture.
+   Single hero system: .hero-media + .hero-overlay + .hero-content */
+.hero-typo-bg,
+.hero-typo-bg::after,
+.hero-scroll-label,
+.hero-scroll-arrow {
+  display: none !important;
+}
+.hero-cinematic::after { display: none; }  /* kill v11 page-end glow */
+
+/* v17-3: AI ALERTS — quiet snapshot.
+   Drop the heavy atmospheric system. Plain dark, simple stats grid.
+   Sticky timeline is the premium visual moment, not this. */
+.aiw-band, .aiw-dashboard-band {
+  background: var(--bg-dark);  /* simple Apple near-black */
+  color: #fff;
+  padding: clamp(80px, 9vw, 120px) 28px;
+}
+.aiw-band .aiw-inner,
+.aiw-dashboard-band .aiw-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+/* No more left-column margin for the killed map */
+@media (min-width: 981px) {
+  .aiw-band .aiw-inner,
+  .aiw-dashboard-band .aiw-inner {
+    margin-left: auto;
+    max-width: var(--container);
+  }
+  .aiw-band .aiw-stats,
+  .aiw-dashboard-band .aiw-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.aiw-band .aiw-head, .aiw-dashboard-band .aiw-head {
+  text-align: center;
+  max-width: 56ch;
+  margin: 0 auto 56px;
+}
+.aiw-band .aiw-head h2, .aiw-dashboard-band .aiw-head h2 { color: #fff; }
+.aiw-band .aiw-lede, .aiw-dashboard-band .aiw-lede {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 17px;
+}
+.aiw-band .aiw-meta-row, .aiw-dashboard-band .aiw-meta-row {
+  justify-content: center;
+}
+.aiw-band .aiw-pulse, .aiw-dashboard-band .aiw-pulse {
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.18);
+}
+/* Quiet stat cards — no glass blur theatre */
+.aiw-band .aiw-stat, .aiw-dashboard-band .aiw-stat {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+.aiw-band .aiw-stat-num, .aiw-dashboard-band .aiw-stat-num { color: #fff; }
+.aiw-band .aiw-stat-label, .aiw-dashboard-band .aiw-stat-label { color: rgba(255, 255, 255, 0.6); }
+/* Sectors panel — quiet */
+.aiw-band .aiw-sectors-wrap, .aiw-dashboard-band .aiw-sectors-wrap {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.aiw-band .aiw-cta-block, .aiw-dashboard-band .aiw-cta-block {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+/* Kill v11 atmospheric background bloat */
+.aiw-bg-pattern, .aiw-signage, .aiw-signage-caption { display: none !important; }
+
+/* v17-4: Footer exhale — single column rhythm, no street-sign drama */
+.footer-editorial {
+  padding: 56px 28px 24px;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+.footer-editorial .fe-inner {
+  display: flex; flex-direction: column;
+  gap: 28px;
+}
+.fe-top {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.fe-brand-block { flex: 1; min-width: 280px; }
+.fe-sign-block { flex: 0 0 auto; opacity: 0.85; }
+/* Shrink street sign even further in footer — should not dominate */
+.street-sign-footer {
+  width: clamp(160px, 18vw, 200px);
+  border-width: 3px;
+  padding: 10px 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.street-sign-footer .street-sign-name { font-size: 15px; }
+.street-sign-footer .street-sign-area { font-size: 11px; }
+.street-sign-footer .street-sign-postcode { font-size: 11px; }
