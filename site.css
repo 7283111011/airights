@@ -466,6 +466,22 @@ body.menu-open .mobile-menu { opacity: 1; visibility: visible; transform: transl
 .link-arrow:hover .chev { transform: translateX(4px); }
 .card .link-arrow { margin-top: auto; padding-top: 22px; }
 
+/* ── Photo cards (image-led, Apple-style) ── */
+.card--photo { padding: 0; overflow: hidden; }
+.card-media { aspect-ratio: 16 / 10; overflow: hidden; background: var(--bg-grey); }
+.card-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s var(--ease); }
+.card--photo:hover .card-media img { transform: scale(1.04); }
+.card--photo .card-body { padding: 26px 28px 26px; display: flex; flex-direction: column; flex: 1; }
+.card--photo .card-body h3 { margin-bottom: 12px; }
+.card--photo .link-arrow { margin-top: auto; padding-top: 20px; }
+
+.proj-card--photo { padding: 0; overflow: hidden; }
+.proj-card--photo .card-media { aspect-ratio: 16 / 9; }
+.proj-card--photo:hover .card-media img { transform: scale(1.04); }
+.proj-card--photo .proj-card-body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
+.proj-card--photo .proj-card-body h3 { margin: 8px 0 0; }
+.proj-card--photo .link-arrow { margin-top: 16px; }
+
 /* ──────────────────────────────────────────────────────────
    ALERTS STATS
    ────────────────────────────────────────────────────────── */
