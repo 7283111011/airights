@@ -16,7 +16,7 @@
   --pp-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --pp-bg: #000000;
     --pp-grey: #101012;
     --pp-text: #f5f5f7;
@@ -26,6 +26,42 @@
     --pp-blue: #2997ff;
   }
 }
+:root[data-theme="dark"] {
+  --pp-bg: #000000;
+  --pp-grey: #101012;
+  --pp-text: #f5f5f7;
+  --pp-text-2: #c4c4c8;
+  --pp-text-3: #86868b;
+  --pp-line: rgba(255, 255, 255, 0.12);
+  --pp-blue: #2997ff;
+}
+
+/* Theme toggle (floating, policy pages have no nav bar) */
+.theme-toggle {
+  position: fixed; top: 18px; right: 18px; z-index: 100;
+  width: 38px; height: 38px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  color: var(--pp-text);
+  background: color-mix(in srgb, var(--pp-bg) 70%, transparent);
+  border: 1px solid var(--pp-line);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  backdrop-filter: saturate(180%) blur(14px);
+  cursor: pointer;
+  transition: background 0.2s var(--pp-ease), transform 0.2s var(--pp-ease);
+}
+.theme-toggle:hover { background: var(--pp-grey); transform: scale(1.05); }
+.theme-toggle svg { width: 18px; height: 18px; }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+}
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
 
 *, *::before, *::after { box-sizing: border-box; }
 
