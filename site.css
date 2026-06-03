@@ -610,6 +610,58 @@ body.menu-open .mobile-menu { opacity: 1; visibility: visible; transform: transl
 .media-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .media-credit a:hover { color: #fff; }
 .media-wide { aspect-ratio: 21 / 9; margin: 56px 0; }
+
+/* ════════════════════════════════════════════════════════════
+   PHOTOGRAPHIC BANNERS — full-bleed imagery integrated into the page
+   ════════════════════════════════════════════════════════════ */
+/* Hero with a full-bleed photo that dissolves into the page */
+.hero--photo { color: #fff; background: #0b0b0c; }
+.hero-photo { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; }
+.hero-photo::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.58) 0%, rgba(0,0,0,.32) 42%, rgba(0,0,0,.5) 74%, var(--bg) 100%);
+}
+.hero--photo h1 { color: #fff; }
+.hero--photo .lede { color: rgba(255,255,255,.86); }
+.hero--photo .btn-ghost {
+  background: rgba(255,255,255,.12); color: #fff; border-color: rgba(255,255,255,.45);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.hero--photo .btn-ghost:hover { background: rgba(255,255,255,.2); border-color: #fff; }
+
+/* Full-bleed dark photo banner (e.g. AI Alerts) — dark in both themes */
+.banner-photo { position: relative; overflow: hidden; color: #fff; padding: clamp(92px,12vw,150px) 0; background: #0b0e14; }
+.banner-photo-img { position: absolute; inset: 0; z-index: 0; }
+.banner-photo-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 46%; }
+.banner-photo-img::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(8,12,20,.80) 0%, rgba(8,12,20,.55) 45%, rgba(8,12,20,.84) 100%);
+}
+.banner-photo > .container { position: relative; z-index: 1; }
+.banner-photo .eyebrow { color: #7db8ff; }
+.banner-photo .section-heading { color: #fff; }
+.banner-photo .section-lede { color: rgba(255,255,255,.82); }
+.banner-photo .alerts-stats .stat {
+  background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: none;
+}
+.banner-photo .alerts-stats .stat:hover { background: rgba(255,255,255,.13); }
+.banner-photo .alerts-stats .stat::before { background: linear-gradient(180deg,#4aa8ff,#a78bff); }
+.banner-photo .stat-num { color: #fff; }
+.banner-photo .stat-cap { color: rgba(255,255,255,.7); }
+.banner-photo .btn-primary { box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+
+/* Photo credit pill for full-bleed banners */
+.banner-credit {
+  position: absolute; z-index: 2; right: 14px; bottom: 12px;
+  font-size: 11px; letter-spacing: .01em; line-height: 1;
+  color: rgba(255,255,255,.82); background: rgba(0,0,0,.4);
+  padding: 5px 10px; border-radius: var(--radius-pill);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.banner-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.banner-credit a:hover { color: #fff; }
 @media (max-width: 600px) { .media-wide { aspect-ratio: 4 / 3; } }
 
 .about-grid {
