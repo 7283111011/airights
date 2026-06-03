@@ -153,21 +153,21 @@
 
   /* TIP OFF / SUBSCRIBE */
   .aiw-actions{max-width:1140px;margin:48px auto 0;padding:0 28px;display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
-  .aiw-submit-box,.aiw-subscribe-box{padding:28px 28px;background:#1d1d1f;color:#FFF;border-radius:16px}
-  .aiw-submit-box h3,.aiw-subscribe-box h3{font-size:1.0625rem;font-weight:700;margin-bottom:8px;color:#FFF}
-  .aiw-submit-box p,.aiw-subscribe-box p{font-size:0.8125rem;color:rgba(255,255,255,.78);line-height:1.6;margin-bottom:16px}
+  .aiw-submit-box,.aiw-subscribe-box{padding:28px 28px;background:#fff;border:1px solid rgba(0,0,0,0.10);color:#1d1d1f;border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .aiw-submit-box h3,.aiw-subscribe-box h3{font-size:1.0625rem;font-weight:700;margin-bottom:8px;color:#1d1d1f}
+  .aiw-submit-box p,.aiw-subscribe-box p{font-size:0.8125rem;color:#515154;line-height:1.6;margin-bottom:16px}
   .aiw-submit-form{display:flex;flex-direction:column;gap:12px}
   .aiw-field{display:flex;flex-direction:column;gap:4px}
-  .aiw-field label{font-size:0.6875rem;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:600}
-  .aiw-field input,.aiw-field textarea{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:0.875rem;padding:9px 12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#FFF;border-radius:10px;outline:none;transition:border-color .2s}
+  .aiw-field label{font-size:0.6875rem;letter-spacing:1px;text-transform:uppercase;color:#6e6e73;font-weight:600}
+  .aiw-field input,.aiw-field textarea{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:0.875rem;padding:9px 12px;border:1px solid rgba(0,0,0,0.12);background:#fff;color:#1d1d1f;border-radius:10px;outline:none;transition:border-color .2s}
   .aiw-field input:focus,.aiw-field textarea:focus{border-color:#0071e3}
-  .aiw-field input::placeholder,.aiw-field textarea::placeholder{color:rgba(255,255,255,.45)}
+  .aiw-field input::placeholder,.aiw-field textarea::placeholder{color:#86868b}
   .aiw-field textarea{resize:vertical;min-height:60px}
   .btn{display:inline-block;padding:10px 20px;background:#0071e3;color:#FFF;font-size:0.8125rem;font-weight:500;letter-spacing:0;border-radius:980px;text-decoration:none;border:none;cursor:pointer;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;transition:background .15s;align-self:flex-start}
   .btn:hover{background:#0077ed}
   .aiw-subscribe-form{display:flex;gap:8px;flex-direction:column}
-  .aiw-subscribe-form input[type=email]{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:0.875rem;padding:10px 12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#FFF;border-radius:10px;outline:none}
-  .aiw-subscribe-form input[type=email]::placeholder{color:rgba(255,255,255,.45)}
+  .aiw-subscribe-form input[type=email]{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:0.875rem;padding:10px 12px;border:1px solid rgba(0,0,0,0.12);background:#fff;color:#1d1d1f;border-radius:10px;outline:none}
+  .aiw-subscribe-form input[type=email]::placeholder{color:#86868b}
   .aiw-subscribe-form input[type=email]:focus{border-color:#0071e3}
 
   /* FOOTER */
@@ -199,49 +199,64 @@
   .logo img.brand-mark-lg,.brand-mark-lg{display:block;width:220px;height:auto;margin:0 auto}
   @media(max-width:780px){.brand-mark{width:130px}.brand-mark-lg{width:180px}}
 
-  /* DARK MODE (honours OS setting + header toggle) */
+  /* DARK MODE (honours OS setting + header toggle). Nesting scopes every
+     selector to the theme so light mode is never affected. */
   @media (prefers-color-scheme:dark){
-  html:not([data-theme="light"]) body{background:#000;color:#f5f5f7}
-  html:not([data-theme="light"]) .dh{background:linear-gradient(180deg,#000 0%,#101012 100%);color:#f5f5f7}
-  html:not([data-theme="light"]) .dh h1{color:#f5f5f7}
-  html:not([data-theme="light"]) .dh-sub{color:#c4c4c8}
-  html:not([data-theme="light"]) .dh-btn-o{background:#1c1c1e;color:#f5f5f7;border-color:rgba(255,255,255,.18)}
-  html:not([data-theme="light"]) .stat,.panel-card,.entry{background:#1c1c1e;border-color:rgba(255,255,255,.10)}
-  html:not([data-theme="light"]) .stat-icon{background:#000}
-  html:not([data-theme="light"]) .stat-num,.panel-title,.entry-h{color:#f5f5f7}
-  html:not([data-theme="light"]) .stat-label,.panel-hint,.entry-date,.results-count,.dh-meta{color:#86868b}
-  html:not([data-theme="light"]) .sb-bar,.entry-facts{background:#000}
-  html:not([data-theme="light"]) .entry-facts dd{color:#f5f5f7}
-  html:not([data-theme="light"]) .entry-body{color:#c4c4c8}
-  html:not([data-theme="light"]) details.method-d>summary{background:#101012;color:#f5f5f7}
-  html:not([data-theme="light"]) details.method-d>.method-body{background:#1c1c1e;border-color:rgba(255,255,255,.10);color:#c4c4c8}
-  html:not([data-theme="light"]) .chip{background:#1c1c1e;border-color:rgba(255,255,255,.16);color:#c4c4c8}
-  html:not([data-theme="light"]) .sort-select{background-color:#1c1c1e;color:#f5f5f7;border-color:rgba(255,255,255,.16)}
-  html:not([data-theme="light"]) .toolbar-inner{border-color:rgba(255,255,255,.10)}
-  html:not([data-theme="light"]) .entry-status{background:#000;border-color:rgba(255,255,255,.12);color:#c4c4c8}
-  html:not([data-theme="light"]) .entry-sources{border-top-color:rgba(255,255,255,.10);color:#86868b}
-  html:not([data-theme="light"]) .ft{background:#101012;border-color:rgba(255,255,255,.10)}
+    html:not([data-theme="light"]){
+      & body{background:#000;color:#f5f5f7}
+      .dh{background:linear-gradient(180deg,#000 0%,#101012 100%);color:#f5f5f7}
+      .dh h1{color:#f5f5f7}
+      .dh-sub{color:#c4c4c8}
+      .dh-btn-o{background:#1c1c1e;color:#f5f5f7;border-color:rgba(255,255,255,.18)}
+      .stat,.panel-card,.entry{background:#1c1c1e;border-color:rgba(255,255,255,.10)}
+      .stat-icon{background:#000}
+      .stat-num,.panel-title,.entry-h{color:#f5f5f7}
+      .stat-label,.panel-hint,.entry-date,.results-count,.dh-meta{color:#86868b}
+      .sb-bar,.entry-facts{background:#000}
+      .entry-facts dd{color:#f5f5f7}
+      .entry-body{color:#c4c4c8}
+      & details.method-d>summary{background:#101012;color:#f5f5f7}
+      & details.method-d>.method-body{background:#1c1c1e;border-color:rgba(255,255,255,.10);color:#c4c4c8}
+      .chip{background:#1c1c1e;border-color:rgba(255,255,255,.16);color:#c4c4c8}
+      .sort-select{background-color:#1c1c1e;color:#f5f5f7;border-color:rgba(255,255,255,.16)}
+      .toolbar-inner{border-color:rgba(255,255,255,.10)}
+      .entry-status{background:#000;border-color:rgba(255,255,255,.12);color:#c4c4c8}
+      .entry-sources{border-top-color:rgba(255,255,255,.10);color:#86868b}
+      .ft{background:#101012;border-color:rgba(255,255,255,.10)}
+      .aiw-submit-box,.aiw-subscribe-box{background:#1c1c1e;border-color:rgba(255,255,255,.10);color:#f5f5f7}
+      .aiw-submit-box h3,.aiw-subscribe-box h3{color:#f5f5f7}
+      .aiw-submit-box p,.aiw-subscribe-box p{color:#c4c4c8}
+      .aiw-field label{color:#86868b}
+      .aiw-field input,.aiw-field textarea,.aiw-subscribe-form input[type=email]{background:#000;border-color:rgba(255,255,255,.16);color:#f5f5f7}
+    }
   }
-  html[data-theme="dark"] body{background:#000;color:#f5f5f7}
-  html[data-theme="dark"] .dh{background:linear-gradient(180deg,#000 0%,#101012 100%);color:#f5f5f7}
-  html[data-theme="dark"] .dh h1{color:#f5f5f7}
-  html[data-theme="dark"] .dh-sub{color:#c4c4c8}
-  html[data-theme="dark"] .dh-btn-o{background:#1c1c1e;color:#f5f5f7;border-color:rgba(255,255,255,.18)}
-  html[data-theme="dark"] .stat,.panel-card,.entry{background:#1c1c1e;border-color:rgba(255,255,255,.10)}
-  html[data-theme="dark"] .stat-icon{background:#000}
-  html[data-theme="dark"] .stat-num,.panel-title,.entry-h{color:#f5f5f7}
-  html[data-theme="dark"] .stat-label,.panel-hint,.entry-date,.results-count,.dh-meta{color:#86868b}
-  html[data-theme="dark"] .sb-bar,.entry-facts{background:#000}
-  html[data-theme="dark"] .entry-facts dd{color:#f5f5f7}
-  html[data-theme="dark"] .entry-body{color:#c4c4c8}
-  html[data-theme="dark"] details.method-d>summary{background:#101012;color:#f5f5f7}
-  html[data-theme="dark"] details.method-d>.method-body{background:#1c1c1e;border-color:rgba(255,255,255,.10);color:#c4c4c8}
-  html[data-theme="dark"] .chip{background:#1c1c1e;border-color:rgba(255,255,255,.16);color:#c4c4c8}
-  html[data-theme="dark"] .sort-select{background-color:#1c1c1e;color:#f5f5f7;border-color:rgba(255,255,255,.16)}
-  html[data-theme="dark"] .toolbar-inner{border-color:rgba(255,255,255,.10)}
-  html[data-theme="dark"] .entry-status{background:#000;border-color:rgba(255,255,255,.12);color:#c4c4c8}
-  html[data-theme="dark"] .entry-sources{border-top-color:rgba(255,255,255,.10);color:#86868b}
-  html[data-theme="dark"] .ft{background:#101012;border-color:rgba(255,255,255,.10)}
+  html[data-theme="dark"]{
+    & body{background:#000;color:#f5f5f7}
+    .dh{background:linear-gradient(180deg,#000 0%,#101012 100%);color:#f5f5f7}
+    .dh h1{color:#f5f5f7}
+    .dh-sub{color:#c4c4c8}
+    .dh-btn-o{background:#1c1c1e;color:#f5f5f7;border-color:rgba(255,255,255,.18)}
+    .stat,.panel-card,.entry{background:#1c1c1e;border-color:rgba(255,255,255,.10)}
+    .stat-icon{background:#000}
+    .stat-num,.panel-title,.entry-h{color:#f5f5f7}
+    .stat-label,.panel-hint,.entry-date,.results-count,.dh-meta{color:#86868b}
+    .sb-bar,.entry-facts{background:#000}
+    .entry-facts dd{color:#f5f5f7}
+    .entry-body{color:#c4c4c8}
+    & details.method-d>summary{background:#101012;color:#f5f5f7}
+    & details.method-d>.method-body{background:#1c1c1e;border-color:rgba(255,255,255,.10);color:#c4c4c8}
+    .chip{background:#1c1c1e;border-color:rgba(255,255,255,.16);color:#c4c4c8}
+    .sort-select{background-color:#1c1c1e;color:#f5f5f7;border-color:rgba(255,255,255,.16)}
+    .toolbar-inner{border-color:rgba(255,255,255,.10)}
+    .entry-status{background:#000;border-color:rgba(255,255,255,.12);color:#c4c4c8}
+    .entry-sources{border-top-color:rgba(255,255,255,.10);color:#86868b}
+    .ft{background:#101012;border-color:rgba(255,255,255,.10)}
+    .aiw-submit-box,.aiw-subscribe-box{background:#1c1c1e;border-color:rgba(255,255,255,.10);color:#f5f5f7}
+    .aiw-submit-box h3,.aiw-subscribe-box h3{color:#f5f5f7}
+    .aiw-submit-box p,.aiw-subscribe-box p{color:#c4c4c8}
+    .aiw-field label{color:#86868b}
+    .aiw-field input,.aiw-field textarea,.aiw-subscribe-form input[type=email]{background:#000;border-color:rgba(255,255,255,.16);color:#f5f5f7}
+  }
 </style>
 <!-- fair-theme --><script>(function(){try{var t=localStorage.getItem("fair-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();document.addEventListener("DOMContentLoaded",function(){var b=document.querySelector(".theme-toggle");if(!b)return;b.addEventListener("click",function(){var d=document.documentElement,c=d.getAttribute("data-theme")||((window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light"),m=c==="dark"?"light":"dark";d.setAttribute("data-theme",m);try{localStorage.setItem("fair-theme",m);}catch(e){}});});</script>
 </head>
