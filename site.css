@@ -1068,3 +1068,28 @@ input::placeholder, textarea::placeholder { color: var(--text-3); }
   object-fit: cover;
   display: block;
 }
+
+/* ── Buttons must always defeat prose link styling ─────────
+   .prose a is more specific than .btn-primary (1,1 > 1,0)
+   which caused blue-on-blue text + an underline border on
+   any .btn dropped inside a .prose block. Re-anchor:
+   ────────────────────────────────────────────────────────── */
+.prose a.btn,
+.prose a.btn:hover,
+.prose a.btn:focus,
+.prose a.btn:focus-visible {
+  border-bottom: 0;
+  text-decoration: none;
+}
+.prose a.btn-primary,
+.prose a.btn-primary:hover,
+.prose a.btn-primary:focus,
+.prose a.btn-primary:focus-visible {
+  color: #fff;
+}
+.prose a.btn-ghost,
+.prose a.btn-ghost:hover,
+.prose a.btn-ghost:focus,
+.prose a.btn-ghost:focus-visible {
+  color: var(--text);
+}
