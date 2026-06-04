@@ -975,3 +975,71 @@ input::placeholder, textarea::placeholder { color: var(--text-3); }
 .error-wrap h1 { margin-top: 18px; font-size: clamp(26px, 3vw, 36px); }
 .error-wrap p { margin-top: 14px; color: var(--text-2); max-width: 44ch; }
 .error-wrap .hero-actions { margin-top: 32px; }
+
+/* ── Inline info-card hovers ─────────────────────────────────
+   Wrap an inline link in <span class="has-info"> and add a
+   sibling <span class="info-card">…</span> for the popover.
+   ─────────────────────────────────────────────────────────── */
+.has-info {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+}
+.link-inline {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 102, 204, 0.32);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.15s var(--ease), text-decoration-color 0.15s var(--ease);
+}
+.link-inline:hover,
+.link-inline:focus-visible {
+  color: var(--blue-hover);
+  text-decoration-color: currentColor;
+}
+.has-info > .info-card {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-2);
+  padding: 14px 16px;
+  width: max-content;
+  max-width: 320px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 50;
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease), visibility 0s linear 0.2s;
+}
+.has-info > .info-card::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -6px;
+  border: 6px solid transparent;
+  border-top-color: var(--card);
+}
+.has-info:hover > .info-card,
+.has-info:focus-within > .info-card {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease), visibility 0s linear 0s;
+}
+@media (max-width: 720px) {
+  .has-info > .info-card { max-width: 240px; font-size: 13px; padding: 12px 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .has-info > .info-card { transition: none; }
+}
