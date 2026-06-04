@@ -21,63 +21,119 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="policy.css?v=2">
+<link rel="stylesheet" href="site.css?v=2">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <!-- fair-theme --><script>(function(){try{var t=localStorage.getItem("fair-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();document.addEventListener("DOMContentLoaded",function(){var b=document.querySelector(".theme-toggle");if(!b)return;b.addEventListener("click",function(){var d=document.documentElement,c=d.getAttribute("data-theme")||((window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light"),m=c==="dark"?"light":"dark";d.setAttribute("data-theme",m);try{localStorage.setItem("fair-theme",m);}catch(e){}});});</script>
 </head>
 <body>
-<button class="theme-toggle" type="button" aria-label="Toggle dark mode"><svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg></button>
 
-<div class="pp-wrap">
-  <a href="/" class="pp-back">&larr; Back to FAIR</a>
-  <span class="pp-eyebrow">Stay Informed</span>
-  <h1>FAIR Briefings</h1>
-  <div class="pp-meta">Last updated: 1 May 2026 &middot; Version 1.0</div>
-
-
-  <div class="pp-callout">
-    FAIR Briefings. A short, plain-English digest of UK AI policy, sent every two weeks. Parliamentary inquiries worth knowing about, regulator consultations worth responding to, court judgments worth reading, and the occasional FAIR briefing on a specific question. No tracking, no upsell, easy to unsubscribe at any point.
+<header class="site-nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">FAIR</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#what">What we do</a>
+      <a href="index.html#alerts">AI Alerts</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#get-involved">Get involved</a>
+    </nav>
+    <a href="index.html#get-involved" class="nav-cta">Get involved</a>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode"><svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
   </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a href="index.html#what">What we do</a>
+  <a href="index.html#alerts">AI Alerts</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#get-involved">Get involved</a>
+</nav>
 
-  <h2>What you can expect</h2>
-  <ul>
-    <li>Cadence: biweekly, usually on a Friday afternoon.</li>
-    <li>Length: short. Roughly 700 to 1,000 words, takes three to five minutes to read.</li>
-    <li>Format: plain-text email. No HTML images, no tracking pixels.</li>
-    <li>Topics: open UK AI policy consultations and their deadlines; recent court judgments on AI, copyright, and data protection; published regulator decisions; brief notes on FAIR&rsquo;s own work; selected reading.</li>
-    <li>Cost: free.</li>
-    <li>Unsubscribe: one click, on any issue. The link is at the bottom of every email.</li>
-  </ul>
+<main>
 
-  <h2>Sign up</h2>
-  <p>Enter your email address below. You will receive a confirmation email at that address; clicking the link in that email completes the sign-up.</p>
+  <section class="page-hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container container-narrow">
+      <a class="back-link" href="index.html">&larr; Back to FAIR</a>
+      <span class="eyebrow reveal">Newsletter</span>
+      <h1 class="reveal">Newsletter.</h1>
+      <p class="lede reveal" data-delay="1">FAIR Briefings: a short, plain-English read on UK artificial-intelligence policy and your rights, sent roughly every two weeks.</p>
+    </div>
+  </section>
 
-  <form action="https://buttondown.com/api/emails/embed-subscribe/airights" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/airights', 'popupwindow')" class="ff" style="margin:24px 0;display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end">
-    <label for="bd-email" style="display:flex;flex-direction:column;gap:6px;flex:1;min-width:240px">
-      <span style="font-size:0.875rem;font-weight:600;color:#334155">Email address</span>
-      <input type="email" name="email" id="bd-email" required placeholder="you@example.com" style="font-family:'Public Sans',sans-serif;font-size:0.9375rem;padding:10px 12px;border:1px solid #E2E8F0;border-radius:3px;background:#FFF;color:#0F172A;outline:none">
-    </label>
-    <button type="submit" class="f-submit" style="padding:10px 24px;border-radius:3px;background:#0065BD;color:#FFF;font-family:'Public Sans',sans-serif;font-size:0.875rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer">Subscribe</button>
-  </form>
-  <p style="font-size:0.875rem;color:#64748B;line-height:1.6">By subscribing you confirm you are happy to receive the FAIR Briefings newsletter at the address provided. Subscription data is processed by Buttondown Inc on FAIR&rsquo;s behalf and on the lawful basis of consent. See our <a href="privacy.html">Privacy Policy</a> for details. You can withdraw consent at any time by clicking the unsubscribe link in any issue.</p>
+  <section class="section section-light" style="padding-top:48px">
+    <div class="container container-narrow prose reveal">
 
-  <h2>What FAIR does with subscriber data</h2>
-  <ul>
-    <li>We keep your email address only for the purpose of sending the newsletter. We do not share or sell it.</li>
-    <li>We process subscription data using Buttondown (Buttondown Inc, US-based, with appropriate UK GDPR transfer safeguards), as our data processor.</li>
-    <li>We do not place tracking pixels in our newsletter, and we do not record whether you opened or clicked anything in any issue.</li>
-    <li>Aggregate, anonymous open and click counts may be reported by the email service in summary form; FAIR does not retain or use this data.</li>
-    <li>You can unsubscribe at any time using the link at the bottom of every issue, or by emailing <a href="mailto:info@airights.org.uk">info@airights.org.uk</a> with the word UNSUBSCRIBE in the subject line.</li>
-  </ul>
+      <p>FAIR Briefings is a plain-English newsletter on UK artificial-intelligence policy and rights. It is sent roughly every two weeks, it is free, and it carries no tracking.</p>
 
-  <h2>Past issues</h2>
-  <p>An archive of past newsletters will be linked from this page once issues have been published. The first issue is planned for the period following FAIR&rsquo;s registration as a Charitable Incorporated Organisation.</p>
+      <form action="https://buttondown.com/api/emails/embed-subscribe/airights" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/airights', 'popupwindow')" class="signup-form reveal" data-delay="1">
+        <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+      <p class="signup-fine">Hosted by Buttondown. See our <a href="privacy.html">privacy notice</a>.</p>
 
+      <h2>What to expect</h2>
+      <ul>
+        <li>Cadence: roughly fortnightly, usually on a Friday.</li>
+        <li>Length: short, around 700 to 1,000 words.</li>
+        <li>Format: plain-text email, with no tracking pixels.</li>
+        <li>Content: open consultations and their deadlines, court judgments, regulator decisions, brief notes on FAIR&rsquo;s work, and selected reading.</li>
+        <li>Cost: free.</li>
+        <li>Unsubscribe: one click, on any issue.</li>
+      </ul>
 
-  <div class="pp-footer">
-    The Foundation for Artificial Intelligence Rights (FAIR) is a UK organisation (registration pending). This document is provided for transparency and good governance. Where any provision is inconsistent with applicable law, that law prevails.
+      <h2>Your data</h2>
+      <p>We use your email address only to send the newsletter, and it is processed by Buttondown as our data processor on the lawful basis of consent. We do not share or sell it, and you can withdraw consent at any time using the unsubscribe link in any issue. See our <a href="privacy.html">privacy notice</a> for details.</p>
+
+      <h2>Past issues</h2>
+      <p>An archive of past issues will appear here once the newsletter has begun publishing.</p>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="brand brand-footer">FAIR</div>
+      <p>The Foundation for Artificial Intelligence Rights.<br>International House, 50 Essex Street,<br>London WC2R 3JF, United Kingdom.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html#what">What we do</a>
+      <a href="index.html#alerts">AI Alerts</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#get-involved">Get involved</a>
+    </nav>
+    <div class="footer-legal">
+      <div class="footer-policies">
+        <a href="privacy.html">Privacy</a>
+        <a href="accessibility.html">Accessibility</a>
+        <a href="complaints.html">Complaints</a>
+        <a href="safeguarding.html">Safeguarding</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 The Foundation for Artificial Intelligence Rights. London. United Kingdom.</p>
+    </div>
   </div>
-</div>
+</footer>
 
+<script>
+  (function(){
+    var nav = document.getElementById('navbar');
+    if (nav) { var u=function(){nav.classList.toggle('scrolled', window.scrollY>30);}; window.addEventListener('scroll',u,{passive:true}); u(); }
+    var t=document.getElementById('navToggle'), m=document.getElementById('mobileMenu');
+    if (t&&m){ var s=function(o){document.body.classList.toggle('menu-open',o);t.setAttribute('aria-expanded',o?'true':'false');t.setAttribute('aria-label',o?'Close menu':'Open menu');};
+      t.addEventListener('click',function(){s(!document.body.classList.contains('menu-open'));});
+      m.addEventListener('click',function(e){if(e.target.tagName==='A')s(false);});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false);}); }
+    var els=document.querySelectorAll('.reveal'), r=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(r||!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in');});}
+    else{var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -10% 0px',threshold:0});els.forEach(function(e){io.observe(e);});}
+  })();
+</script>
 <!-- ACCESSIBILITY: UserWay Widget -->
 <script>
 (function(d){
@@ -88,7 +144,6 @@
   (d.body || d.head).appendChild(s);
 })(document);
 </script>
-
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
