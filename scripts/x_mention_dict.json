@@ -1,0 +1,134 @@
+{
+  "_comment": "Maps UK public bodies, departments, regulators, and AI vendors to their X handles. Used by x_publish.py to @-mention relevant accounts when AI Alerts entries reference them. Add or correct entries here without touching code. Keys are matched case-insensitively against the entry's buyer, supplier, and body text.",
+
+  "buyers": {
+    "NHS England": "@NHSEngland",
+    "NHS": "@NHSEngland",
+    "Department of Health and Social Care": "@DHSCgovuk",
+    "DHSC": "@DHSCgovuk",
+    "NHS Supply Chain": "@NHSSupplyChain",
+
+    "Home Office": "@ukhomeoffice",
+    "Border Force": "@BFNorthEast",
+    "UK Visas and Immigration": "@ukhomeoffice",
+
+    "Department for Work and Pensions": "@DWPgovuk",
+    "DWP": "@DWPgovuk",
+
+    "Department for Education": "@educationgovuk",
+    "DfE": "@educationgovuk",
+
+    "Department for Science, Innovation and Technology": "@SciTechgovuk",
+    "DSIT": "@SciTechgovuk",
+
+    "Cabinet Office": "@cabinetofficeuk",
+    "Government Digital Service": "@GDSTeam",
+    "GDS": "@GDSTeam",
+    "Central Digital and Data Office": "@CDDO_UK",
+    "CDDO": "@CDDO_UK",
+
+    "HM Revenue and Customs": "@HMRCgovuk",
+    "HMRC": "@HMRCgovuk",
+    "HM Treasury": "@hmtreasury",
+    "Treasury": "@hmtreasury",
+
+    "Ministry of Justice": "@MoJGovUK",
+    "MoJ": "@MoJGovUK",
+    "HM Courts and Tribunals Service": "@HMCTSgovuk",
+    "HMCTS": "@HMCTSgovuk",
+    "Crown Prosecution Service": "@cpsuk",
+    "CPS": "@cpsuk",
+
+    "Ministry of Defence": "@DefenceHQ",
+    "MoD": "@DefenceHQ",
+
+    "Department for Business and Trade": "@biztradegovuk",
+    "Department for Environment, Food and Rural Affairs": "@DefraGovUK",
+    "Defra": "@DefraGovUK",
+    "Department for Transport": "@transportgovuk",
+    "DfT": "@transportgovuk",
+    "Department for Culture, Media and Sport": "@DCMS",
+    "DCMS": "@DCMS",
+    "Department for Levelling Up, Housing and Communities": "@luhcgovuk",
+    "Ministry of Housing, Communities and Local Government": "@luhcgovuk",
+    "Foreign, Commonwealth and Development Office": "@FCDOGovUK",
+    "FCDO": "@FCDOGovUK",
+
+    "Metropolitan Police": "@metpoliceuk",
+    "Metropolitan Police Service": "@metpoliceuk",
+    "Met Police": "@metpoliceuk",
+    "City of London Police": "@CityPolice",
+    "Greater Manchester Police": "@gmpolice",
+    "West Midlands Police": "@WMPolice",
+    "Police Scotland": "@PoliceScotland",
+    "Police Service of Northern Ireland": "@PoliceServiceNI",
+    "PSNI": "@PoliceServiceNI",
+    "National Police Chiefs' Council": "@PoliceChiefs",
+    "NPCC": "@PoliceChiefs",
+    "College of Policing": "@CollegeofPolice",
+
+    "Scottish Government": "@scotgov",
+    "Welsh Government": "@WelshGovernment",
+    "Northern Ireland Executive": "@niexecutive",
+
+    "Greater London Authority": "@LDN_gov",
+    "Mayor of London": "@MayorofLondon",
+
+    "Alan Turing Institute": "@turinginst"
+  },
+
+  "regulators": {
+    "Information Commissioner's Office": "@ICOnews",
+    "ICO": "@ICOnews",
+    "Ofcom": "@Ofcom",
+    "Office of Communications": "@Ofcom",
+    "Competition and Markets Authority": "@CMAgovUK",
+    "CMA": "@CMAgovUK",
+    "Financial Conduct Authority": "@TheFCA",
+    "FCA": "@TheFCA",
+    "Medicines and Healthcare products Regulatory Agency": "@MHRAgovuk",
+    "MHRA": "@MHRAgovuk",
+    "Equality and Human Rights Commission": "@EHRC",
+    "EHRC": "@EHRC",
+    "National Audit Office": "@NAOorguk",
+    "NAO": "@NAOorguk",
+    "Intellectual Property Office": "@The_IPO",
+    "Intellectual Property Office UK": "@The_IPO",
+    "IPO": "@The_IPO",
+
+    "AI Safety Institute": "@AISafetyInst",
+    "AISI": "@AISafetyInst",
+    "UK AI Safety Institute": "@AISafetyInst"
+  },
+
+  "suppliers": {
+    "Palantir": "@PalantirTech",
+    "Palantir Technologies": "@PalantirTech",
+    "OpenAI": "@OpenAI",
+    "Anthropic": "@AnthropicAI",
+    "Google": "@Google",
+    "Google DeepMind": "@GoogleDeepMind",
+    "DeepMind": "@GoogleDeepMind",
+    "Microsoft": "@Microsoft",
+    "Amazon Web Services": "@awscloud",
+    "AWS": "@awscloud",
+    "IBM": "@IBM",
+    "Oracle": "@Oracle",
+    "Salesforce": "@salesforce",
+    "Capgemini": "@Capgemini",
+    "Deloitte": "@DeloitteUK",
+    "PwC": "@PwC_UK",
+    "Accenture": "@Accenture",
+    "BAE Systems": "@BAESystemsplc",
+    "Faculty": "@FacultyAI",
+    "Cohere": "@cohere",
+    "Mistral": "@MistralAI",
+    "Hugging Face": "@huggingface",
+    "Stability AI": "@StabilityAI",
+    "xAI": "@xai",
+    "Meta": "@Meta",
+    "Meta AI": "@MetaAI",
+    "Nvidia": "@nvidia",
+    "Scale AI": "@scale_AI"
+  }
+}
