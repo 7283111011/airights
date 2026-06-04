@@ -22,11 +22,15 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install google-genai
+        run: pip install google-genai requests requests-oauthlib
 
       - name: Run AI Watch scanner
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
         run: python scripts/ai-watch-scan.py
 
       - name: Check for changes
@@ -39,7 +43,7 @@ jobs:
         run: |
           git config user.name "AI Watch Bot"
           git config user.email "bot@airights.org.uk"
-          git add ai-alerts.html
+          git add ai-alerts.html scripts/x_posted.json
           SUMMARY=$(cat /tmp/ai-watch-commit-msg.txt 2>/dev/null || echo "AI Watch: automated scan update")
           git commit -m "$SUMMARY"
           git push

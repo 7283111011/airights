@@ -1050,6 +1050,20 @@ input::placeholder, textarea::placeholder { color: var(--text-3); }
   .has-info > .info-card { transition: none; }
 }
 
+/* ── Lift the card above its siblings while its info-card is open.
+   Without this, the popover (which can extend ~80px past the right
+   edge of the card) is painted under the next grid sibling because
+   all cards stack at z-auto and later DOM siblings paint on top.
+   Using :has() so the lift fires the moment the user hovers (or
+   keyboard-focuses) the inline link, not just the link itself. ─── */
+.card { z-index: 1; }
+.card:hover,
+.card:focus-within,
+.card:has(.has-info:hover),
+.card:has(.has-info:focus-within) {
+  z-index: 5;
+}
+
 /* ── Projects: one-line overview on teaser cards ─────────── */
 .proj-card--photo .proj-card-body .proj-overview {
   margin: 10px 0 0;

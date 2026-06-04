@@ -504,6 +504,20 @@ with open(HTML_PATH, "w", encoding="utf-8") as f:
 print(f"\nUpdated {HTML_PATH}: {new_count} entries (was {entry_count})")
 
 # ---------------------------------------------------------------------------
+# 7b. Publish each new entry to X (@AIRightsUK)
+# ---------------------------------------------------------------------------
+# Defensive: if x_publish fails or credentials are missing, we log and
+# continue so the website update is never blocked by a social issue.
+try:
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import x_publish
+    print("\n--- X publishing ---")
+    x_result = x_publish.publish_entries(genuinely_new)
+    print(f"X publishing result: {x_result}")
+except Exception as e:
+    print(f"X publishing failed (continuing): {e}")
+
+# ---------------------------------------------------------------------------
 # 8. Write commit message
 # ---------------------------------------------------------------------------
 
