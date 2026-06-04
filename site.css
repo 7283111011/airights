@@ -1223,3 +1223,33 @@ input::placeholder, textarea::placeholder { color: var(--text-3); }
   font-size: 16px; color: var(--text-2);
 }
 .pp-callout strong { color: var(--text); }
+
+/* ── Footer social icon row (LinkedIn etc) ──────────────── */
+.footer-social {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 4px 0 14px;
+}
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  color: var(--text-2);
+  background: transparent;
+  transition: color 0.18s var(--ease), background 0.18s var(--ease), transform 0.18s var(--ease);
+}
+.footer-social-link svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+.footer-social-link:hover,
+.footer-social-link:focus-visible {
+  color: var(--blue);
+  background: var(--bg-grey);
+  transform: translateY(-1px);
+}
