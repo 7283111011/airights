@@ -80,7 +80,7 @@ Respond with ONLY a JSON object. No markdown fences, no preamble, no explanation
   "new_entries": [
     {{
       "title": "Short descriptive title",
-      "date_string": "e.g. March 2026 or 15 April 2026",
+      "date_string": "The date the CONTRACT was signed or the announcement was originally made by the UK public body itself. NOT the publication date of any secondary news article or roundup. Format: e.g. March 2026 or 15 April 2026. If you only see a roundup or commentary article, use the date of the underlying announcement, not the article's date.",
       "sector": "health|justice|policing|welfare|government|immigration|tax|safety|education|defence|local",
       "status": "live|pilot|mou|review",
       "status_label": "e.g. Live or Pilot or MoU - voluntary",
@@ -381,9 +381,22 @@ def build_entry_html(entry):
 
     date_string = entry.get("date_string", "")
     iso_date = parse_date_to_iso(date_string)
+    today_iso = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     if iso_date is None:
         # Fallback to today (scanner found it today)
-        iso_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        iso_date = today_iso
+    # Guard against hallucinated future dates. If Gemini returns a date
+    # later than today (commonly because it used a roundup article's
+    # publication date instead of the original announcement date),
+    # cap to today so the entry sorts correctly and doesn't claim to
+    # come from the future.
+    if iso_date > today_iso:
+        print(f"  WARN: capping future date {iso_date} -> {today_iso} for entry: {entry.get('title','?')}")
+        iso_date = today_iso
+        # Also blank the displayed date_string if it was a clear hallucination,
+        # so the front-end doesn't show a future date in the visible label.
+        if date_string and parse_date_to_iso(date_string) and parse_date_to_iso(date_string) > today_iso:
+            date_string = "Date pending review"
 
     facts_html = ""
     for fact in entry.get("facts", []):
