@@ -1136,3 +1136,90 @@ input::placeholder, textarea::placeholder { color: var(--text-3); }
 @media (max-width: 720px) {
   .about-hero { aspect-ratio: 3 / 2; border-radius: var(--radius-sm); }
 }
+
+.about-cta { margin-top: clamp(32px, 4vw, 48px); display: flex; justify-content: center; }
+
+/* ============================================================
+   POLICY / LEGAL PAGE TYPOGRAPHY
+   Migrated from policy.css. Class names kept under .pp-wrap so
+   existing policy-page markup needs no changes.
+   ============================================================ */
+
+.pp-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(96px, 12vw, 144px) 28px 100px;
+}
+.pp-wrap .pp-eyebrow {
+  display: inline-block;
+  padding: 0; margin-bottom: 16px;
+  background: none;
+  color: var(--blue);
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.pp-wrap h1 {
+  font-size: clamp(34px, 5vw, 52px);
+  font-weight: 700; color: var(--text);
+  line-height: 1.05; letter-spacing: -0.035em;
+  margin: 0 0 12px;
+}
+.pp-wrap h1 strong { font-weight: 700; color: var(--text); }
+.pp-meta {
+  font-size: 13px; color: var(--text-3);
+  margin-bottom: 44px; letter-spacing: 0.01em;
+}
+.pp-wrap h2 {
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 700; color: var(--text);
+  letter-spacing: -0.022em; line-height: 1.15;
+  margin-top: 52px; margin-bottom: 14px;
+}
+.pp-wrap h3 {
+  font-size: 19px; font-weight: 600; color: var(--text);
+  letter-spacing: -0.012em;
+  margin-top: 30px; margin-bottom: 8px;
+}
+.pp-wrap p {
+  font-size: 17px; color: var(--text-2);
+  margin: 0 0 16px; line-height: 1.65;
+}
+.pp-wrap ul, .pp-wrap ol {
+  margin: 12px 0 20px; padding-left: 24px;
+}
+.pp-wrap li {
+  font-size: 17px; color: var(--text-2);
+  margin-bottom: 9px; line-height: 1.65;
+}
+.pp-wrap li::marker { color: var(--text-3); }
+.pp-wrap a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--link) 35%, transparent);
+  transition: border-color 0.2s var(--ease);
+}
+.pp-wrap a:hover { border-bottom-color: var(--link); }
+.pp-table {
+  width: 100%; border-collapse: collapse;
+  margin: 18px 0 26px; font-size: 15px;
+  border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+}
+.pp-table th, .pp-table td {
+  text-align: left; padding: 13px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top; color: var(--text-2);
+}
+.pp-table th {
+  background: var(--bg-grey);
+  font-weight: 600; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.03em;
+  color: var(--text-3);
+}
+.pp-table tr:last-child td { border-bottom: 0; }
+.pp-callout {
+  padding: 20px 24px; background: var(--bg-grey);
+  border: 1px solid var(--line); border-left: 3px solid var(--blue);
+  border-radius: 0 14px 14px 0; margin: 26px 0;
+  font-size: 16px; color: var(--text-2);
+}
+.pp-callout strong { color: var(--text); }
