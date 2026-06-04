@@ -19,7 +19,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-<link rel="stylesheet" href="site.css?v=2">
+<link rel="stylesheet" href="site.css?v=3">
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1d1d1f;background:#f5f5f7;line-height:1.65;-webkit-font-smoothing:antialiased}
@@ -71,7 +71,10 @@
   .panel-title{font-size:1.0625rem;font-weight:700;color:#1d1d1f;letter-spacing:-0.005em}
   .panel-hint{font-size:0.75rem;color:#6e6e73}
   .sb-list{display:flex;flex-direction:column;gap:11px}
-  .sb-row{display:grid;grid-template-columns:140px 1fr 40px;gap:14px;align-items:center;font-size:0.8125rem}
+  .sb-row{display:grid;grid-template-columns:150px 1fr 44px;gap:14px;align-items:center;font-size:0.8125rem;width:100%;background:none;border:0;font-family:inherit;text-align:left;cursor:pointer;padding:7px 8px;border-radius:9px;transition:background .15s}
+  .sb-row:hover{background:#f5f5f7}
+  .load-more-wrap{max-width:1140px;margin:26px auto 0;padding:0 28px;text-align:center}
+  #load-more{min-width:180px}
   .sb-label{color:#515154;font-weight:600;display:flex;align-items:center;gap:8px}
   .sb-dot{width:10px;height:10px;border-radius:2px;display:inline-block;flex-shrink:0}
   .sb-bar{height:8px;background:#f5f5f7;border-radius:99px;overflow:hidden;position:relative}
@@ -264,7 +267,7 @@
 
 <header class="site-nav" id="navbar">
   <div class="nav-inner">
-    <a href="index.html" class="brand">FAIR</a>
+    <a href="index.html" class="brand" aria-label="FAIR home"><img class="brand-logo brand-logo--onlight" src="/images/FAIR_logo_trim.png" alt="FAIR" width="48" height="30"><img class="brand-logo brand-logo--ondark" src="/images/FAIR_logo_white_trim.png" alt="FAIR" width="48" height="30"></a>
     <nav class="nav-links" aria-label="Primary">
       <a href="index.html#what">What we do</a>
       <a href="index.html#alerts">AI Alerts</a>
@@ -2827,6 +2830,31 @@
       </div>
     </article>
     </div>
+
+    <div class="load-more-wrap"><button id="load-more" class="dh-btn-p" type="button">Load 10 more</button></div>
+
+    <div class="aiw-actions">
+      <div class="aiw-submit-box" id="submit-tip">
+        <h3>Submit a tip</h3>
+        <p>Know of a public-sector AI contract, partnership or pilot we have missed? Tell us. Every entry is checked against a public source before it is added.</p>
+        <form class="aiw-submit-form" action="https://formspree.io/f/xykognyk" method="POST">
+          <input type="hidden" name="_subject" value="[AI ALERTS TIP]">
+          <input type="hidden" name="report_type" value="ai_alerts_tip">
+          <div class="aiw-field"><label for="tip-detail">What should we look at?</label><textarea id="tip-detail" name="tip" required placeholder="The public body and supplier, what the AI does, and a link to a source if you have one."></textarea></div>
+          <div class="aiw-field"><label for="tip-email">Your email (optional)</label><input id="tip-email" type="email" name="email" placeholder="you@example.com"></div>
+          <button class="btn" type="submit">Send tip</button>
+        </form>
+      </div>
+      <div class="aiw-subscribe-box" id="subscribe">
+        <h3>Subscribe to updates</h3>
+        <p>Get the Foundation&rsquo;s newsletter, including new AI Alerts. Free, sent roughly every two weeks, no tracking.</p>
+        <form class="aiw-subscribe-form" action="https://buttondown.com/api/emails/embed-subscribe/airights" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/airights','popupwindow')">
+          <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+          <button class="btn" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
   </main>
 
 <footer class="site-footer">
@@ -2868,6 +2896,74 @@
     if(r||!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in');});}
     else{var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -10% 0px',threshold:0});els.forEach(function(e){io.observe(e);});}
   })();
+</script>
+<script>
+/* AI Alerts register: filter, sort, load-more, sector breakdown, live date */
+(function(){
+  var entriesEl = document.getElementById('entries');
+  if(!entriesEl) return;
+  var entries = Array.prototype.slice.call(entriesEl.querySelectorAll('.entry'));
+  var PAGE = 10, shown = PAGE, sector = 'all', sortMode = 'date-desc';
+  var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var SECTORS = [
+    {k:'health',label:'Health',c:'#0EA5E9'},{k:'justice',label:'Justice',c:'#7C3AED'},
+    {k:'policing',label:'Policing',c:'#0F172A'},{k:'welfare',label:'Welfare',c:'#DC2626'},
+    {k:'government',label:'Cross-Govt',c:'#059669'},{k:'immigration',label:'Immigration',c:'#EA580C'},
+    {k:'tax',label:'Tax',c:'#CA8A04'},{k:'safety',label:'AI Safety',c:'#0071e3'}
+  ];
+  function dv(e){ return e.getAttribute('data-date')||''; }
+  function filtered(){
+    var l = entries.filter(function(e){ return sector==='all' || e.getAttribute('data-sector')===sector; });
+    l.sort(function(a,b){ var x=dv(a),y=dv(b); return sortMode==='date-asc' ? (x<y?-1:x>y?1:0) : (x>y?-1:x<y?1:0); });
+    return l;
+  }
+  function render(){
+    var l = filtered();
+    entries.forEach(function(e){ e.style.display='none'; });
+    l.forEach(function(e,i){ entriesEl.appendChild(e); e.style.display = i<shown ? '' : 'none'; });
+    var rc = document.getElementById('results-count');
+    if(rc){ rc.innerHTML = 'Showing <span class="rc-num">'+Math.min(shown,l.length)+'</span> of <span class="rc-num">'+l.length+'</span> entries'; }
+    var lm = document.getElementById('load-more');
+    if(lm){ lm.style.display = shown < l.length ? '' : 'none'; }
+  }
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-filter="sector"]'));
+  function setSector(val){
+    sector = val; shown = PAGE;
+    chips.forEach(function(c){ c.classList.toggle('active', c.getAttribute('data-value')===val); });
+    render();
+  }
+  chips.forEach(function(ch){ ch.addEventListener('click', function(){ setSector(ch.getAttribute('data-value')); var tb=document.querySelector('.toolbar'); if(tb) tb.scrollIntoView({behavior:'smooth',block:'start'}); }); });
+  var sortSel = document.getElementById('sort-select');
+  if(sortSel){ sortSel.addEventListener('change', function(){ sortMode = sortSel.value; shown = PAGE; render(); }); }
+  var lm = document.getElementById('load-more');
+  if(lm){ lm.addEventListener('click', function(){ shown += PAGE; render(); }); }
+  /* sector breakdown */
+  var counts = {}; entries.forEach(function(e){ var s=e.getAttribute('data-sector'); counts[s]=(counts[s]||0)+1; });
+  var max = 0; Object.keys(counts).forEach(function(k){ if(counts[k]>max) max=counts[k]; });
+  var sb = document.getElementById('sb-list');
+  if(sb){
+    var html = '';
+    SECTORS.slice().sort(function(a,b){ return (counts[b.k]||0)-(counts[a.k]||0); }).forEach(function(s){
+      var c = counts[s.k]||0; if(!c) return;
+      var pct = max ? Math.round(c/max*100) : 0;
+      html += '<button class="sb-row" type="button" data-sector="'+s.k+'" aria-label="Filter by '+s.label+'">'
+        + '<span class="sb-label"><span class="sb-dot" style="background:'+s.c+'"></span>'+s.label+'</span>'
+        + '<span class="sb-bar"><span class="sb-fill" style="width:'+pct+'%;background:'+s.c+'"></span></span>'
+        + '<span class="sb-count">'+c+'</span></button>';
+    });
+    sb.innerHTML = html;
+    Array.prototype.slice.call(sb.querySelectorAll('.sb-row')).forEach(function(row){
+      row.addEventListener('click', function(){ setSector(row.getAttribute('data-sector')); var tb=document.querySelector('.toolbar'); if(tb) tb.scrollIntoView({behavior:'smooth',block:'start'}); });
+    });
+  }
+  /* stats + live date */
+  var stTotal = document.getElementById('stat-total'); if(stTotal) stTotal.textContent = entries.length;
+  var stSect = document.getElementById('stat-sectors'); if(stSect) stSect.textContent = Object.keys(counts).length;
+  var newest = ''; entries.forEach(function(e){ var d=dv(e); if(d>newest) newest=d; });
+  var lu = document.getElementById('dh-last-updated');
+  if(lu && newest){ var p=newest.split('-'); lu.textContent = parseInt(p[2],10)+' '+months[parseInt(p[1],10)-1]+' '+p[0]; }
+  render();
+})();
 </script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script>
 </body>

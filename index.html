@@ -56,14 +56,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=2">
+<link rel="stylesheet" href="site.css?v=3">
 <!-- fair-theme --><script>(function(){try{var t=localStorage.getItem("fair-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();document.addEventListener("DOMContentLoaded",function(){var b=document.querySelector(".theme-toggle");if(!b)return;b.addEventListener("click",function(){var d=document.documentElement,c=d.getAttribute("data-theme")||((window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light"),m=c==="dark"?"light":"dark";d.setAttribute("data-theme",m);try{localStorage.setItem("fair-theme",m);}catch(e){}});});</script>
 </head>
 <body>
 
 <header class="site-nav" id="navbar">
   <div class="nav-inner">
-    <a href="index.html" class="brand">FAIR</a>
+    <a href="index.html" class="brand" aria-label="FAIR home"><img class="brand-logo brand-logo--onlight" src="/images/FAIR_logo_trim.png" alt="FAIR" width="48" height="30"><img class="brand-logo brand-logo--ondark" src="/images/FAIR_logo_white_trim.png" alt="FAIR" width="48" height="30"></a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#what">What we do</a>
       <a href="#alerts">AI Alerts</a>
@@ -87,8 +87,8 @@
   <section class="hero hero--photo" id="home">
     <div class="hero-photo" aria-hidden="true"><img src="images/hero-london.jpg" alt="The London skyline at dusk over the River Thames." loading="eager" fetchpriority="high"></div>
     <div class="container">
-      <h1 class="reveal">Supporting the public through <span class="accent">awareness, learning and legislation.</span></h1>
-      <p class="lede reveal" data-delay="1">The Foundation for Artificial Intelligence Rights. Independent. United Kingdom focused.</p>
+      <h1 class="reveal">AI rights for the <span class="accent">United Kingdom.</span></h1>
+      <p class="lede reveal" data-delay="1">Supporting the general public through awareness, learning and legislation.</p>
       <div class="hero-actions reveal" data-delay="2">
         <a href="report.html" class="btn btn-primary">Report your experience</a>
         <a href="#what" class="btn btn-ghost">What we do</a>

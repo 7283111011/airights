@@ -158,6 +158,8 @@ p { margin: 0; }
   gap: 24px;
 }
 .brand {
+  display: inline-flex;
+  align-items: center;
   font-weight: 700;
   font-size: 19px;
   letter-spacing: -0.02em;
@@ -165,6 +167,14 @@ p { margin: 0; }
   transition: opacity 0.2s var(--ease);
 }
 .brand:hover { opacity: 0.7; }
+.brand-logo { height: 30px; width: auto; display: block; }
+.brand-logo--ondark { display: none; }
+:root[data-theme="dark"] .brand-logo--onlight { display: none; }
+:root[data-theme="dark"] .brand-logo--ondark { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .brand-logo--onlight { display: none; }
+  :root:not([data-theme="light"]) .brand-logo--ondark { display: block; }
+}
 
 .nav-links { display: flex; gap: 4px; align-items: center; }
 .nav-links a {
