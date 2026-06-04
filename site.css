@@ -1043,3 +1043,28 @@ input::placeholder, textarea::placeholder { color: var(--text-3); }
 @media (prefers-reduced-motion: reduce) {
   .has-info > .info-card { transition: none; }
 }
+
+/* ── Projects: one-line overview on teaser cards ─────────── */
+.proj-card--photo .proj-card-body .proj-overview {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-2);
+  font-weight: 400;
+}
+.proj-card--photo .link-arrow { margin-top: auto; padding-top: 16px; }
+
+/* ── Project detail: hero image (image-title-body pattern) ─ */
+.project-hero-media {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-grey);
+  aspect-ratio: 16 / 9;
+}
+.project-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
