@@ -6,8 +6,12 @@
 <title>Privacy Policy | FAIR - The Foundation for Artificial Intelligence Rights</title>
 <meta name="description" content="Privacy Policy for The Foundation for Artificial Intelligence Rights (FAIR). How we collect, use, and protect your personal data under the UK GDPR.">
 <link rel="canonical" href="https://airights.org.uk/privacy.html">
+<meta name="google-site-verification" content="2uoQexdaJCpih74zL-iG_ORxeBMct3gDn6ckseYCP_c">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="FAIR - The Foundation for Artificial Intelligence Rights">
+<meta property="og:site_name" content="FAIR | The Foundation for Artificial Intelligence Rights">
 <meta property="og:title" content="Privacy Policy | FAIR">
 <meta property="og:description" content="Privacy Policy for The Foundation for Artificial Intelligence Rights (FAIR). How we collect, use, and protect your personal data under the UK GDPR.">
 <meta property="og:url" content="https://airights.org.uk/privacy.html">
@@ -21,15 +25,33 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="policy.css?v=3">
+<link rel="stylesheet" href="site.css?v=3">
 <!-- fair-theme --><script>(function(){try{var t=localStorage.getItem("fair-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();document.addEventListener("DOMContentLoaded",function(){var b=document.querySelector(".theme-toggle");if(!b)return;b.addEventListener("click",function(){var d=document.documentElement,c=d.getAttribute("data-theme")||((window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light"),m=c==="dark"?"light":"dark";d.setAttribute("data-theme",m);try{localStorage.setItem("fair-theme",m);}catch(e){}});});document.addEventListener("click",function(e){var a=e.target.closest?e.target.closest("a[href]"):null;if(!a)return;if(a.protocol!=="http:"&&a.protocol!=="https:")return;if(!a.host||a.host===location.host)return;if(a.hasAttribute("data-noconfirm"))return;if(!window.confirm("You are now leaving airights.org.uk and will be taken to an external website ("+a.hostname+"). Do you want to continue?")){e.preventDefault();e.stopPropagation();}},true);</script>
 </head>
 <body>
-<button class="theme-toggle" type="button" aria-label="Toggle dark mode"><svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg></button>
+<header class="site-nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">FAIR</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#what">What we do</a>
+      <a href="index.html#alerts">AI Alerts</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#get-involved">Get involved</a>
+    </nav>
+    <a href="index.html#get-involved" class="nav-cta">Get involved</a>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode"><svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a href="index.html#what">What we do</a>
+  <a href="index.html#alerts">AI Alerts</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#get-involved">Get involved</a>
+</nav>
 
-<div class="pp-wrap">
-  <a href="/" class="pp-logo">FAIR</a>
-  <a href="/" class="pp-back">&larr; Back to FAIR</a>
+<main>
+  <div class="pp-wrap">
   <span class="pp-eyebrow">Legal</span>
   <h1>Privacy Policy</h1>
   <div class="pp-meta">Last updated: 1 May 2026 &middot; Version 1.0</div>
@@ -216,12 +238,46 @@
   <p style="margin-left:8px;">Scott McCulloch, Founder &amp; Data Controller<br>
   The Foundation for Artificial Intelligence Rights (FAIR)<br>
   Email: <a href="mailto:info@airights.org.uk">info@airights.org.uk</a></p>
-
-  <div class="pp-footer">
-    The Foundation for Artificial Intelligence Rights (FAIR) is a UK organisation (registration pending). This Privacy Policy is provided for transparency and does not create any contractual rights. Where any provision is inconsistent with applicable law, that law prevails.
   </div>
-</div>
+</main>
 
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="brand brand-footer">FAIR</div>
+      <p>The Foundation for Artificial Intelligence Rights.<br>International House, 50 Essex Street,<br>London WC2R 3JF, United Kingdom.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html#what">What we do</a>
+      <a href="index.html#alerts">AI Alerts</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#get-involved">Get involved</a>
+    </nav>
+    <div class="footer-legal">
+      <div class="footer-policies">
+        <a href="privacy.html">Privacy</a>
+        <a href="accessibility.html">Accessibility</a>
+        <a href="complaints.html">Complaints</a>
+        <a href="safeguarding.html">Safeguarding</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 The Foundation for Artificial Intelligence Rights. London. United Kingdom.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var nav = document.getElementById('navbar');
+    if (nav) { var u=function(){nav.classList.toggle('scrolled', window.scrollY>30);}; window.addEventListener('scroll',u,{passive:true}); u(); }
+    var t=document.getElementById('navToggle'), m=document.getElementById('mobileMenu');
+    if (t&&m){ var s=function(o){document.body.classList.toggle('menu-open',o);t.setAttribute('aria-expanded',o?'true':'false');t.setAttribute('aria-label',o?'Close menu':'Open menu');};
+      t.addEventListener('click',function(){s(!document.body.classList.contains('menu-open'));});
+      m.addEventListener('click',function(e){if(e.target.tagName==='A')s(false);});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false);}); }
+  })();
+</script>
 <!-- ACCESSIBILITY: UserWay Widget -->
 <script>
 (function(d){
