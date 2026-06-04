@@ -477,8 +477,14 @@ body.menu-open .mobile-menu { opacity: 1; visibility: visible; transform: transl
 .card .link-arrow { margin-top: auto; padding-top: 22px; }
 
 /* ── Photo cards (image-led, Apple-style) ── */
-.card--photo { padding: 0; overflow: hidden; }
-.card-media { aspect-ratio: 16 / 10; overflow: hidden; background: var(--bg-grey); }
+.card--photo { padding: 0; }  /* overflow:hidden moved off so tooltips escape */
+.card-media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--bg-grey);
+  border-top-left-radius: calc(var(--radius) - 1px);
+  border-top-right-radius: calc(var(--radius) - 1px);
+}
 .card-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s var(--ease); }
 .card--photo:hover .card-media img { transform: scale(1.04); }
 .card--photo .card-body { padding: 26px 28px 26px; display: flex; flex-direction: column; flex: 1; }
@@ -1018,7 +1024,7 @@ input::placeholder, textarea::placeholder { color: var(--text-3); }
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  z-index: 50;
+  z-index: 100;
   transition: opacity 0.2s var(--ease), transform 0.2s var(--ease), visibility 0s linear 0.2s;
 }
 .has-info > .info-card::after {
@@ -1224,32 +1230,66 @@ input::placeholder, textarea::placeholder { color: var(--text-3); }
 }
 .pp-callout strong { color: var(--text); }
 
-/* ── Footer social icon row (LinkedIn etc) ──────────────── */
+/* ── Footer social: "Follow the Foundation" cluster ──────
+   Replaces the lone-icon treatment with a proper labelled
+   row of brand-coloured social buttons. Larger hit target,
+   real visual weight, hover lifts and tints to brand colour.
+   ────────────────────────────────────────────────────── */
 .footer-social {
   display: flex;
+  flex-direction: column;
   gap: 12px;
+  margin: 8px 0 22px;
+}
+.footer-social-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.footer-social-icons {
+  display: flex;
+  gap: 10px;
   align-items: center;
-  margin: 4px 0 14px;
 }
 .footer-social-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
   color: var(--text-2);
-  background: transparent;
-  transition: color 0.18s var(--ease), background 0.18s var(--ease), transform 0.18s var(--ease);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  transition: color 0.2s var(--ease),
+              background 0.2s var(--ease),
+              border-color 0.2s var(--ease),
+              transform 0.2s var(--ease),
+              box-shadow 0.2s var(--ease);
 }
 .footer-social-link svg {
-  width: 18px;
-  height: 18px;
+  width: 19px;
+  height: 19px;
   display: block;
 }
 .footer-social-link:hover,
 .footer-social-link:focus-visible {
-  color: var(--blue);
-  background: var(--bg-grey);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+/* Brand-coloured hover states */
+.footer-social-link--li:hover,
+.footer-social-link--li:focus-visible {
+  color: #fff;
+  background: #0a66c2;
+  border-color: #0a66c2;
+}
+.footer-social-link--x:hover,
+.footer-social-link--x:focus-visible {
+  color: #fff;
+  background: #000;
+  border-color: #000;
 }
