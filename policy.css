@@ -79,7 +79,7 @@ body {
 .pp-wrap { max-width: 760px; margin: 0 auto; padding: 72px 28px 100px; }
 
 .pp-logo { display: inline-flex; align-items: center; margin-bottom: 26px; }
-.pp-logo .brand-logo { height: 28px; width: auto; display: block; }
+.pp-logo .brand-logo { height: 26px; width: auto; display: block; }
 .pp-logo .brand-logo--ondark { display: none; }
 :root[data-theme="dark"] .pp-logo .brand-logo--onlight { display: none; }
 :root[data-theme="dark"] .pp-logo .brand-logo--ondark { display: block; }
