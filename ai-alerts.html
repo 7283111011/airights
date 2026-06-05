@@ -337,7 +337,7 @@
   <div class="stats">
     <div class="stat">
       <div class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3z"/><path d="M14 3h7v7h-7z"/><path d="M14 14h7v7h-7z"/><path d="M3 14h7v7H3z"/></svg></div>
-      <div class="stat-num" id="stat-total">106</div>
+      <div class="stat-num" id="stat-total">126</div>
       <div class="stat-label">Total entries</div>
     </div>
     <div class="stat">
@@ -3119,5 +3119,75 @@
     <button type="button" class="cookie-reject" onclick="(function(){var b=document.getElementById('cookie-bar');if(b){b.style.display='none';}try{localStorage.setItem('fair-cookies','rejected');}catch(e){}})()">Essential only</button>
   </div>
 </div>
+
+<script>
+/* AI Alerts register: filter, sort, load-more, sector breakdown, live date */
+(function(){
+  var entriesEl = document.getElementById('entries');
+  if(!entriesEl) return;
+  var entries = Array.prototype.slice.call(entriesEl.querySelectorAll('.entry'));
+  var PAGE = 10, shown = PAGE, sector = 'all', sortMode = 'date-desc';
+  var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var SECTORS = [
+    {k:'health',label:'Health',c:'#0EA5E9'},{k:'justice',label:'Justice',c:'#7C3AED'},
+    {k:'policing',label:'Policing',c:'#0F172A'},{k:'welfare',label:'Welfare',c:'#DC2626'},
+    {k:'government',label:'Cross-Govt',c:'#059669'},{k:'immigration',label:'Immigration',c:'#EA580C'},
+    {k:'tax',label:'Tax',c:'#CA8A04'},{k:'safety',label:'AI Safety',c:'#0071e3'}
+  ];
+  function dv(e){ return e.getAttribute('data-date')||''; }
+  function filtered(){
+    var l = entries.filter(function(e){ return sector==='all' || e.getAttribute('data-sector')===sector; });
+    l.sort(function(a,b){ var x=dv(a),y=dv(b); return sortMode==='date-asc' ? (x<y?-1:x>y?1:0) : (x>y?-1:x<y?1:0); });
+    return l;
+  }
+  function render(){
+    var l = filtered();
+    entries.forEach(function(e){ e.style.display='none'; });
+    l.forEach(function(e,i){ entriesEl.appendChild(e); e.style.display = i<shown ? '' : 'none'; });
+    var rc = document.getElementById('results-count');
+    if(rc){ rc.innerHTML = 'Showing <span class="rc-num">'+Math.min(shown,l.length)+'</span> of <span class="rc-num">'+l.length+'</span> entries'; }
+    var lm = document.getElementById('load-more');
+    if(lm){ lm.style.display = shown < l.length ? '' : 'none'; }
+  }
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-filter="sector"]'));
+  function setSector(val){
+    sector = val; shown = PAGE;
+    chips.forEach(function(c){ c.classList.toggle('active', c.getAttribute('data-value')===val); });
+    render();
+  }
+  chips.forEach(function(ch){ ch.addEventListener('click', function(){ setSector(ch.getAttribute('data-value')); var tb=document.querySelector('.toolbar'); if(tb) tb.scrollIntoView({behavior:'smooth',block:'start'}); }); });
+  var sortSel = document.getElementById('sort-select');
+  if(sortSel){ sortSel.addEventListener('change', function(){ sortMode = sortSel.value; shown = PAGE; render(); }); }
+  var lm = document.getElementById('load-more');
+  if(lm){ lm.addEventListener('click', function(){ shown += PAGE; render(); }); }
+  /* sector breakdown */
+  var counts = {}; entries.forEach(function(e){ var s=e.getAttribute('data-sector'); counts[s]=(counts[s]||0)+1; });
+  var max = 0; Object.keys(counts).forEach(function(k){ if(counts[k]>max) max=counts[k]; });
+  var sb = document.getElementById('sb-list');
+  if(sb){
+    var html = '';
+    SECTORS.slice().sort(function(a,b){ return (counts[b.k]||0)-(counts[a.k]||0); }).forEach(function(s){
+      var c = counts[s.k]||0; if(!c) return;
+      var pct = max ? Math.round(c/max*100) : 0;
+      html += '<button class="sb-row" type="button" data-sector="'+s.k+'" aria-label="Filter by '+s.label+'">'
+        + '<span class="sb-label"><span class="sb-dot" style="background:'+s.c+'"></span>'+s.label+'</span>'
+        + '<span class="sb-bar"><span class="sb-fill" style="width:'+pct+'%;background:'+s.c+'"></span></span>'
+        + '<span class="sb-count">'+c+'</span></button>';
+    });
+    sb.innerHTML = html;
+    Array.prototype.slice.call(sb.querySelectorAll('.sb-row')).forEach(function(row){
+      row.addEventListener('click', function(){ setSector(row.getAttribute('data-sector')); var tb=document.querySelector('.toolbar'); if(tb) tb.scrollIntoView({behavior:'smooth',block:'start'}); });
+    });
+  }
+  /* stats + live date */
+  var stTotal = document.getElementById('stat-total'); if(stTotal) stTotal.textContent = entries.length;
+  var stSect = document.getElementById('stat-sectors'); if(stSect) stSect.textContent = Object.keys(counts).length;
+  var newest = ''; entries.forEach(function(e){ var d=dv(e); if(d>newest) newest=d; });
+  var lu = document.getElementById('dh-last-updated');
+  if(lu && newest){ var p=newest.split('-'); lu.textContent = parseInt(p[2],10)+' '+months[parseInt(p[1],10)-1]+' '+p[0]; }
+  render();
+})();
+</script>
+
 </body>
 </html>
