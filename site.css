@@ -1307,3 +1307,13 @@ input::placeholder, textarea::placeholder { color: var(--text-3); }
   background: #000;
   border-color: #000;
 }
+
+/* ── Footer AI disclosure (small, subtle, sits under the address) ── */
+.footer-disclosure {
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-3);
+  font-style: italic;
+}
+.footer-disclosure strong { color: var(--text-3); font-weight: 600; font-style: normal; }
