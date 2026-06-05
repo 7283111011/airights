@@ -2,7 +2,9 @@
   "titles": [
     "Durham Police AI for Public Information Requests",
     "Companies House AI for Routine Enquiries and Administrative Tasks",
-    "DWP Work Coaches Using Copilot for Jobseeker Support"
+    "DWP Work Coaches Using Copilot for Jobseeker Support",
+    "UK Government and Google Partnership for AI Skills Training for Civil Servants",
+    "Office of the Information Commissioner (ICO) Contract with Capgemini for AI-Related Services"
   ],
   "ids": [],
   "log": [
@@ -20,6 +22,16 @@
       "title": "DWP Work Coaches Using Copilot for Jobseeker Support",
       "tweet_id": "2062765976828199339",
       "posted_at": "2026-06-05T05:18:27+00:00"
+    },
+    {
+      "title": "UK Government and Google Partnership for AI Skills Training for Civil Servants",
+      "tweet_id": "2062850110183117174",
+      "posted_at": "2026-06-05T10:52:46+00:00"
+    },
+    {
+      "title": "Office of the Information Commissioner (ICO) Contract with Capgemini for AI-Related Services",
+      "tweet_id": "2062850119616066019",
+      "posted_at": "2026-06-05T10:52:49+00:00"
     }
   ]
 }
