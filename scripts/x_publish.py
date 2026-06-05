@@ -16,8 +16,8 @@ Behaviour:
   - Failure-tolerant: an X API failure does not abort the scanner run.
 
 Required environment variables (set as GitHub Actions secrets):
-  X_API_KEY                 (a.k.a. consumer key)
-  X_API_SECRET              (a.k.a. consumer secret)
+  X_CONSUMER_KEY                 (consumer key)
+  X_CONSUMER_KEY_SECRET              (consumer secret)
   X_ACCESS_TOKEN
   X_ACCESS_TOKEN_SECRET
 
@@ -283,7 +283,7 @@ def resolve_mentions(entry, mention_dict):
 
 def load_credentials():
     """Load X API credentials from environment. Return None if any missing."""
-    keys = ("X_API_KEY", "X_API_SECRET", "X_ACCESS_TOKEN", "X_ACCESS_TOKEN_SECRET")
+    keys = ("X_CONSUMER_KEY", "X_CONSUMER_KEY_SECRET", "X_ACCESS_TOKEN", "X_ACCESS_TOKEN_SECRET")
     creds = {k: os.environ.get(k, "").strip() for k in keys}
     if not all(creds.values()):
         missing = [k for k, v in creds.items() if not v]
@@ -303,8 +303,8 @@ def post_tweet(text, creds):
         return None
 
     auth = OAuth1(
-        creds["X_API_KEY"],
-        creds["X_API_SECRET"],
+        creds["X_CONSUMER_KEY"],
+        creds["X_CONSUMER_KEY_SECRET"],
         creds["X_ACCESS_TOKEN"],
         creds["X_ACCESS_TOKEN_SECRET"],
     )
