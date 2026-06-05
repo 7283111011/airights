@@ -260,6 +260,62 @@
     .aiw-field label{color:#86868b}
     .aiw-field input,.aiw-field textarea,.aiw-subscribe-form input[type=email]{background:#000;border-color:rgba(255,255,255,.16);color:#f5f5f7}
   }
+
+  /* Value breakdown modal */
+  #stat-value-wrap{cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:opacity .15s}
+  #stat-value-wrap:hover{opacity:.78}
+  #stat-value-wrap::after{content:'\203A';margin-left:2px;color:#0071e3;font-weight:400;font-size:.92em;transform:translateY(-1px)}
+  .vb-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:9000;display:none;align-items:flex-start;justify-content:center;padding:60px 16px;overflow-y:auto}
+  .vb-overlay.open{display:flex}
+  .vb-modal{background:#fff;color:#1d1d1f;width:100%;max-width:980px;border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.35);overflow:hidden}
+  .vb-head{padding:24px 28px 18px;border-bottom:1px solid rgba(0,0,0,.08);display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+  .vb-title{font-weight:700;font-size:1.125rem;letter-spacing:-.01em;margin:0 0 4px}
+  .vb-sub{font-size:13px;color:#6e6e73;margin:0}
+  .vb-close{background:transparent;border:1px solid rgba(0,0,0,.16);border-radius:10px;cursor:pointer;font-size:16px;line-height:1;width:32px;height:32px;color:#1d1d1f;flex-shrink:0}
+  .vb-close:hover{background:rgba(0,0,0,.05)}
+  .vb-summary{padding:18px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;background:#f5f5f7;border-bottom:1px solid rgba(0,0,0,.06)}
+  .vb-stat{display:flex;flex-direction:column;gap:2px}
+  .vb-stat-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#86868b;font-weight:600}
+  .vb-stat-value{font-size:1.0625rem;font-weight:700;color:#1d1d1f;letter-spacing:-.01em}
+  .vb-table-wrap{overflow:auto;max-height:60vh}
+  .vb-table{width:100%;border-collapse:collapse;font-size:13.5px}
+  .vb-table th,.vb-table td{padding:11px 16px;text-align:left;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+  .vb-table th{position:sticky;top:0;background:#fff;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#86868b;font-weight:600;border-bottom:1px solid rgba(0,0,0,.12);z-index:2;cursor:pointer;user-select:none}
+  .vb-table th:hover{color:#1d1d1f}
+  .vb-table th.vb-sort-active::after{content:' \25BC';font-size:9px;color:#0071e3}
+  .vb-table th.vb-sort-asc::after{content:' \25B2';font-size:9px;color:#0071e3}
+  .vb-table tr:hover td{background:#fafafb}
+  .vb-table .vb-num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .vb-table .vb-title-cell a{color:#0066cc;text-decoration:none;font-weight:500}
+  .vb-table .vb-title-cell a:hover{text-decoration:underline}
+  .vb-undisclosed{color:#86868b;font-style:italic}
+  .vb-upto{color:#86868b;font-size:.85em;margin-left:4px}
+  .vb-foot{padding:14px 28px;font-size:12px;color:#86868b;border-top:1px solid rgba(0,0,0,.06);line-height:1.5}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .vb-modal{background:#1c1c1e;color:#f5f5f7}
+    :root:not([data-theme="light"]) .vb-head{border-bottom-color:rgba(255,255,255,.10)}
+    :root:not([data-theme="light"]) .vb-sub{color:#86868b}
+    :root:not([data-theme="light"]) .vb-close{border-color:rgba(255,255,255,.18);color:#f5f5f7}
+    :root:not([data-theme="light"]) .vb-close:hover{background:rgba(255,255,255,.06)}
+    :root:not([data-theme="light"]) .vb-summary{background:#0b0b0c;border-bottom-color:rgba(255,255,255,.08)}
+    :root:not([data-theme="light"]) .vb-stat-label{color:#86868b}
+    :root:not([data-theme="light"]) .vb-stat-value{color:#f5f5f7}
+    :root:not([data-theme="light"]) .vb-table th{background:#1c1c1e;color:#86868b;border-bottom-color:rgba(255,255,255,.14)}
+    :root:not([data-theme="light"]) .vb-table th:hover{color:#f5f5f7}
+    :root:not([data-theme="light"]) .vb-table td{border-bottom-color:rgba(255,255,255,.06)}
+    :root:not([data-theme="light"]) .vb-table tr:hover td{background:#222224}}
+  :root[data-theme="dark"] .vb-modal{background:#1c1c1e;color:#f5f5f7}
+  :root[data-theme="dark"] .vb-head{border-bottom-color:rgba(255,255,255,.10)}
+  :root[data-theme="dark"] .vb-sub{color:#86868b}
+  :root[data-theme="dark"] .vb-close{border-color:rgba(255,255,255,.18);color:#f5f5f7}
+  :root[data-theme="dark"] .vb-close:hover{background:rgba(255,255,255,.06)}
+  :root[data-theme="dark"] .vb-summary{background:#0b0b0c;border-bottom-color:rgba(255,255,255,.08)}
+  :root[data-theme="dark"] .vb-stat-label{color:#86868b}
+  :root[data-theme="dark"] .vb-stat-value{color:#f5f5f7}
+  :root[data-theme="dark"] .vb-table th{background:#1c1c1e;color:#86868b;border-bottom-color:rgba(255,255,255,.14)}
+  :root[data-theme="dark"] .vb-table th:hover{color:#f5f5f7}
+  :root[data-theme="dark"] .vb-table td{border-bottom-color:rgba(255,255,255,.06)}
+  :root[data-theme="dark"] .vb-table tr:hover td{background:#222224}
+  @media (max-width:720px){.vb-summary{grid-template-columns:repeat(2,1fr)}.vb-table th:nth-child(3),.vb-table td:nth-child(3){display:none}}
 </style>
 <!-- fair-theme --><script>(function(){try{var t=localStorage.getItem("fair-theme");document.documentElement.setAttribute("data-theme",t||"dark");}catch(e){}})();document.addEventListener("DOMContentLoaded",function(){var b=document.querySelector(".theme-toggle");if(!b)return;b.addEventListener("click",function(){var d=document.documentElement,c=d.getAttribute("data-theme")||((window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light"),m=c==="dark"?"light":"dark";d.setAttribute("data-theme",m);try{localStorage.setItem("fair-theme",m);}catch(e){}});});document.addEventListener("click",function(e){var a=e.target.closest?e.target.closest("a[href]"):null;if(!a)return;if(a.protocol!=="http:"&&a.protocol!=="https:")return;if(!a.host||a.host===location.host)return;if(a.hasAttribute("data-noconfirm"))return;if(!window.confirm("You are now leaving airights.org.uk and will be taken to an external website ("+a.hostname+"). Do you want to continue?")){e.preventDefault();e.stopPropagation();}},true);</script>
 <!-- Privacy-friendly analytics by Plausible -->
@@ -352,7 +408,7 @@
     </div>
     <div class="stat">
       <div class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-      <div class="stat-num">&pound;<span id="stat-value">347</span><span class="stat-unit">m+</span></div>
+      <div class="stat-num"><span id="stat-value-wrap" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="vb-overlay" title="See per-entry breakdown">&pound;<span id="stat-value">--</span><span class="stat-unit" id="stat-value-unit">m</span></span></div>
       <div class="stat-label">Disclosed value</div>
     </div>
   </div>
@@ -409,7 +465,7 @@
 
   <section class="entries" id="entries">
 
-    <article class="entry" data-sector="health" data-date="2026-06-02">
+    <article class="entry" id="entry-1" data-sector="health" data-date="2026-06-02">
       <div class="entry-top">
         <span class="entry-date">2 June 2026</span>
         <span class="entry-sector s-health">Health</span>
@@ -430,7 +486,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="policing" data-date="2026-06-01">
+    <article class="entry" id="entry-2" data-sector="policing" data-date="2026-06-01">
       <div class="entry-top">
         <span class="entry-date">June 2026</span>
         <span class="entry-sector s-policing">Policing</span>
@@ -451,7 +507,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-06-01">
+    <article class="entry" id="entry-3" data-sector="government" data-date="2026-06-01">
       <div class="entry-top">
         <span class="entry-date">June 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -472,7 +528,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="welfare" data-date="2026-06-01">
+    <article class="entry" id="entry-4" data-sector="welfare" data-date="2026-06-01">
       <div class="entry-top">
         <span class="entry-date">June 2026</span>
         <span class="entry-sector s-welfare">Welfare</span>
@@ -493,7 +549,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-06-01">
+    <article class="entry" id="entry-5" data-sector="health" data-date="2026-06-01">
       <div class="entry-top">
         <span class="entry-date">June 2026 (future notices expected)</span>
         <span class="entry-sector s-health">Health</span>
@@ -514,7 +570,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-06-01">
+    <article class="entry" id="entry-6" data-sector="government" data-date="2026-06-01">
       <div class="entry-top">
         <span class="entry-date">June 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -533,7 +589,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-05-29">
+    <article class="entry" id="entry-7" data-sector="health" data-date="2026-05-29">
       <div class="entry-top">
         <span class="entry-date">29 May 2026</span>
         <span class="entry-sector s-health">Health</span>
@@ -554,7 +610,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-29">
+    <article class="entry" id="entry-8" data-sector="government" data-date="2026-05-29">
       <div class="entry-top">
         <span class="entry-date">29 May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -575,7 +631,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-29">
+    <article class="entry" id="entry-9" data-sector="government" data-date="2026-05-29">
       <div class="entry-top">
         <span class="entry-date">29 May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -596,7 +652,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-29">
+    <article class="entry" id="entry-10" data-sector="government" data-date="2026-05-29">
       <div class="entry-top">
         <span class="entry-date">29 May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -616,7 +672,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-05-29">
+    <article class="entry" id="entry-11" data-sector="health" data-date="2026-05-29">
       <div class="entry-top">
         <span class="entry-date">29 May 2026</span>
         <span class="entry-sector s-health">Health</span>
@@ -636,7 +692,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="safety" data-date="2026-05-28">
+    <article class="entry" id="entry-12" data-sector="safety" data-date="2026-05-28">
       <div class="entry-top">
         <span class="entry-date">28 May 2026</span>
         <span class="entry-sector s-safety">AI Safety</span>
@@ -657,7 +713,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-25">
+    <article class="entry" id="entry-13" data-sector="government" data-date="2026-05-25">
       <div class="entry-top">
         <span class="entry-date">25 May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -678,7 +734,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-05-25">
+    <article class="entry" id="entry-14" data-sector="health" data-date="2026-05-25">
       <div class="entry-top">
         <span class="entry-date">25 May 2026</span>
         <span class="entry-sector s-health">Health</span>
@@ -698,7 +754,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-05-23">
+    <article class="entry" id="entry-15" data-sector="health" data-date="2026-05-23">
       <div class="entry-top">
         <span class="entry-date">23 May 2026</span>
         <span class="entry-sector s-health">Health</span>
@@ -718,7 +774,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-21">
+    <article class="entry" id="entry-16" data-sector="government" data-date="2026-05-21">
       <div class="entry-top">
         <span class="entry-date">21 May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -739,7 +795,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="policing" data-date="2026-05-20">
+    <article class="entry" id="entry-17" data-sector="policing" data-date="2026-05-20">
       <div class="entry-top">
         <span class="entry-date">20 May 2026</span>
         <span class="entry-sector s-policing">Policing</span>
@@ -760,7 +816,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-05-20">
+    <article class="entry" id="entry-18" data-sector="health" data-date="2026-05-20">
       <div class="entry-top">
         <span class="entry-date">20 May 2026</span>
         <span class="entry-sector s-health">Health</span>
@@ -781,7 +837,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-19">
+    <article class="entry" id="entry-19" data-sector="government" data-date="2026-05-19">
       <div class="entry-top">
         <span class="entry-date">19 May 2026</span>
         <span class="entry-sector s-government">Defence</span>
@@ -802,7 +858,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-19">
+    <article class="entry" id="entry-20" data-sector="government" data-date="2026-05-19">
       <div class="entry-top">
         <span class="entry-date">19 May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -823,7 +879,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-14">
+    <article class="entry" id="entry-21" data-sector="government" data-date="2026-05-14">
       <div class="entry-top">
         <span class="entry-date">14 May 2026</span>
         <span class="entry-sector s-government">Local Govt</span>
@@ -844,7 +900,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="tax" data-date="2026-05-14">
+    <article class="entry" id="entry-22" data-sector="tax" data-date="2026-05-14">
       <div class="entry-top">
         <span class="entry-date">14 May 2026</span>
         <span class="entry-sector s-tax">Tax</span>
@@ -868,7 +924,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="justice" data-date="2026-05-14">
+    <article class="entry" id="entry-23" data-sector="justice" data-date="2026-05-14">
       <div class="entry-top">
         <span class="entry-date">14 May 2026</span>
         <span class="entry-sector s-justice">Justice</span>
@@ -889,7 +945,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-14">
+    <article class="entry" id="entry-24" data-sector="government" data-date="2026-05-14">
       <div class="entry-top">
         <span class="entry-date">14 May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -911,7 +967,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="tax" data-date="2026-05-14">
+    <article class="entry" id="entry-25" data-sector="tax" data-date="2026-05-14">
       <div class="entry-top">
         <span class="entry-date">14 May 2026</span>
         <span class="entry-sector s-tax">Tax</span>
@@ -934,7 +990,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-13">
+    <article class="entry" id="entry-26" data-sector="government" data-date="2026-05-13">
       <div class="entry-top">
         <span class="entry-date">13 May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -955,7 +1011,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="policing" data-date="2026-05-12">
+    <article class="entry" id="entry-27" data-sector="policing" data-date="2026-05-12">
       <div class="entry-top">
         <span class="entry-date">12 May 2026</span>
         <span class="entry-sector s-policing">Policing</span>
@@ -976,7 +1032,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-12">
+    <article class="entry" id="entry-28" data-sector="government" data-date="2026-05-12">
       <div class="entry-top">
         <span class="entry-date">12 May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -997,7 +1053,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-12">
+    <article class="entry" id="entry-29" data-sector="government" data-date="2026-05-12">
       <div class="entry-top">
         <span class="entry-date">12 May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1018,7 +1074,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-05-11">
+    <article class="entry" id="entry-30" data-sector="health" data-date="2026-05-11">
       <div class="entry-top">
         <span class="entry-date">11 May 2026 (tender published), 12 May 2027 (framework start)</span>
         <span class="entry-sector s-health">Health</span>
@@ -1041,7 +1097,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-11">
+    <article class="entry" id="entry-31" data-sector="government" data-date="2026-05-11">
       <div class="entry-top">
         <span class="entry-date">11 May 2026</span>
         <span class="entry-sector s-government">Local Govt</span>
@@ -1062,7 +1118,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-11">
+    <article class="entry" id="entry-32" data-sector="government" data-date="2026-05-11">
       <div class="entry-top">
         <span class="entry-date">11 May 2026</span>
         <span class="entry-sector s-government">Local Govt</span>
@@ -1083,7 +1139,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-11">
+    <article class="entry" id="entry-33" data-sector="government" data-date="2026-05-11">
       <div class="entry-top">
         <span class="entry-date">11 May 2026</span>
         <span class="entry-sector s-government">Local Govt</span>
@@ -1104,7 +1160,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-11">
+    <article class="entry" id="entry-34" data-sector="government" data-date="2026-05-11">
       <div class="entry-top">
         <span class="entry-date">11 May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1125,7 +1181,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-10">
+    <article class="entry" id="entry-35" data-sector="government" data-date="2026-05-10">
       <div class="entry-top">
         <span class="entry-date">10 May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1146,7 +1202,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="tax" data-date="2026-05-08">
+    <article class="entry" id="entry-36" data-sector="tax" data-date="2026-05-08">
       <div class="entry-top">
         <span class="entry-date">8 May 2026</span>
         <span class="entry-sector s-tax">Tax</span>
@@ -1167,7 +1223,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-01">
+    <article class="entry" id="entry-37" data-sector="government" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2026</span>
         <span class="entry-sector s-government">Local Govt</span>
@@ -1188,7 +1244,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-01">
+    <article class="entry" id="entry-38" data-sector="government" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2026</span>
         <span class="entry-sector s-government">Local Govt</span>
@@ -1209,7 +1265,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-01">
+    <article class="entry" id="entry-39" data-sector="government" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1230,7 +1286,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-01">
+    <article class="entry" id="entry-40" data-sector="government" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1251,7 +1307,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="immigration" data-date="2026-05-01">
+    <article class="entry" id="entry-41" data-sector="immigration" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2026</span>
         <span class="entry-sector s-immigration">Immigration</span>
@@ -1275,7 +1331,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="welfare" data-date="2026-05-01">
+    <article class="entry" id="entry-42" data-sector="welfare" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2026</span>
         <span class="entry-sector s-welfare">Welfare</span>
@@ -1295,7 +1351,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="policing" data-date="2026-05-01">
+    <article class="entry" id="entry-43" data-sector="policing" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2026</span>
         <span class="entry-sector s-policing">Policing</span>
@@ -1316,7 +1372,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-05-01">
+    <article class="entry" id="entry-44" data-sector="health" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2026</span>
         <span class="entry-sector s-health">Health</span>
@@ -1336,7 +1392,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-01">
+    <article class="entry" id="entry-45" data-sector="government" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1357,7 +1413,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="welfare" data-date="2026-05-01">
+    <article class="entry" id="entry-46" data-sector="welfare" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2026</span>
         <span class="entry-sector s-welfare">Welfare</span>
@@ -1378,7 +1434,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-01">
+    <article class="entry" id="entry-47" data-sector="government" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1399,7 +1455,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-01">
+    <article class="entry" id="entry-48" data-sector="government" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1420,7 +1476,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-01">
+    <article class="entry" id="entry-49" data-sector="government" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1441,7 +1497,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-01">
+    <article class="entry" id="entry-50" data-sector="government" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1462,7 +1518,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="policing" data-date="2026-05-01">
+    <article class="entry" id="entry-51" data-sector="policing" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2026</span>
         <span class="entry-sector s-policing">Policing</span>
@@ -1483,7 +1539,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-05-01">
+    <article class="entry" id="entry-52" data-sector="health" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">1 May 2026</span>
         <span class="entry-sector s-health">Health</span>
@@ -1504,7 +1560,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-05-01">
+    <article class="entry" id="entry-53" data-sector="government" data-date="2026-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1526,7 +1582,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-04-27">
+    <article class="entry" id="entry-54" data-sector="health" data-date="2026-04-27">
       <div class="entry-top">
         <span class="entry-date">October 2025 - April 2026 (pilot), 27 April 2026 (reported)</span>
         <span class="entry-sector s-health">Health</span>
@@ -1547,7 +1603,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-04-17">
+    <article class="entry" id="entry-55" data-sector="government" data-date="2026-04-17">
       <div class="entry-top">
         <span class="entry-date">17 April 2026</span>
         <span class="entry-sector s-government">Education</span>
@@ -1568,7 +1624,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-04-13">
+    <article class="entry" id="entry-56" data-sector="government" data-date="2026-04-13">
       <div class="entry-top">
         <span class="entry-date">13 April 2026</span>
         <span class="entry-sector s-government">Local Govt</span>
@@ -1589,7 +1645,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-04-01">
+    <article class="entry" id="entry-57" data-sector="government" data-date="2026-04-01">
       <div class="entry-top">
         <span class="entry-date">April 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1609,7 +1665,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-04-01">
+    <article class="entry" id="entry-58" data-sector="health" data-date="2026-04-01">
       <div class="entry-top">
         <span class="entry-date">April 2026</span>
         <span class="entry-sector s-health">Health</span>
@@ -1630,7 +1686,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-04-01">
+    <article class="entry" id="entry-59" data-sector="health" data-date="2026-04-01">
       <div class="entry-top">
         <span class="entry-date">April 2026 (implementation began)</span>
         <span class="entry-sector s-health">Health</span>
@@ -1651,7 +1707,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-04-01">
+    <article class="entry" id="entry-60" data-sector="government" data-date="2026-04-01">
       <div class="entry-top">
         <span class="entry-date">April 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1672,7 +1728,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-04-01">
+    <article class="entry" id="entry-61" data-sector="government" data-date="2026-04-01">
       <div class="entry-top">
         <span class="entry-date">April 2026 or earlier</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1693,7 +1749,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-04-01">
+    <article class="entry" id="entry-62" data-sector="government" data-date="2026-04-01">
       <div class="entry-top">
         <span class="entry-date">April 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1714,7 +1770,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-04-01">
+    <article class="entry" id="entry-63" data-sector="government" data-date="2026-04-01">
       <div class="entry-top">
         <span class="entry-date">April 2026</span>
         <span class="entry-sector s-government">Local Govt</span>
@@ -1734,7 +1790,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-04-01">
+    <article class="entry" id="entry-64" data-sector="health" data-date="2026-04-01">
       <div class="entry-top">
         <span class="entry-date">April 2026</span>
         <span class="entry-sector s-health">Health</span>
@@ -1753,7 +1809,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-03-26">
+    <article class="entry" id="entry-65" data-sector="government" data-date="2026-03-26">
       <div class="entry-top">
         <span class="entry-date">26 March 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1774,7 +1830,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-03-17">
+    <article class="entry" id="entry-66" data-sector="government" data-date="2026-03-17">
       <div class="entry-top">
         <span class="entry-date">17 March 2026</span>
         <span class="entry-sector s-government">Education</span>
@@ -1795,7 +1851,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-03-16">
+    <article class="entry" id="entry-67" data-sector="government" data-date="2026-03-16">
       <div class="entry-top">
         <span class="entry-date">16 March 2026 (Decision Due)</span>
         <span class="entry-sector s-government">Local Govt</span>
@@ -1816,7 +1872,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-03-01">
+    <article class="entry" id="entry-68" data-sector="government" data-date="2026-03-01">
       <div class="entry-top">
         <span class="entry-date">March 2026</span>
         <span class="entry-sector s-government">Local Govt</span>
@@ -1837,7 +1893,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-03-01">
+    <article class="entry" id="entry-69" data-sector="government" data-date="2026-03-01">
       <div class="entry-top">
         <span class="entry-date">Spring 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1857,7 +1913,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="tax" data-date="2026-03-01">
+    <article class="entry" id="entry-70" data-sector="tax" data-date="2026-03-01">
       <div class="entry-top">
         <span class="entry-date">March 2026</span>
         <span class="entry-sector s-tax">Tax</span>
@@ -1878,7 +1934,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-03-01">
+    <article class="entry" id="entry-71" data-sector="government" data-date="2026-03-01">
       <div class="entry-top">
         <span class="entry-date">March 2026</span>
         <span class="entry-sector s-government">Defence</span>
@@ -1900,7 +1956,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-03-01">
+    <article class="entry" id="entry-72" data-sector="government" data-date="2026-03-01">
       <div class="entry-top">
         <span class="entry-date">March 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1921,7 +1977,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-03-01">
+    <article class="entry" id="entry-73" data-sector="government" data-date="2026-03-01">
       <div class="entry-top">
         <span class="entry-date">March 2026</span>
         <span class="entry-sector s-government">Education</span>
@@ -1942,7 +1998,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-03-01">
+    <article class="entry" id="entry-74" data-sector="government" data-date="2026-03-01">
       <div class="entry-top">
         <span class="entry-date">March 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -1963,7 +2019,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-03-01">
+    <article class="entry" id="entry-75" data-sector="health" data-date="2026-03-01">
       <div class="entry-top">
         <span class="entry-date">March 2026</span>
         <span class="entry-sector s-health">Health</span>
@@ -1985,7 +2041,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="welfare" data-date="2026-02-25">
+    <article class="entry" id="entry-76" data-sector="welfare" data-date="2026-02-25">
       <div class="entry-top">
         <span class="entry-date">25 February 2026</span>
         <span class="entry-sector s-welfare">Welfare</span>
@@ -2006,7 +2062,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-02-25">
+    <article class="entry" id="entry-77" data-sector="health" data-date="2026-02-25">
       <div class="entry-top">
         <span class="entry-date">July - November 2025 (pilot), 25 February 2026 (reported)</span>
         <span class="entry-sector s-health">Health</span>
@@ -2027,7 +2083,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-02-17">
+    <article class="entry" id="entry-78" data-sector="government" data-date="2026-02-17">
       <div class="entry-top">
         <span class="entry-date">17 February 2026 (contract start), 11 March 2026 (reported)</span>
         <span class="entry-sector s-government">Local Govt</span>
@@ -2050,7 +2106,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-02-02">
+    <article class="entry" id="entry-79" data-sector="government" data-date="2026-02-02">
       <div class="entry-top">
         <span class="entry-date">2 February 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2071,7 +2127,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="policing" data-date="2026-02-01">
+    <article class="entry" id="entry-80" data-sector="policing" data-date="2026-02-01">
       <div class="entry-top">
         <span class="entry-date">February 2026</span>
         <span class="entry-sector s-policing">Policing</span>
@@ -2091,7 +2147,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-02-01">
+    <article class="entry" id="entry-81" data-sector="government" data-date="2026-02-01">
       <div class="entry-top">
         <span class="entry-date">February 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2112,7 +2168,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="safety" data-date="2026-02-01">
+    <article class="entry" id="entry-82" data-sector="safety" data-date="2026-02-01">
       <div class="entry-top">
         <span class="entry-date">February 2026</span>
         <span class="entry-sector s-safety">AI Safety</span>
@@ -2133,7 +2189,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-02-01">
+    <article class="entry" id="entry-83" data-sector="government" data-date="2026-02-01">
       <div class="entry-top">
         <span class="entry-date">February 2026</span>
         <span class="entry-sector s-government">Education</span>
@@ -2152,7 +2208,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-02-01">
+    <article class="entry" id="entry-84" data-sector="government" data-date="2026-02-01">
       <div class="entry-top">
         <span class="entry-date">February 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2174,7 +2230,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-01-29">
+    <article class="entry" id="entry-85" data-sector="government" data-date="2026-01-29">
       <div class="entry-top">
         <span class="entry-date">29 January 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2195,7 +2251,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-01-29">
+    <article class="entry" id="entry-86" data-sector="government" data-date="2026-01-29">
       <div class="entry-top">
         <span class="entry-date">29 January 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2216,7 +2272,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-01-27">
+    <article class="entry" id="entry-87" data-sector="health" data-date="2026-01-27">
       <div class="entry-top">
         <span class="entry-date">27 January 2026</span>
         <span class="entry-sector s-health">Health</span>
@@ -2237,7 +2293,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-01-26">
+    <article class="entry" id="entry-88" data-sector="government" data-date="2026-01-26">
       <div class="entry-top">
         <span class="entry-date">26 January 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2259,7 +2315,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-01-01">
+    <article class="entry" id="entry-89" data-sector="health" data-date="2026-01-01">
       <div class="entry-top">
         <span class="entry-date">January 2026</span>
         <span class="entry-sector s-health">Health</span>
@@ -2280,7 +2336,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-01-01">
+    <article class="entry" id="entry-90" data-sector="government" data-date="2026-01-01">
       <div class="entry-top">
         <span class="entry-date">2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2301,7 +2357,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-01-01">
+    <article class="entry" id="entry-91" data-sector="government" data-date="2026-01-01">
       <div class="entry-top">
         <span class="entry-date">January 2026 (announced), Spring 2026 (operational)</span>
         <span class="entry-sector s-government">Education</span>
@@ -2322,7 +2378,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-01-01">
+    <article class="entry" id="entry-92" data-sector="government" data-date="2026-01-01">
       <div class="entry-top">
         <span class="entry-date">January 2026</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2343,7 +2399,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-01-01">
+    <article class="entry" id="entry-93" data-sector="government" data-date="2026-01-01">
       <div class="entry-top">
         <span class="entry-date">January 2026 (announcement), scaling by May 2026 (regional trials)</span>
         <span class="entry-sector s-government">Education</span>
@@ -2364,7 +2420,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="policing" data-date="2026-01-01">
+    <article class="entry" id="entry-94" data-sector="policing" data-date="2026-01-01">
       <div class="entry-top">
         <span class="entry-date">January 2026</span>
         <span class="entry-sector s-policing">Policing</span>
@@ -2387,7 +2443,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="policing" data-date="2026-01-01">
+    <article class="entry" id="entry-95" data-sector="policing" data-date="2026-01-01">
       <div class="entry-top">
         <span class="entry-date">January 2026</span>
         <span class="entry-sector s-policing">Policing</span>
@@ -2406,7 +2462,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="policing" data-date="2026-01-01">
+    <article class="entry" id="entry-96" data-sector="policing" data-date="2026-01-01">
       <div class="entry-top">
         <span class="entry-date">January 2026</span>
         <span class="entry-sector s-policing">Policing</span>
@@ -2425,7 +2481,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2026-01-01">
+    <article class="entry" id="entry-97" data-sector="government" data-date="2026-01-01">
       <div class="entry-top">
         <span class="entry-date">January 2026 (scaled deployment)</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2444,7 +2500,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2026-01-01">
+    <article class="entry" id="entry-98" data-sector="health" data-date="2026-01-01">
       <div class="entry-top">
         <span class="entry-date">January 2026 (scaled deployment)</span>
         <span class="entry-sector s-health">Health</span>
@@ -2463,7 +2519,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2025-12-01">
+    <article class="entry" id="entry-99" data-sector="government" data-date="2025-12-01">
       <div class="entry-top">
         <span class="entry-date">December 2025</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2484,7 +2540,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2025-12-01">
+    <article class="entry" id="entry-100" data-sector="government" data-date="2025-12-01">
       <div class="entry-top">
         <span class="entry-date">December 2025 (trialling)</span>
         <span class="entry-sector s-government">Local Govt</span>
@@ -2504,7 +2560,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="justice" data-date="2025-10-28">
+    <article class="entry" id="entry-101" data-sector="justice" data-date="2025-10-28">
       <div class="entry-top">
         <span class="entry-date">28 October 2025</span>
         <span class="entry-sector s-justice">Justice</span>
@@ -2525,7 +2581,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2025-10-21">
+    <article class="entry" id="entry-102" data-sector="health" data-date="2025-10-21">
       <div class="entry-top">
         <span class="entry-date">21 October 2025</span>
         <span class="entry-sector s-health">Health</span>
@@ -2547,7 +2603,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2025-10-01">
+    <article class="entry" id="entry-103" data-sector="government" data-date="2025-10-01">
       <div class="entry-top">
         <span class="entry-date">October 2025 (first cohort), April 2026 (second cohort)</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2569,7 +2625,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="tax" data-date="2025-10-01">
+    <article class="entry" id="entry-104" data-sector="tax" data-date="2025-10-01">
       <div class="entry-top">
         <span class="entry-date">October 2025 (rollout); 2026</span>
         <span class="entry-sector s-tax">Tax</span>
@@ -2591,7 +2647,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="welfare" data-date="2025-09-04">
+    <article class="entry" id="entry-105" data-sector="welfare" data-date="2025-09-04">
       <div class="entry-top">
         <span class="entry-date">04 September 2025</span>
         <span class="entry-sector s-welfare">Welfare</span>
@@ -2612,7 +2668,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2025-09-01">
+    <article class="entry" id="entry-106" data-sector="government" data-date="2025-09-01">
       <div class="entry-top">
         <span class="entry-date">September 2025</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2633,7 +2689,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2025-08-17">
+    <article class="entry" id="entry-107" data-sector="health" data-date="2025-08-17">
       <div class="entry-top">
         <span class="entry-date">17 August 2025</span>
         <span class="entry-sector s-health">Health</span>
@@ -2654,7 +2710,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="policing" data-date="2025-08-15">
+    <article class="entry" id="entry-108" data-sector="policing" data-date="2025-08-15">
       <div class="entry-top">
         <span class="entry-date">15 August 2025</span>
         <span class="entry-sector s-policing">Policing</span>
@@ -2675,7 +2731,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2025-08-01">
+    <article class="entry" id="entry-109" data-sector="health" data-date="2025-08-01">
       <div class="entry-top">
         <span class="entry-date">1 August 2025</span>
         <span class="entry-sector s-health">Health</span>
@@ -2696,7 +2752,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2025-08-01">
+    <article class="entry" id="entry-110" data-sector="government" data-date="2025-08-01">
       <div class="entry-top">
         <span class="entry-date">August 2025</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2717,7 +2773,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="policing" data-date="2025-08-01">
+    <article class="entry" id="entry-111" data-sector="policing" data-date="2025-08-01">
       <div class="entry-top">
         <span class="entry-date">August 2025 (prototypes by April 2026)</span>
         <span class="entry-sector s-policing">Policing</span>
@@ -2739,7 +2795,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2025-07-21">
+    <article class="entry" id="entry-112" data-sector="government" data-date="2025-07-21">
       <div class="entry-top">
         <span class="entry-date">21 July 2025</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2761,7 +2817,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2025-07-01">
+    <article class="entry" id="entry-113" data-sector="government" data-date="2025-07-01">
       <div class="entry-top">
         <span class="entry-date">July 2025</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2783,7 +2839,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2025-07-01">
+    <article class="entry" id="entry-114" data-sector="government" data-date="2025-07-01">
       <div class="entry-top">
         <span class="entry-date">Between June and July 2025</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2804,7 +2860,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2025-07-01">
+    <article class="entry" id="entry-115" data-sector="government" data-date="2025-07-01">
       <div class="entry-top">
         <span class="entry-date">Prior to July 2025</span>
         <span class="entry-sector s-government">Education</span>
@@ -2825,7 +2881,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="policing" data-date="2025-07-01">
+    <article class="entry" id="entry-116" data-sector="policing" data-date="2025-07-01">
       <div class="entry-top">
         <span class="entry-date">Prior to July 2025</span>
         <span class="entry-sector s-policing">Policing</span>
@@ -2846,7 +2902,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2025-07-01">
+    <article class="entry" id="entry-117" data-sector="government" data-date="2025-07-01">
       <div class="entry-top">
         <span class="entry-date">Prior to July 2025</span>
         <span class="entry-sector s-government">Education</span>
@@ -2868,7 +2924,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="justice" data-date="2025-07-01">
+    <article class="entry" id="entry-118" data-sector="justice" data-date="2025-07-01">
       <div class="entry-top">
         <span class="entry-date">July 2025 (Action Plan); September 2025 (HMCTS strategy)</span>
         <span class="entry-sector s-justice">Justice</span>
@@ -2891,7 +2947,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2025-06-01">
+    <article class="entry" id="entry-119" data-sector="government" data-date="2025-06-01">
       <div class="entry-top">
         <span class="entry-date">June 2025 (expanded January 2026)</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2911,7 +2967,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="health" data-date="2025-05-08">
+    <article class="entry" id="entry-120" data-sector="health" data-date="2025-05-08">
       <div class="entry-top">
         <span class="entry-date">08 May 2025</span>
         <span class="entry-sector s-health">Health</span>
@@ -2932,7 +2988,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2025-05-01">
+    <article class="entry" id="entry-121" data-sector="government" data-date="2025-05-01">
       <div class="entry-top">
         <span class="entry-date">May 2025 (established), April 2026 (update)</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -2953,7 +3009,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="policing" data-date="2025-04-01">
+    <article class="entry" id="entry-122" data-sector="policing" data-date="2025-04-01">
       <div class="entry-top">
         <span class="entry-date">April 2025 framework; January 2026 expansion</span>
         <span class="entry-sector s-policing">Policing</span>
@@ -2976,7 +3032,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="safety" data-date="2025-01-01">
+    <article class="entry" id="entry-123" data-sector="safety" data-date="2025-01-01">
       <div class="entry-top">
         <span class="entry-date">2025 - 2026</span>
         <span class="entry-sector s-safety">AI Safety</span>
@@ -2999,7 +3055,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2024-11-01">
+    <article class="entry" id="entry-124" data-sector="government" data-date="2024-11-01">
       <div class="entry-top">
         <span class="entry-date">1 November 2024</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -3020,7 +3076,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="government" data-date="2024-08-01">
+    <article class="entry" id="entry-125" data-sector="government" data-date="2024-08-01">
       <div class="entry-top">
         <span class="entry-date">Between August 2024 and July 2025</span>
         <span class="entry-sector s-government">Cross-Govt</span>
@@ -3041,7 +3097,7 @@
       </div>
     </article>
 
-    <article class="entry" data-sector="welfare" data-date="2024-01-01">
+    <article class="entry" id="entry-126" data-sector="welfare" data-date="2024-01-01">
       <div class="entry-top">
         <span class="entry-date">In service through 2024-25</span>
         <span class="entry-sector s-welfare">Welfare</span>
@@ -3209,9 +3265,201 @@
   var newest = ''; entries.forEach(function(e){ var d=dv(e); if(d>newest) newest=d; });
   var lu = document.getElementById('dh-last-updated');
   if(lu && newest){ var p=newest.split('-'); lu.textContent = parseInt(p[2],10)+' '+months[parseInt(p[1],10)-1]+' '+p[0]; }
+
+  /* === Value parser + breakdown modal ============================ */
+  var USD_GBP = 0.78, EUR_GBP = 0.85;
+  function decode(s){ return s.replace(/&pound;/g,'\u00a3').replace(/&dollar;/g,'$').replace(/&euro;/g,'\u20ac').replace(/&amp;/g,'&'); }
+  function parseValue(raw){
+    if(!raw) return {gbp:null};
+    var s = decode(String(raw)).trim();
+    var lower = s.toLowerCase();
+    // Not disclosed / not specified — but capture parenthetical clue if numeric, else null
+    if(/^not\s+(disclosed|specified)/.test(lower) && !/(\u00a3|\$|\u20ac)\s*\d/.test(s)){
+      // see if there's a $ or pound inside parens (e.g. "Not disclosed (overall award value £0)")
+      var inner = s.match(/\([^)]*\)/);
+      if(inner){
+        var v = parseValue(inner[0].slice(1,-1));
+        return v.gbp!==null ? {gbp:v.gbp, isUpto:v.isUpto, source:'parenthetical: '+inner[0]} : {gbp:null};
+      }
+      return {gbp:null};
+    }
+    // Detect Upper bound flag
+    var isUpto = /\bup to\b/i.test(s);
+    // Detect currency
+    var curr = 'GBP';
+    if(/\$/.test(s) && !/\u00a3/.test(s)) curr = 'USD';
+    else if(/\u20ac/.test(s) && !/\u00a3/.test(s)) curr = 'EUR';
+    // Find the number + scale
+    // Patterns: £175 million / £1.2 billion / £19.6m / £144,000 / £1,200,000
+    var m = s.match(/(\u00a3|\$|\u20ac)\s*([\d,]+(?:\.\d+)?)\s*(billion|bn|million|mn|m|thousand|k)?/i);
+    if(!m) return {gbp:null};
+    var n = parseFloat(m[2].replace(/,/g,''));
+    if(isNaN(n)) return {gbp:null};
+    var scale = (m[3]||'').toLowerCase();
+    if(scale==='billion' || scale==='bn') n *= 1e9;
+    else if(scale==='million' || scale==='mn' || scale==='m') n *= 1e6;
+    else if(scale==='thousand' || scale==='k') n *= 1e3;
+    // Convert to GBP
+    var gbp = curr==='USD' ? n*USD_GBP : (curr==='EUR' ? n*EUR_GBP : n);
+    return {gbp:Math.round(gbp), isUpto:isUpto, source:s, curr:curr};
+  }
+  function fmtGBP(n){
+    if(n===null||n===undefined) return '\u2014';
+    if(n>=1e9) return '\u00a3'+(n/1e9).toFixed(n>=1e10?1:2)+'bn';
+    if(n>=1e6) return '\u00a3'+(n/1e6).toFixed(n>=1e7?0:1)+'m';
+    if(n>=1e3) return '\u00a3'+(n/1e3).toFixed(0)+'k';
+    return '\u00a3'+n.toLocaleString();
+  }
+  // Walk all entries, attach data-gbp + per-entry value object
+  var rows = [];
+  entries.forEach(function(e){
+    var titleEl = e.querySelector('.entry-h');
+    var buyerEl = e.querySelector('.entry-buyer');
+    var supplierEl = e.querySelector('.entry-supplier');
+    var title = titleEl ? titleEl.textContent.trim() : '(no title)';
+    var buyer = buyerEl ? buyerEl.textContent.trim() : '';
+    var supplier = supplierEl ? supplierEl.textContent.trim() : '';
+    // Find Contract value <dd>
+    var raw = null;
+    var facts = e.querySelectorAll('.entry-fact');
+    for(var i=0;i<facts.length;i++){
+      var dt = facts[i].querySelector('dt');
+      if(dt && /^(contract value|value|funding|amount)$/i.test(dt.textContent.trim())){
+        var dd = facts[i].querySelector('dd');
+        if(dd){ raw = dd.innerHTML; break; }
+      }
+    }
+    var v = parseValue(raw);
+    if(v.gbp!==null) e.setAttribute('data-gbp', v.gbp);
+    rows.push({title:title, buyer:buyer, supplier:supplier, raw:raw||'', value:v, id:e.id||''});
+  });
+  // Sum + count
+  var withVal = rows.filter(function(r){ return r.value.gbp!==null; });
+  var sum = withVal.reduce(function(a,r){ return a + r.value.gbp; }, 0);
+  // Update hero stat
+  var sv = document.getElementById('stat-value');
+  var svu = document.getElementById('stat-value-unit');
+  if(sv){
+    if(sum>=1e9){ sv.textContent = (sum/1e9).toFixed(1); if(svu) svu.textContent='bn'; }
+    else if(sum>=1e6){ sv.textContent = Math.round(sum/1e6); if(svu) svu.textContent='m+'; }
+    else if(sum>=1e3){ sv.textContent = Math.round(sum/1e3); if(svu) svu.textContent='k'; }
+    else { sv.textContent = sum; if(svu) svu.textContent=''; }
+  }
+  // Wire modal
+  var overlay = document.getElementById('vb-overlay');
+  var closeBtn = document.getElementById('vb-close');
+  var trigger = document.getElementById('stat-value-wrap');
+  var tbody = document.getElementById('vb-tbody');
+  var vbSort = {key:'value', dir:'desc'};
+  function buildRows(){
+    if(!tbody) return;
+    var sorted = rows.slice();
+    sorted.sort(function(a,b){
+      var k = vbSort.key, dir = vbSort.dir==='asc'?1:-1;
+      if(k==='value'){
+        var av = a.value.gbp===null ? -Infinity : a.value.gbp;
+        var bv = b.value.gbp===null ? -Infinity : b.value.gbp;
+        return (av-bv)*dir;
+      }
+      var ax = (a[k]||'').toLowerCase(), bx = (b[k]||'').toLowerCase();
+      return ax.localeCompare(bx)*dir;
+    });
+    var html = '';
+    sorted.forEach(function(r){
+      var anchor = r.id ? '#'+r.id : '';
+      var titleCell = '<a href="'+anchor+'" data-vb-jump>'+r.title+'</a>';
+      var valueCell;
+      if(r.value.gbp===null){
+        valueCell = '<span class="vb-undisclosed">'+(r.raw ? r.raw.replace(/<[^>]+>/g,'') : 'Not disclosed')+'</span>';
+      } else {
+        valueCell = fmtGBP(r.value.gbp) + (r.value.isUpto ? '<span class="vb-upto">(up to)</span>' : '');
+      }
+      html += '<tr><td class="vb-title-cell">'+titleCell+'</td><td>'+(r.buyer||'')+'</td><td>'+(r.supplier||'')+'</td><td class="vb-num">'+valueCell+'</td></tr>';
+    });
+    tbody.innerHTML = html;
+    // Sort indicators
+    var ths = document.querySelectorAll('#vb-table th[data-sort]');
+    ths.forEach(function(th){
+      th.classList.remove('vb-sort-active','vb-sort-asc');
+      if(th.getAttribute('data-sort')===vbSort.key){
+        th.classList.add(vbSort.dir==='asc' ? 'vb-sort-asc' : 'vb-sort-active');
+      }
+    });
+  }
+  function openModal(){
+    if(!overlay) return;
+    var te = document.getElementById('vb-total-entries'); if(te) te.textContent = rows.length;
+    var wv = document.getElementById('vb-with-value'); if(wv) wv.textContent = withVal.length;
+    var nd = document.getElementById('vb-not-disclosed'); if(nd) nd.textContent = rows.length - withVal.length;
+    var su = document.getElementById('vb-sum'); if(su) su.textContent = fmtGBP(sum);
+    buildRows();
+    overlay.classList.add('open');
+    overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    if(!overlay) return;
+    overlay.classList.remove('open');
+    overlay.hidden = true;
+    document.body.style.overflow = '';
+  }
+  if(trigger){
+    trigger.addEventListener('click', openModal);
+    trigger.addEventListener('keydown', function(e){ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); openModal(); } });
+  }
+  if(closeBtn) closeBtn.addEventListener('click', closeModal);
+  if(overlay) overlay.addEventListener('click', function(e){ if(e.target===overlay) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && overlay && overlay.classList.contains('open')) closeModal(); });
+  // Sort header clicks
+  document.querySelectorAll('#vb-table th[data-sort]').forEach(function(th){
+    th.addEventListener('click', function(){
+      var k = th.getAttribute('data-sort');
+      if(vbSort.key===k){ vbSort.dir = (vbSort.dir==='asc'?'desc':'asc'); }
+      else { vbSort.key = k; vbSort.dir = (k==='value'?'desc':'asc'); }
+      buildRows();
+    });
+  });
+  // Jump-to-entry from modal closes modal first
+  document.body.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[data-vb-jump]');
+    if(a){ closeModal(); }
+  });
+
   render();
 })();
 </script>
+
+
+<!-- Value breakdown modal -->
+<div class="vb-overlay" id="vb-overlay" role="dialog" aria-modal="true" aria-labelledby="vb-title-text" hidden>
+  <div class="vb-modal" role="document">
+    <div class="vb-head">
+      <div>
+        <h2 class="vb-title" id="vb-title-text">Disclosed contract values</h2>
+        <p class="vb-sub">Each value parsed directly from a per-entry fact line. Click an entry title to jump to it.</p>
+      </div>
+      <button type="button" class="vb-close" id="vb-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="vb-summary">
+      <div class="vb-stat"><span class="vb-stat-label">Total entries</span><span class="vb-stat-value" id="vb-total-entries">--</span></div>
+      <div class="vb-stat"><span class="vb-stat-label">With value</span><span class="vb-stat-value" id="vb-with-value">--</span></div>
+      <div class="vb-stat"><span class="vb-stat-label">Not disclosed</span><span class="vb-stat-value" id="vb-not-disclosed">--</span></div>
+      <div class="vb-stat"><span class="vb-stat-label">Sum (disclosed)</span><span class="vb-stat-value" id="vb-sum">--</span></div>
+    </div>
+    <div class="vb-table-wrap">
+      <table class="vb-table" id="vb-table">
+        <thead><tr>
+          <th data-sort="title">Entry</th>
+          <th data-sort="buyer">Buyer</th>
+          <th data-sort="supplier">Supplier</th>
+          <th data-sort="value" class="vb-num vb-sort-active">Value (GBP)</th>
+        </tr></thead>
+        <tbody id="vb-tbody"></tbody>
+      </table>
+    </div>
+    <div class="vb-foot">Values normalised to GBP. USD/EUR converted at indicative rates (USD 0.78, EUR 0.85). "Up to" values are included in the sum but flagged. Frameworks and partnership totals are included where disclosed. Source text for each value is shown verbatim under the entry on the page.</div>
+  </div>
+</div>
 
 </body>
 </html>
