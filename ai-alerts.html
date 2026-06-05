@@ -3204,6 +3204,37 @@
   </div>
 </div>
 
+<!-- Value breakdown modal -->
+<div class="vb-overlay" id="vb-overlay" role="dialog" aria-modal="true" aria-labelledby="vb-title-text" hidden>
+  <div class="vb-modal" role="document">
+    <div class="vb-head">
+      <div>
+        <h2 class="vb-title" id="vb-title-text">Disclosed contract values</h2>
+        <p class="vb-sub">Each value parsed directly from a per-entry fact line. Click an entry title to jump to it.</p>
+      </div>
+      <button type="button" class="vb-close" id="vb-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="vb-summary">
+      <div class="vb-stat"><span class="vb-stat-label">Total entries</span><span class="vb-stat-value" id="vb-total-entries">--</span></div>
+      <div class="vb-stat"><span class="vb-stat-label">With value</span><span class="vb-stat-value" id="vb-with-value">--</span></div>
+      <div class="vb-stat"><span class="vb-stat-label">Not disclosed</span><span class="vb-stat-value" id="vb-not-disclosed">--</span></div>
+      <div class="vb-stat"><span class="vb-stat-label">Sum (disclosed)</span><span class="vb-stat-value" id="vb-sum">--</span></div>
+    </div>
+    <div class="vb-table-wrap">
+      <table class="vb-table" id="vb-table">
+        <thead><tr>
+          <th data-sort="title">Entry</th>
+          <th data-sort="buyer">Buyer</th>
+          <th data-sort="supplier">Supplier</th>
+          <th data-sort="value" class="vb-num vb-sort-active">Value (GBP)</th>
+        </tr></thead>
+        <tbody id="vb-tbody"></tbody>
+      </table>
+    </div>
+    <div class="vb-foot">Values normalised to GBP. USD/EUR converted at indicative rates (USD 0.78, EUR 0.85). "Up to" values are included in the sum but flagged. Frameworks and partnership totals are included where disclosed. Source text for each value is shown verbatim under the entry on the page.</div>
+  </div>
+</div>
+
 <script>
 /* AI Alerts register: filter, sort, load-more, sector breakdown, live date */
 (function(){
@@ -3391,7 +3422,9 @@
     });
   }
   function openModal(){
-    if(!overlay) return;
+    var overlay = document.getElementById('vb-overlay');
+    var tbody   = document.getElementById('vb-tbody');
+    if(!overlay) { console.warn('[vb] overlay not found at click time'); return; }
     var te = document.getElementById('vb-total-entries'); if(te) te.textContent = rows.length;
     var wv = document.getElementById('vb-with-value'); if(wv) wv.textContent = withVal.length;
     var nd = document.getElementById('vb-not-disclosed'); if(nd) nd.textContent = rows.length - withVal.length;
@@ -3402,6 +3435,7 @@
     document.body.style.overflow = 'hidden';
   }
   function closeModal(){
+    var overlay = document.getElementById('vb-overlay');
     if(!overlay) return;
     overlay.classList.remove('open');
     overlay.hidden = true;
@@ -3442,36 +3476,7 @@
 </script>
 
 
-<!-- Value breakdown modal -->
-<div class="vb-overlay" id="vb-overlay" role="dialog" aria-modal="true" aria-labelledby="vb-title-text" hidden>
-  <div class="vb-modal" role="document">
-    <div class="vb-head">
-      <div>
-        <h2 class="vb-title" id="vb-title-text">Disclosed contract values</h2>
-        <p class="vb-sub">Each value parsed directly from a per-entry fact line. Click an entry title to jump to it.</p>
-      </div>
-      <button type="button" class="vb-close" id="vb-close" aria-label="Close">&times;</button>
-    </div>
-    <div class="vb-summary">
-      <div class="vb-stat"><span class="vb-stat-label">Total entries</span><span class="vb-stat-value" id="vb-total-entries">--</span></div>
-      <div class="vb-stat"><span class="vb-stat-label">With value</span><span class="vb-stat-value" id="vb-with-value">--</span></div>
-      <div class="vb-stat"><span class="vb-stat-label">Not disclosed</span><span class="vb-stat-value" id="vb-not-disclosed">--</span></div>
-      <div class="vb-stat"><span class="vb-stat-label">Sum (disclosed)</span><span class="vb-stat-value" id="vb-sum">--</span></div>
-    </div>
-    <div class="vb-table-wrap">
-      <table class="vb-table" id="vb-table">
-        <thead><tr>
-          <th data-sort="title">Entry</th>
-          <th data-sort="buyer">Buyer</th>
-          <th data-sort="supplier">Supplier</th>
-          <th data-sort="value" class="vb-num vb-sort-active">Value (GBP)</th>
-        </tr></thead>
-        <tbody id="vb-tbody"></tbody>
-      </table>
-    </div>
-    <div class="vb-foot">Values normalised to GBP. USD/EUR converted at indicative rates (USD 0.78, EUR 0.85). "Up to" values are included in the sum but flagged. Frameworks and partnership totals are included where disclosed. Source text for each value is shown verbatim under the entry on the page.</div>
-  </div>
-</div>
+
 
 </body>
 </html>
