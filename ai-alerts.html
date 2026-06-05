@@ -264,7 +264,11 @@
   /* Value breakdown modal */
   #stat-value-wrap{cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:opacity .15s}
   #stat-value-wrap:hover{opacity:.78}
-  #stat-value-wrap::after{content:'\203A';margin-left:2px;color:#0071e3;font-weight:400;font-size:.92em;transform:translateY(-1px)}
+  #stat-value-wrap::after{content:'';display:inline-block;width:0;height:0}
+  .stat:has(#stat-value-wrap){cursor:pointer}
+  .stat:has(#stat-value-wrap):hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.06)}
+  .stat:has(#stat-value-wrap)::after{content:'View breakdown \2192';display:block;font-size:11px;color:#0071e3;font-weight:600;letter-spacing:.04em;margin-top:8px}
+
   .vb-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:9000;display:none;align-items:flex-start;justify-content:center;padding:60px 16px;overflow-y:auto}
   .vb-overlay.open{display:flex}
   .vb-modal{background:#fff;color:#1d1d1f;width:100%;max-width:980px;border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.35);overflow:hidden}
@@ -3406,6 +3410,14 @@
   if(trigger){
     trigger.addEventListener('click', openModal);
     trigger.addEventListener('keydown', function(e){ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); openModal(); } });
+    /* Also wire the parent .stat box so clicking anywhere in it opens the modal */
+    var statBox = trigger.closest('.stat');
+    if(statBox){
+      statBox.setAttribute('role','button');
+      statBox.setAttribute('tabindex','0');
+      statBox.addEventListener('click', openModal);
+      statBox.addEventListener('keydown', function(e){ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); openModal(); } });
+    }
   }
   if(closeBtn) closeBtn.addEventListener('click', closeModal);
   if(overlay) overlay.addEventListener('click', function(e){ if(e.target===overlay) closeModal(); });
