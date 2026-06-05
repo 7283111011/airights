@@ -1317,3 +1317,68 @@ input::placeholder, textarea::placeholder { color: var(--text-3); }
   font-style: italic;
 }
 .footer-disclosure strong { color: var(--text-3); font-weight: 600; font-style: normal; }
+
+/* ── Latest publication strip (under the hero) ────────────────── */
+.latest-bar {
+  background: var(--bg-grey);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+}
+.latest-bar .container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.latest-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  flex-shrink: 0;
+}
+.latest-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  flex: 1;
+  min-width: 0;
+  transition: gap 0.2s var(--ease);
+}
+.latest-link:hover { gap: 18px; }
+.latest-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.latest-meta {
+  color: var(--text-3);
+  font-size: 13px;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+.latest-chev {
+  flex-shrink: 0;
+  color: var(--blue);
+  transition: transform 0.2s var(--ease);
+}
+.latest-link:hover .latest-chev { transform: translateX(3px); }
+
+@media (max-width: 720px) {
+  .latest-bar .container { flex-wrap: wrap; gap: 8px 14px; }
+  .latest-meta { display: none; }
+  .latest-title { white-space: normal; }
+}
+
+/* ── Press-release page: action buttons under the hero ────────── */
+.press-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
