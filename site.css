@@ -1348,11 +1348,19 @@ input::placeholder, textarea::placeholder { color: var(--text-3); }
   min-width: 0;
   transition: gap 0.2s var(--ease);
 }
-.latest-link:hover { gap: 18px; }
 .latest-title {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 113, 227, 0.42);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+.latest-link:hover .latest-title {
+  color: var(--blue);
+  text-decoration-color: var(--blue);
 }
 .latest-meta {
   color: var(--text-3);
@@ -1360,12 +1368,6 @@ input::placeholder, textarea::placeholder { color: var(--text-3); }
   font-weight: 400;
   flex-shrink: 0;
 }
-.latest-chev {
-  flex-shrink: 0;
-  color: var(--blue);
-  transition: transform 0.2s var(--ease);
-}
-.latest-link:hover .latest-chev { transform: translateX(3px); }
 
 @media (max-width: 720px) {
   .latest-bar .container { flex-wrap: wrap; gap: 8px 14px; }
