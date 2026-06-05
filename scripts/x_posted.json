@@ -1,3 +1,25 @@
 {
   "titles": [
-    "Durham Po
+    "Durham Police AI for Public Information Requests",
+    "Companies House AI for Routine Enquiries and Administrative Tasks",
+    "DWP Work Coaches Using Copilot for Jobseeker Support"
+  ],
+  "ids": [],
+  "log": [
+    {
+      "title": "Durham Police AI for Public Information Requests",
+      "tweet_id": "2062765958251622586",
+      "posted_at": "2026-06-05T05:18:23+00:00"
+    },
+    {
+      "title": "Companies House AI for Routine Enquiries and Administrative Tasks",
+      "tweet_id": "2062765967554535835",
+      "posted_at": "2026-06-05T05:18:25+00:00"
+    },
+    {
+      "title": "DWP Work Coaches Using Copilot for Jobseeker Support",
+      "tweet_id": "2062765976828199339",
+      "posted_at": "2026-06-05T05:18:27+00:00"
+    }
+  ]
+}
