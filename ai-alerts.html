@@ -3063,9 +3063,33 @@
         <a href="https://www.nao.org.uk/wp-content/uploads/2025/07/using-data-analytics-to-tackle-fraud-and-error.pdf" target="_blank" rel="noopener">National Audit Office, July 2025</a>
       </div>
     </article>
+    </div>
 
-  </section>
-</main>
+    <div class="load-more-wrap"><button id="load-more" class="dh-btn-p" type="button">Load 10 more</button></div>
+
+    <div class="aiw-actions">
+      <div class="aiw-submit-box" id="submit-tip">
+        <h3>Submit a tip</h3>
+        <p>Know of a public-sector AI contract, partnership or pilot we have missed? Tell us. Every entry is checked against a public source before it is added.</p>
+        <form class="aiw-submit-form" action="https://formspree.io/f/xykognyk" method="POST">
+          <input type="hidden" name="_subject" value="[AI ALERTS TIP]">
+          <input type="hidden" name="report_type" value="ai_alerts_tip">
+          <div class="aiw-field"><label for="tip-detail">What should we look at?</label><textarea id="tip-detail" name="tip" required placeholder="The public body and supplier, what the AI does, and a link to a source if you have one."></textarea></div>
+          <div class="aiw-field"><label for="tip-email">Your email (optional)</label><input id="tip-email" type="email" name="email" placeholder="you@example.com"></div>
+          <button class="btn" type="submit">Send tip</button>
+        </form>
+      </div>
+      <div class="aiw-subscribe-box" id="subscribe">
+        <h3>Subscribe to updates</h3>
+        <p>Get the Foundation&rsquo;s newsletter, including new AI Alerts. Free, sent roughly every two weeks, no tracking.</p>
+        <form class="aiw-subscribe-form" action="https://buttondown.com/api/emails/embed-subscribe/airights" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/airights','popupwindow')">
+          <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+          <button class="btn" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+  </main>
 
 <footer class="site-footer">
   <div class="container footer-grid">
