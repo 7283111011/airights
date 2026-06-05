@@ -43,7 +43,9 @@ jobs:
         run: |
           git config user.name "AI Watch Bot"
           git config user.email "bot@airights.org.uk"
-          git add ai-alerts.html scripts/x_posted.json
+          git add ai-alerts.html
+          # x_posted.json may not exist on first runs or if X posting was skipped
+          [ -f scripts/x_posted.json ] && git add scripts/x_posted.json || true
           SUMMARY=$(cat /tmp/ai-watch-commit-msg.txt 2>/dev/null || echo "AI Watch: automated scan update")
           git commit -m "$SUMMARY"
           git push
