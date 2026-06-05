@@ -60,7 +60,7 @@
   <div class="pp-wrap">
   <span class="pp-eyebrow">Legal</span>
   <h1>Privacy Policy</h1>
-  <div class="pp-meta">Last updated: 1 May 2026 &middot; Version 1.0</div>
+  <div class="pp-meta">Last updated: 5 June 2026 &middot; Version 1.0</div>
 
   <p>The Foundation for Artificial Intelligence Rights (&ldquo;FAIR&rdquo;, &ldquo;we&rdquo;, &ldquo;our&rdquo;, &ldquo;us&rdquo;) is committed to protecting your privacy and handling your personal data with transparency and care. This Privacy Policy explains what personal data we collect when you visit <a href="https://airights.org.uk">airights.org.uk</a>, why we collect it, how we use and share it, and the rights you have under the United Kingdom General Data Protection Regulation (&ldquo;UK GDPR&rdquo;) and the Data Protection Act 2018.</p>
 
@@ -94,7 +94,7 @@
       </tr>
       <tr>
         <td>Aggregate, anonymous traffic statistics (page views, country, device type, referrer)</td>
-        <td>Cloudflare Web Analytics, automatically</td>
+        <td>Plausible Analytics and Cloudflare Web Analytics, automatically</td>
         <td>To understand which content is useful and to improve the site</td>
         <td>Article 6(1)(f) - legitimate interests</td>
       </tr>
@@ -161,8 +161,14 @@
         <td>United States, with safeguards under the EU-US Data Privacy Framework / UK Extension</td>
       </tr>
       <tr>
-        <td>Cloudflare (Cloudflare, Inc. - Web Analytics)</td>
+        <td>Plausible Analytics (Plausible Insights O&Uuml;)</td>
         <td>Privacy-friendly, cookieless aggregate site analytics</td>
+        <td>Anonymised page-view data; no cookies, no personal data, and IP addresses are processed only to derive country and then discarded. Visitors are not tracked across sessions or across other websites.</td>
+        <td>European Union (Tallinn, Estonia); EU GDPR / UK GDPR safeguards in place</td>
+      </tr>
+      <tr>
+        <td>Cloudflare (Cloudflare, Inc. - Web Analytics)</td>
+        <td>Privacy-friendly, cookieless aggregate site analytics (secondary; runs alongside Plausible)</td>
         <td>Anonymised page-view data; IP addresses are <em>not</em> stored, and individual visitors are not tracked across sessions</td>
         <td>Global edge network with EU/UK endpoints; UK GDPR safeguards in place</td>
       </tr>
@@ -207,7 +213,7 @@
     <li>Enquiry correspondence - retained while your matter is open and for up to 3 years afterwards, then deleted.</li>
     <li>Trustee applications - successful applications are kept for the duration of the appointment plus 7 years (Charity Commission record-keeping). Unsuccessful applications are deleted within 12 months unless you ask us to keep them on file.</li>
     <li>Membership and partner registrations of interest - retained for 3 years from last contact, then reviewed.</li>
-    <li>Aggregate traffic analytics - retained by Cloudflare in anonymised form on a rolling basis (typically 6 months); we do not hold an identifiable copy.</li>
+    <li>Aggregate traffic analytics - retained by Plausible and Cloudflare in anonymised, non-identifying form (Plausible typically holds aggregate page-view counts indefinitely as no personal data is collected; Cloudflare retains anonymised counts on a rolling basis, typically 6 months). FAIR does not hold an identifiable copy.</li>
     <li>Server and security logs - retained for the period set by the relevant provider for security and abuse-prevention purposes.</li>
   </ul>
   <p>We may retain certain records for longer where required to comply with a legal obligation or to establish, exercise, or defend legal claims.</p>
@@ -293,21 +299,4 @@
     if (nav) { var u=function(){nav.classList.toggle('scrolled', window.scrollY>30);}; window.addEventListener('scroll',u,{passive:true}); u(); }
     var t=document.getElementById('navToggle'), m=document.getElementById('mobileMenu');
     if (t&&m){ var s=function(o){document.body.classList.toggle('menu-open',o);t.setAttribute('aria-expanded',o?'true':'false');t.setAttribute('aria-label',o?'Close menu':'Open menu');};
-      t.addEventListener('click',function(){s(!document.body.classList.contains('menu-open'));});
-      m.addEventListener('click',function(e){if(e.target.tagName==='A')s(false);});
-      document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false);}); }
-  })();
-</script>
-<!-- ACCESSIBILITY: UserWay Widget -->
-<script>
-(function(d){
-  var s = d.createElement("script");
-  s.setAttribute("data-position", 5);
-  s.setAttribute("data-account", "5dDh6GLInL");
-  s.setAttribute("src", "https://cdn.userway.org/widget.js");
-  (d.body || d.head).appendChild(s);
-})(document);
-</script>
-<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script>
-</body>
-</html>
+      t.addEventListener('click',function(){s(!document.body.classList.contains('menu-open'
