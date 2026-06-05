@@ -281,17 +281,22 @@
   .vb-stat{display:flex;flex-direction:column;gap:2px}
   .vb-stat-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#86868b;font-weight:600}
   .vb-stat-value{font-size:1.0625rem;font-weight:700;color:#1d1d1f;letter-spacing:-.01em}
-  .vb-table-wrap{overflow:auto;max-height:60vh}
-  .vb-table{width:100%;border-collapse:collapse;font-size:13.5px}
-  .vb-table th,.vb-table td{padding:11px 16px;text-align:left;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+  .vb-table-wrap{overflow-x:hidden;overflow-y:auto;max-height:60vh}
+  .vb-table{width:100%;border-collapse:collapse;font-size:13.5px;table-layout:fixed}
+  .vb-table colgroup col:nth-child(1){width:46%}.vb-table colgroup col:nth-child(2){width:22%}.vb-table colgroup col:nth-child(3){width:18%}.vb-table colgroup col:nth-child(4){width:14%}
+  .vb-table th,.vb-table td{padding:11px 14px;text-align:left;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;hyphens:auto}
   .vb-table th{position:sticky;top:0;background:#fff;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#86868b;font-weight:600;border-bottom:1px solid rgba(0,0,0,.12);z-index:2;cursor:pointer;user-select:none}
   .vb-table th:hover{color:#1d1d1f}
   .vb-table th.vb-sort-active::after{content:' \25BC';font-size:9px;color:#0071e3}
   .vb-table th.vb-sort-asc::after{content:' \25B2';font-size:9px;color:#0071e3}
   .vb-table tr:hover td{background:#fafafb}
   .vb-table .vb-num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-  .vb-table .vb-title-cell a{color:#0066cc;text-decoration:none;font-weight:500}
-  .vb-table .vb-title-cell a:hover{text-decoration:underline}
+  .vb-table .vb-title-cell a{color:#1d1d1f;text-decoration:none;font-weight:500;border-bottom:1px solid rgba(0,0,0,.15);transition:color .15s,border-color .15s}
+  .vb-table .vb-title-cell a:hover{color:#0071e3;border-bottom-color:#0071e3}
+  :root[data-theme="dark"] .vb-table .vb-title-cell a{color:#f5f5f7;border-bottom-color:rgba(255,255,255,.20)}
+  :root[data-theme="dark"] .vb-table .vb-title-cell a:hover{color:#4aa8ff;border-bottom-color:#4aa8ff}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .vb-table .vb-title-cell a{color:#f5f5f7;border-bottom-color:rgba(255,255,255,.20)}
+    :root:not([data-theme="light"]) .vb-table .vb-title-cell a:hover{color:#4aa8ff;border-bottom-color:#4aa8ff}}
   .vb-undisclosed{color:#86868b;font-style:italic}
   .vb-upto{color:#86868b;font-size:.85em;margin-left:4px}
   .vb-foot{padding:14px 28px;font-size:12px;color:#86868b;border-top:1px solid rgba(0,0,0,.06);line-height:1.5}
@@ -411,7 +416,7 @@
       <div class="stat-label">Latest scan</div>
     </div>
     <div class="stat">
-      <div class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div class="stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><text x="12" y="17" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="currentColor" stroke="none">£</text></svg></div>
       <div class="stat-num"><span id="stat-value-wrap" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="vb-overlay" title="See per-entry breakdown">&pound;<span id="stat-value">--</span><span class="stat-unit" id="stat-value-unit">m</span></span></div>
       <div class="stat-label">Disclosed value</div>
     </div>
@@ -3222,6 +3227,7 @@
     </div>
     <div class="vb-table-wrap">
       <table class="vb-table" id="vb-table">
+        <colgroup><col><col><col><col></colgroup>
         <thead><tr>
           <th data-sort="title">Entry</th>
           <th data-sort="buyer">Buyer</th>
