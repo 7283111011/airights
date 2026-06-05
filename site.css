@@ -1328,13 +1328,12 @@ input::placeholder, textarea::placeholder { color: var(--text-3); }
 .latest-bar .container {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 20px;
 }
 .latest-label {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
   color: var(--blue);
   flex-shrink: 0;
 }
@@ -1346,7 +1345,6 @@ input::placeholder, textarea::placeholder { color: var(--text-3); }
   font-size: 15px;
   font-weight: 500;
   text-decoration: none;
-  flex: 1;
   min-width: 0;
   transition: gap 0.2s var(--ease);
 }
