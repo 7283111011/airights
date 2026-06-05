@@ -490,10 +490,17 @@ html = re.sub(
     count=1,
 )
 
-# Update last-updated date
+# Update last-updated date (two places: the meta-table text and the hero span)
 html = re.sub(
     r"Last updated:\s*[^&·]+",
     f"Last updated: {TODAY} ",
+    html,
+    count=1,
+)
+# Hero span on the AI Alerts page header: <span id="dh-last-updated">...</span>
+html = re.sub(
+    r'(<span id="dh-last-updated">)[^<]*(</span>)',
+    rf'\g<1>{TODAY}\g<2>',
     html,
     count=1,
 )
