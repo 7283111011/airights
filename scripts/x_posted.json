@@ -4,7 +4,10 @@
     "Companies House AI for Routine Enquiries and Administrative Tasks",
     "DWP Work Coaches Using Copilot for Jobseeker Support",
     "UK Government and Google Partnership for AI Skills Training for Civil Servants",
-    "Office of the Information Commissioner (ICO) Contract with Capgemini for AI-Related Services"
+    "Office of the Information Commissioner (ICO) Contract with Capgemini for AI-Related Services",
+    "HMRC Contract for AI-Powered Customer Service Transformation",
+    "Ministry of Defence Project Strong AI Decision-Support Prototyping",
+    "Police Digital Service Contract with Palantir for Firearms Licensing Management"
   ],
   "ids": [],
   "log": [
@@ -32,6 +35,21 @@
       "title": "Office of the Information Commissioner (ICO) Contract with Capgemini for AI-Related Services",
       "tweet_id": "2062850119616066019",
       "posted_at": "2026-06-05T10:52:49+00:00"
+    },
+    {
+      "title": "HMRC Contract for AI-Powered Customer Service Transformation",
+      "tweet_id": "2063191391253971146",
+      "posted_at": "2026-06-06T09:28:54+00:00"
+    },
+    {
+      "title": "Ministry of Defence Project Strong AI Decision-Support Prototyping",
+      "tweet_id": "2063191400687042753",
+      "posted_at": "2026-06-06T09:28:56+00:00"
+    },
+    {
+      "title": "Police Digital Service Contract with Palantir for Firearms Licensing Management",
+      "tweet_id": "2063191410082247128",
+      "posted_at": "2026-06-06T09:28:59+00:00"
     }
   ]
 }
