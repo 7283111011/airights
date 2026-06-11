@@ -7,7 +7,12 @@
     "Office of the Information Commissioner (ICO) Contract with Capgemini for AI-Related Services",
     "HMRC Contract for AI-Powered Customer Service Transformation",
     "Ministry of Defence Project Strong AI Decision-Support Prototyping",
-    "Police Digital Service Contract with Palantir for Firearms Licensing Management"
+    "Police Digital Service Contract with Palantir for Firearms Licensing Management",
+    "UK AI Hardware Plan and National AI Supercomputer Investment",
+    "DSIT and ElevenLabs Strategic Partnership for Accessible Public Services",
+    "UK Government AI Skills and Adoption Fund",
+    "DSIT and Cisco Memorandum of Understanding for AI and Digital Skills",
+    "DSIT Open-Source AI Builder Fund and Data Centre Design Challenge"
   ],
   "ids": [],
   "log": [
@@ -50,6 +55,31 @@
       "title": "Police Digital Service Contract with Palantir for Firearms Licensing Management",
       "tweet_id": "2063191410082247128",
       "posted_at": "2026-06-06T09:28:59+00:00"
+    },
+    {
+      "title": "UK AI Hardware Plan and National AI Supercomputer Investment",
+      "tweet_id": "2065032902446809115",
+      "posted_at": "2026-06-11T11:26:25+00:00"
+    },
+    {
+      "title": "DSIT and ElevenLabs Strategic Partnership for Accessible Public Services",
+      "tweet_id": "2065032911997325377",
+      "posted_at": "2026-06-11T11:26:27+00:00"
+    },
+    {
+      "title": "UK Government AI Skills and Adoption Fund",
+      "tweet_id": "2065032921371599360",
+      "posted_at": "2026-06-11T11:26:29+00:00"
+    },
+    {
+      "title": "DSIT and Cisco Memorandum of Understanding for AI and Digital Skills",
+      "tweet_id": "2065032930804609489",
+      "posted_at": "2026-06-11T11:26:31+00:00"
+    },
+    {
+      "title": "DSIT Open-Source AI Builder Fund and Data Centre Design Challenge",
+      "tweet_id": "2065032940598268343",
+      "posted_at": "2026-06-11T11:26:34+00:00"
     }
   ]
 }
