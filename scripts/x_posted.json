@@ -12,7 +12,10 @@
     "DSIT and ElevenLabs Strategic Partnership for Accessible Public Services",
     "UK Government AI Skills and Adoption Fund",
     "DSIT and Cisco Memorandum of Understanding for AI and Digital Skills",
-    "DSIT Open-Source AI Builder Fund and Data Centre Design Challenge"
+    "DSIT Open-Source AI Builder Fund and Data Centre Design Challenge",
+    "Government Advisory AI Growth Lab",
+    "Government Partnership on AI Adoption and Skills",
+    "Lumen Sovereign AI Model Co-Design Coalition"
   ],
   "ids": [],
   "log": [
@@ -80,6 +83,21 @@
       "title": "DSIT Open-Source AI Builder Fund and Data Centre Design Challenge",
       "tweet_id": "2065032940598268343",
       "posted_at": "2026-06-11T11:26:34+00:00"
+    },
+    {
+      "title": "Government Advisory AI Growth Lab",
+      "tweet_id": "2065737360201925020",
+      "posted_at": "2026-06-13T10:05:41+00:00"
+    },
+    {
+      "title": "Government Partnership on AI Adoption and Skills",
+      "tweet_id": "2065737369458745446",
+      "posted_at": "2026-06-13T10:05:43+00:00"
+    },
+    {
+      "title": "Lumen Sovereign AI Model Co-Design Coalition",
+      "tweet_id": "2065737378686214562",
+      "posted_at": "2026-06-13T10:05:45+00:00"
     }
   ]
 }
