@@ -18,7 +18,10 @@
     "Lumen Sovereign AI Model Co-Design Coalition",
     "Police Modernisation AI for Public Interaction",
     "Regulatory Innovation Office and Health & Safety Executive Robotics Partnership",
-    "Ministry of Defence Rapid AI Delivery Taskforce (RAID)"
+    "Ministry of Defence Rapid AI Delivery Taskforce (RAID)",
+    "UK AI Hardware Innovation Programme",
+    "UK AI Hardware Security R&D Programme",
+    "AI Growth Lab for Legal Services"
   ],
   "ids": [],
   "log": [
@@ -116,6 +119,21 @@
       "title": "Ministry of Defence Rapid AI Delivery Taskforce (RAID)",
       "tweet_id": "2066105666234994940",
       "posted_at": "2026-06-14T10:29:11+00:00"
+    },
+    {
+      "title": "UK AI Hardware Innovation Programme",
+      "tweet_id": "2066511560927850812",
+      "posted_at": "2026-06-15T13:22:05+00:00"
+    },
+    {
+      "title": "UK AI Hardware Security R&D Programme",
+      "tweet_id": "2066511571904250309",
+      "posted_at": "2026-06-15T13:22:07+00:00"
+    },
+    {
+      "title": "AI Growth Lab for Legal Services",
+      "tweet_id": "2066511581370835128",
+      "posted_at": "2026-06-15T13:22:09+00:00"
     }
   ]
 }
