@@ -21,7 +21,10 @@
     "Ministry of Defence Rapid AI Delivery Taskforce (RAID)",
     "UK AI Hardware Innovation Programme",
     "UK AI Hardware Security R&D Programme",
-    "AI Growth Lab for Legal Services"
+    "AI Growth Lab for Legal Services",
+    "Police AI for 999/101 Call Transcription and Triage",
+    "PoliceAI Large-Scale Pilots for Digital Evidence Triage, Disclosure, and Summarisation",
+    "Policing AI Threat Hub for Deepfake Detection and AI-Enabled Crime Response"
   ],
   "ids": [],
   "log": [
@@ -134,6 +137,21 @@
       "title": "AI Growth Lab for Legal Services",
       "tweet_id": "2066511581370835128",
       "posted_at": "2026-06-15T13:22:09+00:00"
+    },
+    {
+      "title": "Police AI for 999/101 Call Transcription and Triage",
+      "tweet_id": "2067214606217445701",
+      "posted_at": "2026-06-17T11:55:43+00:00"
+    },
+    {
+      "title": "PoliceAI Large-Scale Pilots for Digital Evidence Triage, Disclosure, and Summarisation",
+      "tweet_id": "2067214615583273006",
+      "posted_at": "2026-06-17T11:55:46+00:00"
+    },
+    {
+      "title": "Policing AI Threat Hub for Deepfake Detection and AI-Enabled Crime Response",
+      "tweet_id": "2067214624810741785",
+      "posted_at": "2026-06-17T11:55:48+00:00"
     }
   ]
 }
