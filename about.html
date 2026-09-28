@@ -21,10 +21,8 @@
 <meta name="twitter:title" content="About the Foundation | FAIR">
 <meta name="twitter:description" content="The Foundation for Artificial Intelligence Rights exists to defend the British public in the age of AI.">
 <meta name="twitter:image" content="https://airights.org.uk/og-image.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=14">
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css?v=15">
 <!-- fair-theme --><script>(function(){try{var t=localStorage.getItem("fair-theme");document.documentElement.setAttribute("data-theme",t||"dark");}catch(e){}})();document.addEventListener("DOMContentLoaded",function(){var b=document.querySelector(".theme-toggle");if(!b)return;b.addEventListener("click",function(){var d=document.documentElement,c=d.getAttribute("data-theme")||((window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light"),m=c==="dark"?"light":"dark";d.setAttribute("data-theme",m);try{localStorage.setItem("fair-theme",m);}catch(e){}});});document.addEventListener("click",function(e){var a=e.target.closest?e.target.closest("a[href]"):null;if(!a)return;if(a.protocol!=="http:"&&a.protocol!=="https:")return;if(!a.host||a.host===location.host)return;if(a.hasAttribute("data-noconfirm"))return;if(!window.confirm("You are now leaving airights.org.uk and will be taken to an external website ("+a.hostname+"). Do you want to continue?")){e.preventDefault();e.stopPropagation();}},true);</script>
 <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-FZ133fKcb-IxvvivVylTQ.js"></script>
@@ -162,5 +160,13 @@
   })();
 </script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a0dfe7202b37496d9bd8d11decfd496c"}'></script>
+  <!-- COOKIE NOTICE -->
+  <div class="cookie-bar" id="cookie-bar" role="note" style="display:none">
+    <p>This site uses privacy-friendly, cookieless analytics. Some features, such as the accessibility toolbar and the spam protection on our report form, set their own cookies. See <a href="/cookies.html">Cookies</a> and <a href="/privacy.html">Privacy</a>.</p>
+    <div class="cookie-btns">
+      <button type="button" class="cookie-accept" onclick="(function(){var b=document.getElementById('cookie-bar');if(b)b.style.display='none';try{localStorage.setItem('fair-cookies','seen');}catch(e){}})()">Got it</button>
+    </div>
+  </div>
+  <script>(function(){var s=null;try{s=localStorage.getItem("fair-cookies");}catch(e){}if(!s){var b=document.getElementById("cookie-bar");if(b)b.style.display="flex";}})();</script>
 </body>
 </html>
