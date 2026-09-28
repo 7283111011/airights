@@ -107,16 +107,27 @@
   .tl-label{font-size:0.625rem;color:#86868b;font-weight:600;letter-spacing:.02em;white-space:nowrap;text-transform:uppercase}
 
   /* REGION MAP */
-  .uk-map-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
-  .uk-map{display:grid;grid-template-columns:repeat(4,minmax(0,74px));grid-auto-rows:74px;gap:7px;grid-template-areas:". . sco ." ". . ne ." "ni nw yh ." ". wm em ee" "wal sw se ldn"}
-  .uk-tile{border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;border:1px solid rgba(0,0,0,0.06);background:rgba(0,113,227,var(--op,0.1));color:#0b3b73;font-family:inherit;padding:0;transition:transform .15s,box-shadow .15s}
-  .uk-tile.has-data{cursor:pointer}
-  .uk-tile.has-data:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,113,227,.25)}
-  .ukt-abbr{font-size:0.625rem;font-weight:700;letter-spacing:.02em}
-  .ukt-count{font-size:0.9375rem;font-weight:700;font-variant-numeric:tabular-nums}
-  .tile-SCO{grid-area:sco}.tile-NE{grid-area:ne}.tile-NI{grid-area:ni}.tile-NW{grid-area:nw}.tile-YH{grid-area:yh}.tile-WM{grid-area:wm}.tile-EM{grid-area:em}.tile-EE{grid-area:ee}.tile-WAL{grid-area:wal}.tile-SW{grid-area:sw}.tile-SE{grid-area:se}.tile-LDN{grid-area:ldn}
-  .uk-nat-note{font-size:0.8125rem;color:#6e6e73;text-align:center;max-width:460px;margin:0;line-height:1.5}
+  .uk-region{display:grid;grid-template-columns:minmax(0,280px) 1fr;gap:36px;align-items:center}
+  .uk-map-wrap{display:flex;justify-content:center}
+  .uk-map{width:100%;max-width:280px}
+  .uk-map svg{width:100%;height:auto;display:block;overflow:visible}
+  .uk-map path{fill:rgba(0,113,227,var(--op,0.12));stroke:#ffffff;stroke-width:1.1;stroke-linejoin:round;transition:fill .15s,filter .15s}
+  .uk-map path.rp-empty{fill:rgba(0,0,0,0.055)}
+  .uk-map path.clk{cursor:pointer}
+  .uk-map path.clk:hover,.uk-map path.hl{filter:brightness(1.06) drop-shadow(0 3px 8px rgba(0,113,227,.4))}
+  .uk-legend{min-width:0}
+  .uk-legend-list{display:flex;flex-direction:column;gap:1px;margin:0 0 16px}
+  .ukl-row{display:grid;grid-template-columns:118px 1fr 2.2em;align-items:center;gap:12px;width:100%;border:0;background:none;font-family:inherit;padding:6px 8px;border-radius:8px;cursor:pointer;text-align:left;transition:background .15s}
+  .ukl-row:hover{background:rgba(0,113,227,0.07)}
+  .ukl-row[disabled]{cursor:default;opacity:.5}
+  .ukl-row[disabled]:hover{background:none}
+  .ukl-name{font-size:0.82rem;color:#1d1d1f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ukl-track{height:7px;border-radius:4px;background:rgba(0,0,0,0.06);overflow:hidden}
+  .ukl-fill{height:100%;border-radius:4px;background:#0071e3;transition:width .4s cubic-bezier(.4,0,.2,1)}
+  .ukl-count{font-size:0.82rem;font-weight:600;font-variant-numeric:tabular-nums;color:#6e6e73;text-align:right}
+  .uk-nat-note{font-size:0.8125rem;color:#6e6e73;max-width:520px;margin:0;line-height:1.55}
   .uk-nat-note strong{color:#1d1d1f}
+  @media (max-width:720px){.uk-region{grid-template-columns:1fr;gap:22px}.uk-map{max-width:210px;margin:0 auto}}
 
   /* FILTER BANNER */
   .filter-banner{max-width:1140px;margin:14px auto 0;padding:0 28px;display:flex;justify-content:center}
@@ -199,7 +210,7 @@
   .entry[data-sector="safety"]::before{background:#0071e3}
 
   /* TIP OFF / SUBSCRIBE */
-  .aiw-actions{max-width:1140px;margin:48px auto 0;padding:0 28px;display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+  .aiw-actions{max-width:1140px;margin:48px auto clamp(64px,9vw,112px);padding:0 28px;display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
   .aiw-submit-box,.aiw-subscribe-box{padding:28px 28px;background:#fff;border:1px solid rgba(0,0,0,0.10);color:#1d1d1f;border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
   .aiw-submit-box h3,.aiw-subscribe-box h3{font-size:1.0625rem;font-weight:700;margin-bottom:8px;color:#1d1d1f}
   .aiw-submit-box p,.aiw-subscribe-box p{font-size:0.8125rem;color:#515154;line-height:1.6;margin-bottom:16px}
@@ -275,9 +286,6 @@
       .vt-btn:hover{color:#f5f5f7}
       .tl-count{color:#f5f5f7}
       .tl-bar{background:linear-gradient(180deg,#2997ff,#4aa8ff)}
-      .uk-tile{border-color:rgba(255,255,255,0.07);color:#cfe3ff;background:rgba(41,151,255,var(--op,0.1))}
-      .uk-nat-note{color:#86868b}
-      .uk-nat-note strong{color:#f5f5f7}
       .filter-banner .fb-text{background:#12233b;color:#cfe3ff}
       .aiw-submit-box,.aiw-subscribe-box{background:#1c1c1e;border-color:rgba(255,255,255,.10);color:#f5f5f7}
       .aiw-submit-box h3,.aiw-subscribe-box h3{color:#f5f5f7}
@@ -312,9 +320,6 @@
     .vt-btn:hover{color:#f5f5f7}
     .tl-count{color:#f5f5f7}
     .tl-bar{background:linear-gradient(180deg,#2997ff,#4aa8ff)}
-    .uk-tile{border-color:rgba(255,255,255,0.07);color:#cfe3ff;background:rgba(41,151,255,var(--op,0.1))}
-    .uk-nat-note{color:#86868b}
-    .uk-nat-note strong{color:#f5f5f7}
     .filter-banner .fb-text{background:#12233b;color:#cfe3ff}
     .aiw-submit-box,.aiw-subscribe-box{background:#1c1c1e;border-color:rgba(255,255,255,.10);color:#f5f5f7}
     .aiw-submit-box h3,.aiw-subscribe-box h3{color:#f5f5f7}
@@ -388,12 +393,24 @@
   :root[data-theme="dark"] .vb-table tr:hover td{background:#222224}
   @media (max-width:720px){.vb-summary{grid-template-columns:repeat(2,1fr)}.vb-table th:nth-child(3),.vb-table td:nth-child(3){display:none}}
   /* Region map + filter banner dark (flat, matches modal convention) */
-  :root[data-theme="dark"] .uk-tile{border-color:rgba(255,255,255,0.07);color:#cfe3ff;background:rgba(41,151,255,var(--op,0.1))}
+  :root[data-theme="dark"] .uk-map path{fill:rgba(41,151,255,var(--op,0.12));stroke:#1c1c1e}
+  :root[data-theme="dark"] .uk-map path.rp-empty{fill:rgba(255,255,255,0.06)}
+  :root[data-theme="dark"] .ukl-name{color:#f5f5f7}
+  :root[data-theme="dark"] .ukl-track{background:rgba(255,255,255,0.09)}
+  :root[data-theme="dark"] .ukl-fill{background:#2997ff}
+  :root[data-theme="dark"] .ukl-count{color:#86868b}
+  :root[data-theme="dark"] .ukl-row:hover{background:rgba(41,151,255,0.12)}
   :root[data-theme="dark"] .uk-nat-note{color:#86868b}
   :root[data-theme="dark"] .uk-nat-note strong{color:#f5f5f7}
   :root[data-theme="dark"] .filter-banner .fb-text{background:#12233b;color:#cfe3ff}
   @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]) .uk-tile{border-color:rgba(255,255,255,0.07);color:#cfe3ff;background:rgba(41,151,255,var(--op,0.1))}
+    :root:not([data-theme="light"]) .uk-map path{fill:rgba(41,151,255,var(--op,0.12));stroke:#1c1c1e}
+    :root:not([data-theme="light"]) .uk-map path.rp-empty{fill:rgba(255,255,255,0.06)}
+    :root:not([data-theme="light"]) .ukl-name{color:#f5f5f7}
+    :root:not([data-theme="light"]) .ukl-track{background:rgba(255,255,255,0.09)}
+    :root:not([data-theme="light"]) .ukl-fill{background:#2997ff}
+    :root:not([data-theme="light"]) .ukl-count{color:#86868b}
+    :root:not([data-theme="light"]) .ukl-row:hover{background:rgba(41,151,255,0.12)}
     :root:not([data-theme="light"]) .uk-nat-note{color:#86868b}
     :root:not([data-theme="light"]) .uk-nat-note strong{color:#f5f5f7}
     :root:not([data-theme="light"]) .filter-banner .fb-text{background:#12233b;color:#cfe3ff}
@@ -511,7 +528,7 @@
   <div class="panel-card">
     <div class="panel-head">
       <div class="panel-title">Sector breakdown</div>
-      <div class="panel-hint">Click a sector to open it in the register</div>
+      <div class="panel-hint">Select a sector to filter the register</div>
     </div>
     <div class="sb-list" id="sb-list"><!-- rendered by JS at load --></div>
   </div>
@@ -519,22 +536,25 @@
 
 <div class="dash-grid">
   <div class="panel-card">
-    <div class="panel-head"><div class="panel-title">By status</div><div class="panel-hint">where each stands</div></div>
+    <div class="panel-head"><div class="panel-title">By delivery stage</div><div class="panel-hint">Live, pilot, memorandum or under review</div></div>
     <div class="sb-list" id="status-list"></div>
   </div>
   <div class="panel-card">
-    <div class="panel-head"><div class="panel-title">Most active suppliers</div><div class="panel-hint">named in the register</div></div>
+    <div class="panel-head"><div class="panel-title">Most active suppliers</div><div class="panel-hint">By number of deployments</div></div>
     <div class="sb-list" id="supplier-list"></div>
   </div>
   <div class="panel-card dash-card-wide">
-    <div class="panel-head"><div class="panel-title">Deployments over time</div><div class="panel-hint">by month announced</div></div>
+    <div class="panel-head"><div class="panel-title">Deployments over time</div><div class="panel-hint">By month of announcement</div></div>
     <div class="timeline" id="timeline"></div>
   </div>
   <div class="panel-card dash-card-wide">
-    <div class="panel-head"><div class="panel-title">By region</div><div class="panel-hint">where a body can be located</div></div>
-    <div class="uk-map-wrap">
-      <div class="uk-map" id="uk-map"></div>
-      <p class="uk-nat-note">Plus <strong id="uk-nat">0</strong> deployments by UK-wide or national bodies, which are not tied to one region. Click a highlighted region to filter the register.</p>
+    <div class="panel-head"><div class="panel-title">By region</div><div class="panel-hint">By location of the public body</div></div>
+    <div class="uk-region">
+      <div class="uk-map-wrap"><div class="uk-map" id="uk-map"></div></div>
+      <div class="uk-legend">
+        <div class="uk-legend-list" id="uk-legend"></div>
+        <p class="uk-nat-note">A further <strong id="uk-nat">0</strong> deployments involve UK-wide or national bodies and are not attributed to a single region. Select a region to filter the register.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -8742,6 +8762,7 @@
       <div class="footer-policies">
         <a href="privacy.html">Privacy</a>
         <a href="accessibility.html">Accessibility</a>
+        <a href="ai-responsibility.html">AI use</a>
         <a href="complaints.html">Complaints</a>
         <a href="safeguarding.html">Safeguarding</a>
         <a href="terms.html">Terms</a>
@@ -8798,6 +8819,7 @@
   </div>
 </div>
 
+<script src="ukgeo.js?v=1"></script>
 <script>
 /* AI Alerts register: filter, sort, load-more, sector breakdown, live date */
 (function(){
@@ -8918,7 +8940,7 @@
     }).join('');
   }
   /* region map */
-  var REGIONS={SCO:'Scotland',NI:'N. Ireland',WAL:'Wales',NE:'North East',NW:'North West',YH:'Yorks & Humber',WM:'West Midlands',EM:'East Midlands',EE:'East of England',SW:'South West',SE:'South East',LDN:'London'};
+  var REGIONS={SCO:'Scotland',NI:'Northern Ireland',WAL:'Wales',NE:'North East',NW:'North West',YH:'Yorkshire and the Humber',WM:'West Midlands',EM:'East Midlands',EE:'East of England',SW:'South West',SE:'South East',LDN:'London'};
   function regionOf(b){
     b=(b||'').toLowerCase();
     if(/scotland|scottish|glasgow|edinburgh|aberdeen|dundee|renfrewshire|\bfife\b|lanarkshire|highland|ayrshire|police scotland|nhs (grampian|lothian|tayside|greater glasgow|borders)/.test(b)) return 'SCO';
@@ -8939,17 +8961,53 @@
   entries.forEach(function(e){ var by=e.querySelector('.entry-buyer'); var r=regionOf(by?by.textContent:''); if(r!=='NAT') e.setAttribute('data-region',r); regionCounts[r]=(regionCounts[r]||0)+1; });
   var rmax=0; Object.keys(REGIONS).forEach(function(k){ if((regionCounts[k]||0)>rmax) rmax=regionCounts[k]||0; });
   var mapEl=document.getElementById('uk-map');
-  if(mapEl){
-    mapEl.innerHTML = Object.keys(REGIONS).map(function(k){
-      var c=regionCounts[k]||0, op=rmax?(0.14+0.86*(c/rmax)):0.14;
-      var live=c>0;
-      var open = live ? '<button class="uk-tile tile-'+k+' has-data" type="button" data-region="'+k+'" data-label="'+esc(REGIONS[k])+'" aria-label="Filter by '+esc(REGIONS[k])+', '+c+' entries" style="--op:'+op.toFixed(3)+'">' : '<div class="uk-tile tile-'+k+'" style="--op:0.06">';
-      var close = live ? '</button>' : '</div>';
-      return open+'<span class="ukt-abbr">'+k+'</span><span class="ukt-count">'+(c||'')+'</span>'+close;
-    }).join('');
-    Array.prototype.slice.call(mapEl.querySelectorAll('.uk-tile.has-data')).forEach(function(t){
-      t.addEventListener('click', function(){ goFilter('region', t.getAttribute('data-region'), t.getAttribute('data-label')); });
+  if(mapEl && typeof UKGEO!=='undefined'){
+    function opFor(c){ return rmax ? (0.16+0.84*(c/rmax)) : 0.16; }
+    var order=['SCO','NI','WAL','NE','NW','YH','WM','EM','EE','SW','SE','LDN'];
+    var svg='<svg viewBox="0 0 '+UKGEO.w+' '+UKGEO.h+'" role="img" aria-label="Map of the United Kingdom shaded by number of deployments per region" xmlns="http://www.w3.org/2000/svg">';
+    order.forEach(function(k){
+      if(!UKGEO.d[k]) return;
+      var c=regionCounts[k]||0, live=c>0;
+      var attrs = live
+        ? ' class="clk" data-region="'+k+'" style="--op:'+opFor(c).toFixed(3)+'"><title>'+esc(REGIONS[k])+': '+c+' deployment'+(c===1?'':'s')+'</title>'
+        : ' class="rp-empty"><title>'+esc(REGIONS[k])+': 0 deployments</title>';
+      svg+='<path d="'+UKGEO.d[k]+'"'+attrs+'</path>';
     });
+    svg+='</svg>';
+    mapEl.innerHTML=svg;
+
+    /* ranked legend */
+    var legEl=document.getElementById('uk-legend');
+    if(legEl){
+      var ranked=order.slice().sort(function(a,b){ return (regionCounts[b]||0)-(regionCounts[a]||0); });
+      legEl.innerHTML=ranked.map(function(k){
+        var c=regionCounts[k]||0, w=rmax?Math.round(c/rmax*100):0, live=c>0;
+        return '<button class="ukl-row" type="button"'+(live?' data-region="'+k+'"':' disabled')+' aria-label="'+esc(REGIONS[k])+', '+c+' deployment'+(c===1?'':'s')+'">'
+          +'<span class="ukl-name">'+esc(REGIONS[k])+'</span>'
+          +'<span class="ukl-track"><span class="ukl-fill" style="width:'+w+'%"></span></span>'
+          +'<span class="ukl-count">'+c+'</span></button>';
+      }).join('');
+    }
+
+    /* interactions: click to filter, hover to cross-highlight map + legend */
+    function pathFor(k){ return mapEl.querySelector('path[data-region="'+k+'"]'); }
+    function rowFor(k){ return legEl?legEl.querySelector('.ukl-row[data-region="'+k+'"]'):null; }
+    function hi(k,on){ var p=pathFor(k); if(p) p.classList.toggle('hl',on); }
+    function go(k){ if(regionCounts[k]) goFilter('region',k,REGIONS[k]); }
+    Array.prototype.slice.call(mapEl.querySelectorAll('path.clk')).forEach(function(p){
+      var k=p.getAttribute('data-region');
+      p.addEventListener('click',function(){ go(k); });
+      p.addEventListener('mouseenter',function(){ hi(k,true); });
+      p.addEventListener('mouseleave',function(){ hi(k,false); });
+    });
+    if(legEl){
+      Array.prototype.slice.call(legEl.querySelectorAll('.ukl-row[data-region]')).forEach(function(r){
+        var k=r.getAttribute('data-region');
+        r.addEventListener('click',function(){ go(k); });
+        r.addEventListener('mouseenter',function(){ hi(k,true); });
+        r.addEventListener('mouseleave',function(){ hi(k,false); });
+      });
+    }
     var natEl=document.getElementById('uk-nat'); if(natEl) natEl.textContent=(regionCounts.NAT||0);
   }
   /* === View toggle: Dashboard / Register === */
