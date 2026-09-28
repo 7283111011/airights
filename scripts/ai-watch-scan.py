@@ -361,7 +361,68 @@ def parse_date_to_iso(text):
     return f"{y:04d}-{m:02d}-{d:02d}"
 
 
+_BR_WORDS = {}
+for _a, _b in [
+    ("analyze","analyse"),("analyzed","analysed"),("analyzes","analyses"),("analyzing","analysing"),
+    ("organize","organise"),("organized","organised"),("organizes","organises"),("organizing","organising"),("organization","organisation"),("organizations","organisations"),
+    ("recognize","recognise"),("recognized","recognised"),("recognizes","recognises"),("recognizing","recognising"),
+    ("realize","realise"),("realized","realised"),("realizes","realises"),("realizing","realising"),
+    ("prioritize","prioritise"),("prioritized","prioritised"),("prioritizes","prioritises"),("prioritizing","prioritising"),
+    ("utilize","utilise"),("utilized","utilised"),("utilizes","utilises"),("utilizing","utilising"),("utilization","utilisation"),
+    ("optimize","optimise"),("optimized","optimised"),("optimizes","optimises"),("optimizing","optimising"),("optimization","optimisation"),
+    ("modernize","modernise"),("modernized","modernised"),("modernizing","modernising"),
+    ("personalize","personalise"),("personalized","personalised"),("personalizing","personalising"),
+    ("formalize","formalise"),("formalized","formalised"),
+    ("standardize","standardise"),("standardized","standardised"),("standardizing","standardising"),
+    ("centralize","centralise"),("centralized","centralised"),("centralizing","centralising"),
+    ("categorize","categorise"),("categorized","categorised"),("categorizing","categorising"),
+    ("summarize","summarise"),("summarized","summarised"),("summarizing","summarising"),
+    ("emphasize","emphasise"),("emphasized","emphasised"),("emphasizing","emphasising"),
+    ("specialize","specialise"),("specialized","specialised"),("specializing","specialising"),
+    ("maximize","maximise"),("maximized","maximised"),("maximizing","maximising"),
+    ("minimize","minimise"),("minimized","minimised"),("minimizing","minimising"),
+    ("mobilize","mobilise"),("mobilized","mobilised"),("mobilizing","mobilising"),
+    ("digitize","digitise"),("digitized","digitised"),("digitizing","digitising"),("digitization","digitisation"),
+    ("program","programme"),("programs","programmes"),
+    ("defense","defence"),("offense","offence"),
+    ("fulfill","fulfil"),("enrollment","enrolment"),("catalog","catalogue"),
+    ("behavior","behaviour"),("favor","favour"),("labor","labour"),
+]:
+    _BR_WORDS[_a] = _b
+
+_BR_MONTHS = "January|February|March|April|May|June|July|August|September|October|November|December"
+_BR_word_re = re.compile(r"\b(" + "|".join(sorted(_BR_WORDS, key=len, reverse=True)) + r")\b", re.IGNORECASE)
+_BR_date_re = re.compile(r"\b(" + _BR_MONTHS + r") (\d{1,2}),? (\d{4})\b")
+_BR_range_re = re.compile(r"(\d)\s*[–—]\s*(\d)")
+
+
+def normalise_british(text):
+    """British-English + no-dash normalisation for scanner text fields."""
+    if not text:
+        return text
+    text = _BR_range_re.sub(r"\1 to \2", text)
+    text = re.sub(r"\s*[–—]\s*", ", ", text)
+    text = _BR_date_re.sub(r"\2 \1 \3", text)
+
+    def _w(m):
+        w = m.group(1); b = _BR_WORDS[w.lower()]
+        return b[0].upper() + b[1:] if w[0].isupper() else b
+    return _BR_word_re.sub(_w, text)
+
+
 def build_entry_html(entry):
+    # Normalise all free-text fields to British English before rendering.
+    for _k in ("title", "body", "buyer", "supplier", "status_label", "date_string"):
+        if entry.get(_k):
+            entry[_k] = normalise_british(entry[_k])
+    for _f in entry.get("facts", []):
+        if _f.get("label"):
+            _f["label"] = normalise_british(_f["label"])
+        if _f.get("value"):
+            _f["value"] = normalise_british(_f["value"])
+    for _s in entry.get("sources", []):
+        if _s.get("label"):
+            _s["label"] = normalise_british(_s["label"])
     sector_key = entry.get("sector", "government")
     sector_css, sector_label = SECTOR_MAP.get(
         sector_key, ("s-government", "Cross-Govt")
