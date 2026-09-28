@@ -81,6 +81,31 @@
   .sb-fill{position:absolute;left:0;top:0;bottom:0;border-radius:99px;transition:width .8s cubic-bezier(.4,0,.2,1)}
   .sb-count{color:#6e6e73;font-weight:700;font-variant-numeric:tabular-nums;text-align:right}
 
+  /* VIEW TOGGLE (Dashboard / Register) */
+  .view-toggle{max-width:1140px;margin:34px auto 0;padding:0 28px;display:flex;justify-content:center}
+  .view-toggle-inner{display:inline-flex;gap:4px;background:#f5f5f7;border:1px solid rgba(0,0,0,0.08);border-radius:980px;padding:4px}
+  .vt-btn{appearance:none;border:0;background:none;font-family:inherit;font-size:0.9375rem;font-weight:600;color:#6e6e73;padding:9px 22px;border-radius:980px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+  .vt-btn:hover{color:#1d1d1f}
+  .vt-btn.active{background:#fff;color:#0071e3;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  .vt-btn svg{width:16px;height:16px}
+  .ai-view[hidden]{display:none}
+
+  /* DASHBOARD GRID */
+  .dash-grid{max-width:1140px;margin:18px auto 0;padding:0 28px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .dash-grid .panel-card{margin:0}
+  .dash-card-wide{grid-column:1 / -1}
+  .dash-note{max-width:1140px;margin:16px auto 0;padding:0 28px;font-size:0.8125rem;color:#6e6e73}
+  @media(max-width:820px){ .dash-grid{grid-template-columns:1fr} }
+
+  /* TIMELINE (deployments over time) */
+  .timeline{display:flex;align-items:flex-end;gap:6px;height:150px;padding-top:8px}
+  .tl-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0}
+  .tl-bar-wrap{width:100%;height:120px;display:flex;align-items:flex-end;justify-content:center}
+  .tl-bar{width:60%;max-width:26px;background:linear-gradient(180deg,#0071e3,#4aa8ff);border-radius:6px 6px 0 0;min-height:3px;transition:height .8s cubic-bezier(.4,0,.2,1);position:relative}
+  .tl-bar .tl-count{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:0.6875rem;font-weight:700;color:#1d1d1f;opacity:0;transition:opacity .15s}
+  .tl-col:hover .tl-count{opacity:1}
+  .tl-label{font-size:0.625rem;color:#86868b;font-weight:600;letter-spacing:.02em;white-space:nowrap;text-transform:uppercase}
+
   /* METHODOLOGY (collapsible) */
   details.method-d{max-width:1140px;margin:24px auto 0;padding:0 28px}
   details.method-d > summary{padding:14px 22px;background:#f5f5f7;border-left:3px solid #0071e3;border-radius:0 14px 14px 0;font-size:0.875rem;color:#1d1d1f;font-weight:700;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -386,7 +411,6 @@
   </div>
   <div class="dh-inner">
     <div class="dh-text">
-      <div class="dh-eyebrow">FAIR Public-Interest Register</div>
       <h1>AI Alerts. Eyes on UK public-sector artificial intelligence.</h1>
       <p class="dh-sub">A live register of contracts, partnerships, memoranda of understanding and pilots involving United Kingdom public bodies. Scanned every day. Every entry sourced.</p>
       <div class="dh-actions">
@@ -424,16 +448,46 @@
   </div>
 </div>
 
+<!-- VIEW TOGGLE -->
+<div class="view-toggle">
+  <div class="view-toggle-inner" role="tablist" aria-label="Choose a view">
+    <button class="vt-btn active" id="vt-dashboard" type="button" role="tab" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>Dashboard</button>
+    <button class="vt-btn" id="vt-register" type="button" role="tab" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>Register</button>
+  </div>
+</div>
+
+<!-- DASHBOARD VIEW -->
+<div id="view-dashboard" class="ai-view">
+
 <!-- SECTOR BREAKDOWN -->
 <div class="panel">
   <div class="panel-card">
     <div class="panel-head">
       <div class="panel-title">Sector breakdown</div>
-      <div class="panel-hint">Click a sector below to filter the register</div>
+      <div class="panel-hint">Click a sector to open it in the register</div>
     </div>
     <div class="sb-list" id="sb-list"><!-- rendered by JS at load --></div>
   </div>
 </div>
+
+<div class="dash-grid">
+  <div class="panel-card">
+    <div class="panel-head"><div class="panel-title">By status</div><div class="panel-hint">where each stands</div></div>
+    <div class="sb-list" id="status-list"></div>
+  </div>
+  <div class="panel-card">
+    <div class="panel-head"><div class="panel-title">Most active suppliers</div><div class="panel-hint">named in the register</div></div>
+    <div class="sb-list" id="supplier-list"></div>
+  </div>
+  <div class="panel-card dash-card-wide">
+    <div class="panel-head"><div class="panel-title">Deployments over time</div><div class="panel-hint">by month announced</div></div>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</div>
+
+</div><!-- /view-dashboard -->
+
+<div id="view-register" class="ai-view" hidden>
 
 <!-- METHODOLOGY (collapsible) -->
 <details class="method-d">
@@ -8577,6 +8631,8 @@
 
     <div class="load-more-wrap"><button id="load-more" class="dh-btn-p" type="button">Load 10 more</button></div>
 
+    </div><!-- /view-register -->
+
     <div class="aiw-actions">
       <div class="aiw-submit-box" id="submit-tip">
         <h3>Submit a tip</h3>
@@ -8742,9 +8798,54 @@
     });
     sb.innerHTML = html;
     Array.prototype.slice.call(sb.querySelectorAll('.sb-row')).forEach(function(row){
-      row.addEventListener('click', function(){ setSector(row.getAttribute('data-sector')); var tb=document.querySelector('.toolbar'); if(tb) tb.scrollIntoView({behavior:'smooth',block:'start'}); });
+      row.addEventListener('click', function(){ showView('register'); setSector(row.getAttribute('data-sector')); var tb=document.querySelector('.toolbar'); if(tb) tb.scrollIntoView({behavior:'smooth',block:'start'}); });
     });
   }
+  /* === Dashboard charts: status, suppliers, timeline === */
+  var STATUSES=[{k:'live',label:'Live',c:'#16A34A'},{k:'pilot',label:'Pilot',c:'#7C3AED'},{k:'mou',label:'MoU',c:'#CA8A04'},{k:'review',label:'Review',c:'#EA580C'}];
+  function barRows(el, items){
+    if(!el) return;
+    var mx = items.reduce(function(m,i){ return Math.max(m,i.count); }, 0);
+    el.innerHTML = items.map(function(i){
+      var pct = mx ? Math.round(i.count/mx*100) : 0;
+      return '<div class="sb-row" style="cursor:default">'
+        + '<span class="sb-label"><span class="sb-dot" style="background:'+i.c+'"></span>'+i.label+'</span>'
+        + '<span class="sb-bar"><span class="sb-fill" style="width:'+pct+'%;background:'+i.c+'"></span></span>'
+        + '<span class="sb-count">'+i.count+'</span></div>';
+    }).join('');
+  }
+  var statusCounts={};
+  entries.forEach(function(e){ var s=e.querySelector('.entry-status'); if(!s) return; var cl=['live','pilot','mou','review'].filter(function(k){ return s.classList.contains(k); })[0]; if(cl) statusCounts[cl]=(statusCounts[cl]||0)+1; });
+  barRows(document.getElementById('status-list'), STATUSES.filter(function(s){ return statusCounts[s.k]; }).map(function(s){ return {label:s.label,c:s.c,count:statusCounts[s.k]}; }));
+  var supCounts={};
+  entries.forEach(function(e){ var el=e.querySelector('.entry-supplier'); if(!el) return; var name=el.textContent.trim(); if(!name || /^not disclosed/i.test(name) || /^multiple/i.test(name) || /^various/i.test(name)) return; supCounts[name]=(supCounts[name]||0)+1; });
+  var topSup=Object.keys(supCounts).map(function(k){ return {label:k,c:'#0071e3',count:supCounts[k]}; }).sort(function(a,b){ return b.count-a.count; }).slice(0,7);
+  barRows(document.getElementById('supplier-list'), topSup);
+  var mCounts={};
+  entries.forEach(function(e){ var d=dv(e); if(d.length>=7){ var ym=d.slice(0,7); mCounts[ym]=(mCounts[ym]||0)+1; } });
+  var yms=Object.keys(mCounts).sort().slice(-12);
+  var tl=document.getElementById('timeline');
+  if(tl && yms.length){
+    var tmax=yms.reduce(function(m,k){ return Math.max(m,mCounts[k]); }, 0);
+    tl.innerHTML = yms.map(function(ym){
+      var c=mCounts[ym], h=tmax?Math.round(c/tmax*100):0, p=ym.split('-');
+      var lbl=months[parseInt(p[1],10)-1].slice(0,3);
+      return '<div class="tl-col"><div class="tl-bar-wrap"><div class="tl-bar" style="height:'+h+'%"><span class="tl-count">'+c+'</span></div></div><div class="tl-label">'+lbl+'</div></div>';
+    }).join('');
+  }
+  /* === View toggle: Dashboard / Register === */
+  var vDash=document.getElementById('view-dashboard'), vReg=document.getElementById('view-register');
+  var btnDash=document.getElementById('vt-dashboard'), btnReg=document.getElementById('vt-register');
+  function showView(name){
+    var dash = name!=='register';
+    if(vDash) vDash.hidden=!dash;
+    if(vReg) vReg.hidden=dash;
+    if(btnDash){ btnDash.classList.toggle('active',dash); btnDash.setAttribute('aria-selected',dash?'true':'false'); }
+    if(btnReg){ btnReg.classList.toggle('active',!dash); btnReg.setAttribute('aria-selected',!dash?'true':'false'); }
+  }
+  if(btnDash) btnDash.addEventListener('click',function(){ showView('dashboard'); });
+  if(btnReg) btnReg.addEventListener('click',function(){ showView('register'); });
+
   /* stats + live date */
   var stTotal = document.getElementById('stat-total'); if(stTotal) stTotal.textContent = entries.length;
   var stSect = document.getElementById('stat-sectors'); if(stSect) stSect.textContent = Object.keys(counts).length;
