@@ -9,6 +9,9 @@ import re
 import os
 import sys
 import time
+import ssl
+import urllib.request
+import urllib.error
 from datetime import datetime, timezone
 
 from google import genai
@@ -410,6 +413,29 @@ def normalise_british(text):
     return _BR_word_re.sub(_w, text)
 
 
+_SRC_CTX = ssl.create_default_context()
+_SRC_CTX.check_hostname = False
+_SRC_CTX.verify_mode = ssl.CERT_NONE
+
+
+def resolve_source_url(u):
+    """Follow a Gemini grounding-redirect to the real article URL and store
+    that, so source links do not expire after ~30 days. Returns the resolved
+    URL, or the original if it cannot be resolved."""
+    if not u or "grounding-api-redirect" not in u:
+        return u
+    try:
+        r = urllib.request.urlopen(
+            urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"}),
+            timeout=15, context=_SRC_CTX)
+        return r.url if "vertexaisearch.cloud.google.com" not in r.url else u
+    except urllib.error.HTTPError as e:
+        fin = getattr(e, "url", None)
+        return fin if fin and "vertexaisearch.cloud.google.com" not in fin else u
+    except Exception:
+        return u
+
+
 def build_entry_html(entry):
     # Normalise all free-text fields to British English before rendering.
     for _k in ("title", "body", "buyer", "supplier", "status_label", "date_string"):
@@ -470,8 +496,9 @@ def build_entry_html(entry):
 
     sources_html = ""
     for src in entry.get("sources", []):
+        url = resolve_source_url(src.get("url", ""))
         sources_html += (
-            f'        <a href="{src["url"]}" target="_blank" rel="noopener">'
+            f'        <a href="{url}" target="_blank" rel="noopener">'
             f'{html_escape(src["label"])}</a>\n'
         )
 
