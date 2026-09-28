@@ -59,7 +59,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=13">
+<link rel="stylesheet" href="site.css?v=14">
 <!-- fair-theme --><script>(function(){try{var t=localStorage.getItem("fair-theme");document.documentElement.setAttribute("data-theme",t||"dark");}catch(e){}})();document.addEventListener("DOMContentLoaded",function(){var b=document.querySelector(".theme-toggle");if(!b)return;b.addEventListener("click",function(){var d=document.documentElement,c=d.getAttribute("data-theme")||((window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light"),m=c==="dark"?"light":"dark";d.setAttribute("data-theme",m);try{localStorage.setItem("fair-theme",m);}catch(e){}});});document.addEventListener("click",function(e){var a=e.target.closest?e.target.closest("a[href]"):null;if(!a)return;if(a.protocol!=="http:"&&a.protocol!=="https:")return;if(!a.host||a.host===location.host)return;if(a.hasAttribute("data-noconfirm"))return;if(!window.confirm("You are now leaving airights.org.uk and will be taken to an external website ("+a.hostname+"). Do you want to continue?")){e.preventDefault();e.stopPropagation();}},true);</script>
 <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-FZ133fKcb-IxvvivVylTQ.js"></script>
@@ -96,7 +96,7 @@
   <section class="hero hero--photo" id="home">
     <div class="hero-photo" aria-hidden="true"><img src="images/hero-london.jpg" alt="The London skyline at dusk over the River Thames." loading="eager" fetchpriority="high"></div>
     <div class="container">
-      <h1 class="reveal">AI rights for the <span class="accent">United Kingdom.</span></h1>
+      <h1 class="reveal">We help people understand <span class="accent">AI.</span></h1>
       <p class="lede reveal" data-delay="1">Supporting the general public through awareness, learning and legislation.</p>
       <div class="hero-actions reveal" data-delay="2">
         <a href="report.html" class="btn btn-primary">Report your experience</a>
@@ -429,13 +429,27 @@
       }).catch(function(){});
     })();
 
-    // Highlights carousel controls
+    // Highlights carousel — continuous loop (clone the set so it never dead-ends)
     (function(){
       var track=document.getElementById('hl-track'); if(!track) return;
-      var go=function(dir){track.scrollBy({left:dir*320,behavior:'smooth'});};
+      var originals=Array.prototype.slice.call(track.children);
+      if(originals.length<2) return;
+      originals.forEach(function(c){ var cl=c.cloneNode(true); cl.setAttribute('aria-hidden','true'); cl.tabIndex=-1; track.appendChild(cl); });
+      var half=function(){ return Math.round(track.scrollWidth/2); };
+      var wrapping=false;
+      track.addEventListener('scroll', function(){
+        if(wrapping) return; wrapping=true;
+        var h=half();
+        if(track.scrollLeft >= h) track.scrollLeft -= h;
+        else if(track.scrollLeft < 1) track.scrollLeft += h;
+        wrapping=false;
+      }, {passive:true});
+      var step=function(){ var c=track.querySelector('.hl-card'); return (c?c.offsetWidth:300)+20; };
+      var go=function(dir){ track.scrollBy({left:dir*step(), behavior:'smooth'}); };
       var p=document.getElementById('hl-prev'), n=document.getElementById('hl-next');
       if(p) p.addEventListener('click',function(){go(-1);});
       if(n) n.addEventListener('click',function(){go(1);});
+      track.scrollLeft=1; // start just inside so scrolling either way loops
     })();
 
     // Hero parallax (only when motion is allowed)

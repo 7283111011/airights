@@ -161,22 +161,27 @@ p { margin: 0; }
   display: inline-flex;
   align-items: center;
   font-weight: 700;
-  font-size: 34px;
-  letter-spacing: -0.02em;
+  font-size: 27px;
+  letter-spacing: -0.022em;
   color: var(--text);
+  line-height: 1;
   transition: opacity 0.2s var(--ease);
 }
-.brand:hover { opacity: 0.7; }
-/* Brand mark: F[AI]R — the "AI" set in a monospace face on a yellow
-   highlighter, so the name's origin reads at a glance in either theme. */
+.brand:hover { opacity: 0.72; }
+/* Brand mark: F[AI]R — the "AI" set in a clean monospace on a yellow
+   highlighter, optically matched to the F and R, so the name's origin
+   reads at a glance in either theme. */
 .brand .brand-ai {
-  font-family: "Courier New", "Courier", ui-monospace, monospace;
+  font-family: ui-monospace, "Cascadia Mono", "SF Mono", "Segoe UI Mono", "Courier New", monospace;
   font-weight: 700;
-  background: #ffde3d;
+  font-size: 1.12em;
+  letter-spacing: -0.01em;
+  background: #ffd60a;
   color: #1d1d1f;
-  padding: 0 0.08em;
-  margin: 0 0.02em;
-  border-radius: 3px;
+  padding: 0.02em 0.14em;
+  margin: 0 0.1em;
+  border-radius: 0.16em;
+  line-height: 1;
 }
 .brand-logo { height: 26px; width: auto; display: block; }
 .brand-logo--ondark { display: none; }
