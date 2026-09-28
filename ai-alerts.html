@@ -387,6 +387,17 @@
   :root[data-theme="dark"] .vb-table td{border-bottom-color:rgba(255,255,255,.06)}
   :root[data-theme="dark"] .vb-table tr:hover td{background:#222224}
   @media (max-width:720px){.vb-summary{grid-template-columns:repeat(2,1fr)}.vb-table th:nth-child(3),.vb-table td:nth-child(3){display:none}}
+  /* Region map + filter banner dark (flat, matches modal convention) */
+  :root[data-theme="dark"] .uk-tile{border-color:rgba(255,255,255,0.07);color:#cfe3ff;background:rgba(41,151,255,var(--op,0.1))}
+  :root[data-theme="dark"] .uk-nat-note{color:#86868b}
+  :root[data-theme="dark"] .uk-nat-note strong{color:#f5f5f7}
+  :root[data-theme="dark"] .filter-banner .fb-text{background:#12233b;color:#cfe3ff}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) .uk-tile{border-color:rgba(255,255,255,0.07);color:#cfe3ff;background:rgba(41,151,255,var(--op,0.1))}
+    :root:not([data-theme="light"]) .uk-nat-note{color:#86868b}
+    :root:not([data-theme="light"]) .uk-nat-note strong{color:#f5f5f7}
+    :root:not([data-theme="light"]) .filter-banner .fb-text{background:#12233b;color:#cfe3ff}
+  }
 </style>
 <!-- fair-theme --><script>(function(){try{var t=localStorage.getItem("fair-theme");document.documentElement.setAttribute("data-theme",t||"dark");}catch(e){}})();document.addEventListener("DOMContentLoaded",function(){var b=document.querySelector(".theme-toggle");if(!b)return;b.addEventListener("click",function(){var d=document.documentElement,c=d.getAttribute("data-theme")||((window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light"),m=c==="dark"?"light":"dark";d.setAttribute("data-theme",m);try{localStorage.setItem("fair-theme",m);}catch(e){}});});document.addEventListener("click",function(e){var a=e.target.closest?e.target.closest("a[href]"):null;if(!a)return;if(a.protocol!=="http:"&&a.protocol!=="https:")return;if(!a.host||a.host===location.host)return;if(a.hasAttribute("data-noconfirm"))return;if(!window.confirm("You are now leaving airights.org.uk and will be taken to an external website ("+a.hostname+"). Do you want to continue?")){e.preventDefault();e.stopPropagation();}},true);</script>
 <!-- Privacy-friendly analytics by Plausible -->
