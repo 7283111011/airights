@@ -8758,7 +8758,7 @@
     if(!raw) return {gbp:null};
     var s = decode(String(raw)).trim();
     var lower = s.toLowerCase();
-    // Not disclosed / not specified — but capture parenthetical clue if numeric, else null
+    // Not disclosed / not specified, but capture parenthetical clue if numeric, else null
     if(/^not\s+(disclosed|specified)/.test(lower) && !/(\u00a3|\$|\u20ac)\s*\d/.test(s)){
       // see if there's a $ or pound inside parens (e.g. "Not disclosed (overall award value £0)")
       var inner = s.match(/\([^)]*\)/);
