@@ -12,6 +12,7 @@ import time
 import ssl
 import urllib.request
 import urllib.error
+import urllib.parse
 from datetime import datetime, timezone
 
 from google import genai
@@ -436,6 +437,109 @@ def resolve_source_url(u):
         return u
 
 
+def _usable_http(u):
+    """True if u is a real, followable http(s) URL and not a Gemini grounding
+    redirect (which expires) or an empty value."""
+    if not u or not u.startswith(("http://", "https://")):
+        return False
+    if "grounding-api-redirect" in u or "vertexaisearch.cloud.google.com" in u:
+        return False
+    return True
+
+
+def _is_govuk(u):
+    return bool(u) and re.search(r"(^|//|\.)gov\.uk(/|$)", u, re.I) is not None
+
+
+def _clean_govuk_query(label, title):
+    """Build a GOV.UK search query from a source label, falling back to the
+    entry title. Strips a trailing date and any 'GOV.UK' marker so the search
+    matches the underlying publication."""
+    q = label or ""
+    q = re.sub(r",?\s*\d{1,2}\s+\w+\s+\d{4}\s*$", "", q)          # trailing date first
+    q = re.sub(r",?\s*\d{4}\s*$", "", q)
+    q = re.sub(r"\s*[-–—:,]\s*GOV\.?UK\s*$", "", q, flags=re.I)   # then '- GOV.UK'
+    q = re.sub(r"\s*GOV\.?UK\s*$", "", q, flags=re.I)             # or a bare GOV.UK
+    q = q.strip(" ,-–—:")
+    # A generic or too-short label tells us nothing; use the headline instead.
+    if len(q.split()) < 3 or q.lower() in ("gov.uk", "gov uk", "source", "press release"):
+        q = title or q
+    return q.strip()
+
+
+_STOP = {"the", "and", "for", "with", "from", "into", "that", "this", "your",
+         "over", "under", "across", "using", "launches", "launch", "new",
+         "gov", "govuk", "uk", "government"}
+
+
+def _sig_tokens(s):
+    return [t for t in re.findall(r"[a-z0-9]+", (s or "").lower())
+            if len(t) >= 4 and t not in _STOP]
+
+
+def _token_overlap(a, b):
+    """Count tokens shared between two token lists, treating one token as a
+    match for another when either is a prefix of the other (so drone/drones and
+    ukraine/ukrainian count as matches)."""
+    n = 0
+    for x in set(a):
+        for y in set(b):
+            if x == y or (len(x) >= 4 and len(y) >= 4 and (x.startswith(y) or y.startswith(x))):
+                n += 1
+                break
+    return n
+
+
+def govuk_search(query):
+    """Look a publication up in the GOV.UK Search API and return its canonical
+    https://www.gov.uk/... URL, or None. GOV.UK pages are stable, so this
+    produces a link that does not expire like a grounding redirect. Only a
+    /government/ page (news, publications, consultations, speeches, statistics)
+    that shares enough significant words with the query is accepted, so an
+    unrelated top hit is rejected in favour of a plain citation."""
+    query = (query or "").strip()
+    if not query:
+        return None
+    try:
+        api = ("https://www.gov.uk/api/search.json?count=3&fields=link,title&q="
+               + urllib.parse.quote(query))
+        r = urllib.request.urlopen(
+            urllib.request.Request(api, headers={"User-Agent": "Mozilla/5.0"}),
+            timeout=15, context=_SRC_CTX)
+        results = json.loads(r.read().decode("utf-8")).get("results", [])
+    except Exception:
+        return None
+    qtok = _sig_tokens(query)
+    for res in results:
+        link = res.get("link", "")
+        if not link or "/government/" not in link:
+            continue
+        if _token_overlap(qtok, _sig_tokens(res.get("title", ""))) < 2:
+            continue
+        return link if link.startswith("http") else "https://www.gov.uk" + link
+    return None
+
+
+def resolve_source(src, entry_title):
+    """Return the best working URL for a source. Follows grounding redirects,
+    and where a GOV.UK citation cannot be turned into a working link that way,
+    looks the publication up in the GOV.UK Search API. Returns "" if no working
+    link can be found (the caller then renders a plain citation)."""
+    label = src.get("label", "")
+    url = resolve_source_url(src.get("url", ""))
+    if _usable_http(url) and not _is_govuk(url):
+        return url
+    # GOV.UK source (by resolved URL or by label) that is missing or still a
+    # redirect: recover the canonical gov.uk page via the search API.
+    if _is_govuk(url) or re.search(r"gov\.?uk", label, re.I):
+        if _usable_http(url) and _is_govuk(url):
+            return url  # already a real gov.uk page
+        found = govuk_search(_clean_govuk_query(label, entry_title))
+        if found:
+            return found
+    return url if _usable_http(url) else ""
+
+
 def build_entry_html(entry):
     # Normalise all free-text fields to British English before rendering.
     for _k in ("title", "body", "buyer", "supplier", "status_label", "date_string"):
@@ -496,11 +600,18 @@ def build_entry_html(entry):
 
     sources_html = ""
     for src in entry.get("sources", []):
-        url = resolve_source_url(src.get("url", ""))
-        sources_html += (
-            f'        <a href="{url}" target="_blank" rel="noopener">'
-            f'{html_escape(src["label"])}</a>\n'
-        )
+        url = resolve_source(src, entry.get("title", ""))
+        if _usable_http(url):
+            sources_html += (
+                f'        <a href="{url}" target="_blank" rel="noopener">'
+                f'{html_escape(src["label"])}</a>\n'
+            )
+        else:
+            # No working link available: render a plain citation rather than a
+            # broken or soon-to-expire link.
+            sources_html += (
+                f'        <span class="src-dead">{html_escape(src["label"])}</span>\n'
+            )
 
     return f"""
     <article class="entry" data-sector="{data_sector}" data-date="{iso_date}">
