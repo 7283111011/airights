@@ -106,6 +106,24 @@
   .tl-col:hover .tl-count{opacity:1}
   .tl-label{font-size:0.625rem;color:#86868b;font-weight:600;letter-spacing:.02em;white-space:nowrap;text-transform:uppercase}
 
+  /* REGION MAP */
+  .uk-map-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .uk-map{display:grid;grid-template-columns:repeat(4,minmax(0,74px));grid-auto-rows:74px;gap:7px;grid-template-areas:". . sco ." ". . ne ." "ni nw yh ." ". wm em ee" "wal sw se ldn"}
+  .uk-tile{border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;border:1px solid rgba(0,0,0,0.06);background:rgba(0,113,227,var(--op,0.1));color:#0b3b73;font-family:inherit;padding:0;transition:transform .15s,box-shadow .15s}
+  .uk-tile.has-data{cursor:pointer}
+  .uk-tile.has-data:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,113,227,.25)}
+  .ukt-abbr{font-size:0.625rem;font-weight:700;letter-spacing:.02em}
+  .ukt-count{font-size:0.9375rem;font-weight:700;font-variant-numeric:tabular-nums}
+  .tile-SCO{grid-area:sco}.tile-NE{grid-area:ne}.tile-NI{grid-area:ni}.tile-NW{grid-area:nw}.tile-YH{grid-area:yh}.tile-WM{grid-area:wm}.tile-EM{grid-area:em}.tile-EE{grid-area:ee}.tile-WAL{grid-area:wal}.tile-SW{grid-area:sw}.tile-SE{grid-area:se}.tile-LDN{grid-area:ldn}
+  .uk-nat-note{font-size:0.8125rem;color:#6e6e73;text-align:center;max-width:460px;margin:0;line-height:1.5}
+  .uk-nat-note strong{color:#1d1d1f}
+
+  /* FILTER BANNER */
+  .filter-banner{max-width:1140px;margin:14px auto 0;padding:0 28px;display:flex;justify-content:center}
+  .filter-banner .fb-text{background:#EBF3FA;color:#0b3b73;border-radius:980px 0 0 980px;padding:8px 6px 8px 16px;font-size:0.8125rem;display:inline-flex;align-items:center}
+  .filter-banner .fb-clear{background:#0071e3;color:#fff;border:0;border-radius:0 980px 980px 0;padding:8px 16px;font-size:0.8125rem;font-weight:600;cursor:pointer;font-family:inherit}
+  .filter-banner .fb-clear:hover{background:#0077ed}
+
   /* METHODOLOGY (collapsible) */
   details.method-d{max-width:1140px;margin:24px auto 0;padding:0 28px}
   details.method-d > summary{padding:14px 22px;background:#f5f5f7;border-left:3px solid #0071e3;border-radius:0 14px 14px 0;font-size:0.875rem;color:#1d1d1f;font-weight:700;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -257,6 +275,14 @@
       .vt-btn:hover{color:#f5f5f7}
       .tl-count{color:#f5f5f7}
       .tl-bar{background:linear-gradient(180deg,#2997ff,#4aa8ff)}
+    .uk-tile{border-color:rgba(255,255,255,0.07);color:#cfe3ff;background:rgba(41,151,255,var(--op,0.1))}
+    .uk-nat-note{color:#86868b}
+    .uk-nat-note strong{color:#f5f5f7}
+    .filter-banner .fb-text{background:#12233b;color:#cfe3ff}
+      .uk-tile{border-color:rgba(255,255,255,0.07);color:#cfe3ff;background:rgba(41,151,255,var(--op,0.1))}
+      .uk-nat-note{color:#86868b}
+      .uk-nat-note strong{color:#f5f5f7}
+      .filter-banner .fb-text{background:#12233b;color:#cfe3ff}
       .aiw-submit-box,.aiw-subscribe-box{background:#1c1c1e;border-color:rgba(255,255,255,.10);color:#f5f5f7}
       .aiw-submit-box h3,.aiw-subscribe-box h3{color:#f5f5f7}
       .aiw-submit-box p,.aiw-subscribe-box p{color:#c4c4c8}
@@ -493,6 +519,13 @@
     <div class="panel-head"><div class="panel-title">Deployments over time</div><div class="panel-hint">by month announced</div></div>
     <div class="timeline" id="timeline"></div>
   </div>
+  <div class="panel-card dash-card-wide">
+    <div class="panel-head"><div class="panel-title">By region</div><div class="panel-hint">where a body can be located</div></div>
+    <div class="uk-map-wrap">
+      <div class="uk-map" id="uk-map"></div>
+      <p class="uk-nat-note">Plus <strong id="uk-nat">0</strong> deployments by UK-wide or national bodies, which are not tied to one region. Click a highlighted region to filter the register.</p>
+    </div>
+  </div>
 </div>
 
 </div><!-- /view-dashboard -->
@@ -534,6 +567,8 @@
   </div>
   <div class="results-count" id="results-count"></div>
 </div>
+
+<div class="filter-banner" id="filter-banner" hidden></div>
 
 <div class="wrap">
 
@@ -8758,7 +8793,8 @@
   var entriesEl = document.getElementById('entries');
   if(!entriesEl) return;
   var entries = Array.prototype.slice.call(entriesEl.querySelectorAll('.entry'));
-  var PAGE = 10, shown = PAGE, sector = 'all', sortMode = 'date-desc';
+  var PAGE = 10, shown = PAGE, sortMode = 'date-desc';
+  var filterType = 'all', filterValue = null, filterLabel = '';
   var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   var SECTORS = [
     {k:'health',label:'Health',c:'#0EA5E9'},{k:'justice',label:'Justice',c:'#7C3AED'},
@@ -8767,8 +8803,12 @@
     {k:'tax',label:'Tax',c:'#CA8A04'},{k:'safety',label:'AI Safety',c:'#0071e3'}
   ];
   function dv(e){ return e.getAttribute('data-date')||''; }
+  function matchFilter(e){
+    if(filterType==='all') return true;
+    return e.getAttribute('data-'+filterType) === filterValue;
+  }
   function filtered(){
-    var l = entries.filter(function(e){ return sector==='all' || e.getAttribute('data-sector')===sector; });
+    var l = entries.filter(matchFilter);
     l.sort(function(a,b){ var x=dv(a),y=dv(b); return sortMode==='date-asc' ? (x<y?-1:x>y?1:0) : (x>y?-1:x<y?1:0); });
     return l;
   }
@@ -8782,11 +8822,26 @@
     if(lm){ lm.style.display = shown < l.length ? '' : 'none'; }
   }
   var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-filter="sector"]'));
-  function setSector(val){
-    sector = val; shown = PAGE;
-    chips.forEach(function(c){ c.classList.toggle('active', c.getAttribute('data-value')===val); });
-    render();
+  var banner = document.getElementById('filter-banner');
+  function updateChips(){
+    chips.forEach(function(c){ var v=c.getAttribute('data-value'); c.classList.toggle('active', (filterType==='all'&&v==='all') || (filterType==='sector'&&v===filterValue)); });
   }
+  function updateBanner(){
+    if(!banner) return;
+    if(filterType==='all' || filterType==='sector'){ banner.hidden=true; banner.innerHTML=''; return; }
+    var kind = filterType==='status' ? 'status' : (filterType==='supplier' ? 'supplier' : 'region');
+    banner.hidden=false;
+    banner.innerHTML = '<span class="fb-text">Filtered by '+kind+': <strong>'+filterLabel+'</strong></span><button type="button" class="fb-clear" id="fb-clear">Clear &times;</button>';
+    var clr=document.getElementById('fb-clear'); if(clr) clr.addEventListener('click', function(){ applyFilter('all',null,''); });
+  }
+  function applyFilter(type, value, label){
+    filterType = (type==='all') ? 'all' : type;
+    filterValue = (type==='all') ? null : value;
+    filterLabel = label || '';
+    shown = PAGE;
+    updateChips(); updateBanner(); render();
+  }
+  function setSector(val){ applyFilter(val==='all'?'all':'sector', val, ''); }
   chips.forEach(function(ch){ ch.addEventListener('click', function(){ setSector(ch.getAttribute('data-value')); var tb=document.querySelector('.toolbar'); if(tb) tb.scrollIntoView({behavior:'smooth',block:'start'}); }); });
   var sortSel = document.getElementById('sort-select');
   if(sortSel){ sortSel.addEventListener('change', function(){ sortMode = sortSel.value; shown = PAGE; render(); }); }
@@ -8811,26 +8866,34 @@
       row.addEventListener('click', function(){ showView('register'); setSector(row.getAttribute('data-sector')); var tb=document.querySelector('.toolbar'); if(tb) tb.scrollIntoView({behavior:'smooth',block:'start'}); });
     });
   }
-  /* === Dashboard charts: status, suppliers, timeline === */
+  /* === Dashboard charts: status, suppliers, timeline, region === */
   var STATUSES=[{k:'live',label:'Live',c:'#16A34A'},{k:'pilot',label:'Pilot',c:'#7C3AED'},{k:'mou',label:'MoU',c:'#CA8A04'},{k:'review',label:'Review',c:'#EA580C'}];
-  function barRows(el, items){
+  function esc(v){ return String(v).replace(/"/g,'&quot;'); }
+  function goFilter(type,value,label){ showView('register'); applyFilter(type,value,label); var tb=document.querySelector('.toolbar'); if(tb) tb.scrollIntoView({behavior:'smooth',block:'start'}); }
+  function barRows(el, items, fType){
     if(!el) return;
     var mx = items.reduce(function(m,i){ return Math.max(m,i.count); }, 0);
     el.innerHTML = items.map(function(i){
       var pct = mx ? Math.round(i.count/mx*100) : 0;
-      return '<div class="sb-row" style="cursor:default">'
+      var live = fType && i.value!=null;
+      var open = live ? '<button class="sb-row" type="button" data-ft="'+fType+'" data-fv="'+esc(i.value)+'" data-fl="'+esc(i.label)+'" aria-label="Filter by '+esc(i.label)+'">' : '<div class="sb-row" style="cursor:default">';
+      var close = live ? '</button>' : '</div>';
+      return open
         + '<span class="sb-label"><span class="sb-dot" style="background:'+i.c+'"></span>'+i.label+'</span>'
         + '<span class="sb-bar"><span class="sb-fill" style="width:'+pct+'%;background:'+i.c+'"></span></span>'
-        + '<span class="sb-count">'+i.count+'</span></div>';
+        + '<span class="sb-count">'+i.count+'</span>' + close;
     }).join('');
+    if(fType){ Array.prototype.slice.call(el.querySelectorAll('.sb-row[data-ft]')).forEach(function(row){
+      row.addEventListener('click', function(){ goFilter(row.getAttribute('data-ft'), row.getAttribute('data-fv'), row.getAttribute('data-fl')); });
+    }); }
   }
   var statusCounts={};
-  entries.forEach(function(e){ var s=e.querySelector('.entry-status'); if(!s) return; var cl=['live','pilot','mou','review'].filter(function(k){ return s.classList.contains(k); })[0]; if(cl) statusCounts[cl]=(statusCounts[cl]||0)+1; });
-  barRows(document.getElementById('status-list'), STATUSES.filter(function(s){ return statusCounts[s.k]; }).map(function(s){ return {label:s.label,c:s.c,count:statusCounts[s.k]}; }));
-  var supCounts={};
-  entries.forEach(function(e){ var el=e.querySelector('.entry-supplier'); if(!el) return; var name=el.textContent.trim(); if(!name || /^(not disclosed|not applicable|n\/a|multiple|various|none|unknown|in.?house|internal|tbc|to be confirmed)/i.test(name)) return; supCounts[name]=(supCounts[name]||0)+1; });
-  var topSup=Object.keys(supCounts).map(function(k){ return {label:k,c:'#0071e3',count:supCounts[k]}; }).sort(function(a,b){ return b.count-a.count; }).slice(0,7);
-  barRows(document.getElementById('supplier-list'), topSup);
+  entries.forEach(function(e){ var s=e.querySelector('.entry-status'); if(!s) return; var cl=['live','pilot','mou','review'].filter(function(k){ return s.classList.contains(k); })[0]; if(cl){ e.setAttribute('data-status',cl); statusCounts[cl]=(statusCounts[cl]||0)+1; } });
+  barRows(document.getElementById('status-list'), STATUSES.filter(function(s){ return statusCounts[s.k]; }).map(function(s){ return {label:s.label,c:s.c,count:statusCounts[s.k],value:s.k}; }), 'status');
+  var supCounts={}, SKIP=/^(not disclosed|not applicable|n\/a|multiple|various|none|unknown|in.?house|internal|tbc|to be confirmed)/i;
+  entries.forEach(function(e){ var el=e.querySelector('.entry-supplier'); if(!el) return; var name=el.textContent.trim(); if(!name || SKIP.test(name)) return; e.setAttribute('data-supplier',name); supCounts[name]=(supCounts[name]||0)+1; });
+  var topSup=Object.keys(supCounts).map(function(k){ return {label:k,c:'#0071e3',count:supCounts[k],value:k}; }).sort(function(a,b){ return b.count-a.count; }).slice(0,7);
+  barRows(document.getElementById('supplier-list'), topSup, 'supplier');
   var mCounts={};
   entries.forEach(function(e){ var d=dv(e); if(d.length>=7){ var ym=d.slice(0,7); mCounts[ym]=(mCounts[ym]||0)+1; } });
   var yms=Object.keys(mCounts).sort().slice(-12);
@@ -8842,6 +8905,41 @@
       var lbl=months[parseInt(p[1],10)-1].slice(0,3);
       return '<div class="tl-col"><div class="tl-bar-wrap"><div class="tl-bar" style="height:'+h+'%"><span class="tl-count">'+c+'</span></div></div><div class="tl-label">'+lbl+'</div></div>';
     }).join('');
+  }
+  /* region map */
+  var REGIONS={SCO:'Scotland',NI:'N. Ireland',WAL:'Wales',NE:'North East',NW:'North West',YH:'Yorks & Humber',WM:'West Midlands',EM:'East Midlands',EE:'East of England',SW:'South West',SE:'South East',LDN:'London'};
+  function regionOf(b){
+    b=(b||'').toLowerCase();
+    if(/scotland|scottish|glasgow|edinburgh|aberdeen|dundee|renfrewshire|\bfife\b|lanarkshire|highland|ayrshire|police scotland|nhs (grampian|lothian|tayside|greater glasgow|borders)/.test(b)) return 'SCO';
+    if(/wales|welsh|cymru|cardiff|swansea|newport|gwent|senedd|betsi|hywel dda/.test(b)) return 'WAL';
+    if(/northern ireland|belfast|\bpsni\b|stormont/.test(b)) return 'NI';
+    if(/london|metropolitan police|\bmet police\b|\btfl\b|transport for london|greater london|\bgla\b|camden|hackney|islington|croydon|newham|lambeth|southwark|westminster city|barnet|ealing|brent|tower hamlets/.test(b)) return 'LDN';
+    if(/manchester|liverpool|lancashire|cheshire|cumbria|merseyside|blackpool|bolton|salford|wigan|stockport|rochdale|preston/.test(b)) return 'NW';
+    if(/newcastle|sunderland|durham|northumberland|gateshead|\btyne|teesside|middlesbrough|hartlepool/.test(b)) return 'NE';
+    if(/yorkshire|leeds|sheffield|bradford|\bhull\b|\byork\b|humber|wakefield|kirklees|doncaster|rotherham|barnsley/.test(b)) return 'YH';
+    if(/birmingham|west midlands|coventry|wolverhampton|dudley|sandwell|walsall|\bstoke|staffordshire|warwickshire|herefordshire|worcestershire|shropshire|solihull|telford/.test(b)) return 'WM';
+    if(/nottingham|leicester|\bderby|lincoln|northampton|east midlands|derbyshire|leicestershire|rutland|mansfield/.test(b)) return 'EM';
+    if(/norfolk|suffolk|\bessex\b|cambridge|bedford|hertfordshire|luton|peterborough|norwich|ipswich|colchester|chelmsford|southend/.test(b)) return 'EE';
+    if(/\bkent\b|surrey|sussex|hampshire|oxford|berkshire|buckinghamshire|brighton|southampton|portsmouth|milton keynes|medway|reading|slough|maidstone|canterbury/.test(b)) return 'SE';
+    if(/bristol|devon|cornwall|somerset|dorset|gloucestershire|wiltshire|plymouth|exeter|\bbath\b|swindon|bournemouth|torbay|cheltenham/.test(b)) return 'SW';
+    return 'NAT';
+  }
+  var regionCounts={};
+  entries.forEach(function(e){ var by=e.querySelector('.entry-buyer'); var r=regionOf(by?by.textContent:''); if(r!=='NAT') e.setAttribute('data-region',r); regionCounts[r]=(regionCounts[r]||0)+1; });
+  var rmax=0; Object.keys(REGIONS).forEach(function(k){ if((regionCounts[k]||0)>rmax) rmax=regionCounts[k]||0; });
+  var mapEl=document.getElementById('uk-map');
+  if(mapEl){
+    mapEl.innerHTML = Object.keys(REGIONS).map(function(k){
+      var c=regionCounts[k]||0, op=rmax?(0.14+0.86*(c/rmax)):0.14;
+      var live=c>0;
+      var open = live ? '<button class="uk-tile tile-'+k+' has-data" type="button" data-region="'+k+'" data-label="'+esc(REGIONS[k])+'" aria-label="Filter by '+esc(REGIONS[k])+', '+c+' entries" style="--op:'+op.toFixed(3)+'">' : '<div class="uk-tile tile-'+k+'" style="--op:0.06">';
+      var close = live ? '</button>' : '</div>';
+      return open+'<span class="ukt-abbr">'+k+'</span><span class="ukt-count">'+(c||'')+'</span>'+close;
+    }).join('');
+    Array.prototype.slice.call(mapEl.querySelectorAll('.uk-tile.has-data')).forEach(function(t){
+      t.addEventListener('click', function(){ goFilter('region', t.getAttribute('data-region'), t.getAttribute('data-label')); });
+    });
+    var natEl=document.getElementById('uk-nat'); if(natEl) natEl.textContent=(regionCounts.NAT||0);
   }
   /* === View toggle: Dashboard / Register === */
   var vDash=document.getElementById('view-dashboard'), vReg=document.getElementById('view-register');
