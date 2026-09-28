@@ -8818,7 +8818,7 @@
   entries.forEach(function(e){ var s=e.querySelector('.entry-status'); if(!s) return; var cl=['live','pilot','mou','review'].filter(function(k){ return s.classList.contains(k); })[0]; if(cl) statusCounts[cl]=(statusCounts[cl]||0)+1; });
   barRows(document.getElementById('status-list'), STATUSES.filter(function(s){ return statusCounts[s.k]; }).map(function(s){ return {label:s.label,c:s.c,count:statusCounts[s.k]}; }));
   var supCounts={};
-  entries.forEach(function(e){ var el=e.querySelector('.entry-supplier'); if(!el) return; var name=el.textContent.trim(); if(!name || /^not disclosed/i.test(name) || /^multiple/i.test(name) || /^various/i.test(name)) return; supCounts[name]=(supCounts[name]||0)+1; });
+  entries.forEach(function(e){ var el=e.querySelector('.entry-supplier'); if(!el) return; var name=el.textContent.trim(); if(!name || /^(not disclosed|not applicable|n\/a|multiple|various|none|unknown|in.?house|internal|tbc|to be confirmed)/i.test(name)) return; supCounts[name]=(supCounts[name]||0)+1; });
   var topSup=Object.keys(supCounts).map(function(k){ return {label:k,c:'#0071e3',count:supCounts[k]}; }).sort(function(a,b){ return b.count-a.count; }).slice(0,7);
   barRows(document.getElementById('supplier-list'), topSup);
   var mCounts={};
