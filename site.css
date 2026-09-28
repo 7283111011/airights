@@ -654,6 +654,8 @@ body.menu-open .mobile-menu { opacity: 1; visibility: visible; transform: transl
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(0,0,0,.60) 0%, rgba(0,0,0,.52) 46%, rgba(0,0,0,.56) 74%, var(--bg) 100%);
 }
+/* Light theme: show the London photo without the dark gradient overlay. */
+:root[data-theme="light"] .hero-photo::after { background: none; }
 .hero--photo h1 { color: #fff; text-shadow: 0 2px 28px rgba(0,0,0,.45); }
 .hero--photo .lede { color: rgba(255,255,255,.9); text-shadow: 0 1px 16px rgba(0,0,0,.4); }
 .hero--photo .btn-ghost {
