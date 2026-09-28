@@ -450,9 +450,6 @@ def build_entry_html(entry):
         if _s.get("label"):
             _s["label"] = normalise_british(_s["label"])
     sector_key = entry.get("sector", "government")
-    sector_css, sector_label = SECTOR_MAP.get(
-        sector_key, ("s-government", "Cross-Govt")
-    )
     data_sector = (
         sector_key
         if sector_key
@@ -460,6 +457,9 @@ def build_entry_html(entry):
             "immigration", "tax", "safety")
         else "government"
     )
+    # Badge label/colour always match the filter chip for the data-sector, so
+    # sub-categories (defence, education, local) show as "Cross-Govt".
+    sector_css, sector_label = SECTOR_MAP[data_sector]
 
     status_class = STATUS_MAP.get(entry.get("status", "live"), "live")
     status_label = html_escape(
