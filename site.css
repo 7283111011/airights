@@ -652,10 +652,10 @@ body.menu-open .mobile-menu { opacity: 1; visibility: visible; transform: transl
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; }
 .hero-photo::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.58) 0%, rgba(0,0,0,.32) 42%, rgba(0,0,0,.5) 74%, var(--bg) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,.60) 0%, rgba(0,0,0,.52) 46%, rgba(0,0,0,.56) 74%, var(--bg) 100%);
 }
-.hero--photo h1 { color: #fff; }
-.hero--photo .lede { color: rgba(255,255,255,.86); }
+.hero--photo h1 { color: #fff; text-shadow: 0 2px 28px rgba(0,0,0,.45); }
+.hero--photo .lede { color: rgba(255,255,255,.9); text-shadow: 0 1px 16px rgba(0,0,0,.4); }
 .hero--photo .btn-ghost {
   background: rgba(255,255,255,.12); color: #fff; border-color: rgba(255,255,255,.45);
   -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
