@@ -59,7 +59,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=12">
+<link rel="stylesheet" href="site.css?v=13">
 <!-- fair-theme --><script>(function(){try{var t=localStorage.getItem("fair-theme");document.documentElement.setAttribute("data-theme",t||"dark");}catch(e){}})();document.addEventListener("DOMContentLoaded",function(){var b=document.querySelector(".theme-toggle");if(!b)return;b.addEventListener("click",function(){var d=document.documentElement,c=d.getAttribute("data-theme")||((window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light"),m=c==="dark"?"light":"dark";d.setAttribute("data-theme",m);try{localStorage.setItem("fair-theme",m);}catch(e){}});});document.addEventListener("click",function(e){var a=e.target.closest?e.target.closest("a[href]"):null;if(!a)return;if(a.protocol!=="http:"&&a.protocol!=="https:")return;if(!a.host||a.host===location.host)return;if(a.hasAttribute("data-noconfirm"))return;if(!window.confirm("You are now leaving airights.org.uk and will be taken to an external website ("+a.hostname+"). Do you want to continue?")){e.preventDefault();e.stopPropagation();}},true);</script>
 <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-FZ133fKcb-IxvvivVylTQ.js"></script>
@@ -106,7 +106,15 @@
     <figcaption class="banner-credit">Photo: <a href="https://unsplash.com/photos/city-skyline-during-night-time-bGWu7lcoZqY" target="_blank" rel="noopener nofollow">Andrea De Santis</a> / <a href="https://unsplash.com/?utm_source=airights&amp;utm_medium=referral" target="_blank" rel="noopener nofollow">Unsplash</a></figcaption>
   </section>
 
-  
+  <!-- Live AI Watch stat band -->
+  <section class="watch-band reveal" aria-label="AI Watch at a glance">
+    <div class="watch-band-inner">
+      <div class="watch-stat"><div class="watch-num" id="wb-total">370+</div><div class="watch-label">Public-sector AI deployments tracked</div></div>
+      <div class="watch-stat"><div class="watch-num" id="wb-sectors">8</div><div class="watch-label">Sectors covered</div></div>
+      <div class="watch-stat"><div class="watch-num">Daily</div><div class="watch-label">Scanned and updated</div></div>
+      <a href="ai-alerts.html" class="btn btn-primary watch-cta">Explore AI Watch</a>
+    </div>
+  </section>
 
   <!-- Latest publication strip -->
   <section class="latest-bar" aria-label="Latest publication">
@@ -116,6 +124,21 @@
         <span class="latest-title">FAIR to launch in defence of the British public in the age of AI</span>
         <span class="latest-meta">Press release &middot; Forthcoming</span>
       </a>
+    </div>
+  </section>
+
+  <!-- Get the highlights -->
+  <section class="highlights reveal" aria-label="Highlights">
+    <div class="highlights-head">
+      <h2 class="section-heading" style="margin:0">Get the highlights.</h2>
+      <div class="hl-nav"><button class="hl-btn" id="hl-prev" type="button" aria-label="Scroll left">&#8249;</button><button class="hl-btn" id="hl-next" type="button" aria-label="Scroll right">&#8250;</button></div>
+    </div>
+    <div class="highlights-track" id="hl-track">
+      <a class="hl-card" href="ai-alerts.html"><span class="hl-kicker">AI Watch</span><h3>See where public AI is used</h3><p>A live, sourced register of every UK public-sector AI contract, partnership and pilot we can find. Updated daily and mapped by region.</p><span class="link-arrow">Open the dashboard <span class="chev">&rarr;</span></span></a>
+      <a class="hl-card" href="#what"><span class="hl-kicker">Our mission</span><h3>Three objectives, one mission</h3><p>Surface what is happening, shape the rules in Parliament, and help everyone understand and use AI well.</p><span class="link-arrow">What we do <span class="chev">&rarr;</span></span></a>
+      <a class="hl-card" href="#projects"><span class="hl-kicker">Projects</span><h3>Five active projects</h3><p>From copyright reform to child safety and AI literacy, each with a lead driving the work forward.</p><span class="link-arrow">See our projects <span class="chev">&rarr;</span></span></a>
+      <a class="hl-card" href="report.html"><span class="hl-kicker">Report</span><h3>Tell us your experience</h3><p>Share where AI has been used on you. Anonymous by default, and read by people, not machines.</p><span class="link-arrow">Report an experience <span class="chev">&rarr;</span></span></a>
+      <a class="hl-card" href="#newsletter"><span class="hl-kicker">Stay informed</span><h3>Get the newsletter</h3><p>Plain-English updates on UK AI policy and the Foundation&rsquo;s work. Free, roughly every two weeks.</p><span class="link-arrow">Subscribe <span class="chev">&rarr;</span></span></a>
     </div>
   </section>
 
@@ -150,6 +173,7 @@
         </article>
 
       </div>
+      <div class="section-cta reveal"><a href="ai-alerts.html" class="btn btn-primary">Explore AI Watch</a></div>
     </div>
   </section>
 
@@ -159,13 +183,13 @@
     <div class="container container-narrow">
       <h2 class="section-heading reveal">Public Office - AI Watch.</h2>
       <p class="section-lede reveal" data-delay="1">An interactive dashboard providing easy to understand information about the use of AI in public office. Every confirmed contract, partnership and pilot we can find across United Kingdom public services, from the NHS to policing, welfare and immigration. Updated daily, mapped by region, and every entry is sourced.</p>
-      <div class="alerts-stats">
-        <div class="stat reveal"><div class="stat-num">NHS</div><div class="stat-cap">Palantir Federated Data Platform, up to £330m.</div></div>
-        <div class="stat reveal" data-delay="1"><div class="stat-num">DWP</div><div class="stat-cap">Machine learning inside welfare systems.</div></div>
-        <div class="stat reveal" data-delay="2"><div class="stat-num">Police</div><div class="stat-cap">Algorithmic tools across forces.</div></div>
-        <div class="stat reveal" data-delay="3"><div class="stat-num">Home Office</div><div class="stat-cap">Automated assessment in immigration casework.</div></div>
+      <p class="watch-recent-label reveal" style="font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:rgba(255,255,255,.6);margin:0 0 12px">Latest additions</p>
+      <div class="watch-recent reveal" id="watch-recent">
+        <a class="wr-card" href="ai-alerts.html"><div class="wr-top"><span class="wr-date">25 Sep</span><span class="wr-status">Live</span></div><div class="wr-buyer">Ministry of Defence</div><div class="wr-title">Competition for AI drone swarm models using Ukrainian data</div></a>
+        <a class="wr-card" href="ai-alerts.html"><div class="wr-top"><span class="wr-date">24 Sep</span><span class="wr-status">Pilot</span></div><div class="wr-buyer">Ministry of Justice</div><div class="wr-title">AI tool for violence risk assessment in prisons</div></a>
+        <a class="wr-card" href="ai-alerts.html"><div class="wr-top"><span class="wr-date">23 Sep</span><span class="wr-status">Live</span></div><div class="wr-buyer">Renfrewshire Council</div><div class="wr-title">£5 million-plus AI transformation programme</div></a>
       </div>
-      <a href="ai-alerts.html" class="btn btn-primary reveal">Dashboard</a>
+      <a href="ai-alerts.html" class="btn btn-primary reveal">Open the dashboard</a>
     </div>
   </section>
 
@@ -215,6 +239,7 @@
           </div>
         </a>
       </div>
+      <div class="section-cta reveal"><a href="#get-involved" class="btn btn-primary">Get involved</a></div>
     </div>
   </section>
 
@@ -229,6 +254,32 @@
       <p class="about-body reveal" data-delay="2">The Foundation for Artificial Intelligence Rights (FAIR) exists to defend the British public in the age of AI. AI is already woven into daily life, sometimes openly, often without us realising. Deployed at this pace, without proper checks, it can entrench bias, erode rights and concentrate power in fewer and fewer hands. We are the central point that holds that line: surfacing where AI is being used, shaping the rules that govern it, and equipping people to navigate it on their own terms.</p>
       <div class="about-cta reveal" data-delay="2">
         <a href="about.html" class="btn btn-primary">More about the Foundation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How we work: trust band -->
+  <section class="trust-band reveal" aria-label="How we work">
+    <div class="trust-head">
+      <h2 class="section-heading" style="margin:0 0 12px">How we work.</h2>
+      <p class="section-lede" style="margin:0 auto">The standards behind everything the Foundation publishes.</p>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <h3><svg class="trust-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.2 7.8 8 9 4.8-1.2 8-4.5 8-9V6l-8-3Z"/></svg>Independent</h3>
+        <p>Of government and industry, and of any single political viewpoint.</p>
+      </div>
+      <div class="trust-item">
+        <h3><svg class="trust-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12.5 11 14.5 15.5 10M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/></svg>Every entry sourced</h3>
+        <p>Nothing enters the register without at least one linkable public source.</p>
+      </div>
+      <div class="trust-item">
+        <h3><svg class="trust-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg>Human-reviewed</h3>
+        <p>AI helps us find and draft; a person checks and is accountable before we publish.</p>
+      </div>
+      <div class="trust-item">
+        <h3><svg class="trust-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="9" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>Privacy-friendly</h3>
+        <p>No third-party cookies and no cross-site tracking. Our analytics are anonymous.</p>
       </div>
     </div>
   </section>
@@ -351,6 +402,50 @@
     // Cookie bar
     var b = document.getElementById('cookie-bar');
     if (b) { var stored=null; try{stored=localStorage.getItem('fair-cookies');}catch(e){} if(!stored){b.style.display='flex';} }
+
+    // Live AI Watch data: real totals and the newest entries, read from the register.
+    (function(){
+      var totalEl=document.getElementById('wb-total'), recent=document.getElementById('watch-recent');
+      if(!totalEl && !recent) return;
+      function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+      fetch('ai-alerts.html',{credentials:'same-origin'}).then(function(res){return res.text();}).then(function(html){
+        var doc=new DOMParser().parseFromString(html,'text/html');
+        var entries=Array.prototype.slice.call(doc.querySelectorAll('.entry'));
+        if(!entries.length) return;
+        var sectors={}; entries.forEach(function(e){var s=e.getAttribute('data-sector'); if(s)sectors[s]=1;});
+        if(totalEl) totalEl.textContent=entries.length;
+        var sc=document.getElementById('wb-sectors'); if(sc) sc.textContent=Object.keys(sectors).length;
+        if(recent){
+          entries.sort(function(a,c){return (c.getAttribute('data-date')||'').localeCompare(a.getAttribute('data-date')||'');});
+          var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+          var out=entries.slice(0,3).map(function(e){
+            var q=function(sel){var el=e.querySelector(sel);return el?el.textContent.trim():'';};
+            var d=e.getAttribute('data-date')||'', dd='';
+            if(d){var p=d.split('-'); dd=parseInt(p[2],10)+' '+(months[parseInt(p[1],10)-1]||'');}
+            return '<a class="wr-card" href="ai-alerts.html"><div class="wr-top"><span class="wr-date">'+esc(dd)+'</span><span class="wr-status">'+esc(q('.entry-status'))+'</span></div><div class="wr-buyer">'+esc(q('.entry-buyer'))+'</div><div class="wr-title">'+esc(q('.entry-h'))+'</div></a>';
+          }).join('');
+          if(out) recent.innerHTML=out;
+        }
+      }).catch(function(){});
+    })();
+
+    // Highlights carousel controls
+    (function(){
+      var track=document.getElementById('hl-track'); if(!track) return;
+      var go=function(dir){track.scrollBy({left:dir*320,behavior:'smooth'});};
+      var p=document.getElementById('hl-prev'), n=document.getElementById('hl-next');
+      if(p) p.addEventListener('click',function(){go(-1);});
+      if(n) n.addEventListener('click',function(){go(1);});
+    })();
+
+    // Hero parallax (only when motion is allowed)
+    if(!r){
+      var himg=document.querySelector('.hero--photo .hero-photo img'), hsec=document.querySelector('.hero--photo');
+      if(himg && hsec){
+        var onParallax=function(){var h=hsec.offsetHeight, y=window.scrollY||window.pageYOffset; if(y<h*1.2){himg.style.transform='translate3d(0,'+Math.min(y*0.18, h*0.13)+'px,0)';}};
+        window.addEventListener('scroll',onParallax,{passive:true}); onParallax();
+      }
+    }
   })();
 </script>
 
