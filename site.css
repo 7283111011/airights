@@ -1159,6 +1159,41 @@ input::placeholder, textarea::placeholder { color: var(--text-3); }
 
 .about-cta { margin-top: clamp(32px, 4vw, 48px); display: flex; justify-content: center; }
 
+/* Meet-the-founder strip (homepage) */
+.founder-strip {
+  display: flex; align-items: center; gap: 28px;
+  max-width: 720px; margin: clamp(40px, 5vw, 64px) auto 0;
+  padding-top: clamp(32px, 4vw, 48px);
+  border-top: 1px solid var(--line);
+}
+.founder-strip img {
+  width: 116px; height: 145px; flex-shrink: 0;
+  object-fit: cover; object-position: center top;
+  border-radius: 16px;
+}
+.founder-strip .founder-eyebrow {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--blue); margin: 0 0 8px;
+}
+.founder-strip p.founder-intro {
+  font-size: clamp(17px, 1.7vw, 19px); line-height: 1.5;
+  letter-spacing: -0.01em; color: var(--text); margin: 0;
+}
+.founder-strip .link-arrow { margin-top: 12px; }
+@media (max-width: 560px) {
+  .founder-strip { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
+
+/* Founder photo on the press page */
+.press-founder-photo {
+  float: right; width: 150px; height: 188px;
+  object-fit: cover; object-position: center top;
+  border-radius: 14px; margin: 0 0 16px 24px;
+}
+@media (max-width: 520px) {
+  .press-founder-photo { float: none; display: block; margin: 0 0 18px; }
+}
+
 /* ============================================================
    POLICY / LEGAL PAGE TYPOGRAPHY
    Migrated from policy.css. Class names kept under .pp-wrap so
