@@ -1,8 +1,9 @@
 # PV Platform
 
-An AI-enabled pharmacovigilance (PV) case-management and reporting platform, built on
-Supabase Cloud, designed to submit compliant E2B(R3) reports to **FDA (FAERS)**,
-**EMA (EudraVigilance)**, and **MHRA (UK Gateway)**.
+A **multi-tenant** AI-enabled pharmacovigilance (PV) case-management and reporting
+platform, built on Supabase Cloud, designed to serve multiple client companies (MAHs)
+on one validated system and submit compliant E2B(R3) reports to **FDA (FAERS)**,
+**EMA (EudraVigilance)**, and **MHRA (UK Gateway)** under each client's own registrations.
 
 This is a separate project from the AIrights website that shares this repository; it
 lives entirely under `pv-platform/`.

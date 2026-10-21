@@ -1,8 +1,12 @@
-# AI-Enabled Pharmacovigilance Platform — System Architecture (v0.1)
+# AI-Enabled Pharmacovigilance Platform — System Architecture (v0.2)
 
 **Status:** Draft for review · **Date:** 2026-10-21
 **Audience:** Regulatory/compliance lead (owns requirements) + engineering (owns build)
 **Scope of this version:** Target architecture and build roadmap. Not a validated specification — this is the design we align on *before* writing the schema.
+
+**Decisions locked so far:** Architecture-doc-first · regimes **FDA + EMA + MHRA** · hosting **Supabase Cloud** · **multi-tenant service platform** (one validated platform serving many client MAHs — see §3.2).
+
+**Changelog:** v0.2 — added multi-tenancy as a core architectural concern (§3.2) after confirming this is a service platform, not a single-company tool; updated data model, security, and open decisions accordingly.
 
 > **Reading note for the compliance owner:** This document owns the *technical* side. Where a decision is really yours (a regulatory interpretation, a timeline, an SOP), it's flagged **[REG DECISION]**. Where it's mine, it's flagged **[ENG DECISION]**. Open items are collected in §12.
 
@@ -12,7 +16,7 @@
 
 We are building a modern, lean pharmacovigilance (PV) case management and reporting platform on **Supabase Cloud** (managed PostgreSQL + auth + storage + APIs), with AI assistance woven into the workflow to reduce manual drudgery — **not** to remove the qualified human decisions that regulators require.
 
-The design target is a single system that can intake adverse event reports, manage Individual Case Safety Reports (ICSRs) through the full case lifecycle, and submit compliant **E2B(R3)** files to **FDA (FAERS)**, **EMA (EudraVigilance)**, and **MHRA (UK Gateway)**.
+The design target is a **multi-tenant service platform**: a single validated system that serves **many client companies (MAHs)** at once, each isolated from the others, that can intake adverse event reports, manage Individual Case Safety Reports (ICSRs) through the full case lifecycle, and submit compliant **E2B(R3)** files to **FDA (FAERS)**, **EMA (EudraVigilance)**, and **MHRA (UK Gateway)** — under each client's own registrations. Build and validate once; onboard a new client as configuration, not a new system.
 
 Three principles drive every decision below:
 
@@ -126,6 +130,33 @@ This section is the compliance owner's domain — included so engineering shares
 - **Data residency:** Supabase Cloud hosts a project in one region. For EU personal data we likely need an **EU-region project** (see §7.3), which may push toward a two-project (US/EU) topology — **[ENG DECISION, pending §12]**.
 - It's a managed service: we don't control the OS layer, so our validation treats the platform as a GAMP infrastructure/supplier component and relies on their attestations + our qualification of the configured application.
 
+### 3.2 Multi-tenancy — a service platform for many clients
+
+We are building a platform that serves **multiple client companies (each an MAH)** on one validated system — the model used by PV service providers (CROs/BPOs) and SaaS safety vendors. This is a core architectural property, decided up front, not a later feature.
+
+**The isolation boundary (security-critical).**
+- A **`tenant`** = one client company. **Every regulated table carries a `tenant_id`**, and **Row-Level Security enforces default-deny tenant isolation** at the database — a query with no tenant context returns nothing.
+- Cross-tenant leakage (Client A seeing Client B's data) is treated as a **catastrophic security event**, not a bug: it ends client trust and may itself be reportable. Isolation therefore gets dedicated test coverage, negative tests ("prove A cannot reach B"), and penetration testing before go-live.
+
+**Two user populations — the defining design problem.**
+- **Client users** (a client's own staff): scoped to exactly one tenant; they never see anything else.
+- **Provider users** (our operations team): a single processor may be *assigned to several clients* and work Client A's cases one day, Client B's the next. We model this with a **`tenant_membership`** table (user × tenant × role). A provider user's reach is the set of tenants they're assigned; the **audit trail records every action per tenant** regardless. Least-privilege still applies — nobody gets all tenants by default.
+
+**Almost everything is per-tenant configuration.** Each client is a distinct MAH with its own:
+- **QPPV** and **PSMF** (Pharmacovigilance System Master File) — the platform supports per-tenant QPPV and must produce per-tenant audit trails, metrics, and records for *that client's* PSMF and inspections.
+- **Reference safety information** (CCDS/CCSI/label) per product — so **expectedness is tenant-and-product-specific**, never global.
+- **Gateway registrations and credentials** — we submit to FAERS/EudraVigilance/MHRA **under each client's own identity/registration**, brokered by the platform and governed by that client's **SDEA/PVA**. Credentials are per-tenant secrets, never shared.
+- **Reporting rules, workflows, retention, dictionary versions, and (potentially) data residency.**
+
+**Operational / commercial surface this enables.**
+- Per-tenant **SLA + compliance dashboards** (on-time submission rate per client — the metric clients and regulators judge).
+- **Tenant onboarding/offboarding**: a client is configured in, and on exit their data is **exportable and removable** (clients own their data) — designed in, not retrofitted.
+
+**Implications that ripple into other sections** (noted so they aren't lost):
+- *Validation (§4.4):* the platform is validated once, but **per-tenant configuration needs its own change control and qualification**.
+- *Residency (§7.3):* different clients may have different residency obligations — this interacts with the US/EU topology decision (D2).
+- *Risk (§11):* tenant isolation is now the single highest-consequence failure mode.
+
 ---
 
 ## 4. Compliance architecture (the part no BaaS gives you)
@@ -205,10 +236,11 @@ The case moves through explicit, auditable states. Transitions are permissioned 
 
 ## 7. Data model (overview — detailed DDL comes in the schema phase)
 
-Aligned to E2B(R3) so export is a mapping, not a translation.
+Aligned to E2B(R3) so export is a mapping, not a translation. **Every regulated table below carries a `tenant_id`** (§3.2) — omitted from each line for brevity but assumed throughout, and enforced by RLS.
 
 ### 7.1 Core entities
 
+- **tenant** — one client company (MAH): name, QPPV details, PSMF reference, residency/region, status, SDEA metadata, retention policy.
 - **case** — the ICSR envelope: safety report id, case version, type (spontaneous/study/literature), seriousness, day-zero, status, source country, per-regime clock state.
 - **reporter** — primary source(s), qualification, consent flags.
 - **patient** — de-identified demographics, age/age-group, sex, relevant medical history, pregnancy status.
@@ -225,6 +257,8 @@ Aligned to E2B(R3) so export is a mapping, not a translation.
 - **audit_log** (append-only, audit schema) — §4.1.
 - **e_signature** — §4.2.
 - **ai_suggestion** — model, version, inputs, output, human disposition — §4.5.
+- **tenant_membership** — user × tenant × role (§3.2); lets a provider user be assigned to several clients while isolation and per-tenant audit hold.
+- **tenant_config** — per-tenant settings: reporting rules, gateway credentials (as secret references, not values), dictionary versions, workflow options, reference-safety-information pointers.
 - **user_role** / **permission** — RBAC backing RLS.
 - **coding_cache** — licensed dictionary lookups (MedDRA/WHODrug) kept within license terms.
 
@@ -256,7 +290,8 @@ Aligned to E2B(R3) so export is a mapping, not a translation.
 
 ## 9. Security & access control
 
-- **RBAC** roles (Intake, Processor, Medical Reviewer, QPPV, QA, Admin, read-only Auditor) backing **RLS** policies in Postgres.
+- **Tenant isolation (§3.2) is the primary security boundary.** RLS enforces default-deny by `tenant_id`; provider users reach only their assigned tenants via `tenant_membership`; client users reach only their own. Negative tests ("A cannot reach B") are part of the test suite, and tenant isolation is an explicit pen-test objective.
+- **RBAC** roles (Intake, Processor, Medical Reviewer, QPPV, QA, Admin, read-only Auditor) backing **RLS** policies in Postgres — roles are scoped *within* a tenant.
 - **MFA** mandatory for all users; **SSO** for enterprise (Supabase paid).
 - Principle of least privilege; **no shared accounts** (attributability).
 - Secrets (gateway creds, LLM keys) in Edge Function secrets / a managed secret store — never in the database or client.
@@ -295,7 +330,9 @@ Each phase ends with something concrete and keeps the validation story coherent.
 | # | Decision | Owner | Why it matters now |
 |---|---|---|---|
 | D1 | Launch reporting scope: ICSR expedited only, or also periodic (PBRER/PADER) in v1? | REG | Sizes Phase 3-4. |
-| D2 | Data residency topology: single EU-region project (A) vs US+EU split (B)? | REG + ENG | Shapes the whole deployment and validation surface. |
+| D2 | Data residency topology: single EU-region project (A) vs US+EU split (B)? Now also: can *different tenants* have different residency needs? | REG + ENG | Shapes the whole deployment and validation surface; interacts with multi-tenancy. |
+| D8 | Client-user access: do client companies' own staff log into the platform (self-service), or is it provider-staff-only (pure BPO)? | REG/BIZ | Changes how much client-facing UI and per-tenant RBAC we build. |
+| D9 | Tenant offboarding: required data export format and deletion/retention rules on client exit. | REG | Clients own their data; must be designed in. |
 | D3 | Is a Supabase BAA/DPA required and acceptable for your data? | REG | Gate on using Supabase Cloud at all. |
 | D4 | AI data-handling policy + LLM provider terms approval. | REG | Gate on any AI feature touching case data. |
 | D5 | Which gateway do we wire first (FAERS / EudraVigilance / MHRA)? | REG + ENG | Determines Phase 3 target. |
