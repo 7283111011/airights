@@ -10,11 +10,17 @@ lives entirely under `pv-platform/`.
 
 ## Where to start
 
-- [`docs/architecture.md`](docs/architecture.md) — the system design (v0.1). Start here.
-  Review §2 (regulatory accuracy) and answer the open decisions in §12 before we build
-  the data model.
+- [`docs/architecture.md`](docs/architecture.md) — the system design (v0.2). Start here.
+  Review §2 (regulatory accuracy) and answer the open decisions in §12.
+- [`supabase/`](supabase/) — the database. Phase 1 compliance spine, with migrations
+  and a local validation harness. See [`supabase/README.md`](supabase/README.md).
 
 ## Status
 
-Phase 0 — Foundations. Architecture drafted; awaiting review and the §12 decisions.
-No application code yet.
+**Phase 1 — Core data model & audit spine: built and validated.** Tenancy, the ICSR
+case envelope, an append-only audit trail, e-signatures, and RLS tenant isolation are
+implemented as Supabase migrations and pass a full smoke-test suite against a real
+PostgreSQL 16 instance.
+
+Next: Phase 2 (case lifecycle + the clinical sub-entities) — pending the open decisions
+in architecture §12.
